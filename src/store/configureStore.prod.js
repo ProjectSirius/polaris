@@ -4,7 +4,7 @@ import rootReducer from './reducer';
 import { loadState, saveState } from '../localStorage';
 
 const configureStore = () => {
-  const persistedState = loadState('solaris');
+  const persistedState = loadState('polaris');
   const middlewares = [];
 
   const store = createStore(
@@ -21,7 +21,7 @@ const configureStore = () => {
           currentUser: store.getState().currentUser,
           favorites: store.getState().favorites,
         },
-        'solaris'
+        'polaris'
       );
     }, 1000)
   );
