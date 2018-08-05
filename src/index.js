@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 import Root from './components/Root';
 import registerServiceWorker from './registerServiceWorker';
-import configureStore from './configureStore';
+import configureStore from './store/configureStore';
 
 import 'normalize.css';
 import './index.css';
