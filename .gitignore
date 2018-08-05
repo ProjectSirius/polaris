@@ -5,6 +5,11 @@
 
 # testing
 /coverage
+/src/__tests__
+
+# editors
+/.vscode
+/.idea
 
 # production
 /build
