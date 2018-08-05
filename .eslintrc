@@ -1,0 +1,17 @@
+{
+  "extends": "react-app",
+  "plugins": ["prettier"],
+  "rules": {
+    "prettier/prettier": "error",
+    "no-console": "error",
+    "no-alert": "error",
+    "no-var": "error",
+    "no-eval": "error",
+    "no-proto": "error",
+    "no-delete-var": "error",
+    "no-unused-vars": "error",
+    "no-use-before-define": "error",
+    "padded-blocks": 0,
+    "space-before-blocks": "error"
+  }
+}
