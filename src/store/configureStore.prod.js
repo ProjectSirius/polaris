@@ -15,14 +15,7 @@ const configureStore = () => {
 
   store.subscribe(
     throttle(() => {
-      saveState(
-        {
-          isAuth: store.getState().isAuth,
-          currentUser: store.getState().currentUser,
-          favorites: store.getState().favorites,
-        },
-        'polaris'
-      );
+      saveState({}, 'polaris');
     }, 1000)
   );
 
