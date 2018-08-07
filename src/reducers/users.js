@@ -7,9 +7,9 @@ import {
 const users = (state = [], action) => {
   switch (action.type) {
     case SIGN_UP_REQUEST:
-      return action.payload;
+      return state;
     case SIGN_UP_SUCCESS:
-      return [...state, action.payload];
+      return state;
     case SIGN_UP_FAILURE:
       return state;
     default:
