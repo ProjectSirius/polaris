@@ -15,15 +15,11 @@ import './App.css';
 const messages = defineMessages({
   title: {
     id: 'app.title',
-    defaultMessage: 'Welcome to React',
+    defaultMessage: 'Welcome to Polaris',
   },
   content1: {
     id: 'app.content1',
-    defaultMessage: 'To get started, edit',
-  },
-  content2: {
-    id: 'app.content2',
-    defaultMessage: 'and save to reload.',
+    defaultMessage: 'To get started, log in',
   },
 });
 
@@ -37,15 +33,10 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <div className="languages">
-            <a href="/?locale=ar">العربية</a>
-            <a href="/?locale=en">English</a>
-            <a href="/?locale=es">Español</a>
+            <a href="/?locale=ru">RU</a> <a href="/?locale=en">EN</a>
           </div>
           <h1 className="App-title">{formatMessage(messages.title)}</h1>
-          <p className="App-intro">
-            {formatMessage(messages.content1)}{' '}
-            {formatMessage(messages.content2)}
-          </p>
+          <p className="App-intro">{formatMessage(messages.content1)} </p>
         </header>
         <Switch>
           <Route exact path="/" component={HomePage} />
