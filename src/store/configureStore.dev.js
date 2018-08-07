@@ -21,7 +21,12 @@ const configureStore = () => {
 
   store.subscribe(
     throttle(() => {
-      saveState({}, 'polaris');
+      saveState(
+        {
+          users: store.getState().users,
+        },
+        'polaris'
+      );
     }, 1000)
   );
 
