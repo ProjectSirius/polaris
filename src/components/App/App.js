@@ -12,11 +12,14 @@ import './App.css';
 import HomePageContainer from '../../containers/HomePageContainer';
 
 const App = ({ content, title }) => {
+  const path = window.location.pathname;
+
   return (
     <div className="App">
       <header className="App-header">
         <div className="languages">
-          <a href="/?locale=ru">RU</a> <a href="/?locale=en">EN</a>
+          <a href={`${path}?locale=ru`}>RU</a>{' '}
+          <a href={`${path}?locale=en`}>EN</a>
         </div>
         <h1 className="App-title">{title}</h1>
         <p className="App-intro">{content} </p>
