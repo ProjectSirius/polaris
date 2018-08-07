@@ -28,6 +28,7 @@ const SignUpAudience = ({ signUp, handleSubmit }) => {
         component={renderField}
         label="Password Conformation"
       />
+      <Field name="userType" type="hidden" component={renderField} />
       <div>
         <button type="submit">Submit</button>
       </div>
