@@ -5,6 +5,9 @@ import HomePage from '../HomePage';
 import LogIn from '../LogIn';
 import SignUpAudience from '../SignUpAudience';
 import SignUpContentMaker from '../SignUpContentMaker';
+import ProtectedRouteContainer from '../../containers/ProtectedRouteContainer';
+import AudienceHomePage from '../AudienceHomePage';
+import ContentOwnerHomePage from '../ContentOwnerHomePage';
 
 import './App.css';
 
@@ -20,6 +23,14 @@ class App extends Component {
           <Route path="/login" component={LogIn} />
           <Route path="/signUpAudience" component={SignUpAudience} />
           <Route path="/signUpContentMaker" component={SignUpContentMaker} />
+          <ProtectedRouteContainer
+            path="/audience"
+            component={AudienceHomePage}
+          />
+          <ProtectedRouteContainer
+            path="/contentowner"
+            component={ContentOwnerHomePage}
+          />
           <Route render={() => <h1>Not Found App</h1>} />
         </Switch>
       </div>
