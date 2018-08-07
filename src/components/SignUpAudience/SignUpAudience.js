@@ -5,9 +5,9 @@ import renderField from './RenderField';
 
 import './styles.css';
 
-const SignUpAudience = () => {
+const SignUpAudience = ({ signUp, handleSubmit }) => {
   return (
-    <form>
+    <form onSubmit={handleSubmit(signUp)}>
       <h1>Audience Owner Sign Up</h1>
       <Field
         name="username"
