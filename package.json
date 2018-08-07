@@ -26,7 +26,8 @@
     "eject": "react-scripts eject",
     "precommit": "lint-staged",
     "extract:messages": "react-intl-cra 'src/**/*.{js,jsx}' -o 'src/i18n/messages/messages.json'",
-    "manage:translations": "node ./translationRunner.js"
+    "manage:translations": "node ./translationRunner.js",
+    "translation": "yarn extract:messages && yarn manage:translations"
   },
   "lint-staged": {
     "*.{js, jsx}": "node_modules/eslint/bin/eslint.js"
