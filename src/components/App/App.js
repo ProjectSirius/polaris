@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 
 import HomePage from '../HomePage';
 import LogIn from '../LogIn';
-import SignUpAudience from '../SignUpAudience';
+import SignUpAudienceContainer from '../../containers/SignUpAudienceContainer';
 import SignUpContentMaker from '../SignUpContentMaker';
 import ProtectedRouteContainer from '../../containers/ProtectedRouteContainer';
 import AudienceHomePage from '../AudienceHomePage';
@@ -21,7 +21,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route path="/login" component={LogIn} />
-          <Route path="/signUpAudience" component={SignUpAudience} />
+          <Route path="/signUpAudience" component={SignUpAudienceContainer} />
           <Route path="/signUpContentMaker" component={SignUpContentMaker} />
           <ProtectedRouteContainer
             path="/audience"
