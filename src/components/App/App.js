@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
+import { injectIntl, defineMessages } from 'react-intl';
 
 import HomePage from '../HomePage';
 import LogIn from '../LogIn';
@@ -11,12 +12,40 @@ import ContentOwnerHomePage from '../ContentOwnerHomePage';
 
 import './App.css';
 
+const messages = defineMessages({
+  title: {
+    id: 'app.title',
+    defaultMessage: 'Welcome to React',
+  },
+  content1: {
+    id: 'app.content1',
+    defaultMessage: 'To get started, edit',
+  },
+  content2: {
+    id: 'app.content2',
+    defaultMessage: 'and save to reload.',
+  },
+});
+
 class App extends Component {
   render() {
+    const {
+      intl: { formatMessage },
+    } = this.props;
+
     return (
       <div className="App">
         <header className="App-header">
-          <h1 className="App-title">Welcome to Polaris Project</h1>
+          <div className="languages">
+            <a href="/?locale=ar">العربية</a>
+            <a href="/?locale=en">English</a>
+            <a href="/?locale=es">Español</a>
+          </div>
+          <h1 className="App-title">{formatMessage(messages.title)}</h1>
+          <p className="App-intro">
+            {formatMessage(messages.content1)}{' '}
+            {formatMessage(messages.content2)}
+          </p>
         </header>
         <Switch>
           <Route exact path="/" component={HomePage} />
@@ -38,4 +67,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default injectIntl(App);
