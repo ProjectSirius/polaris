@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { reduxForm } from 'redux-form';
 
-import signUp from '../actions/signUp';
+import { signUp } from '../actions';
 
 import SignUpAudience from '../components/SignUpAudience';
 
