@@ -6,7 +6,7 @@ import { IntlProvider, addLocaleData } from 'react-intl';
 import ruLocaleData from 'react-intl/locale-data/ru';
 
 import translations from '../../i18n/locales';
-import App from '../App';
+import AppContainer from '../../containers/AppContainer';
 
 import './styles.css';
 
@@ -20,7 +20,7 @@ const Root = ({ store }) => {
     <Provider store={store}>
       <Router>
         <IntlProvider locale={locale} key={locale} messages={messages}>
-          <App />
+          <AppContainer />
         </IntlProvider>
       </Router>
     </Provider>
