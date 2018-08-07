@@ -3,7 +3,7 @@ import ProtectedRoute from '../components/ProtectedRoute/';
 
 const mapStateToProps = state => {
   return {
-    isAuth: state.isAuth,
+    isAuth: true,
   };
 };
 
