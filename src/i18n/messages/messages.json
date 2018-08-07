@@ -1,0 +1,17 @@
+[
+  {
+    "id": "app.title",
+    "defaultMessage": "Welcome to React",
+    "filepath": "src/components/App/App.js"
+  },
+  {
+    "id": "app.content1",
+    "defaultMessage": "To get started, edit",
+    "filepath": "src/components/App/App.js"
+  },
+  {
+    "id": "app.content2",
+    "defaultMessage": "and save to reload.",
+    "filepath": "src/components/App/App.js"
+  }
+]
