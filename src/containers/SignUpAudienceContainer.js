@@ -11,6 +11,9 @@ const mapDispatchToProps = dispatch => ({
 
 const SignUpAudienceForm = reduxForm({
   form: 'SignUpAudienceForm',
+  initialValues: {
+    userType: 'audience_owner',
+  },
 })(SignUpAudience);
 
 export default connect(
