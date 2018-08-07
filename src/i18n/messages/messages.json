@@ -1,17 +1,12 @@
 [
   {
     "id": "app.title",
-    "defaultMessage": "Welcome to React",
+    "defaultMessage": "Welcome to Polaris",
     "filepath": "src/components/App/App.js"
   },
   {
     "id": "app.content1",
-    "defaultMessage": "To get started, edit",
-    "filepath": "src/components/App/App.js"
-  },
-  {
-    "id": "app.content2",
-    "defaultMessage": "and save to reload.",
+    "defaultMessage": "To get started, log in",
     "filepath": "src/components/App/App.js"
   }
 ]
