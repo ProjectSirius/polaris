@@ -6,12 +6,12 @@ import './styles.css';
 
 const MainNavBar = props => {
   const path = window.location.pathname;
-  const { lang } = props;
+  const { lang, isOpen, toggleMenu } = props;
 
   return (
     <header className="main-nav-header">
       <div className="top-nav">
-        <div className="hamburger">
+        <div className="hamburger" onClick={() => toggleMenu(!isOpen)}>
           <Glyphicon glyph="glyphicon glyphicon-align-justify" />
           <span className="hamburger-title">MENU</span>
         </div>
@@ -56,7 +56,7 @@ const MainNavBar = props => {
           </div>
         </div>
       </div>
-      <div className="main-nav">
+      <div className={isOpen ? 'main-nav main-nav-opened' : 'main-nav'}>
         <nav className="nav-links">
           <div className="nav-link">
             <Link
