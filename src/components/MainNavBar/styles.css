@@ -168,6 +168,16 @@
   color: inherit;
 }
 
+.nav-link-logout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+  color: #fff;
+  font-weight: 700;
+}
+
 /*
  * logo
  */
@@ -198,13 +208,14 @@
 
 .dropdown-btn button,
 .nav-link-logout {
+  height: 60px !important;
+  padding: 15px;
+
   background: #49c5b6;
   transition: 0.5s;
 
   border: #49c5b6;
   border-radius: 0;
-
-  height: 60px !important;
 
   transition: 0.5s;
 }
@@ -216,18 +227,6 @@
 .dropdown-btn button:visited,
 .nav-link-logout:hover {
   background: #7cc0b8 !important;
-}
-
-.nav-link-logout {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  width: 100%;
-
-  cursor: pointer;
-  color: #fff;
-  font-weight: 700;
 }
 
 /*
@@ -264,6 +263,10 @@
   .nav-link a {
     display: block;
     padding: 14px 0;
+    width: 100%;
+  }
+
+  .nav-link-logout {
     width: 100%;
   }
 

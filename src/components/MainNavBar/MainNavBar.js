@@ -99,8 +99,10 @@ class MainNavBar extends React.Component {
             </div>
           </nav>
           {isAuth ? (
-            <div className="nav-link-logout" onClick={() => logOut()}>
-              Log Out
+            <div className="nav-links-auth">
+              <div className="nav-link-logout" onClick={() => logOut()}>
+                Log Out
+              </div>
             </div>
           ) : (
             <AuthButtonsContainer />
