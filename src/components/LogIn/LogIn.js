@@ -21,7 +21,7 @@ const LogIn = ({
       : 'contentowner'
     : '';
   const { from } = location.state || {
-    from: { pathname: `/${redirectPath}?locale=${lang}` },
+    from: { pathname: `/${redirectPath}`, search: `?locale=${lang}` },
   };
 
   return isAuth ? (
