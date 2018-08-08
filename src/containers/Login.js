@@ -1,9 +1,17 @@
 import { connect } from 'react-redux';
 import { reduxForm } from 'redux-form';
+import { createStructuredSelector } from 'reselect';
 
 import { login } from '../actions';
 
+import { selectIsAuth, selectCurrentUser } from '../selectors';
+
 import LogIn from '../components/LogIn';
+
+const mapStateToProps = createStructuredSelector({
+  isAuth: selectIsAuth,
+  currentUser: selectCurrentUser,
+});
 
 const mapDispatchToProps = dispatch => ({
   login: user => dispatch(login(user)),
@@ -14,6 +22,6 @@ const LoginForm = reduxForm({
 })(LogIn);
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(LoginForm);
