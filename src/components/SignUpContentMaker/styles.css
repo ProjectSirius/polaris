@@ -1,0 +1,34 @@
+.sign-up-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.hidden-input {
+  display: none;
+}
+
+.input {
+  font-size: 16px;
+  color: #202121;
+}
+
+.input-container {
+  position: relative;
+}
+
+.error {
+  border-color: rgba(237,88,88,.79);
+}
+
+.alert {
+  background: rgba(237,88,88,.79);
+  border-radius: 2px 2px 0 0;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 400;
+  height: 25px;
+  width: max-content;
+  padding: 8px;
+}
