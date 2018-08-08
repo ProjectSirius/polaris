@@ -20,7 +20,7 @@ class MainNavBar extends React.Component {
 
   render() {
     const path = window.location.pathname;
-    const { lang, isOpen, isAuth } = this.props;
+    const { lang, isOpen, isAuth, logOut } = this.props;
 
     return (
       <header className="main-nav-header">
@@ -99,7 +99,9 @@ class MainNavBar extends React.Component {
             </div>
           </nav>
           {isAuth ? (
-            <div className="nav-link-logout">Log Out</div>
+            <div className="nav-link-logout" onClick={() => logOut()}>
+              Log Out
+            </div>
           ) : (
             <AuthButtonsContainer />
           )}

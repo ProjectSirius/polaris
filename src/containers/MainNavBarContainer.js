@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
 import MainNavBar from '../components/MainNavBar';
-import { toggleMenu } from '../actions/index';
+import { toggleMenu, logOut } from '../actions/index';
 
 import {
   selectIsAuth,
@@ -20,6 +20,7 @@ const mapStateToProps = createStructuredSelector({
 
 const mapDispatchToProps = dispatch => ({
   toggleMenu: isOpen => dispatch(toggleMenu(isOpen)),
+  logOut: () => dispatch(logOut()),
 });
 
 export default connect(
