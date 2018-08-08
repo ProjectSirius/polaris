@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { injectIntl, defineMessages } from 'react-intl';
+import { withRouter } from 'react-router-dom';
 
 import App from '../components/App';
 
@@ -28,4 +29,4 @@ let AppContainer = props => {
 
 AppContainer = injectIntl(AppContainer);
 
-export default connect()(AppContainer);
+export default withRouter(connect()(AppContainer));
