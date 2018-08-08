@@ -1,0 +1,17 @@
+[
+  {
+    "id": "app.title",
+    "defaultMessage": "Welcome to Polaris",
+    "filepath": "src/components/App/App.js"
+  },
+  {
+    "id": "app.content1",
+    "defaultMessage": "To get started, log in",
+    "filepath": "src/components/App/App.js"
+  },
+  {
+    "id": "home-page-title",
+    "defaultMessage": "Home Page",
+    "filepath": "src/components/HomePage/HomePage.js"
+  }
+]

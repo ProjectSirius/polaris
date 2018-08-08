@@ -2,8 +2,8 @@ import React from 'react';
 
 import './styles.css';
 
-const HomePage = props => {
-  return <div>HomePage</div>;
+const HomePage = ({ title }) => {
+  return <div>{title}</div>;
 };
 
 export default HomePage;
