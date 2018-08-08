@@ -3,6 +3,7 @@ import { DropdownButton, MenuItem, Glyphicon } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 import './styles.css';
+import AuthButtonsContainer from '../../containers/AuthButtonsContainer';
 
 class MainNavBar extends React.Component {
   constructor() {
@@ -19,13 +20,18 @@ class MainNavBar extends React.Component {
 
   render() {
     const path = window.location.pathname;
-    const { lang, isOpen } = this.props;
+    const { lang, isOpen, isAuth } = this.props;
 
     return (
       <header className="main-nav-header">
         <div className="top-nav">
           <div className="hamburger" onClick={this.handleClick}>
-            <Glyphicon glyph="glyphicon glyphicon-align-justify" />
+            {isOpen ? (
+              <Glyphicon glyph="glyphicon glyphicon-remove" />
+            ) : (
+              <Glyphicon glyph="glyphicon glyphicon-align-justify" />
+            )}
+
             <span className="hamburger-title">MENU</span>
           </div>
           <div className="main-nav-title-wrapper">
@@ -92,34 +98,11 @@ class MainNavBar extends React.Component {
               </Link>
             </div>
           </nav>
-          <div className="nav-links-auth">
-            <div className="nav-link nav-link-login">
-              <Link
-                to={{
-                  pathname: '/login',
-                  search: `?locale=${lang}`,
-                }}
-              >
-                Login
-              </Link>
-            </div>
-            <div className="dropdown-btn">
-              <DropdownButton
-                id="dropdown-sign-up"
-                title="SIGN UP"
-                bsStyle="info"
-                pullRight
-              >
-                {' '}
-                <MenuItem href={`/signUpAudience?locale=ru`} eventKey="1">
-                  SignUp for Audience
-                </MenuItem>
-                <MenuItem href={`/signUpContentMaker?locale=ru`} eventKey="1">
-                  SignUp for Content Owner
-                </MenuItem>
-              </DropdownButton>
-            </div>
-          </div>
+          {isAuth ? (
+            <div className="nav-link-logout">Log Out</div>
+          ) : (
+            <AuthButtonsContainer />
+          )}
         </div>
       </header>
     );

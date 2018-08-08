@@ -196,7 +196,8 @@
   height: 60px;
 }
 
-.dropdown-btn button {
+.dropdown-btn button,
+.nav-link-logout {
   background: #49c5b6;
   transition: 0.5s;
 
@@ -212,10 +213,26 @@
 .dropdown-btn button:focus,
 .dropdown-btn button:active,
 .dropdown-btn button:checked,
-.dropdown-btn button:visited {
+.dropdown-btn button:visited,
+.nav-link-logout:hover {
   background: #7cc0b8 !important;
 }
 
+.nav-link-logout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+
+  cursor: pointer;
+  color: #fff;
+  font-weight: 700;
+}
+
+/*
+ * media
+ */
 @media screen and (max-width: 640px) {
   .main-nav {
     flex-direction: column;
