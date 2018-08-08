@@ -4,13 +4,14 @@ import { createStructuredSelector } from 'reselect';
 
 import { login } from '../actions';
 
-import { selectIsAuth, selectCurrentUser } from '../selectors';
+import { selectIsAuth, selectCurrentUser, selectLanguage } from '../selectors';
 
 import LogIn from '../components/LogIn';
 
 const mapStateToProps = createStructuredSelector({
   isAuth: selectIsAuth,
   currentUser: selectCurrentUser,
+  lang: selectLanguage,
 });
 
 const mapDispatchToProps = dispatch => ({

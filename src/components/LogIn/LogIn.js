@@ -7,13 +7,22 @@ import RenderField from './RenderField';
 
 import './styles.css';
 
-const LogIn = ({ handleSubmit, login, isAuth, location, currentUser }) => {
+const LogIn = ({
+  handleSubmit,
+  login,
+  isAuth,
+  location,
+  currentUser,
+  lang,
+}) => {
   const redirectPath = isAuth
     ? currentUser.userType === 'audience_owner'
       ? 'audience'
       : 'contentowner'
     : '';
-  const { from } = location.state || { from: { pathname: `/${redirectPath}` } };
+  const { from } = location.state || {
+    from: { pathname: `/${redirectPath}?locale=${lang}` },
+  };
 
   return isAuth ? (
     <Redirect to={from} />
