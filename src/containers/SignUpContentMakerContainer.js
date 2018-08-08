@@ -6,6 +6,7 @@ import { signUp } from '../actions';
 
 import { selectIsSignUp } from '../selectors/isSignUp';
 
+import signUpValidate from '../helpers/signUpValidate';
 import SignUpContentMaker from '../components/SignUpContentMaker';
 
 const mapStateToProps = createStructuredSelector({
@@ -21,6 +22,7 @@ const SignUpContentMakerForm = reduxForm({
   initialValues: {
     userType: 'content_owner',
   },
+  validate: signUpValidate,
 })(SignUpContentMaker);
 
 export default connect(
