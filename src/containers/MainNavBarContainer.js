@@ -3,10 +3,12 @@ import { createStructuredSelector } from 'reselect';
 
 import MainNavBar from '../components/MainNavBar';
 
-import { selectIsAuth } from '../selectors';
+import { selectIsAuth, selectCurrentUser, selectLanguage } from '../selectors';
 
 const mapStateToProps = createStructuredSelector({
   isAuth: selectIsAuth,
+  currentUser: selectCurrentUser,
+  lang: selectLanguage,
 });
 
 export default connect(
