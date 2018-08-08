@@ -27,12 +27,16 @@ class MainNavBar extends React.Component {
         <div className="top-nav">
           <div className="hamburger" onClick={this.handleClick}>
             {isOpen ? (
-              <Glyphicon glyph="glyphicon glyphicon-remove" />
+              <React.Fragment>
+                <Glyphicon glyph="glyphicon glyphicon-remove" />
+                <span className="hamburger-title">CLOSE</span>
+              </React.Fragment>
             ) : (
-              <Glyphicon glyph="glyphicon glyphicon-align-justify" />
+              <React.Fragment>
+                <Glyphicon glyph="glyphicon glyphicon-align-justify" />
+                <span className="hamburger-title">MENU</span>
+              </React.Fragment>
             )}
-
-            <span className="hamburger-title">MENU</span>
           </div>
           <div className="main-nav-title-wrapper">
             <h2 className="main-nav-title">
