@@ -8,10 +8,12 @@ const CHANGE_LANG = 'CHANGE_LANG';
 // menu
 const TOGGLE_MENU = 'TOGGLE_MENU';
 
+// log in
 const LOGIN_REQUEST = 'LOGIN_REQUEST';
 const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 const LOGIN_FAILURE = 'LOGIN_FAILURE';
 
+// log out
 const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
 
 export {
