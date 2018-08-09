@@ -1,0 +1,62 @@
+.content-owner-sign-up-form {
+  position: relative;
+  display: flex;
+  flex-shrink: 1;
+  flex-basis: 100%;
+  justify-content: center;
+  padding: 72px 48px;
+}
+
+.content-owner-hidden-input {
+  display: none;
+}
+
+.content-owner-input {
+  display: block;
+  height: 60px;
+  padding: 0 15px;
+  background: #fff;
+  border: 1px solid #DBE0DF;
+  border-radius: 0;
+  font-size: 16px;
+}
+
+.content-owner-input-container {
+  position: relative;
+}
+
+.content-owner-error {
+  border-color: rgba(237,88,88,.79);
+  border-radius: 0;
+  height: 57px;
+  font-size: 16px;
+}
+
+.content-owner-alert {
+  background: rgba(237,88,88,.79);
+  border-radius: 2px 2px 0 0;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 400;
+  height: 25px;
+  width: max-content;
+  padding: 8px;
+}
+
+.content-owner-button {
+  background-color: #49c5b6;
+  text-align: center;
+  font-size: 15px;
+  border: none;
+  height: 60px;
+  padding: 0 35px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #fff;
+  border-radius: 0;
+}
+
+.content-owner-button:hover {
+  background-color: #42AB9E;
+  color: #fff;
+}

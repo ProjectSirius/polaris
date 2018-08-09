@@ -14,6 +14,7 @@ const LogIn = ({
   location,
   currentUser,
   lang,
+  valid,
 }) => {
   const redirectPath = isAuth
     ? currentUser.userType === 'audience_owner'
@@ -21,33 +22,39 @@ const LogIn = ({
       : 'contentowner'
     : '';
   const { from } = location.state || {
-    from: { pathname: `/${redirectPath}?locale=${lang}` },
+    from: { pathname: `/${redirectPath}`, search: `?locale=${lang}` },
   };
 
   return isAuth ? (
     <Redirect to={from} />
   ) : (
-    <form onSubmit={handleSubmit(login)} className="login-form">
-      <Field
-        name="username"
-        component={RenderField}
-        type="text"
-        label="Text"
-        bsSize="large"
-        placeholder="Your Username"
-      />
-      <Field
-        name="password"
-        component={RenderField}
-        type="password"
-        label="Password"
-        placeholder="Your Password"
-        bsSize="large"
-      />
-      <Button bsStyle="primary" bsSize="large" block type="submit">
-        Log In
-      </Button>
-    </form>
+    <div className="login-form-wrapper">
+      <div className="login-form">
+        <form onSubmit={handleSubmit(login)}>
+          <Field
+            name="username"
+            component={RenderField}
+            type="text"
+            bsSize="large"
+            placeholder="Your Username"
+            className="login-input"
+          />
+          <Field
+            name="password"
+            component={RenderField}
+            type="password"
+            placeholder="Your Password"
+            bsSize="large"
+            className="login-input"
+          />
+          <div className="login-submit-wrapper">
+            <Button bsSize="large" block type="submit" disabled={!valid}>
+              Log In
+            </Button>
+          </div>
+        </form>
+      </div>
+    </div>
   );
 };
 
