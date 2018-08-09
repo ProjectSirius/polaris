@@ -28,15 +28,12 @@ const signUpSuccess = user => ({
     user,
   },
 });
-const signUpFailure = error => {
-  debugger;
-  return {
-    type: SIGN_UP_FAILURE,
-    payload: {
-      error,
-    },
-  };
-};
+const signUpFailure = error => ({
+  type: SIGN_UP_FAILURE,
+  payload: {
+    error,
+  },
+});
 
 const signUp = user => dispatch => {
   dispatch(signUpRequest(user, true));
