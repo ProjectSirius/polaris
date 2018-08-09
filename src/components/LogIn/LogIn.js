@@ -6,6 +6,7 @@ import RenderField from './RenderField';
 import SubmitBtn from '../SubmitBtn';
 
 import './styles.css';
+import { Alert } from 'react-bootstrap';
 
 const LogIn = ({
   handleSubmit,
@@ -15,6 +16,8 @@ const LogIn = ({
   currentUser,
   lang,
   valid,
+  isRequesting,
+  loginError,
 }) => {
   const redirectPath = isAuth
     ? currentUser.userType === 'audience_owner'
@@ -47,7 +50,9 @@ const LogIn = ({
             bsSize="large"
             className="login-input"
           />
-          <SubmitBtn value="Log In" valid={valid} />
+          {isRequesting && <Alert bsStyle="info">Please wait...</Alert>}
+          {loginError && <Alert bsStyle="danger">{loginError}</Alert>}
+          <SubmitBtn value="Log In" valid={valid} isRequesting={isRequesting} />
         </form>
       </div>
     </div>
