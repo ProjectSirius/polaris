@@ -1,6 +1,11 @@
 import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE } from './constants';
 
-const loginRequest = () => ({ type: LOGIN_REQUEST });
+const loginRequest = isRequesting => ({
+  type: LOGIN_REQUEST,
+  payload: {
+    isRequesting,
+  },
+});
 
 const loginSuccess = user => ({
   type: LOGIN_SUCCESS,
@@ -9,7 +14,12 @@ const loginSuccess = user => ({
   },
 });
 
-const loginFailure = error => ({ type: LOGIN_FAILURE, error });
+const loginFailure = error => ({
+  type: LOGIN_FAILURE,
+  payload: {
+    error,
+  },
+});
 
 const fakeFetch = userData => {
   return new Promise((resolve, reject) => {
@@ -32,11 +42,11 @@ const fakeFetch = userData => {
 };
 
 const logIn = user => dispatch => {
-  dispatch(loginRequest());
+  dispatch(loginRequest(true));
 
   fakeFetch(user)
     .then(userData => dispatch(loginSuccess(userData)))
-    .catch(msg => dispatch(loginFailure(msg)));
+    .catch(msg => dispatch(loginFailure(msg.message)));
 };
 
 export default logIn;

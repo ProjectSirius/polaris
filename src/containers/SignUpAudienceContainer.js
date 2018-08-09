@@ -5,11 +5,7 @@ import { createStructuredSelector } from 'reselect';
 
 import { signUp } from '../actions';
 
-import {
-  selectIsSignUpRequesting,
-  selectIsSignUp,
-  selectError,
-} from '../selectors';
+import { selectIsRequesting, selectIsSignUp, selectError } from '../selectors';
 
 import signUpValidate from '../helpers/signUpValidate';
 
@@ -17,7 +13,7 @@ import SignUpForm from '../components/SignUpForm';
 
 const mapStateToProps = createStructuredSelector({
   isSignUp: selectIsSignUp,
-  isSignUpRequesting: selectIsSignUpRequesting,
+  isRequesting: selectIsRequesting,
   errorSignUp: selectError,
 });
 

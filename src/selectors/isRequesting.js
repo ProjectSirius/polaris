@@ -1,8 +1,8 @@
 import { createSelector } from 'reselect';
 
 const selectIsSignUpRequesting = createSelector(
-  state => state.isSignUpRequesting,
-  isSignUpRequesting => isSignUpRequesting
+  state => state.isRequesting,
+  isRequesting => isRequesting
 );
 
 export default selectIsSignUpRequesting;

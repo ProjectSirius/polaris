@@ -6,7 +6,7 @@ import lang from './lang';
 import currentUser from './currentUser';
 import isAuth from './isAuth';
 import isOpenMainMenu from './mainMenu';
-import isSignUpRequesting from './isSignUpRequesting';
+import isRequesting from './isRequesting';
 import error from './error';
 
 export default combineReducers({
@@ -16,6 +16,6 @@ export default combineReducers({
   currentUser,
   isAuth,
   isOpenMainMenu,
-  isSignUpRequesting,
+  isRequesting,
   error,
 });
