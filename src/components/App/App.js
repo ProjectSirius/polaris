@@ -7,7 +7,7 @@ import SignUpContentMaker from '../../containers/SignUpContentMakerContainer';
 import ProtectedRouteContainer from '../../containers/ProtectedRouteContainer';
 import AudienceHomePage from '../AudienceHomePage';
 import ContentOwnerHomePage from '../ContentOwnerHomePage';
-import Card from '../Card';
+import CardList from '../CardList';
 
 import './App.css';
 import HomePageContainer from '../../containers/HomePageContainer';
@@ -30,7 +30,7 @@ const App = ({ content, title }) => {
         <Route path="/login" component={LogIn} />
         <Route path="/signUpAudience" component={SignUpAudienceContainer} />
         <Route path="/signUpContentMaker" component={SignUpContentMaker} />
-        <Route path="/Card" component={Card} />
+        <Route path="/Card" component={CardList} />
         <ProtectedRouteContainer
           path="/audience"
           component={AudienceHomePage}
