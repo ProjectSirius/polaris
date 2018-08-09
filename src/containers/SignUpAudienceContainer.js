@@ -1,3 +1,4 @@
+import React from 'react';
 import { connect } from 'react-redux';
 import { reduxForm } from 'redux-form';
 import { createStructuredSelector } from 'reselect';
@@ -12,7 +13,7 @@ import {
 
 import signUpValidate from '../helpers/signUpValidate';
 
-import SignUpAudience from '../components/SignUpAudience';
+import SignUpForm from '../components/SignUpForm';
 
 const mapStateToProps = createStructuredSelector({
   isSignUp: selectIsSignUp,
@@ -24,13 +25,17 @@ const mapDispatchToProps = dispatch => ({
   signUp: user => dispatch(signUp(user)),
 });
 
-const SignUpAudienceForm = reduxForm({
+let SignUpAudienceForm = ({ ...props }) => {
+  return <SignUpForm {...props} formTitle="Audience Form" />;
+};
+
+SignUpAudienceForm = reduxForm({
   form: 'SignUpAudienceForm',
   initialValues: {
     userType: 'audience_owner',
   },
   validate: signUpValidate,
-})(SignUpAudience);
+})(SignUpAudienceForm);
 
 export default connect(
   mapStateToProps,
