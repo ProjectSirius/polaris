@@ -14,7 +14,7 @@ const SignUpForm = ({
   isSignUp,
   location,
   valid,
-  isSignUpRequesting,
+  isRequesting,
   errorSignUp,
   formTitle,
 }) => {
@@ -63,12 +63,12 @@ const SignUpForm = ({
           component={renderField}
           className="hidden-input"
         />
-        {isSignUpRequesting && <Alert bsStyle="info">Please wait...</Alert>}
+        {isRequesting && <Alert bsStyle="info">Please wait...</Alert>}
         {errorSignUp && <Alert bsStyle="danger">{errorSignUp}</Alert>}
         <SubmitBtn
           value="CREATE ACCOUNT!"
           valid={valid}
-          isRequesting={isSignUpRequesting}
+          isRequesting={isRequesting}
         />
       </form>
     </div>
