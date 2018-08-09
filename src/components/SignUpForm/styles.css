@@ -1,0 +1,25 @@
+.sign-up-form {
+  position: relative;
+  display: flex;
+  flex-shrink: 1;
+  flex-basis: 100%;
+  justify-content: center;
+  padding: 72px 48px;
+}
+
+.hidden-input {
+  display: none;
+}
+
+.input {
+  display: block;
+  height: 60px;
+  padding: 0 15px;
+  background: #fff;
+  border: 1px solid #dbe0df;
+  border-radius: 0;
+}
+
+.input-container {
+  position: relative;
+}
