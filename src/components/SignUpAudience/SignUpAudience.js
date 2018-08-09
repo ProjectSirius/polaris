@@ -62,13 +62,14 @@ const SignUpAudience = ({
         />
         <div>
           <Button
-            bsStyle="primary"
+            bsStyle=""
             bsSize="large"
             block
             type="submit"
             disabled={!valid}
+            className="button"
           >
-            Submit
+            CREATE ACCOUNT!
           </Button>
         </div>
       </form>

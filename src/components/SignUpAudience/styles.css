@@ -1,8 +1,10 @@
 .sign-up-form {
+  position: relative;
   display: flex;
-  align-items: center;
+  flex-shrink: 1;
+  flex-basis: 100%;
   justify-content: center;
-  flex-direction: column;
+  padding: 72px 48px;
 }
 
 .hidden-input {
@@ -10,8 +12,12 @@
 }
 
 .input {
-  font-size: 16px;
-  color: #202121;
+  display: block;
+  height: 60px;
+  padding: 0 15px;
+  background: #fff;
+  border: 1px solid #DBE0DF;
+  border-radius: 0;
 }
 
 .input-container {
@@ -20,6 +26,9 @@
 
 .error {
   border-color: rgba(237,88,88,.79);
+  border-radius: 0;
+  height: 57px;
+  font-size: 16px;
 }
 
 .alert {
@@ -31,4 +40,26 @@
   height: 25px;
   width: max-content;
   padding: 8px;
+}
+
+.button {
+  background-color: #49c5b6;
+  text-align: center;
+  font-size: 15px;
+  border: none;
+  height: 60px;
+  padding: 0 35px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #fff;
+  border-radius: 0;
+}
+
+.button:hover {
+  background-color: #42AB9E;
+  color: #fff;
+}
+
+.btn.disabled {
+
 }
