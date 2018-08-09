@@ -8,11 +8,10 @@ import SearchContainer from '../../containers/SearchContainer';
 import './styles.css';
 
 class MainNavBar extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.handleClick = this.handleClick.bind(this);
-
     this.handleLogOut = this.handleLogOut.bind(this);
   }
 
