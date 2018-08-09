@@ -13,6 +13,7 @@ const SignUpContentMaker = ({
   isSignUp,
   location,
   valid,
+  isSignUpRequesting,
 }) => {
   const { from } = location.state || { from: { pathname: '/login' } };
 
@@ -60,11 +61,15 @@ const SignUpContentMaker = ({
           component={renderField}
           className="content-owner-hidden-input"
         />
+        <div className="message">
+          {isSignUpRequesting && <div>Please wait...</div>}
+        </div>
         <div>
           <Button
             bsStyle=""
             block
-            disabled={!valid}
+            disabled={!valid || isSignUpRequesting}
+            type="submit"
             bsSize="large"
             className="content-owner-button"
           >

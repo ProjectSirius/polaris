@@ -13,9 +13,9 @@ const SignUpAudience = ({
   isSignUp,
   location,
   valid,
+  isSignUpRequesting,
 }) => {
   const { from } = location.state || { from: { pathname: '/login' } };
-
   return isSignUp ? (
     <Redirect to={from} />
   ) : (
@@ -60,13 +60,16 @@ const SignUpAudience = ({
           component={renderField}
           className="hidden-input"
         />
+        <div className="message">
+          {isSignUpRequesting && <div>Please wait...</div>}
+        </div>
         <div>
           <Button
             bsStyle=""
             bsSize="large"
             block
             type="submit"
-            disabled={!valid}
+            disabled={!valid || isSignUpRequesting}
             className="button"
           >
             CREATE ACCOUNT!
