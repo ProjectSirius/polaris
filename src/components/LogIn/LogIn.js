@@ -27,27 +27,37 @@ const LogIn = ({
   return isAuth ? (
     <Redirect to={from} />
   ) : (
-    <form onSubmit={handleSubmit(login)} className="login-form">
-      <Field
-        name="username"
-        component={RenderField}
-        type="text"
-        label="Text"
-        bsSize="large"
-        placeholder="Your Username"
-      />
-      <Field
-        name="password"
-        component={RenderField}
-        type="password"
-        label="Password"
-        placeholder="Your Password"
-        bsSize="large"
-      />
-      <Button bsStyle="primary" bsSize="large" block type="submit">
-        Log In
-      </Button>
-    </form>
+    <div className="login-form-wrapper">
+      <div className="login-form">
+        <form onSubmit={handleSubmit(login)}>
+          <Field
+            name="username"
+            component={RenderField}
+            type="text"
+            bsSize="large"
+            placeholder="Your Username"
+            className="login-input"
+          />
+          <Field
+            name="password"
+            component={RenderField}
+            type="password"
+            placeholder="Your Password"
+            bsSize="large"
+            className="login-input"
+          />
+          <Button
+            bsStyle=""
+            bsSize="large"
+            block
+            type="submit"
+            className="login-button"
+          >
+            Log In
+          </Button>
+        </form>
+      </div>
+    </div>
   );
 };
 
