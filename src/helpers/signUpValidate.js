@@ -20,7 +20,10 @@ const signUpValidate = values => {
       errors[field] = 'Must be a valid email';
     }
 
-    if (field === 'passwordConformation' && field !== requiredFields[2]) {
+    if (
+      field === 'passwordConformation' &&
+      values[field] !== values[requiredFields[2]]
+    ) {
       errors[field] = 'Passwords do not match!';
     }
 
