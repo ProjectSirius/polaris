@@ -25,10 +25,10 @@ const AuthButtons = props => {
           pullRight
         >
           {' '}
-          <MenuItem href={`/signUpAudience?locale=ru`} eventKey="1">
+          <MenuItem href={`/signUpAudience?locale=${lang}`} eventKey="1">
             SignUp for Audience
           </MenuItem>
-          <MenuItem href={`/signUpContentMaker?locale=ru`} eventKey="1">
+          <MenuItem href={`/signUpContentMaker?locale=${lang}`} eventKey="1">
             SignUp for Content Owner
           </MenuItem>
         </DropdownButton>

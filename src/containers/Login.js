@@ -6,6 +6,8 @@ import { login } from '../actions';
 
 import { selectIsAuth, selectCurrentUser, selectLanguage } from '../selectors';
 
+import loginValidate from '../helpers/loginValidate';
+
 import LogIn from '../components/LogIn';
 
 const mapStateToProps = createStructuredSelector({
@@ -20,6 +22,7 @@ const mapDispatchToProps = dispatch => ({
 
 const LoginForm = reduxForm({
   form: 'Login_form',
+  validate: loginValidate,
 })(LogIn);
 
 export default connect(
