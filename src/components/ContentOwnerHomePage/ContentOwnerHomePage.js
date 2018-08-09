@@ -1,12 +1,15 @@
 import React from 'react';
-import ViewBtnGroup from '../View-btn-group';
+import ViewBtnGroup from '../View-btn-group'
+import FilterBar from '../filter-bar';
 
 import './styles.css';
 
-const ContentOwnerHomePage = () => {
+const ContentOwnerHomePage = props => {
   return (
     <div>
-      Content Owner Home Page <ViewBtnGroup />
+      <p>Content Owner Home Page</p> 
+      <FilterBar />
+      <ViewBtnGroup/>
     </div>
   );
 };

@@ -1,0 +1,7 @@
+.filter-bar {
+    left: 0;
+    width: 30%;
+    box-shadow: 4px 1px 5px;
+    display: inline-block;
+    margin-right: 10px;
+  }
