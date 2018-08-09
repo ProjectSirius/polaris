@@ -14,6 +14,7 @@ const SignUpAudience = ({
   location,
   valid,
   isSignUpRequesting,
+  error,
 }) => {
   const { from } = location.state || { from: { pathname: '/login' } };
   return isSignUp ? (
@@ -62,6 +63,7 @@ const SignUpAudience = ({
         />
         <div className="message">
           {isSignUpRequesting && <div>Please wait...</div>}
+          {error && <div>{error}</div>}
         </div>
         <div>
           <Button
