@@ -1,0 +1,52 @@
+.login-form-wrapper {
+  position: relative;
+  display: flex;
+  flex-shrink: 1;
+  flex-basis: 100%;
+  justify-content: center;
+  padding: 72px 48px;
+  flex-direction: column;
+}
+
+.login-form {
+  width: 50%;
+  margin: 0 auto;
+  min-width: 250px;
+  max-width: 550px;
+}
+
+.login-input {
+  display: block;
+  height: 60px;
+  padding: 0 15px;
+  background: #fff;
+  border: 1px solid #dbe0df;
+  border-radius: 0;
+  font-size: 16px;
+}
+
+.login-submit-wrapper > button {
+  background-color: #49c5b6;
+  text-align: center;
+  font-size: 15px;
+  border: none;
+  height: 60px;
+  padding: 0 35px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #fff;
+  border-radius: 0;
+}
+
+.login-submit-wrapper > button:hover,
+.login-submit-wrapper > button:disabled:hover,
+.login-submit-wrapper > button:focus {
+  background-color: #42ab9e;
+  color: #fff;
+}
+
+.login-submit-wrapper > button:active,
+.login-submit-wrapper > button:active:focus {
+  background-color: #349287;
+  color: #fafafa;
+}
