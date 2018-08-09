@@ -1,7 +1,7 @@
 import React from 'react';
 import { Field } from 'redux-form';
 import { Redirect } from 'react-router-dom';
-import { Button } from 'react-bootstrap';
+import { Button, Alert } from 'react-bootstrap';
 
 import renderField from './RenderField';
 
@@ -61,10 +61,8 @@ const SignUpAudience = ({
           component={renderField}
           className="hidden-input"
         />
-        <div className="message">
-          {isSignUpRequesting && <div>Please wait...</div>}
-          {errorSignUp && <div>{errorSignUp}</div>}
-        </div>
+        {isSignUpRequesting && <Alert bsStyle="info">Please wait...</Alert>}
+        {errorSignUp && <Alert bsStyle="danger">{errorSignUp}</Alert>}
         <div>
           <Button
             bsStyle=""
