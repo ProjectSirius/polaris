@@ -19,7 +19,7 @@ const SignUpContentMaker = ({
   return isSignUp ? (
     <Redirect to={from} />
   ) : (
-    <div className="sign-up-form">
+    <div className="content-owner-sign-up-form">
       <form onSubmit={handleSubmit(signUp)}>
         <h1>Sign Up Content Maker</h1>
         <Field
@@ -28,7 +28,7 @@ const SignUpContentMaker = ({
           component={renderField}
           placeholder="Username"
           bsSize="large"
-          className="input"
+          className="content-owner-input"
         />
         <Field
           name="email"
@@ -36,7 +36,7 @@ const SignUpContentMaker = ({
           component={renderField}
           placeholder="Email"
           bsSize="large"
-          className="input"
+          className="content-owner-input"
         />
         <Field
           name="password"
@@ -44,7 +44,7 @@ const SignUpContentMaker = ({
           component={renderField}
           placeholder="Password"
           bsSize="large"
-          className="input"
+          className="content-owner-input"
         />
         <Field
           name="passwordConformation"
@@ -52,17 +52,23 @@ const SignUpContentMaker = ({
           component={renderField}
           placeholder="Password Conformation"
           bsSize="large"
-          className="input"
+          className="content-owner-input"
         />
         <Field
           name="userType"
           type="hidden"
           component={renderField}
-          className="hidden-input"
+          className="content-owner-hidden-input"
         />
         <div>
-          <Button bsStyle="primary" block disabled={!valid} bsSize="large">
-            Submit
+          <Button
+            bsStyle=""
+            block
+            disabled={!valid}
+            bsSize="large"
+            className="content-owner-button"
+          >
+            CREATE ACCOUNT!
           </Button>
         </div>
       </form>
