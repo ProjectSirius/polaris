@@ -47,16 +47,11 @@ const LogIn = ({
             bsSize="large"
             className="login-input"
           />
-          <Button
-            bsStyle=""
-            bsSize="large"
-            block
-            type="submit"
-            className="login-button"
-            disabled={!valid}
-          >
-            Log In
-          </Button>
+          <div className="login-submit-wrapper">
+            <Button bsSize="large" block type="submit" disabled={!valid}>
+              Log In
+            </Button>
+          </div>
         </form>
       </div>
     </div>

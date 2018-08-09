@@ -20,12 +20,12 @@
   height: 60px;
   padding: 0 15px;
   background: #fff;
-  border: 1px solid #DBE0DF;
+  border: 1px solid #dbe0df;
   border-radius: 0;
   font-size: 16px;
 }
 
-.login-button {
+.login-submit-wrapper > button {
   background-color: #49c5b6;
   text-align: center;
   font-size: 15px;
@@ -38,7 +38,15 @@
   border-radius: 0;
 }
 
-.login-button:hover {
-  background-color: #42AB9E;
+.login-submit-wrapper > button:hover,
+.login-submit-wrapper > button:disabled:hover,
+.login-submit-wrapper > button:focus {
+  background-color: #42ab9e;
   color: #fff;
+}
+
+.login-submit-wrapper > button:active,
+.login-submit-wrapper > button:active:focus {
+  background-color: #349287;
+  color: #fafafa;
 }
