@@ -17,7 +17,7 @@ import SignUpAudience from '../components/SignUpAudience';
 const mapStateToProps = createStructuredSelector({
   isSignUp: selectIsSignUp,
   isSignUpRequesting: selectIsSignUpRequesting,
-  error: selectError,
+  errorSignUp: selectError,
 });
 
 const mapDispatchToProps = dispatch => ({
