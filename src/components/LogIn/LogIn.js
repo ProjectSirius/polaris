@@ -1,9 +1,9 @@
 import React from 'react';
 import { Field } from 'redux-form';
 import { Redirect } from 'react-router-dom';
-import { Button } from 'react-bootstrap';
 
 import RenderField from './RenderField';
+import SubmitBtn from '../SubmitBtn';
 
 import './styles.css';
 
@@ -47,11 +47,7 @@ const LogIn = ({
             bsSize="large"
             className="login-input"
           />
-          <div className="login-submit-wrapper">
-            <Button bsSize="large" block type="submit" disabled={!valid}>
-              Log In
-            </Button>
-          </div>
+          <SubmitBtn value="Log In" valid={valid} />
         </form>
       </div>
     </div>
