@@ -5,6 +5,7 @@ import isSignUp from './isSignUp';
 import lang from './lang';
 import currentUser from './currentUser';
 import isAuth from './isAuth';
+import isOpenMainMenu from './mainMenu';
 
 export default combineReducers({
   form: formReducer,
@@ -12,4 +13,5 @@ export default combineReducers({
   lang,
   currentUser,
   isAuth,
+  isOpenMainMenu,
 });
