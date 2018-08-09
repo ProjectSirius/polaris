@@ -22,7 +22,7 @@ const App = ({ content, title }) => {
         <Route path="/login" component={LogIn} />
         <Route path="/signUpAudience" component={SignUpAudienceContainer} />
         <Route path="/signUpContentMaker" component={SignUpContentMaker} />
-        <Route path="/Card" component={CardList} />
+        <Route path="/card" component={CardList} />
         <ProtectedRouteContainer
           path="/audience"
           component={AudienceHomePage}
