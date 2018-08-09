@@ -2,14 +2,18 @@ import React from 'react';
 import { DropdownButton, MenuItem, Glyphicon } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-import './styles.css';
 import AuthButtonsContainer from '../../containers/AuthButtonsContainer';
+import SearchContainer from '../../containers/SearchContainer';
+
+import './styles.css';
 
 class MainNavBar extends React.Component {
   constructor() {
     super();
 
     this.handleClick = this.handleClick.bind(this);
+
+    this.handleLogOut = this.handleLogOut.bind(this);
   }
 
   handleClick() {
@@ -18,9 +22,15 @@ class MainNavBar extends React.Component {
     toggleMenu(!isOpen);
   }
 
+  handleLogOut() {
+    const { logOut } = this.props;
+
+    logOut();
+  }
+
   render() {
     const path = window.location.pathname;
-    const { lang, isOpen, isAuth, logOut } = this.props;
+    const { lang, isOpen, isAuth } = this.props;
 
     return (
       <header className="main-nav-header">
@@ -104,8 +114,9 @@ class MainNavBar extends React.Component {
           </nav>
           {isAuth ? (
             <div className="nav-links-auth">
-              <div className="nav-link-logout" onClick={() => logOut()}>
-                Log Out
+              <SearchContainer />
+              <div className="nav-link-logout" onClick={this.handleLogOut}>
+                <span>Log Out</span>
               </div>
             </div>
           ) : (
