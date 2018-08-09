@@ -133,6 +133,7 @@
 .nav-links-auth {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
 
   height: 60px;
 }
@@ -174,6 +175,8 @@
   justify-content: center;
   align-items: center;
 
+  width: 20%;
+
   cursor: pointer;
   color: #fff;
   font-weight: 700;
@@ -210,7 +213,6 @@
 .dropdown-btn button,
 .nav-link-logout {
   height: 60px !important;
-  width: 20%;
 
   background: #49c5b6;
   transition: 0.5s;
