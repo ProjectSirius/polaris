@@ -14,6 +14,7 @@ const LogIn = ({
   location,
   currentUser,
   lang,
+  valid,
 }) => {
   const redirectPath = isAuth
     ? currentUser.userType === 'audience_owner'
@@ -52,6 +53,7 @@ const LogIn = ({
             block
             type="submit"
             className="login-button"
+            disabled={!valid}
           >
             Log In
           </Button>
