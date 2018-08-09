@@ -10,27 +10,40 @@ const fakeFetch = userData => {
       }, 1000);
     } else {
       setTimeout(() => {
-        return reject(false);
+        return reject(new Error('Sign-up failed'));
       }, 2000);
     }
   });
 };
 
-const signUpRequest = () => ({ type: SIGN_UP_REQUEST });
+const signUpRequest = isSignUpRequesting => ({
+  type: SIGN_UP_REQUEST,
+  payload: {
+    isSignUpRequesting,
+  },
+});
 const signUpSuccess = user => ({
   type: SIGN_UP_SUCCESS,
   payload: {
     user,
   },
 });
-const signUpFailure = error => ({ type: SIGN_UP_FAILURE, error });
+const signUpFailure = error => {
+  debugger;
+  return {
+    type: SIGN_UP_FAILURE,
+    payload: {
+      error,
+    },
+  };
+};
 
 const signUp = user => dispatch => {
-  dispatch(signUpRequest(user));
+  dispatch(signUpRequest(user, true));
 
   fakeFetch(user)
     .then(() => dispatch(signUpSuccess(user)))
-    .catch(msg => dispatch(signUpFailure(msg)));
+    .catch(msg => dispatch(signUpFailure(msg.message)));
 };
 
 export default signUp;
