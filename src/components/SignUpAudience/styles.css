@@ -24,24 +24,6 @@
   position: relative;
 }
 
-.error {
-  border-color: rgba(237,88,88,.79);
-  border-radius: 0;
-  height: 57px;
-  font-size: 16px;
-}
-
-.alert {
-  background: rgba(237,88,88,.79);
-  border-radius: 2px 2px 0 0;
-  color: #fff;
-  font-size: 14px;
-  font-weight: 400;
-  height: 25px;
-  width: max-content;
-  padding: 8px;
-}
-
 .button {
   background-color: #49c5b6;
   text-align: center;
