@@ -24,7 +24,7 @@ const RatingItem = props => {
   );
 };
 
-const Rating = ({ min, max, onChange, value, classes }) => {
+const StarRating = ({ min, max, onChange, value, classes }) => {
   return (
     <div className={classes.rating}>
       {range(min, max).map((item, index) => (
@@ -41,4 +41,4 @@ const Rating = ({ min, max, onChange, value, classes }) => {
   );
 };
 
-export default Rating;
+export default StarRating;
