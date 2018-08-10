@@ -5,7 +5,6 @@ import { Redirect } from 'react-router-dom';
 import RenderField from './RenderField';
 import SubmitBtn from '../SubmitBtn';
 
-import './styles.css';
 import { Alert } from 'react-bootstrap';
 
 const LogIn = ({

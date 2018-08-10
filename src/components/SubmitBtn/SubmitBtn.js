@@ -1,9 +1,7 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
 
-import './styles.css';
-
-const SubmitBtn = ({ valid, isRequesting, value }) => {
+const SubmitBtn = ({ valid, isRequesting, value, classes }) => {
   return (
     <div className="login-submit-wrapper">
       <Button

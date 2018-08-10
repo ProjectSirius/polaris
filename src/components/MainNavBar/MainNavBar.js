@@ -5,8 +5,6 @@ import { Link } from 'react-router-dom';
 import AuthButtonsContainer from '../../containers/AuthButtonsContainer';
 import SearchContainer from '../../containers/SearchContainer';
 
-import './styles.css';
-
 class MainNavBar extends React.Component {
   constructor(props) {
     super(props);

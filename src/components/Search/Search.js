@@ -3,9 +3,7 @@ import { Field } from 'redux-form';
 
 import RenderField from './RenderField';
 
-import './styles.css';
-
-const Search = () => {
+const Search = ({ classes }) => {
   return (
     <div className="search-wrapper">
       <Field

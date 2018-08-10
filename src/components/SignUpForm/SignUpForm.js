@@ -6,8 +6,6 @@ import { Alert } from 'react-bootstrap';
 import renderField from './RenderField';
 import SubmitBtn from '../SubmitBtn';
 
-import './styles.css';
-
 const SignUpForm = ({
   signUp,
   handleSubmit,
