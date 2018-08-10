@@ -1,8 +1,6 @@
 import React from 'react';
 import { FormGroup, FormControl } from 'react-bootstrap';
 
-import './styles.css';
-
 const TextField = ({ id, label, touched, error, ...props }) => {
   return (
     <div>

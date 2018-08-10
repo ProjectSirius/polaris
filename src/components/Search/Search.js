@@ -3,11 +3,9 @@ import { Field } from 'redux-form';
 
 import RenderField from './RenderField';
 
-import './styles.css';
-
-const Search = () => {
+const Search = ({ classes }) => {
   return (
-    <div className="search-wrapper">
+    <div className={classes.searchWrapper}>
       <Field
         name="search"
         component={RenderField}

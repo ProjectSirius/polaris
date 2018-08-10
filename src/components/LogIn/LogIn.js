@@ -5,7 +5,6 @@ import { Redirect } from 'react-router-dom';
 import RenderField from './RenderField';
 import SubmitBtn from '../SubmitBtn';
 
-import './styles.css';
 import { Alert } from 'react-bootstrap';
 
 const LogIn = ({
@@ -18,6 +17,7 @@ const LogIn = ({
   valid,
   isRequesting,
   loginError,
+  classes,
 }) => {
   const redirectPath = isAuth
     ? currentUser.userType === 'audience_owner'
@@ -31,8 +31,8 @@ const LogIn = ({
   return isAuth ? (
     <Redirect to={from} />
   ) : (
-    <div className="login-form-wrapper">
-      <div className="login-form">
+    <div className={classes.loginFormWrapper}>
+      <div className={classes.loginForm}>
         <form onSubmit={handleSubmit(login)}>
           <Field
             name="username"
@@ -40,7 +40,7 @@ const LogIn = ({
             type="text"
             bsSize="large"
             placeholder="Your Username"
-            className="login-input"
+            className={classes.loginInput}
           />
           <Field
             name="password"

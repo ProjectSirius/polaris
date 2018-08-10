@@ -1,7 +1,5 @@
 import React, { PureComponent } from 'react';
 
-import './styles.css';
-
 class FilterBar extends PureComponent {
   render() {
     return (
