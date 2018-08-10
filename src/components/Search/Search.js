@@ -5,7 +5,7 @@ import RenderField from './RenderField';
 
 const Search = ({ classes }) => {
   return (
-    <div className="search-wrapper">
+    <div className={classes.searchWrapper}>
       <Field
         name="search"
         component={RenderField}

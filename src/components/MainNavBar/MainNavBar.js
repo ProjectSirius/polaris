@@ -27,26 +27,26 @@ class MainNavBar extends React.Component {
 
   render() {
     const path = window.location.pathname;
-    const { lang, isOpen, isAuth } = this.props;
+    const { lang, isOpen, isAuth, classes } = this.props;
 
     return (
-      <header className="main-nav-header">
-        <div className="top-nav">
-          <div className="hamburger" onClick={this.handleClick}>
+      <header className={classes.mainNavHeader}>
+        <div className={classes.topNav}>
+          <div className={classes.hamburger} onClick={this.handleClick}>
             {isOpen ? (
               <React.Fragment>
                 <Glyphicon glyph="glyphicon glyphicon-remove" />
-                <span className="hamburger-title">CLOSE</span>
+                <span className={classes.hamburgerTitle}>CLOSE</span>
               </React.Fragment>
             ) : (
               <React.Fragment>
                 <Glyphicon glyph="glyphicon glyphicon-align-justify" />
-                <span className="hamburger-title">MENU</span>
+                <span className={classes.hamburgerTitle}>MENU</span>
               </React.Fragment>
             )}
           </div>
-          <div className="main-nav-title-wrapper">
-            <h2 className="main-nav-title">
+          <div className={classes.mainNavTitleWrapper}>
+            <h2 className={classes.mainNavTitle}>
               <Link
                 to={{
                   pathname: '/',
@@ -57,8 +57,8 @@ class MainNavBar extends React.Component {
               </Link>
             </h2>
           </div>
-          <div className="languages-wrapper">
-            <div className="languages">
+          <div className={classes.languagesWrapper}>
+            <div className={classes.languages}>
               <div>
                 <DropdownButton
                   bsStyle="default"
@@ -86,9 +86,15 @@ class MainNavBar extends React.Component {
             </div>
           </div>
         </div>
-        <div className={isOpen ? 'main-nav main-nav-opened' : 'main-nav'}>
-          <nav className="nav-links">
-            <div className="nav-link">
+        <div
+          className={
+            isOpen
+              ? `${classes.mainNav} ${classes.mainNavOpened}`
+              : classes.mainNav
+          }
+        >
+          <nav className={classes.navLinks}>
+            <div className={classes.navLink}>
               <Link
                 to={{
                   pathname: '/audience',
@@ -98,7 +104,7 @@ class MainNavBar extends React.Component {
                 Audience
               </Link>
             </div>
-            <div className="nav-link">
+            <div className={classes.navLink}>
               <Link
                 to={{
                   pathname: '/contentowner',
@@ -110,9 +116,12 @@ class MainNavBar extends React.Component {
             </div>
           </nav>
           {isAuth ? (
-            <div className="nav-links-auth">
+            <div className={classes.navLinksAuth}>
               <SearchContainer />
-              <div className="nav-link-logout" onClick={this.handleLogOut}>
+              <div
+                className={classes.navLinkLogout}
+                onClick={this.handleLogOut}
+              >
                 <span>Log Out</span>
               </div>
             </div>
