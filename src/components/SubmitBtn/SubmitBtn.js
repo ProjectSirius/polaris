@@ -3,7 +3,7 @@ import { Button } from 'react-bootstrap';
 
 const SubmitBtn = ({ valid, isRequesting, value, classes }) => {
   return (
-    <div className="login-submit-wrapper">
+    <div className={classes.submitWrapper}>
       <Button
         bsSize="large"
         block
