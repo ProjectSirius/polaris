@@ -1,27 +1,30 @@
 import React from 'react';
 import { Field } from 'redux-form';
 import { Redirect } from 'react-router-dom';
-import { Button } from 'react-bootstrap';
+import { Alert } from 'react-bootstrap';
 
 import renderField from './RenderField';
+import SubmitBtn from '../SubmitBtn';
 
 import './styles.css';
 
-const SignUpAudience = ({
+const SignUpForm = ({
   signUp,
   handleSubmit,
   isSignUp,
   location,
   valid,
+  isRequesting,
+  errorSignUp,
+  formTitle,
 }) => {
   const { from } = location.state || { from: { pathname: '/login' } };
-
   return isSignUp ? (
     <Redirect to={from} />
   ) : (
     <div className="sign-up-form">
       <form onSubmit={handleSubmit(signUp)}>
-        <h1>Audience Owner Sign Up</h1>
+        <h1>{formTitle}</h1>
         <Field
           name="username"
           type="text"
@@ -60,21 +63,16 @@ const SignUpAudience = ({
           component={renderField}
           className="hidden-input"
         />
-        <div>
-          <Button
-            bsStyle=""
-            bsSize="large"
-            block
-            type="submit"
-            disabled={!valid}
-            className="button"
-          >
-            CREATE ACCOUNT!
-          </Button>
-        </div>
+        {isRequesting && <Alert bsStyle="info">Please wait...</Alert>}
+        {errorSignUp && <Alert bsStyle="danger">{errorSignUp}</Alert>}
+        <SubmitBtn
+          value="CREATE ACCOUNT!"
+          valid={valid}
+          isRequesting={isRequesting}
+        />
       </form>
     </div>
   );
 };
 
-export default SignUpAudience;
+export default SignUpForm;

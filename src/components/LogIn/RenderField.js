@@ -4,17 +4,13 @@ import { FormGroup, FormControl } from 'react-bootstrap';
 import './styles.css';
 
 const TextField = ({ id, label, touched, error, ...props }) => {
-  return touched && error ? (
+  return (
     <div>
-      <span className="alert">{error}</span>
+      {touched && error ? <span className="alert">{error}</span> : ''}
       <FormGroup controlId={id} className="input-container">
         <FormControl {...props} className="error" />
       </FormGroup>
     </div>
-  ) : (
-    <FormGroup controlId={id}>
-      <FormControl {...props} />
-    </FormGroup>
   );
 };
 

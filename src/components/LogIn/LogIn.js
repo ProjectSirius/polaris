@@ -1,11 +1,12 @@
 import React from 'react';
 import { Field } from 'redux-form';
 import { Redirect } from 'react-router-dom';
-import { Button } from 'react-bootstrap';
 
 import RenderField from './RenderField';
+import SubmitBtn from '../SubmitBtn';
 
 import './styles.css';
+import { Alert } from 'react-bootstrap';
 
 const LogIn = ({
   handleSubmit,
@@ -15,6 +16,8 @@ const LogIn = ({
   currentUser,
   lang,
   valid,
+  isRequesting,
+  loginError,
 }) => {
   const redirectPath = isAuth
     ? currentUser.userType === 'audience_owner'
@@ -47,11 +50,9 @@ const LogIn = ({
             bsSize="large"
             className="login-input"
           />
-          <div className="login-submit-wrapper">
-            <Button bsSize="large" block type="submit" disabled={!valid}>
-              Log In
-            </Button>
-          </div>
+          {isRequesting && <Alert bsStyle="info">Please wait...</Alert>}
+          {loginError && <Alert bsStyle="danger">{loginError}</Alert>}
+          <SubmitBtn value="Log In" valid={valid} isRequesting={isRequesting} />
         </form>
       </div>
     </div>

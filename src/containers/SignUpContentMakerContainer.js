@@ -1,29 +1,36 @@
+import React from 'react';
 import { connect } from 'react-redux';
 import { reduxForm } from 'redux-form';
 import { createStructuredSelector } from 'reselect';
 
 import { signUp } from '../actions';
+import SignUpForm from '../components/SignUpForm';
 
-import { selectIsSignUp } from '../selectors/isSignUp';
+import { selectIsRequesting, selectIsSignUp, selectError } from '../selectors';
 
 import signUpValidate from '../helpers/signUpValidate';
-import SignUpContentMaker from '../components/SignUpContentMaker';
 
 const mapStateToProps = createStructuredSelector({
   isSignUp: selectIsSignUp,
+  isRequesting: selectIsRequesting,
+  errorSignUp: selectError,
 });
 
 const mapDispatchToProps = dispatch => ({
   signUp: user => dispatch(signUp(user)),
 });
 
-const SignUpContentMakerForm = reduxForm({
+let SignUpContentMakerForm = ({ ...props }) => {
+  return <SignUpForm {...props} formTitle="Content Owner Form" />;
+};
+
+SignUpContentMakerForm = reduxForm({
   form: 'SignUpContentOwnerForm',
   initialValues: {
     userType: 'content_owner',
   },
   validate: signUpValidate,
-})(SignUpContentMaker);
+})(SignUpContentMakerForm);
 
 export default connect(
   mapStateToProps,
