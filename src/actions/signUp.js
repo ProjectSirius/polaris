@@ -16,10 +16,10 @@ const fakeFetch = userData => {
   });
 };
 
-const signUpRequest = isSignUpRequesting => ({
+const signUpRequest = isRequesting => ({
   type: SIGN_UP_REQUEST,
   payload: {
-    isSignUpRequesting,
+    isRequesting,
   },
 });
 const signUpSuccess = user => ({
