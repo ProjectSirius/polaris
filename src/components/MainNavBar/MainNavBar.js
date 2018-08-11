@@ -1,6 +1,7 @@
-import React from 'react';
 import { DropdownButton, MenuItem, Glyphicon } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 import AuthButtonsContainer from '../../containers/AuthButtonsContainer';
 import SearchContainer from '../../containers/SearchContainer';
@@ -127,4 +128,12 @@ class MainNavBar extends React.Component {
   }
 }
 
+MainNavBar.propTypes = {
+  isAuth: PropTypes.bool,
+  currentUser: PropTypes.object,
+  lang: PropTypes.string,
+  isOpen: PropTypes.bool,
+  toggleMenu: PropTypes.func,
+  logOut: PropTypes.func,
+};
 export default MainNavBar;
