@@ -12,6 +12,9 @@ export default {
         width: '450px',
       },
     },
+    '& h1': {
+      textAlign: 'center',
+    },
   },
 
   hiddenInput: {
