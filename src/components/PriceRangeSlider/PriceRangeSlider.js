@@ -8,7 +8,6 @@ const PriceRangeSlider = ({ classes }) => {
     <div className={classes.priceSlider}>
       <Field
         name="min_price_range"
-        value="10"
         min="0"
         max="100"
         step="0.5"
@@ -18,7 +17,6 @@ const PriceRangeSlider = ({ classes }) => {
       />
       <Field
         name="max_price_range"
-        value="50"
         min="0"
         max="100"
         step="0.5"
