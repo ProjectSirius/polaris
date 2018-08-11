@@ -1,5 +1,5 @@
 import React from 'react';
-import { DropdownButton, MenuItem } from 'react-bootstrap';
+import { DropdownButton } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const AuthButtons = props => {
@@ -20,12 +20,14 @@ const AuthButtons = props => {
       <div className={classes.dropDownBtn}>
         <DropdownButton id="dropdown-sign-up" title="SIGN UP" pullRight>
           {' '}
-          <MenuItem href={`/signUpAudience?locale=${lang}`} eventKey="1">
-            SignUp for Audience
-          </MenuItem>
-          <MenuItem href={`/signUpContentMaker?locale=${lang}`} eventKey="1">
-            SignUp for Content Owner
-          </MenuItem>
+          <div className={classes.linkContainer}>
+            <Link to={`/signUpAudience?locale=${lang}`}>
+              SignUp for Audience
+            </Link>
+            <Link to={`/signUpContentMaker?locale=${lang}`}>
+              SignUp for Content Owner
+            </Link>
+          </div>
         </DropdownButton>
       </div>
     </div>
