@@ -27,6 +27,9 @@ export default {
     MozUserSelect: 'none' /* Firefox all */,
     MsUserSelect: 'none' /* IE 10+ */,
     userSelect: 'none' /* Likely future */,
+    '& > a': {
+      textDecoration: 'none',
+    },
   },
 
   /*
