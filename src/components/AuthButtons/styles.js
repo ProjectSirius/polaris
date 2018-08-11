@@ -1,4 +1,20 @@
 export default {
+  linkContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    '& > a': {
+      display: 'block',
+      textAlign: 'center',
+      textDecoration: 'none',
+      width: '100%',
+      '&:hover': {
+        background: '#f5f5f5',
+        color: '#212121',
+      },
+    },
+  },
   navLink: {
     margin: '5px',
     color: '#212121',
@@ -24,32 +40,48 @@ export default {
     height: '60px',
 
     '& button': {
-      height: '60px !important',
+      height: '60px ',
 
       background: '#49c5b6',
       transition: '0.5s',
 
       border: '#49c5b6',
       borderRadius: 0,
+      color: '#fff',
 
       '&:hover': {
         background: '#7cc0b8 !important',
+        color: '#fff',
       },
 
       '&:focus': {
         background: '#7cc0b8 !important',
+        color: '#fff',
       },
 
       '&:active': {
         background: '#7cc0b8 !important',
+        color: '#fff',
+      },
+
+      '&:active:hover': {
+        background: '#7cc0b8 !important',
+        color: '#fff',
+      },
+
+      '&:active:focus': {
+        background: '#7cc0b8 !important',
+        color: '#fff',
       },
 
       '&:checked': {
         background: '#7cc0b8 !important',
+        color: '#fff',
       },
 
       '&:visited': {
         background: '#7cc0b8 !important',
+        color: '#fff',
       },
     },
   },

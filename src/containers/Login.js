@@ -31,6 +31,7 @@ const mapDispatchToProps = dispatch => ({
 const LoginForm = reduxForm({
   form: 'Login_form',
   validate: loginValidate,
+  destroyOnUnmount: false,
 })(LogIn);
 
 export default connect(
