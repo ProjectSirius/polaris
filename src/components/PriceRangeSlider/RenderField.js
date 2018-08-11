@@ -5,7 +5,7 @@ const TextField = ({ id, label, touched, error, ...props }) => {
   return (
     <div>
       <FormGroup controlId={id}>
-        <FormControl {...props} />
+        <FormControl {...props} style={{ padding: 0 }} />
       </FormGroup>
     </div>
   );
