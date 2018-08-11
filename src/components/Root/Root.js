@@ -19,6 +19,8 @@ const Root = ({ store, locale, messages }) => {
 
 Root.propTypes = {
   store: PropTypes.object.isRequired,
+  locale: PropTypes.string.isRequired,
+  messages: PropTypes.object,
 };
 
 export default Root;

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Field } from 'redux-form';
 import { Redirect } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import RenderField from './RenderField';
 import SubmitBtn from '../SubmitBtn';
@@ -57,6 +58,18 @@ const LogIn = ({
       </div>
     </div>
   );
+};
+
+LogIn.PropTypes = {
+  handleSubmit: PropTypes.func,
+  login: PropTypes.func,
+  isAuth: PropTypes.bool,
+  location: PropTypes.object,
+  currentUser: PropTypes.object,
+  lang: PropTypes.string,
+  valid: PropTypes.bool,
+  isRequesting: PropTypes.bool,
+  loginError: PropTypes.object,
 };
 
 export default LogIn;

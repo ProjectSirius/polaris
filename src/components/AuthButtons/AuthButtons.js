@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { DropdownButton, MenuItem } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
@@ -35,6 +36,10 @@ const AuthButtons = props => {
       </div>
     </div>
   );
+};
+
+AuthButtons.propTypes = {
+  lang: PropTypes.string,
 };
 
 export default AuthButtons;
