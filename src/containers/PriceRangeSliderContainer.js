@@ -9,6 +9,7 @@ const PriceRangeSliderForm = reduxForm({
     min_price_range: 0,
     max_price_range: 100,
   },
+  destroyOnUnmount: false,
 })(PriceRangeSlider);
 
 export default connect(
