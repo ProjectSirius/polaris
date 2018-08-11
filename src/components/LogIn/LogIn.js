@@ -40,7 +40,6 @@ const LogIn = ({
             type="text"
             bsSize="large"
             placeholder="Your Username"
-            className={classes.loginInput}
           />
           <Field
             name="password"
@@ -48,7 +47,6 @@ const LogIn = ({
             type="password"
             placeholder="Your Password"
             bsSize="large"
-            className="login-input"
           />
           {isRequesting && <Alert bsStyle="info">Please wait...</Alert>}
           {loginError && <Alert bsStyle="danger">{loginError}</Alert>}

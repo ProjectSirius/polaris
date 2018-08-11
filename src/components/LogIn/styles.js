@@ -15,14 +15,4 @@ export default {
     minWidth: '250px',
     maxWidth: '550px',
   },
-
-  loginInput: {
-    display: 'block',
-    height: '60px',
-    padding: '0 15px',
-    background: '#fff',
-    border: '1px solid #dbe0df',
-    borderRadius: '0',
-    fontSize: '16px',
-  },
 };
