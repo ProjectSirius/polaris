@@ -10,15 +10,6 @@ export default {
 
   search: {
     height: '53px',
-  },
-
-  '@media screen and (max-width: 640px)': {
-    searchWrapper: {
-      width: '100%',
-
-      '& > div': {
-        width: '100%',
-      },
-    },
+    borderRadius: 0,
   },
 };
