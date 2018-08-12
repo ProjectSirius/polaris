@@ -4,6 +4,7 @@ import { Panel, Glyphicon, Row, Col } from 'react-bootstrap';
 import StarRating from '../../containers/StarRating';
 import PriceRangeSlider from '../../containers/PriceRangeSliderContainer';
 import Search from '../../containers/SearchContainer';
+import CheckboxFilter from '../../containers/CheckboxFilter';
 
 class FilterBar extends PureComponent {
   render() {
@@ -26,6 +27,15 @@ class FilterBar extends PureComponent {
                 <div className={classes.filterWrapper}>
                   <div className={classes.filterTitle}>Price Range</div>
                   <PriceRangeSlider />
+                </div>
+                <div className={classes.filterWrapper}>
+                  <div className={classes.filterTitle}>
+                    <div className={classes.filterTitleWithIcon}>
+                      <Glyphicon glyph="glyphicon glyphicon-chevron-down" />
+                      <span style={{ paddingLeft: '6px' }}>Checkboxes</span>
+                    </div>
+                  </div>
+                  <CheckboxFilter />
                 </div>
               </Panel.Body>
             </Panel>
