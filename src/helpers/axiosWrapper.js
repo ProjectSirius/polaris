@@ -13,4 +13,4 @@ const requestCreator = () => {
   };
 };
 
-export default requestCreator;
+export default requestCreator();
