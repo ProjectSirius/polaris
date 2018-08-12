@@ -14,7 +14,7 @@ class FilterBar extends PureComponent {
     return (
       <div>
         <Row className={classes.row}>
-          <Col xs={4} md={3} className={classes.column}>
+          <Col xs={4} md={3} lg={2} className={classes.column}>
             <Panel className={classes.filterBar}>
               <Panel.Heading className={classes.filterHeading}>
                 <Glyphicon glyph="filter" />
@@ -50,7 +50,7 @@ class FilterBar extends PureComponent {
               </Panel.Body>
             </Panel>
           </Col>
-          <Col xs={8} md={9} className={classes.column}>
+          <Col xs={8} md={9} lg={10} className={classes.column}>
             <Row className={`${classes.row} ${classes.searchRow}`}>
               <Col xs={8} md={10} lg={10} className={classes.column}>
                 <Search />
