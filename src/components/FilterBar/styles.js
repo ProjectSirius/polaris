@@ -20,7 +20,6 @@ export default {
     padding: '5px',
     display: 'flex',
     flexDirection: 'column',
-    height: '120px',
     justifyContent: 'space-around',
 
     borderBottom: '1px solid rgba(206, 197, 197, .6)',
@@ -28,6 +27,7 @@ export default {
 
   filterTitle: {
     fontSize: '20px',
+    padding: '20px 0',
   },
 
   column: {
