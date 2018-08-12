@@ -30,6 +30,11 @@ export default {
     padding: '20px 0',
   },
 
+  filterTitleWithIcon: {
+    display: 'flex',
+    alignItems: 'center',
+  },
+
   column: {
     padding: 0,
   },
