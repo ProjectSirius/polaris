@@ -39,7 +39,11 @@ const AuthButtons = props => {
 };
 
 AuthButtons.propTypes = {
-  lang: PropTypes.string,
+  lang: PropTypes.string.isRequired,
+};
+
+AuthButtons.defaultProps = {
+  lang: 'en',
 };
 
 export default AuthButtons;

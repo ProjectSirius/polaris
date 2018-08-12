@@ -23,11 +23,14 @@ const ProtectedRoute = ({ component: Component, isAuth, ...rest }) => {
 };
 
 ProtectedRoute.propTypes = {
-  isAuth: PropTypes.bool,
-  path: PropTypes.string,
-  location: PropTypes.object,
-  computedMatch: PropTypes.object,
-  dispatch: PropTypes.func,
-  component: PropTypes.func,
+  isAuth: PropTypes.bool.isRequired,
+  path: PropTypes.string.isRequired,
+  location: PropTypes.object.isRequired,
+  computedMatch: PropTypes.object.isRequired,
+  dispatch: PropTypes.func.isRequired,
+  component: PropTypes.func.isRequired,
 };
+
+ProtectedRoute.defaultProps = {};
+
 export default ProtectedRoute;

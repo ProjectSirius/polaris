@@ -129,11 +129,14 @@ class MainNavBar extends React.Component {
 }
 
 MainNavBar.propTypes = {
-  isAuth: PropTypes.bool,
-  currentUser: PropTypes.object,
-  lang: PropTypes.string,
-  isOpen: PropTypes.bool,
-  toggleMenu: PropTypes.func,
-  logOut: PropTypes.func,
+  isAuth: PropTypes.bool.isRequired,
+  currentUser: PropTypes.object.isRequired,
+  lang: PropTypes.string.isRequired,
+  isOpen: PropTypes.bool.isRequired,
+  toggleMenu: PropTypes.func.isRequired,
+  logOut: PropTypes.func.isRequired,
 };
+
+MainNavBar.defaultProps = {};
+
 export default MainNavBar;

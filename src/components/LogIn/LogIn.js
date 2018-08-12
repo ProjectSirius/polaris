@@ -61,15 +61,17 @@ const LogIn = ({
 };
 
 LogIn.PropTypes = {
-  handleSubmit: PropTypes.func,
-  login: PropTypes.func,
-  isAuth: PropTypes.bool,
-  location: PropTypes.object,
-  currentUser: PropTypes.object,
-  lang: PropTypes.string,
-  valid: PropTypes.bool,
-  isRequesting: PropTypes.bool,
-  loginError: PropTypes.object,
+  handleSubmit: PropTypes.func.isRequired,
+  login: PropTypes.func.isRequired,
+  isAuth: PropTypes.bool.isRequired,
+  location: PropTypes.object.isRequired,
+  currentUser: PropTypes.object.isRequired,
+  lang: PropTypes.string.isRequired,
+  valid: PropTypes.bool.isRequired,
+  isRequesting: PropTypes.bool.isRequired,
+  loginError: PropTypes.object.isRequired,
 };
+
+LogIn.defaultProps = {};
 
 export default LogIn;

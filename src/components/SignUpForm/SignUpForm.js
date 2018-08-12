@@ -77,13 +77,16 @@ const SignUpForm = ({
 };
 
 SignUpForm.propTypes = {
-  signUp: PropTypes.func,
-  handleSubmit: PropTypes.func,
-  isSignUp: PropTypes.bool,
-  location: PropTypes.object,
-  valid: PropTypes.bool,
-  isRequesting: PropTypes.bool,
-  errorSignUp: PropTypes.object,
-  formTitle: PropTypes.string,
+  signUp: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
+  isSignUp: PropTypes.bool.isRequired,
+  location: PropTypes.object.isRequired,
+  valid: PropTypes.bool.isRequired,
+  isRequesting: PropTypes.bool.isRequired,
+  errorSignUp: PropTypes.object.isRequired,
+  formTitle: PropTypes.string.isRequired,
 };
+
+SignUpForm.defaultProps = {};
+
 export default SignUpForm;

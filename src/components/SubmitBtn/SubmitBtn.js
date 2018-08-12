@@ -20,9 +20,9 @@ const SubmitBtn = ({ valid, isRequesting, value }) => {
 };
 
 SubmitBtn.propTypes = {
-  valid: PropTypes.bool,
-  isRequesting: PropTypes.bool,
-  value: PropTypes.string,
+  valid: PropTypes.bool.isRequired,
+  isRequesting: PropTypes.bool.isRequired,
+  value: PropTypes.string.isRequired,
 };
 
 export default SubmitBtn;

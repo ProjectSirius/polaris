@@ -8,7 +8,10 @@ const HomePage = ({ title }) => {
 };
 
 HomePage.propTypes = {
-  title: PropTypes.string,
+  title: PropTypes.string.isRequired,
 };
 
+HomePage.defaultProps = {
+  title: 'Polaris',
+};
 export default HomePage;
