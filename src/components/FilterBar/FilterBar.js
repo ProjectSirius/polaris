@@ -1,12 +1,5 @@
 import React, { PureComponent } from 'react';
-import {
-  Panel,
-  Glyphicon,
-  Row,
-  Col,
-  ListGroup,
-  ListGroupItem,
-} from 'react-bootstrap';
+import { Panel, Glyphicon, Row, Col } from 'react-bootstrap';
 
 import StarRating from '../../containers/StarRating';
 import PriceRangeSlider from '../../containers/PriceRangeSliderContainer';
@@ -19,7 +12,7 @@ class FilterBar extends PureComponent {
     return (
       <div>
         <Row className={classes.row}>
-          <Col xs={6} md={3} className={classes.column}>
+          <Col xs={4} md={3} className={classes.column}>
             <Panel className={classes.filterBar}>
               <Panel.Heading className={classes.filterHeading}>
                 <Glyphicon glyph="filter" />
@@ -37,23 +30,28 @@ class FilterBar extends PureComponent {
               </Panel.Body>
             </Panel>
           </Col>
-          <Col xs={6} md={9} className={classes.column}>
+          <Col xs={8} md={9} className={classes.column}>
             <Row className={`${classes.row} ${classes.searchRow}`}>
               <Col xs={8} md={10} lg={10} className={classes.column}>
                 <Search />
               </Col>
-              <Col xs={4} md={2} lg={2} className={classes.column}>
-                <ListGroup className={classes.configurable}>
-                  <ListGroupItem>
+              <Col
+                xs={4}
+                md={2}
+                lg={2}
+                className={`${classes.column} ${classes.configCol}`}
+              >
+                <ul className={classes.configurable}>
+                  <li className={classes.listItem}>
                     <Glyphicon glyph="th-large" />
-                  </ListGroupItem>
-                  <ListGroupItem>
+                  </li>
+                  <li className={classes.listItem}>
                     <Glyphicon glyph="th-list" />
-                  </ListGroupItem>
-                  <ListGroupItem>
+                  </li>
+                  <li className={classes.listItem}>
                     <Glyphicon glyph="map-marker" />
-                  </ListGroupItem>
-                </ListGroup>
+                  </li>
+                </ul>
               </Col>
             </Row>
             <Row
