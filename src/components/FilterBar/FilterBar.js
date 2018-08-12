@@ -5,6 +5,7 @@ import StarRating from '../../containers/StarRating';
 import PriceRangeSlider from '../../containers/PriceRangeSliderContainer';
 import Search from '../../containers/SearchContainer';
 import CheckboxFilter from '../../containers/CheckboxFilter';
+import SelectOptionFilter from '../../containers/SelectOptionFilter';
 
 class FilterBar extends PureComponent {
   render() {
@@ -36,6 +37,15 @@ class FilterBar extends PureComponent {
                     </div>
                   </div>
                   <CheckboxFilter />
+                </div>
+                <div className={classes.filterWrapper}>
+                  <div className={classes.filterTitle}>
+                    <div className={classes.filterTitleWithIcon}>
+                      <Glyphicon glyph="glyphicon glyphicon-chevron-down" />
+                      <span style={{ paddingLeft: '6px' }}>Select</span>
+                    </div>
+                  </div>
+                  <SelectOptionFilter />
                 </div>
               </Panel.Body>
             </Panel>
