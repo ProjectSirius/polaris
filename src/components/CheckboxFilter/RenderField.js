@@ -25,21 +25,25 @@ class TextField extends Component {
       <div>
         <ControlLabel>
           <label
-            className="btn btn-default active"
-            style={{ padding: '1px 4px' }}
+            className={`
+            btn
+            btn-default
+            active
+            ${classes.checkboxWrapper}
+            `}
           >
             <input
               {...props}
               checked={this.state.value}
               onChange={this.onChange}
-              style={{ opacity: 0, position: 'absolute' }}
+              className={classes.checkbox}
             />
             <Glyphicon
               glyph="glyphicon glyphicon-ok"
               className={this.state.value ? classes.checked : classes.unchecked}
             />
           </label>
-          <span style={{ paddingLeft: '10px' }}>{label}</span>
+          <span className={classes.option}>{label}</span>
         </ControlLabel>
       </div>
     );
