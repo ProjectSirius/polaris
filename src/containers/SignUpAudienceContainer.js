@@ -31,6 +31,7 @@ SignUpAudienceForm = reduxForm({
     userType: 'audience_owner',
   },
   validate: signUpValidate,
+  destroyOnUnmount: false,
 })(SignUpAudienceForm);
 
 export default connect(

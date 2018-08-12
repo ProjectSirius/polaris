@@ -30,6 +30,7 @@ SignUpContentMakerForm = reduxForm({
     userType: 'content_owner',
   },
   validate: signUpValidate,
+  destroyOnUnmount: false,
 })(SignUpContentMakerForm);
 
 export default connect(

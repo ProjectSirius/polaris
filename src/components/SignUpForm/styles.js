@@ -6,6 +6,15 @@ export default {
     flexBasis: '100%',
     justifyContent: 'center',
     padding: '72px 48px',
+    '& > form': {
+      width: '80%',
+      '@media screen and (min-width: 900px)': {
+        width: '450px',
+      },
+    },
+    '& h1': {
+      textAlign: 'center',
+    },
   },
 
   hiddenInput: {

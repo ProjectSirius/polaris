@@ -1,9 +1,21 @@
 import React from 'react';
 import { DropdownButton, MenuItem, Glyphicon } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { injectIntl, defineMessages } from 'react-intl';
 
 import AuthButtonsContainer from '../../containers/AuthButtonsContainer';
 import SearchContainer from '../../containers/SearchContainer';
+
+const messages = defineMessages({
+  audience: {
+    id: 'audience',
+    defaultMessage: 'Audience',
+  },
+  content: {
+    id: 'content',
+    defaultMessage: 'Content',
+  },
+});
 
 class MainNavBar extends React.Component {
   constructor(props) {
@@ -27,7 +39,13 @@ class MainNavBar extends React.Component {
 
   render() {
     const path = window.location.pathname;
-    const { lang, isOpen, isAuth, classes } = this.props;
+    const {
+      lang,
+      isOpen,
+      isAuth,
+      classes,
+      intl: { formatMessage },
+    } = this.props;
 
     return (
       <header className={classes.mainNavHeader}>
@@ -101,7 +119,7 @@ class MainNavBar extends React.Component {
                   search: `?locale=${lang}`,
                 }}
               >
-                Audience
+                {formatMessage(messages.audience)}
               </Link>
             </div>
             <div className={classes.navLink}>
@@ -134,4 +152,4 @@ class MainNavBar extends React.Component {
   }
 }
 
-export default MainNavBar;
+export default injectIntl(MainNavBar);
