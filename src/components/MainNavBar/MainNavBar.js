@@ -3,7 +3,6 @@ import { DropdownButton, MenuItem, Glyphicon } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 import AuthButtonsContainer from '../../containers/AuthButtonsContainer';
-import SearchContainer from '../../containers/SearchContainer';
 
 class MainNavBar extends React.Component {
   constructor(props) {
@@ -117,7 +116,6 @@ class MainNavBar extends React.Component {
           </nav>
           {isAuth ? (
             <div className={classes.navLinksAuth}>
-              <SearchContainer />
               <div
                 className={classes.navLinkLogout}
                 onClick={this.handleLogOut}
