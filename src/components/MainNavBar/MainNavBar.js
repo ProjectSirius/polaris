@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { injectIntl, defineMessages } from 'react-intl';
 
 import AuthButtonsContainer from '../../containers/AuthButtonsContainer';
-import SearchContainer from '../../containers/SearchContainer';
 
 const messages = defineMessages({
   audience: {
@@ -135,7 +134,6 @@ class MainNavBar extends React.Component {
           </nav>
           {isAuth ? (
             <div className={classes.navLinksAuth}>
-              <SearchContainer />
               <div
                 className={classes.navLinkLogout}
                 onClick={this.handleLogOut}

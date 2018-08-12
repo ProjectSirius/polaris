@@ -13,6 +13,7 @@ const Search = ({ classes }) => {
         label="search"
         bsSize="large"
         placeholder="Search..."
+        className={classes.search}
       />
     </div>
   );

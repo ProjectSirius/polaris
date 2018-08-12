@@ -1,7 +1,14 @@
 import React from 'react';
+import FilterBar from '../FilterBar';
 
-const ContentOwnerHomePage = props => {
-  return <div>Content Owner Home Page</div>;
-};
+class ContentOwnerHomePage extends React.Component {
+  render() {
+    return (
+      <div>
+        <FilterBar />
+      </div>
+    );
+  }
+}
 
 export default ContentOwnerHomePage;

@@ -1,20 +1,15 @@
 export default {
   searchWrapper: {
-    width: '80%',
+    width: '100%',
 
     '& > div': {
       margin: 0,
-      width: '90%',
+      width: '100%',
     },
   },
 
-  '@media screen and (max-width: 640px)': {
-    searchWrapper: {
-      width: '100%',
-
-      '& > div': {
-        width: '100%',
-      },
-    },
+  search: {
+    height: '53px',
+    borderRadius: 0,
   },
 };

@@ -90,6 +90,7 @@ export default {
 
   mainNavOpened: {
     transform: 'translateY(0)',
+    zIndex: 3,
   },
 
   /*
