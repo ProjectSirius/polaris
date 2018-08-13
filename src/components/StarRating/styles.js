@@ -2,11 +2,13 @@ export default {
   rating: {
     lineHeight: 1,
     display: 'inline-block',
+    textAlign: 'center',
   },
 
   ratingItem: {
     display: 'inline',
     fontSize: 0,
+    marginLeft: '3px',
 
     '&:before': {
       fontSize: '30px',
@@ -16,6 +18,10 @@ export default {
 
     '&:hover': {
       cursor: 'pointer',
+    },
+
+    '&:first-child': {
+      marginLeft: 0,
     },
   },
 
