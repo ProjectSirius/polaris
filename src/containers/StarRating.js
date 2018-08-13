@@ -1,26 +1,33 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
 
 import StarRating from '../components/StarRating';
+import { selectFilteringPageRating } from '../selectors/filteringPage';
+import { rating } from '../actions';
 
-class StarRatingContainer extends Component {
-  constructor() {
-    super();
+const mapStateToProps = createStructuredSelector({
+  selectFilteringPageRating,
+});
 
-    this.state = {
-      rating: 0,
-    };
-  }
+const mapDispatchToProps = dispatch => ({
+  updRating: rate => dispatch(rating(rate)),
+});
 
-  render() {
-    return (
-      <StarRating
-        min={1}
-        max={5}
-        onChange={rating => this.setState({ rating })}
-        value={this.state.rating}
-      />
-    );
-  }
-}
+let StarRatingContainer = ({ updRating, selectFilteringPageRating }) => {
+  return (
+    <StarRating
+      min={1}
+      max={5}
+      onChange={updRating}
+      value={selectFilteringPageRating}
+    />
+  );
+};
+
+StarRatingContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(StarRatingContainer);
 
 export default StarRatingContainer;
