@@ -5,5 +5,15 @@ import logOut from './logOut';
 import filterBar from './filter-bar';
 import rating from './rating';
 import toggleMenu from './main-menu';
+import getData from './data';
 
-export { signUp, changeLang, login, toggleMenu, logOut, filterBar, rating };
+export {
+  signUp,
+  changeLang,
+  login,
+  toggleMenu,
+  logOut,
+  filterBar,
+  rating,
+  getData,
+};

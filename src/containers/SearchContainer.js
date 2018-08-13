@@ -5,7 +5,7 @@ import { createStructuredSelector } from 'reselect';
 
 import { selectCurrentUser, selectIsAuth } from '../selectors';
 
-import search from '../actions/search';
+import search from '../actions/data';
 
 import Search from '../components/Search';
 
