@@ -5,6 +5,10 @@ body {
   background-color: #f4f7f6;
 }
 
+img {
+  max-width: 100%;
+}
+
 a {
   color: inherit;
   text-decoration: none;
