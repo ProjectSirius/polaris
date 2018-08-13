@@ -16,6 +16,9 @@ const LOGIN_FAILURE = 'LOGIN_FAILURE';
 // log out
 const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
 
+// filtering page
+const UPD_RATING = 'UPD_RATING';
+
 export {
   SIGN_UP_REQUEST,
   SIGN_UP_SUCCESS,
@@ -26,4 +29,5 @@ export {
   LOGIN_FAILURE,
   LOGOUT_SUCCESS,
   TOGGLE_MENU,
+  UPD_RATING,
 };
