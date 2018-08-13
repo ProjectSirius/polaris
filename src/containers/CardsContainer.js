@@ -14,6 +14,12 @@ import { getData } from '../actions';
 import Cards from '../components/Cards';
 
 class FilterBarContainer extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.onScroll = this.onScroll.bind(this);
+  }
+
   componentDidMount() {
     const { isAuth, currentUser } = this.props;
 
@@ -24,6 +30,7 @@ class FilterBarContainer extends React.Component {
       : '';
 
     this.props.getData(dataType, '');
+    window.addEventListener('scroll', this.onScroll, false);
   }
 
   onScroll() {
@@ -45,6 +52,7 @@ class FilterBarContainer extends React.Component {
 
   render() {
     const { data, isRequesting } = this.props;
+
     return (
       <div>
         <Cards data={data} isRequesting={isRequesting} />
