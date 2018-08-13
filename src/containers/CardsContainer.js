@@ -11,9 +11,15 @@ import {
 
 import { getData } from '../actions';
 
-import FilterBar from '../components/FilterBar';
+import Cards from '../components/Cards';
 
 class FilterBarContainer extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.onScroll = this.onScroll.bind(this);
+  }
+
   componentDidMount() {
     const { isAuth, currentUser } = this.props;
 
@@ -24,13 +30,32 @@ class FilterBarContainer extends React.Component {
       : '';
 
     this.props.getData(dataType, '');
+    window.addEventListener('scroll', this.onScroll, false);
+  }
+
+  onScroll() {
+    if (
+      window.innerHeight + window.scrollY >=
+      document.body.offsetHeight - 500
+    ) {
+      const { isAuth, currentUser } = this.props;
+
+      const dataType = isAuth
+        ? currentUser.userType === 'content_owner'
+          ? 'channels'
+          : 'contents'
+        : '';
+
+      this.props.getData(dataType, '');
+    }
   }
 
   render() {
     const { data, isRequesting } = this.props;
+
     return (
       <div>
-        <FilterBar data={data} isRequesting={isRequesting} />
+        <Cards data={data} isRequesting={isRequesting} />
       </div>
     );
   }
