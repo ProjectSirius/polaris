@@ -1,8 +1,8 @@
-import { SEARCH_SUCCESS } from '../actions/constants';
+import { DATA_RECEIVE_SUCCESS } from '../actions/constants';
 
-const data = (state = {}, action) => {
+const data = (state = [], action) => {
   switch (action.type) {
-    case SEARCH_SUCCESS:
+    case DATA_RECEIVE_SUCCESS:
       return action.payload.data;
     default:
       return state;
