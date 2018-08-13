@@ -1,20 +1,18 @@
 export default {
-  searchRow: {
+  confAndSearchWrapper: {
     display: 'flex',
-    padding: 0,
-    margin: 0,
-    '& > div': {
-      padding: 0,
-      margin: 0,
-    },
   },
 
-  column: {
-    padding: 0,
-    margin: 0,
+  searchWrapper: {
+    width: '67%',
+    flexGrow: '1',
   },
 
-  'right-column': {
+  confWrapper: {
+    width: '33%',
+    maxWidth: '200px',
+    display: 'flex',
+    flexDirection: 'column',
     marginLeft: '15px',
   },
 };
