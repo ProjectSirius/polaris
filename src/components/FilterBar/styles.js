@@ -3,13 +3,12 @@ export default {
     display: 'flex',
   },
 
-  filterBar: {
-    /*width: '382px',*/
-  },
+  filterBar: {},
 
   filterHeading: {
     fontSize: '22px',
     display: 'flex',
+    width: '100%',
   },
 
   filterHeadingTitle: {
@@ -35,41 +34,28 @@ export default {
     alignItems: 'center',
   },
 
-  column: {
-    padding: 0,
-  },
-
-  row: {
+  'row-wrapper': {
+    display: 'flex',
     margin: 0,
+    padding: '10px',
   },
 
   searchRow: {
-    height: '53px',
-    background: '#f5f5f5',
-  },
-
-  configurable: {
     display: 'flex',
-    marginBottom: 0,
-    width: '100%',
     padding: 0,
-    border: '1px solid rgb(204, 204, 204)',
-    borderBottom: 0,
+    margin: 0,
+    '& > div': {
+      padding: 0,
+      margin: 0,
+    },
   },
 
-  listItem: {
-    listStyle: 'none',
-    display: 'inline-flex',
-    background: '#fff',
-    height: '52px',
-    justifyContent: 'center',
-    width: '33.3%',
-    alignItems: 'center',
-    borderRight: '1px solid rgb(204, 204, 204)',
+  column: {
+    padding: 0,
+    margin: 0,
   },
 
-  configCol: {
-    background: '#2fbdbd',
-    height: '53px',
+  'right-column': {
+    marginLeft: '15px',
   },
 };

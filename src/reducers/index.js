@@ -9,6 +9,7 @@ import isOpenMainMenu from './mainMenu';
 import isRequesting from './isRequesting';
 import error from './error';
 import data from './data';
+import filteringPage from './filteringPage';
 
 export default combineReducers({
   form: formReducer,
@@ -20,4 +21,5 @@ export default combineReducers({
   isRequesting,
   error,
   data,
+  filteringPage,
 });
