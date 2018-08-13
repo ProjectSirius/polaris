@@ -18,6 +18,7 @@ const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
 
 // filtering page
 const UPD_RATING = 'UPD_RATING';
+const UPD_FILTER_BAR = 'UPD_FILTER_BAR';
 
 export {
   SIGN_UP_REQUEST,
@@ -30,4 +31,5 @@ export {
   LOGOUT_SUCCESS,
   TOGGLE_MENU,
   UPD_RATING,
+  UPD_FILTER_BAR,
 };
