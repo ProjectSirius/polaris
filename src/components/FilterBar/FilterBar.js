@@ -6,6 +6,7 @@ import PriceRangeSlider from '../../containers/PriceRangeSliderContainer';
 import Search from '../../containers/SearchContainer';
 import CheckboxFilter from '../../containers/CheckboxFilter';
 import SelectOptionFilter from '../../containers/SelectOptionFilter';
+import ConfigurableBtnsContainer from '../../containers/ConfigurableBtnsContainer';
 
 class FilterBar extends PureComponent {
   render() {
@@ -65,17 +66,7 @@ class FilterBar extends PureComponent {
               lg={2}
               className={`${classes.column} ${classes.configCol}`}
             >
-              <ul className={classes.configurable}>
-                <li className={classes.listItem}>
-                  <Glyphicon glyph="th-large" />
-                </li>
-                <li className={classes.listItem}>
-                  <Glyphicon glyph="th-list" />
-                </li>
-                <li className={classes.listItem}>
-                  <Glyphicon glyph="map-marker" />
-                </li>
-              </ul>
+              <ConfigurableBtnsContainer />
             </Col>
           </Row>
         </Col>
