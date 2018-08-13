@@ -6,6 +6,8 @@ import selectIsOpenMainMenu from './mainMenu';
 import selectIsRequesting from './isRequesting';
 import selectError from './error';
 
+export const selectData = state => state.data;
+
 export {
   selectIsSignUp,
   selectIsAuth,
