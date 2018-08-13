@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
 import StarRating from '../components/StarRating';
-import { selectFilteringPageRating } from '../selectors/filteringPage';
+import { selectFilteringPageRating } from '../selectors';
 import { rating } from '../actions';
 
 const mapStateToProps = createStructuredSelector({

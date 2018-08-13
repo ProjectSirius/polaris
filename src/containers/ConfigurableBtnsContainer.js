@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
 import ConfigurableBtns from '../components/ConfigurableBtns';
-import { selectFilteringPageFilterBar } from '../selectors/filteringPage';
+import { selectFilteringPageFilterBar } from '../selectors';
 import { filterBar } from '../actions';
 
 const mapStateToProps = createStructuredSelector({
