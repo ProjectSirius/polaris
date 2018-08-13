@@ -1,11 +1,15 @@
 import React from 'react';
 
-import FilterBar from '../../containers/FilterBarContainer';
+import FilterBar from '../FilterBar';
+import CardsContainer from '../../containers/CardsContainer';
+import ConfigurableAndSearch from '../ConfigurableAndSearch/';
 
-const AudienceHomePage = () => {
+const AudienceHomePage = ({ classes }) => {
   return (
-    <div>
+    <div className={classes.filterPageWrapper}>
       <FilterBar />
+      <ConfigurableAndSearch />
+      <CardsContainer />
     </div>
   );
 };
