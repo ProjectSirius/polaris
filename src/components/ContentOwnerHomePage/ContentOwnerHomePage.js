@@ -1,5 +1,5 @@
 import React from 'react';
-import FilterBar from '../FilterBar';
+import FilterBar from '../../containers/FilterBarContainer';
 
 class ContentOwnerHomePage extends React.Component {
   render() {
