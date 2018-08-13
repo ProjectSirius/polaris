@@ -7,9 +7,13 @@ import ConfigurableAndSearch from '../ConfigurableAndSearch/';
 const ContentOwnerHomePage = ({ classes }) => {
   return (
     <div className={classes.filterPageWrapper}>
-      <FilterBar />
-      <ConfigurableAndSearch />
-      <CardsContainer />
+      <div className={classes.filterPageLeft}>
+        <FilterBar />
+      </div>
+      <div className={classes.filterPageRight}>
+        <ConfigurableAndSearch />
+        <CardsContainer />
+      </div>
     </div>
   );
 };
