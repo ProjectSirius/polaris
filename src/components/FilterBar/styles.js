@@ -3,13 +3,12 @@ export default {
     display: 'flex',
   },
 
-  filterBar: {
-    /*width: '382px',*/
-  },
+  filterBar: {},
 
   filterHeading: {
     fontSize: '22px',
     display: 'flex',
+    width: '100%',
   },
 
   filterHeadingTitle: {
@@ -35,41 +34,63 @@ export default {
     alignItems: 'center',
   },
 
-  column: {
-    padding: 0,
-  },
-
-  row: {
+  'row-wrapper': {
+    display: 'flex',
     margin: 0,
-  },
-
-  searchRow: {
-    height: '53px',
-    background: '#f5f5f5',
+    padding: '10px',
   },
 
   configurable: {
     display: 'flex',
     marginBottom: 0,
-    width: '100%',
+    heigth: '53px',
     padding: 0,
-    border: '1px solid rgb(204, 204, 204)',
-    borderBottom: 0,
+    marginLeft: '10px',
   },
 
   listItem: {
     listStyle: 'none',
     display: 'inline-flex',
     background: '#fff',
-    height: '52px',
+    height: '53px',
     justifyContent: 'center',
     width: '33.3%',
     alignItems: 'center',
-    borderRight: '1px solid rgb(204, 204, 204)',
+    border: '1px solid rgb(204, 204, 204)',
+    cursor: 'pointer',
+    transition: 'all .5s',
+
+    '&:hover': {
+      background: '#333',
+      color: '#fff',
+    },
+
+    '&:active': {
+      background: '#333',
+      color: '#fff',
+    },
+
+    '&:nth-child(n + 2)': {
+      borderLeft: 'none',
+    },
   },
 
-  configCol: {
-    background: '#2fbdbd',
-    height: '53px',
+  searchRow: {
+    display: 'flex',
+    padding: 0,
+    margin: 0,
+    '& > div': {
+      padding: 0,
+      margin: 0,
+    },
+  },
+
+  column: {
+    padding: 0,
+    margin: 0,
+  },
+
+  'right-column': {
+    marginLeft: '15px',
   },
 };
