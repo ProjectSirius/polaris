@@ -3,10 +3,8 @@ import { Panel, Glyphicon, Row, Col } from 'react-bootstrap';
 
 import StarRating from '../../containers/StarRating';
 import PriceRangeSlider from '../../containers/PriceRangeSliderContainer';
-import Search from '../../containers/SearchContainer';
 import CheckboxFilter from '../../containers/CheckboxFilter';
 import SelectOptionFilter from '../../containers/SelectOptionFilter';
-import ConfigurableBtnsContainer from '../../containers/ConfigurableBtnsContainer';
 
 class FilterBar extends PureComponent {
   render() {
@@ -49,26 +47,6 @@ class FilterBar extends PureComponent {
               </div>
             </Panel.Body>
           </Panel>
-        </Col>
-        <Col
-          xs={8}
-          md={9}
-          lg={10}
-          className={`${classes.column} ${classes['right-column']}`}
-        >
-          <Row className={classes.searchRow}>
-            <Col xs={8} md={10} lg={10} className={classes.column}>
-              <Search />
-            </Col>
-            <Col
-              xs={4}
-              md={2}
-              lg={2}
-              className={`${classes.column} ${classes.configCol}`}
-            >
-              <ConfigurableBtnsContainer />
-            </Col>
-          </Row>
         </Col>
       </Row>
     );
