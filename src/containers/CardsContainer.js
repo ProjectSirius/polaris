@@ -26,6 +26,23 @@ class FilterBarContainer extends React.Component {
     this.props.getData(dataType, '');
   }
 
+  onScroll() {
+    if (
+      window.innerHeight + window.scrollY >=
+      document.body.offsetHeight - 500
+    ) {
+      const { isAuth, currentUser } = this.props;
+
+      const dataType = isAuth
+        ? currentUser.userType === 'content_owner'
+          ? 'channels'
+          : 'contents'
+        : '';
+
+      this.props.getData(dataType, '');
+    }
+  }
+
   render() {
     const { data, isRequesting } = this.props;
     return (
