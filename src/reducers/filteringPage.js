@@ -11,7 +11,7 @@ const filterBar = (state = 'table', action) => {
   }
 };
 
-const rating = (state = 0, action) => {
+const rating = (state = 1, action) => {
   switch (action.type) {
     case UPD_RATING:
       return action.payload.rating;
