@@ -8,6 +8,7 @@ import isAuth from './isAuth';
 import isOpenMainMenu from './mainMenu';
 import isRequesting from './isRequesting';
 import error from './error';
+import data from './data';
 import filteringPage from './filteringPage';
 
 export default combineReducers({
@@ -19,5 +20,6 @@ export default combineReducers({
   isOpenMainMenu,
   isRequesting,
   error,
+  data,
   filteringPage,
 });
