@@ -6,7 +6,7 @@ export default {
     margin: '15px 0',
 
     '& > div': {
-      transition: 'all 0.6s ease',
+      transition: 'all .9s ease',
     },
   },
 
