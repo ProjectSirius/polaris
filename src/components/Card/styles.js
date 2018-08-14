@@ -9,6 +9,7 @@ export default {
     position: 'relative',
     height: '518px',
     backgroundColor: '#fff',
+    transition: 'all .6s',
   },
 
   img: {
@@ -41,6 +42,7 @@ export default {
   content: {
     padding: '10px 20px',
     color: '#000',
+    transition: 'all 0.6s ease-in-out',
   },
 
   countryTime: {
