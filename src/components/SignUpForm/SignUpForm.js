@@ -7,8 +7,6 @@ import { PropTypes } from 'prop-types';
 import renderField from './RenderField';
 import SubmitBtn from '../SubmitBtn';
 
-import './styles.css';
-
 const SignUpForm = ({
   signUp,
   handleSubmit,
@@ -18,12 +16,13 @@ const SignUpForm = ({
   isRequesting,
   errorSignUp,
   formTitle,
+  classes,
 }) => {
   const { from } = location.state || { from: { pathname: '/login' } };
   return isSignUp ? (
     <Redirect to={from} />
   ) : (
-    <div className="sign-up-form">
+    <div className={classes.signUpForm}>
       <form onSubmit={handleSubmit(signUp)}>
         <h1>{formTitle}</h1>
         <Field
@@ -32,7 +31,7 @@ const SignUpForm = ({
           component={renderField}
           placeholder="Username"
           bsSize="large"
-          className="input"
+          className={classes.input}
         />
         <Field
           name="email"
@@ -40,7 +39,7 @@ const SignUpForm = ({
           component={renderField}
           placeholder="Email"
           bsSize="large"
-          className="input"
+          className={classes.input}
         />
         <Field
           name="password"
@@ -48,7 +47,7 @@ const SignUpForm = ({
           component={renderField}
           placeholder="Password"
           bsSize="large"
-          className="input"
+          className={classes.input}
         />
         <Field
           name="passwordConformation"
@@ -56,13 +55,13 @@ const SignUpForm = ({
           component={renderField}
           placeholder="Password Conformation"
           bsSize="large"
-          className="input"
+          className={classes.input}
         />
         <Field
           name="userType"
           type="hidden"
           component={renderField}
-          className="hidden-input"
+          className={classes.hiddenInput}
         />
         {isRequesting && <Alert bsStyle="info">Please wait...</Alert>}
         {errorSignUp && <Alert bsStyle="danger">{errorSignUp}</Alert>}

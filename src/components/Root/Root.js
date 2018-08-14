@@ -5,8 +5,6 @@ import { IntlProvider } from 'react-intl';
 
 import AppContainer from '../../containers/AppContainer';
 
-import './styles.css';
-
 const Root = ({ store, locale, messages }) => {
   return (
     <Provider store={store}>

@@ -1,17 +1,18 @@
-import selectIsSignUp from './isSignUp';
-import selectIsAuth from './isAuth';
-import selectCurrentUser from './currentUser';
-import selectLanguage from './language';
-import selectIsOpenMainMenu from './mainMenu';
-import selectIsRequesting from './isRequesting';
-import selectError from './error';
+import { createSelector } from 'reselect';
 
-export {
-  selectIsSignUp,
-  selectIsAuth,
+export const selectData = state => state.data;
+
+export const selectIsOpenMainMenu = state => state.isOpenMainMenu;
+export const selectIsRequesting = state => state.isRequesting;
+export const selectCurrentUser = state => state.currentUser;
+export const selectLanguage = state => state.lang;
+export const selectIsSignUp = state => state.isSignUp;
+export const selectError = state => state.error;
+export const selectFilteringPageRating = state => state.filteringPage.rating;
+export const selectFilteringPageFilterBar = state =>
+  state.filteringPage.filterBar;
+
+export const selectIsAuth = createSelector(
   selectCurrentUser,
-  selectLanguage,
-  selectIsOpenMainMenu,
-  selectIsRequesting,
-  selectError,
-};
+  currentUser => currentUser !== null
+);

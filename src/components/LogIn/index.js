@@ -1,3 +1,6 @@
-import LogIn from './LogIn';
+import injectSheet from 'react-jss';
 
-export default LogIn;
+import LogIn from './LogIn';
+import styles from './styles';
+
+export default injectSheet(styles)(LogIn);

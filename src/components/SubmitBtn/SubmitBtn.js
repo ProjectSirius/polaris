@@ -2,11 +2,9 @@ import React from 'react';
 import { PropTypes } from 'prop-types';
 import { Button } from 'react-bootstrap';
 
-import './styles.css';
-
-const SubmitBtn = ({ valid, isRequesting, value }) => {
+const SubmitBtn = ({ valid, isRequesting, value, classes }) => {
   return (
-    <div className="login-submit-wrapper">
+    <div className={classes.submitWrapper}>
       <Button
         bsSize="large"
         block

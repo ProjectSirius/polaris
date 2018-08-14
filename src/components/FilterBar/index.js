@@ -1,3 +1,7 @@
+import injectSheet from 'react-jss';
+
 import FilterBar from './FilterBar';
 
-export default FilterBar;
+import styles from './styles';
+
+export default injectSheet(styles)(FilterBar);

@@ -10,8 +10,6 @@ import ContentOwnerHomePage from '../ContentOwnerHomePage';
 import HomePageContainer from '../../containers/HomePageContainer';
 import MainNavBarContainer from '../../containers/MainNavBarContainer';
 
-import './App.css';
-
 const App = ({ content, title }) => {
   return (
     <div className="App">
