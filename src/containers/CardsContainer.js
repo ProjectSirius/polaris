@@ -7,7 +7,7 @@ import {
   selectIsRequesting,
   selectIsAuth,
   selectCurrentUser,
-  selectFilteringPageFilterBar
+  selectFilteringPageFilterBar,
 } from '../selectors';
 
 import { getData } from '../actions';
@@ -67,7 +67,7 @@ const mapStateToProps = createStructuredSelector({
   isRequesting: selectIsRequesting,
   isAuth: selectIsAuth,
   currentUser: selectCurrentUser,
-  view: selectFilteringPageFilterBar
+  view: selectFilteringPageFilterBar,
 });
 
 const mapDispatchToProps = dispatch => ({
