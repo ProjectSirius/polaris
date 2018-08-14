@@ -3,27 +3,37 @@ import { Label } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { Glyphicon } from 'react-bootstrap';
 
-const Card = ({ info: { id, title, description, date, img }, classes }) => {
+const Card = ({
+  info: { id, title, description, date, img },
+  classes,
+  view,
+}) => {
   return (
-    <div className={classes.cardWrapper}>
-      <div className={classes.card}>
-        <div className={classes.imgWrapper}>
-          <div className={classes.imgModal}>
-            <div className={classes.icon}>
+    <div
+      className={
+        view === 'table' ? classes.cardWrapper : classes.cardWrapperList
+      }
+    >
+      <div className={view === 'table' ? classes.card : classes.cardList}>
+        <div className={view === 'list' ? classes.imgWrapper : ''}>
+          <Link to={`channels/${id}`}>
+            <div className={classes.imgModal}>
               <Link to={`channels/${id}`}>
-                <Glyphicon glyph="glyphicon glyphicon-share-alt" />
+                <div className={classes.icon}>
+                  <Glyphicon glyph="glyphicon glyphicon-share-alt" />
+                </div>
               </Link>
             </div>
-          </div>
-          <Link to={`channels/${id}`}>
             <img
-              className={classes.img}
+              className={view === 'table' ? classes.img : classes.imgList}
               src="https://skirtingboardsdirect.com/wp-content/uploads/2014/12/Fallback-Image-600x600.png"
               alt="Sorry, we can't upload!"
             />
           </Link>
         </div>
-        <article className={classes.content}>
+        <article
+          className={view === 'table' ? classes.content : classes.contentList}
+        >
           <h2 className={classes.title}>{title}</h2>
           <div className={classes.countryTime}>
             <span>from Armenia</span>
