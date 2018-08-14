@@ -4,6 +4,10 @@ export default {
     flexWrap: 'wrap',
     justifyContent: 'space-between',
     margin: '15px 0',
+
+    '& > div': {
+      transition: 'all 0.6s ease',
+    },
   },
 
   /*********list view**********/
