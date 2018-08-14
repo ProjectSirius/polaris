@@ -2,6 +2,7 @@ import React from 'react';
 import { Field } from 'redux-form';
 import { Redirect } from 'react-router-dom';
 import { Alert } from 'react-bootstrap';
+import { PropTypes } from 'prop-types';
 
 import renderField from './RenderField';
 import SubmitBtn from '../SubmitBtn';
@@ -73,5 +74,18 @@ const SignUpForm = ({
     </div>
   );
 };
+
+SignUpForm.propTypes = {
+  signUp: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
+  isSignUp: PropTypes.bool.isRequired,
+  location: PropTypes.object.isRequired,
+  valid: PropTypes.bool.isRequired,
+  isRequesting: PropTypes.bool.isRequired,
+  errorSignUp: PropTypes.object.isRequired,
+  formTitle: PropTypes.string.isRequired,
+};
+
+SignUpForm.defaultProps = {};
 
 export default SignUpForm;

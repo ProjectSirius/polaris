@@ -1,10 +1,11 @@
 import React from 'react';
-import { DropdownButton, MenuItem, Glyphicon } from 'react-bootstrap';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { injectIntl, defineMessages } from 'react-intl';
 
+import { DropdownButton, MenuItem, Glyphicon } from 'react-bootstrap';
+
 import AuthButtonsContainer from '../../containers/AuthButtonsContainer';
-import SearchContainer from '../../containers/SearchContainer';
 
 const messages = defineMessages({
   audience: {
@@ -135,7 +136,6 @@ class MainNavBar extends React.Component {
           </nav>
           {isAuth ? (
             <div className={classes.navLinksAuth}>
-              <SearchContainer />
               <div
                 className={classes.navLinkLogout}
                 onClick={this.handleLogOut}
@@ -151,5 +151,16 @@ class MainNavBar extends React.Component {
     );
   }
 }
+
+MainNavBar.propTypes = {
+  isAuth: PropTypes.bool.isRequired,
+  currentUser: PropTypes.object.isRequired,
+  lang: PropTypes.string.isRequired,
+  isOpen: PropTypes.bool.isRequired,
+  toggleMenu: PropTypes.func.isRequired,
+  logOut: PropTypes.func.isRequired,
+};
+
+MainNavBar.defaultProps = {};
 
 export default injectIntl(MainNavBar);
