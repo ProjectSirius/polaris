@@ -1,13 +1,13 @@
 import React from 'react';
-import { DropdownButton, MenuItem } from 'react-bootstrap';
+import { DropdownButton } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const AuthButtons = props => {
-  const { lang } = props;
+  const { lang, classes } = props;
 
   return (
-    <div className="nav-links-auth">
-      <div className="nav-link nav-link-login">
+    <div className={classes.navLinksAuth}>
+      <div className={`${classes.navLink} ${classes.navLinkLogin}`}>
         <Link
           to={{
             pathname: '/login',
@@ -17,20 +17,17 @@ const AuthButtons = props => {
           Login
         </Link>
       </div>
-      <div className="dropdown-btn">
-        <DropdownButton
-          id="dropdown-sign-up"
-          title="SIGN UP"
-          bsStyle="info"
-          pullRight
-        >
+      <div className={classes.dropDownBtn}>
+        <DropdownButton id="dropdown-sign-up" title="SIGN UP" pullRight>
           {' '}
-          <MenuItem href={`/signUpAudience?locale=${lang}`} eventKey="1">
-            SignUp for Audience
-          </MenuItem>
-          <MenuItem href={`/signUpContentMaker?locale=${lang}`} eventKey="1">
-            SignUp for Content Owner
-          </MenuItem>
+          <div className={classes.linkContainer}>
+            <Link to={`/signUpAudience?locale=${lang}`}>
+              SignUp for Audience
+            </Link>
+            <Link to={`/signUpContentMaker?locale=${lang}`}>
+              SignUp for Content Owner
+            </Link>
+          </div>
         </DropdownButton>
       </div>
     </div>

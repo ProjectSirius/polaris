@@ -1,17 +1,17 @@
 [
   {
-    "id": "app.title",
-    "defaultMessage": "Welcome to Polaris",
-    "filepath": "src/components/App/App.js"
+    "id": "audience",
+    "defaultMessage": "Audience",
+    "filepath": "src/components/MainNavBar/MainNavBar.js"
   },
   {
-    "id": "app.content1",
-    "defaultMessage": "To get started, log in",
-    "filepath": "src/components/App/App.js"
+    "id": "content",
+    "defaultMessage": "Content",
+    "filepath": "src/components/MainNavBar/MainNavBar.js"
   },
   {
     "id": "home-page-title",
     "defaultMessage": "Home Page",
-    "filepath": "src/components/HomePage/HomePage.js"
+    "filepath": "src/containers/HomePageContainer.js"
   }
 ]
