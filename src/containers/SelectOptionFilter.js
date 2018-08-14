@@ -5,6 +5,9 @@ import SelectOptionFilter from '../components/SelectOptionFilter';
 
 const SelectOptionFilterForm = reduxForm({
   form: 'SelectOptionFilter_form',
+  initialValues: {
+    selectedOption: '',
+  },
   destroyOnUnmount: false,
 })(SelectOptionFilter);
 
