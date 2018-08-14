@@ -7,6 +7,7 @@ import {
   selectIsRequesting,
   selectIsAuth,
   selectCurrentUser,
+  selectFilteringPageFilterBar,
 } from '../selectors';
 
 import { getData } from '../actions';
@@ -51,11 +52,11 @@ class FilterBarContainer extends React.Component {
   }
 
   render() {
-    const { data, isRequesting } = this.props;
+    const { data, isRequesting, view } = this.props;
 
     return (
       <div>
-        <Cards data={data} isRequesting={isRequesting} />
+        <Cards data={data} isRequesting={isRequesting} view={view} />
       </div>
     );
   }
@@ -66,6 +67,7 @@ const mapStateToProps = createStructuredSelector({
   isRequesting: selectIsRequesting,
   isAuth: selectIsAuth,
   currentUser: selectCurrentUser,
+  view: selectFilteringPageFilterBar,
 });
 
 const mapDispatchToProps = dispatch => ({

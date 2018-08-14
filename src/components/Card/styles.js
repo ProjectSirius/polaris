@@ -9,6 +9,7 @@ export default {
     position: 'relative',
     height: '518px',
     backgroundColor: '#fff',
+    transition: 'all .6s',
   },
 
   img: {
@@ -41,6 +42,7 @@ export default {
   content: {
     padding: '10px 20px',
     color: '#000',
+    transition: 'all 0.6s ease-in-out',
   },
 
   countryTime: {
@@ -91,5 +93,36 @@ export default {
       textDecoration: 'none',
       color: '#e5e5e5',
     },
+  },
+
+  /*********list view**********/
+  cardWrapperList: {
+    width: '100%',
+    maxWidth: '1000px',
+    margin: '15px 0',
+  },
+
+  cardList: {
+    display: 'flex',
+    position: 'relative',
+    height: 'max-content',
+    backgroundColor: '#fff',
+    transition: 'all .5s',
+  },
+
+  imgWrapper: {
+    position: 'relative',
+    width: '35%',
+  },
+
+  imgList: {
+    height: '270px',
+    width: '100%',
+  },
+
+  contentList: {
+    padding: '10px 20px',
+    color: '#000',
+    width: '65%',
   },
 };
