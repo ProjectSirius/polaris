@@ -22,14 +22,12 @@ const AuthButtons = props => {
           {' '}
           <div className={classes.linkContainer}>
             <Link to={`/signUpAudience?locale=${lang}`}>
-              {formatMessage(messages.signUpMessage)} {formatMessage(
-                messages.audience
-              )}
+              {formatMessage(messages.signUpMessage)}{' '}
+              {formatMessage(messages.audience)}
             </Link>
             <Link to={`/signUpContentMaker?locale=${lang}`}>
-              {formatMessage(messages.signUpMessage)} {formatMessage(
-                messages.content
-              )}
+              {formatMessage(messages.signUpMessage)}{' '}
+              {formatMessage(messages.content)}
             </Link>
           </div>
         </DropdownButton>
