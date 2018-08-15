@@ -5,8 +5,8 @@ export default {
     flexShrink: '1',
     flexBasis: '100%',
     justifyContent: 'center',
-    padding: '72px 48px',
     flexDirection: 'column',
+    padding: '72px 48px',
 
     '& span': {
       color: '#bd2b22',
@@ -14,10 +14,18 @@ export default {
   },
 
   loginForm: {
-    width: '50%',
-    margin: '0 auto',
-    minWidth: '250px',
-    maxWidth: '550px',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'column',
+
+    '& > form': {
+      width: '80%',
+
+      '@media screen and (min-width: 900px)': {
+        width: '450px',
+      },
+    },
   },
 
   loginTitle: {
