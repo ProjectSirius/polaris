@@ -100,7 +100,11 @@ class MainNavBar extends React.Component {
                   search: `?locale=${lang}`,
                 }}
               >
-                {formatMessage(messages.projectTitle)}
+                <img
+                  className={classes.mainLogo}
+                  src={require('../../assets/polaris.png')}
+                  alt="Polaris"
+                />
               </Link>
             </h2>
           </div>
