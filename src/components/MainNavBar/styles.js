@@ -57,7 +57,6 @@ export default {
   hamburgerTitle: {
     marginLeft: '10px',
     marginTop: '3px',
-    fontWeight: '700',
   },
 
   /*
@@ -96,6 +95,12 @@ export default {
     zIndex: 3,
   },
 
+  mainNavRight: {
+    width: '50%',
+    display: 'flex',
+    justifyContent: 'flex-end',
+  },
+
   /*
  * nav links
  */
@@ -110,7 +115,7 @@ export default {
   navLink: {
     margin: '5px',
     color: '#212121',
-    fontWeight: '700',
+    fontWeight: '600',
     fontSize: '12px',
     textTransform: 'uppercase',
     textAlign: 'center',
@@ -120,8 +125,12 @@ export default {
     marginRight: '20px',
   },
 
+  authSmall: {
+    display: 'none',
+  },
+
   navLinksAuth: {
-    width: '50%',
+    width: '120px',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'flex-end',
@@ -157,9 +166,9 @@ export default {
 
   navLinkLogout: {
     display: 'flex',
+    width: '100%',
     justifyContent: 'center',
     alignItems: 'center',
-    width: '20%',
     cursor: 'pointer',
     color: '#fff',
     fontWeight: '700',
@@ -201,6 +210,27 @@ export default {
       padding: '0',
     },
 
+    mainNavRight: {
+      width: '100%',
+      justifyContent: 'center',
+    },
+
+    languagesWrapper: {
+      width: '100%',
+      '& > div': {
+        width: '100%',
+        height: '100%',
+        '& > div': {
+          width: '100%',
+          height: '100%',
+          '& > button, & > ul': {
+            width: '100%',
+            height: '100%',
+          },
+        },
+      },
+    },
+
     navLinks: {
       flexDirection: 'column',
       width: '100%',
@@ -209,7 +239,6 @@ export default {
 
     navLinksAuth: {
       flexDirection: 'column',
-      width: '100%',
       height: 'auto',
     },
 
@@ -255,7 +284,17 @@ export default {
       },
     },
   },
+
   '@media screen and (max-width: 500px)': {
+    authBig: {
+      display: 'none',
+    },
+
+    authSmall: {
+      display: 'block',
+      width: '100%',
+    },
+
     mainNav: {
       flexDirection: 'column',
       padding: '0',
@@ -269,10 +308,6 @@ export default {
     mainNavTitleWrapper: {
       width: 'auto',
       marginRight: '10px',
-    },
-
-    languagesWrapper: {
-      display: 'none',
     },
 
     topNav: { padding: 0 },
