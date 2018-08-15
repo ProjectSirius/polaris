@@ -10,6 +10,26 @@
     "filepath": "src/components/MainNavBar/MainNavBar.js"
   },
   {
+    "id": "audience",
+    "defaultMessage": "Audience",
+    "filepath": "src/containers/AuthButtonsContainer.js"
+  },
+  {
+    "id": "content",
+    "defaultMessage": "Content",
+    "filepath": "src/containers/AuthButtonsContainer.js"
+  },
+  {
+    "id": "auth-buttons-sign-up",
+    "defaultMessage": "Sign Up As a",
+    "filepath": "src/containers/AuthButtonsContainer.js"
+  },
+  {
+    "id": "detailed-page-title",
+    "defaultMessage": "Detailed Page",
+    "filepath": "src/containers/DetailedPageContainer.js"
+  },
+  {
     "id": "home-page-title",
     "defaultMessage": "Home Page",
     "filepath": "src/containers/HomePageContainer.js"
