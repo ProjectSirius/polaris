@@ -6,11 +6,18 @@ import { createStructuredSelector } from 'reselect';
 import { selectIsAuth, selectCurrentUser } from '../selectors';
 
 import search from '../actions/data';
+import { setFilters } from '../actions';
 
 import PriceRangeSlider from '../components/PriceRangeSlider';
 
-const PriceRangeSliderContainer = ({ currentUser, isAuth }) => {
+const PriceRangeSliderContainer = ({
+  currentUser,
+  isAuth,
+  search,
+  setFilters,
+}) => {
   const handleChange = (dataType, query, filter) => {
+    setFilters(filter);
     search(dataType, query, filter);
   };
 
@@ -40,6 +47,7 @@ const mapStateToProps = createStructuredSelector({
 const mapDispatchToProps = dispatch => ({
   search: (dataType, query, filter) =>
     dispatch(search(dataType, query, filter)),
+  setFilters: filter => dispatch(setFilters(filter)),
 });
 
 export default connect(
