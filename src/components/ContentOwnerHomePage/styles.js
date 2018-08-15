@@ -2,6 +2,7 @@ export default {
   filterPageWrapper: {
     display: 'flex',
     padding: '10px',
+    margin: '55px 0',
   },
 
   filterPageLeft: {
