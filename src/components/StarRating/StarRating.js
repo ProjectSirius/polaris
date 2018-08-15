@@ -24,7 +24,21 @@ const RatingItem = props => {
   );
 };
 
-const StarRating = ({ min, max, onChange, value, classes }) => {
+const StarRating = ({
+  min,
+  max,
+  onChange,
+  value,
+  classes,
+  isAuth,
+  currentUser,
+}) => {
+  const dataType = isAuth
+    ? currentUser.userType === 'content_owner'
+      ? 'channels'
+      : 'contents'
+    : '';
+
   return (
     <div className={classes.rating}>
       {range(min, max).map((item, index) => (
@@ -33,7 +47,9 @@ const StarRating = ({ min, max, onChange, value, classes }) => {
           colored={value >= item}
           checked={value === item}
           value={item}
-          onChange={onChange}
+          onChange={() =>
+            onChange(dataType, '', { filterName: 'rating', value: item }, item)
+          }
           classes={classes}
         />
       ))}
