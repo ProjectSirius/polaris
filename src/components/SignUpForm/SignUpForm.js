@@ -17,6 +17,7 @@ const SignUpForm = ({
   classes,
   messages,
   formatMessage,
+  user,
 }) => {
   const { from } = location.state || { from: { pathname: '/login' } };
   return isSignUp ? (
@@ -24,7 +25,10 @@ const SignUpForm = ({
   ) : (
     <div className={classes.signUpForm}>
       <form onSubmit={handleSubmit(signUp)}>
-        <h1>{formatMessage(messages.audience)} {formatMessage(messages.formTitle)}</h1>
+        <h1>
+          {user === 'audience' ? formatMessage(messages.audience) : formatMessage(messages.content)}
+          {' ' + formatMessage(messages.formTitle)}
+        </h1>
         <Field
           name="username"
           type="text"
@@ -63,7 +67,11 @@ const SignUpForm = ({
           component={renderField}
           className={classes.hiddenInput}
         />
-        {isRequesting && <Alert bsStyle="info">{formatMessage(messages.requestingAlert)}</Alert>}
+        {isRequesting && (
+          <Alert bsStyle="info">
+            {formatMessage(messages.requestingAlert)}
+          </Alert>
+        )}
         {errorSignUp && <Alert bsStyle="danger">{errorSignUp}</Alert>}
         <SubmitBtn
           value="CREATE ACCOUNT!"
