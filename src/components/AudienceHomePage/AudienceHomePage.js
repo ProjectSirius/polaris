@@ -12,7 +12,7 @@ const AudienceHomePage = ({ classes }) => {
       </div>
       <div className={classes.filterPageRight}>
         <ConfigurableAndSearch />
-        <CardsContainer />
+        <CardsContainer type="channel" />
       </div>
     </div>
   );

@@ -12,7 +12,7 @@ const ContentOwnerHomePage = ({ classes }) => {
       </div>
       <div className={classes.filterPageRight}>
         <ConfigurableAndSearch />
-        <CardsContainer />
+        <CardsContainer type="content" />
       </div>
     </div>
   );
