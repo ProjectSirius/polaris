@@ -16,6 +16,30 @@ const messages = defineMessages({
     id: 'content',
     defaultMessage: 'Content',
   },
+  closeMessage: {
+    id: 'close-message',
+    defaultMessage: 'CLOSE',
+  },
+  menu: {
+    id: 'menu',
+    defaultMessage: 'MENU',
+  },
+  langRu: {
+    id: 'ru',
+    defaultMessage: 'Русский',
+  },
+  langEn: {
+    id: 'en',
+    defaultMessage: 'English',
+  },
+  logOut: {
+    id: 'log-out',
+    defaultMessage: 'Log out',
+  },
+  projectTitle: {
+    id: 'project-title',
+    defaultMessage: 'Polaris',
+  },
 });
 
 class MainNavBar extends React.Component {
@@ -55,12 +79,16 @@ class MainNavBar extends React.Component {
             {isOpen ? (
               <React.Fragment>
                 <Glyphicon glyph="glyphicon glyphicon-remove" />
-                <span className={classes.hamburgerTitle}>CLOSE</span>
+                <span className={classes.hamburgerTitle}>
+                  {formatMessage(messages.closeMessage)}
+                </span>
               </React.Fragment>
             ) : (
               <React.Fragment>
                 <Glyphicon glyph="glyphicon glyphicon-align-justify" />
-                <span className={classes.hamburgerTitle}>MENU</span>
+                <span className={classes.hamburgerTitle}>
+                  {formatMessage(messages.menu)}
+                </span>
               </React.Fragment>
             )}
           </div>
@@ -72,7 +100,7 @@ class MainNavBar extends React.Component {
                   search: `?locale=${lang}`,
                 }}
               >
-                Polaris
+                {formatMessage(messages.projectTitle)}
               </Link>
             </h2>
           </div>
@@ -88,17 +116,17 @@ class MainNavBar extends React.Component {
                   <MenuItem
                     href={`${path}?locale=ru`}
                     eventKey="1"
-                    active={lang === 'ru' ? true : false}
+                    active={lang === 'ru'}
                   >
-                    Русский
+                    {formatMessage(messages.langRu)}
                   </MenuItem>
                   <MenuItem divider />
                   <MenuItem
                     href={`${path}?locale=en`}
                     eventKey="2"
-                    active={lang === 'en' ? true : false}
+                    active={lang === 'en'}
                   >
-                    English
+                    {formatMessage(messages.langEn)}
                   </MenuItem>
                 </DropdownButton>
               </div>
@@ -130,7 +158,7 @@ class MainNavBar extends React.Component {
                   search: `?locale=${lang}`,
                 }}
               >
-                Content Owner
+                {formatMessage(messages.content)}
               </Link>
             </div>
           </nav>
@@ -140,7 +168,7 @@ class MainNavBar extends React.Component {
                 className={classes.navLinkLogout}
                 onClick={this.handleLogOut}
               >
-                <span>Log Out</span>
+                <span>{formatMessage(messages.logOut)}</span>
               </div>
             </div>
           ) : (
