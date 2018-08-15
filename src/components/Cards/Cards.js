@@ -1,7 +1,8 @@
 import React from 'react';
 import Card from '../Card';
+import { Link } from 'react-router-dom';
 
-const Cards = ({ data, isRequesting, classes, view }) => {
+const Cards = ({ data, isRequesting, classes, view, lang, type }) => {
   return isRequesting ? (
     <h2>Requesting</h2>
   ) : (
@@ -11,7 +12,13 @@ const Cards = ({ data, isRequesting, classes, view }) => {
       }
     >
       {data.map(info => (
-        <Card key={info.id} info={info} view={view} />
+        <Link
+          className={classes.parentLink}
+          to={{ pathname: `/${type}/${info.id}`, search: `?locale=${lang}` }}
+        >
+          {' '}
+          <Card key={info.id} info={info} view={view} />
+        </Link>
       ))}
     </div>
   );
