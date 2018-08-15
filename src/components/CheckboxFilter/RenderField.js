@@ -34,8 +34,7 @@ class TextField extends Component {
           >
             <input
               {...props}
-              checked={this.state.value}
-              onChange={this.onChange}
+              onClick={this.onChange}
               className={classes.checkbox}
             />
             <Glyphicon
