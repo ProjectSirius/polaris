@@ -26,7 +26,9 @@ const SignUpForm = ({
     <div className={classes.signUpForm}>
       <form onSubmit={handleSubmit(signUp)}>
         <h1>
-          {user === 'audience' ? formatMessage(messages.audience) : formatMessage(messages.content)}
+          {user === 'audience'
+            ? formatMessage(messages.audience)
+            : formatMessage(messages.content)}
           {' ' + formatMessage(messages.formTitle)}
         </h1>
         <Field
