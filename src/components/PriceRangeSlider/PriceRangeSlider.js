@@ -3,7 +3,20 @@ import { Field } from 'redux-form';
 
 import RenderField from './RenderField';
 
-const PriceRangeSlider = ({ classes }) => {
+const PriceRangeSlider = ({
+  classes,
+  minPrice,
+  maxPrice,
+  handleChange,
+  isAuth,
+  currentUser,
+}) => {
+  const dataType = isAuth
+    ? currentUser.userType === 'content_owner'
+      ? 'channels'
+      : 'contents'
+    : '';
+
   return (
     <div className={classes.priceSlider}>
       <Field
@@ -14,6 +27,12 @@ const PriceRangeSlider = ({ classes }) => {
         type="range"
         className={classes.slider}
         component={RenderField}
+        onChange={e =>
+          handleChange(dataType, '', {
+            filterName: 'minPrice',
+            value: e.target.value,
+          })
+        }
       />
       <Field
         name="max_price_range"
@@ -23,6 +42,12 @@ const PriceRangeSlider = ({ classes }) => {
         type="range"
         className={classes.slider}
         component={RenderField}
+        onChange={e =>
+          handleChange(dataType, '', {
+            filterName: 'maxPrice',
+            value: e.target.value,
+          })
+        }
       />
     </div>
   );
