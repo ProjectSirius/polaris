@@ -42,7 +42,14 @@ const mapDispatchToProps = dispatch => ({
 });
 
 let SignUpAudienceForm = ({ intl: { formatMessage }, ...props }) => {
-  return <SignUpForm {...props} messages={messages} formatMessage={formatMessage} user="audience" />;
+  return (
+    <SignUpForm
+      {...props}
+      messages={messages}
+      formatMessage={formatMessage}
+      user="audience"
+    />
+  );
 };
 
 SignUpAudienceForm = reduxForm({
