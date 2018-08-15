@@ -7,8 +7,8 @@ import { selectLanguage } from '../selectors';
 
 import AuthButtons from '../components/AuthButtons';
 
-const AuthButtonsContainer = ({ intl: { formatMessage } }) => {
-  return <AuthButtons messages={messages} formatMessage={formatMessage} />;
+const AuthButtonsContainer = ({ intl: { formatMessage }, lang }) => {
+  return <AuthButtons messages={messages} formatMessage={formatMessage} lang={lang}/>;
 };
 
 const messages = defineMessages({
