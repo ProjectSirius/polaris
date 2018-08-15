@@ -37,7 +37,7 @@ const messages = defineMessages({
   projectTitle: {
     id: 'project-title',
     defaultMessage: 'Polaris',
-  }
+  },
 });
 
 class MainNavBar extends React.Component {
