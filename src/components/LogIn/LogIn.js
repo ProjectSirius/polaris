@@ -70,7 +70,7 @@ const LogIn = ({
   );
 };
 
-LogIn.PropTypes = {
+LogIn.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   login: PropTypes.func.isRequired,
   isAuth: PropTypes.bool.isRequired,
