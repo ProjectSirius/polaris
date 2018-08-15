@@ -114,7 +114,7 @@ class MainNavBar extends React.Component {
                   <MenuItem
                     href={`${path}?locale=ru`}
                     eventKey="1"
-                    active={lang === 'ru' ? true : false}
+                    active={lang === 'ru'}
                   >
                     {formatMessage(messages.langRu)}
                   </MenuItem>
@@ -122,7 +122,7 @@ class MainNavBar extends React.Component {
                   <MenuItem
                     href={`${path}?locale=en`}
                     eventKey="2"
-                    active={lang === 'en' ? true : false}
+                    active={lang === 'en'}
                   >
                     {formatMessage(messages.langEn)}
                   </MenuItem>
