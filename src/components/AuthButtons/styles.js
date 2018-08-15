@@ -52,22 +52,22 @@ export default {
       fontWeight: '700',
 
       '&:hover': {
-        background: '#FF5A5F !important',
+        background: '#d9534f !important',
         color: '#fff !important',
       },
 
       '&:focus': {
-        background: '#FF5A5F !important',
+        background: '#d9534f !important',
         color: '#fff !important',
       },
 
       '&:active': {
-        background: '#FF5A5F !important',
+        background: '#d9534f !important',
         color: '#fff !important',
       },
 
       '&:active:hover': {
-        background: '#FF5A5F !important',
+        background: '#d9534f !important',
         color: '#fff',
       },
 
@@ -77,12 +77,12 @@ export default {
       },
 
       '&:checked': {
-        background: '#FF5A5F !important',
+        background: '#d9534f !important',
         color: '#fff !important',
       },
 
       '&:visited': {
-        background: '#FF5A5F !important',
+        background: '#d9534f !important',
         color: '#fff !important',
       },
     },
