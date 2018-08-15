@@ -21,6 +21,10 @@ export default {
     background: '#f4f7f6',
   },
 
+  mainLogo: {
+    height: '35px',
+  },
+
   mainNavTitle: {
     cursor: 'pointer',
     WebkitUserSelect: 'none' /* Chrome all / Safari all */,
@@ -39,8 +43,7 @@ export default {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    width: '10%',
-    minWidth: '100px',
+    minWidth: '120px',
     minHeight: '60px',
     borderRight: '1px solid #e6eaea',
     cursor: 'pointer',
@@ -62,8 +65,8 @@ export default {
  */
   languagesWrapper: {
     display: 'flex',
+    width: '100px',
     justifyContent: 'flex-end',
-    width: '15%',
   },
 
   languages: {
@@ -193,7 +196,10 @@ export default {
  * media
  */
   '@media screen and (max-width: 640px)': {
-    mainNav: { flexDirection: 'column', padding: '0' },
+    mainNav: {
+      flexDirection: 'column',
+      padding: '0',
+    },
 
     navLinks: {
       flexDirection: 'column',
@@ -248,5 +254,27 @@ export default {
         padding: '14px 0',
       },
     },
+  },
+  '@media screen and (max-width: 500px)': {
+    mainNav: {
+      flexDirection: 'column',
+      padding: '0',
+    },
+
+    mainLogo: {
+      textAlign: 'right',
+      height: '30px',
+    },
+
+    mainNavTitleWrapper: {
+      width: 'auto',
+      marginRight: '10px',
+    },
+
+    languagesWrapper: {
+      display: 'none',
+    },
+
+    topNav: { padding: 0 },
   },
 };

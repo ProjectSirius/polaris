@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { DropdownButton } from 'react-bootstrap';
 
 const AuthButtons = props => {
-  const { lang, classes } = props;
+  const { lang, classes, messages, formatMessage } = props;
 
   return (
     <div className={classes.navLinksAuth}>
@@ -24,10 +24,12 @@ const AuthButtons = props => {
           {' '}
           <div className={classes.linkContainer}>
             <Link to={`/signUpAudience?locale=${lang}`}>
-              SignUp for Audience
+              {formatMessage(messages.signUpMessage)}{' '}
+              {formatMessage(messages.audience)}
             </Link>
             <Link to={`/signUpContentMaker?locale=${lang}`}>
-              SignUp for Content Owner
+              {formatMessage(messages.signUpMessage)}{' '}
+              {formatMessage(messages.content)}
             </Link>
           </div>
         </DropdownButton>
