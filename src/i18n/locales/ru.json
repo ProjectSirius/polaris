@@ -1,7 +1,20 @@
 {
+  "Form": "Form",
   "audience": "Ди Джей",
   "auth-buttons-sign-up": "Sign Up As a",
+  "checkboxes-filter-title": "Checkboxes",
+  "close-message": "CLOSE",
   "content": "Content",
   "detailed-page-title": "Detailed Page",
-  "home-page-title": "Home Page"
+  "en": "English",
+  "filters-panel-title": "FILTERS",
+  "home-page-title": "Home Page",
+  "log-out": "Log out",
+  "menu": "MENU",
+  "price-range-title": "Price Range",
+  "project-title": "Polaris",
+  "requesting-alert": "Please wait...",
+  "ru": "Русский",
+  "select-option-filter-title": "Select",
+  "star-rating-title": "Rating"
 }
