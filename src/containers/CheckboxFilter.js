@@ -5,12 +5,19 @@ import { createStructuredSelector } from 'reselect';
 
 import { selectCurrentUser, selectIsAuth } from '../selectors';
 
+import { setFilters } from '../actions';
 import search from '../actions/data';
 
 import CheckboxFilter from '../components/CheckboxFilter';
 
-const CheckboxFilterContainer = ({ currentUser, isAuth }) => {
+const CheckboxFilterContainer = ({
+  currentUser,
+  isAuth,
+  search,
+  setFilters,
+}) => {
   const handleChange = (dataType, query, filter) => {
+    setFilters(filter);
     search(dataType, query, filter);
   };
   return (
@@ -40,6 +47,7 @@ const mapStateToProps = createStructuredSelector({
 const mapDispatchToProps = dispatch => ({
   search: (dataType, query, filter) =>
     dispatch(search(dataType, query, filter)),
+  setFilters: filter => dispatch(setFilters(filter)),
 });
 
 export default connect(
