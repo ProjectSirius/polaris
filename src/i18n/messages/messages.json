@@ -30,6 +30,21 @@
     "filepath": "src/components/LogIn/LogIn.js"
   },
   {
+    "id": "login-form",
+    "defaultMessage": "Log In to Polaris",
+    "filepath": "src/components/LogIn/LogIn.js"
+  },
+  {
+    "id": "login-audience",
+    "defaultMessage": "Audience",
+    "filepath": "src/components/LogIn/LogIn.js"
+  },
+  {
+    "id": "login-contentOwner",
+    "defaultMessage": "Content",
+    "filepath": "src/components/LogIn/LogIn.js"
+  },
+  {
     "id": "audience",
     "defaultMessage": "Audience",
     "filepath": "src/components/MainNavBar/MainNavBar.js"
