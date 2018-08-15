@@ -144,14 +144,14 @@ export default {
     marginLeft: '5px',
     height: '100%',
     width: '120px',
-    background: '#49c5b6',
+    background: '#FF5A5F',
     color: '#fff',
     fontWeight: '700',
     cursor: 'pointer',
     transition: '0.5s',
 
     '&:hover': {
-      background: '#42ab9e',
+      background: '#d9534f',
     },
 
     '& > a': {
@@ -166,7 +166,7 @@ export default {
 
   navLinkLogout: {
     display: 'flex',
-    width: '100%',
+    width: '80%',
     justifyContent: 'center',
     alignItems: 'center',
     cursor: 'pointer',
@@ -174,13 +174,13 @@ export default {
     fontWeight: '700',
 
     height: '60px !important',
-    background: '#49c5b6',
+    background: '#FF5A5F',
     transition: '0.5s',
-    border: '#49c5b6',
+    border: '#d9534f',
     borderRadius: '0',
 
     '&:hover': {
-      background: '#7cc0b8 !important',
+      background: '#d9534f !important',
     },
   },
 
