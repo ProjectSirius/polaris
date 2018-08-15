@@ -1,6 +1,8 @@
 import React from 'react';
-import { DropdownButton } from 'react-bootstrap';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+
+import { DropdownButton } from 'react-bootstrap';
 
 const AuthButtons = props => {
   const { lang, classes, messages, formatMessage } = props;
@@ -34,6 +36,14 @@ const AuthButtons = props => {
       </div>
     </div>
   );
+};
+
+AuthButtons.propTypes = {
+  lang: PropTypes.string.isRequired,
+};
+
+AuthButtons.defaultProps = {
+  lang: 'en',
 };
 
 export default AuthButtons;

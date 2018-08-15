@@ -2,11 +2,11 @@ import React from 'react';
 import { Field } from 'redux-form';
 import { Redirect } from 'react-router-dom';
 import { injectIntl, defineMessages } from 'react-intl';
+import PropTypes from 'prop-types';
+import { Alert } from 'react-bootstrap';
 
 import RenderField from './RenderField';
 import SubmitBtn from '../SubmitBtn';
-
-import { Alert } from 'react-bootstrap';
 
 const messages = defineMessages({
   requestingAlert: {
@@ -70,4 +70,19 @@ const LogIn = ({
   );
 };
 
+LogIn.PropTypes = {
+  handleSubmit: PropTypes.func.isRequired,
+  login: PropTypes.func.isRequired,
+  isAuth: PropTypes.bool.isRequired,
+  location: PropTypes.object.isRequired,
+  currentUser: PropTypes.object.isRequired,
+  lang: PropTypes.string.isRequired,
+  valid: PropTypes.bool.isRequired,
+  isRequesting: PropTypes.bool.isRequired,
+  loginError: PropTypes.object.isRequired,
+};
+
+LogIn.defaultProps = {};
+
 export default injectIntl(LogIn);
+
