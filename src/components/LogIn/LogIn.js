@@ -79,28 +79,28 @@ const LogIn = ({
           )}
           {loginError && <Alert bsStyle="danger">{loginError}</Alert>}
           <SubmitBtn value="Log In" valid={valid} isRequesting={isRequesting} />
+          <div className={classes.signUpDesc}>
+            <p>New to Polaris?</p>
+            <p>
+              Sign up as{' '}
+              <Link
+                to={{ pathname: `/signupAudience`, search: `?locale=${lang}` }}
+              >
+                {formatMessage(messages.audienceLogin)}
+              </Link>{' '}
+              or{' '}
+              <Link
+                to={{
+                  pathname: `/signupContentmaker`,
+                  search: `?locale=${lang}`,
+                }}
+              >
+                {formatMessage(messages.contentOwnerLogin)}
+              </Link>{' '}
+              owner!
+            </p>
+          </div>
         </form>
-        <div className={classes.signUpDesc}>
-          <p>New to Polaris?</p>
-          <p>
-            Sign up as{' '}
-            <Link
-              to={{ pathname: `/signupAudience`, search: `?locale=${lang}` }}
-            >
-              {formatMessage(messages.audienceLogin)}
-            </Link>{' '}
-            or{' '}
-            <Link
-              to={{
-                pathname: `/signupContentmaker`,
-                search: `?locale=${lang}`,
-              }}
-            >
-              {formatMessage(messages.contentOwnerLogin)}
-            </Link>{' '}
-            owner!
-          </p>
-        </div>
       </div>
     </div>
   );
