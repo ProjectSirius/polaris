@@ -13,7 +13,9 @@ const Cards = ({ data, isRequesting, classes, view, lang, type }) => {
     >
       {data.map(info => (
         <Link
-          className={classes.parentLink}
+          className={
+            view === 'table' ? classes.parentLinkGrid : classes.parentLinkList
+          }
           to={{ pathname: `/${type}/${info.id}`, search: `?locale=${lang}` }}
         >
           {' '}

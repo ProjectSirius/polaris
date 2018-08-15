@@ -295,6 +295,14 @@ export default {
       width: '100%',
     },
 
+    navLinkLogout: {
+      width: '100%',
+    },
+
+    navLinksAuth: {
+      width: '100%',
+    },
+
     mainNav: {
       flexDirection: 'column',
       padding: '0',

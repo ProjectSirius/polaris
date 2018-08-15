@@ -1,4 +1,15 @@
 export default {
+  parentLinkList: {
+    display: 'inline-block',
+    width: '80%',
+    margin: '40px auto',
+  },
+
+  parentLinkGrid: {
+    display: 'inline-block',
+    margin: '40px auto',
+  },
+
   cardsWrapperGrid: {
     display: 'flex',
     flexWrap: 'wrap',

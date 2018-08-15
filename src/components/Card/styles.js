@@ -4,7 +4,6 @@ export default {
     height: '415px',
     display: 'flex',
     flexDirection: 'column',
-    margin: '40px auto',
     boxShadow: '10px 5px 40px 20px rgba(0, 0, 0, .1)',
     transition: '.25s',
     backgroundColor: '#f4f7f6',
@@ -21,6 +20,12 @@ export default {
     },
   },
 
+  cardList: {
+    flexDirection: 'row',
+    width: '100%',
+    height: 'auto',
+  },
+
   cardHeader: {
     height: '150px',
     width: '100%',
@@ -28,6 +33,11 @@ export default {
     backgroundImage: 'url(https://source.unsplash.com/user/erondu/600x400)',
     backgroundSize: 'cover',
     color: '#fff',
+  },
+
+  cardHeaderList: {
+    height: 'auto',
+    width: 'auto',
   },
 
   cardHeaderTitle: {
