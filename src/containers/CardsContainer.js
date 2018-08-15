@@ -56,15 +56,13 @@ class FilterBarContainer extends React.Component {
     const { data, isRequesting, view, type, lang } = this.props;
 
     return (
-      <div>
-        <Cards
-          type={type}
-          data={data}
-          isRequesting={isRequesting}
-          view={view}
-          lang={lang}
-        />
-      </div>
+      <Cards
+        type={type}
+        data={data}
+        isRequesting={isRequesting}
+        view={view}
+        lang={lang}
+      />
     );
   }
 }
