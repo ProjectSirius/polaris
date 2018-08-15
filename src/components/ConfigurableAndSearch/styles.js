@@ -1,6 +1,8 @@
 export default {
   confAndSearchWrapper: {
     display: 'flex',
+    alignItems: 'center',
+    marginLeft: '25px',
   },
 
   searchWrapper: {
