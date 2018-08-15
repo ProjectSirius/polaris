@@ -1,11 +1,19 @@
 import React from 'react';
 import { Field } from 'redux-form';
 import { Redirect } from 'react-router-dom';
+import { injectIntl, defineMessages } from 'react-intl';
 
 import RenderField from './RenderField';
 import SubmitBtn from '../SubmitBtn';
 
 import { Alert } from 'react-bootstrap';
+
+const messages = defineMessages({
+  requestingAlert: {
+    id: 'requesting-alert',
+    defaultMessage: 'Please wait...',
+  },
+});
 
 const LogIn = ({
   handleSubmit,
@@ -18,6 +26,7 @@ const LogIn = ({
   isRequesting,
   loginError,
   classes,
+  intl: { formatMessage },
 }) => {
   const redirectPath = isAuth
     ? currentUser.userType === 'audience_owner'
@@ -48,7 +57,11 @@ const LogIn = ({
             placeholder="Your Password"
             bsSize="large"
           />
-          {isRequesting && <Alert bsStyle="info">Please wait...</Alert>}
+          {isRequesting && (
+            <Alert bsStyle="info">
+              {formatMessage(messages.requestingAlert)}
+            </Alert>
+          )}
           {loginError && <Alert bsStyle="danger">{loginError}</Alert>}
           <SubmitBtn value="Log In" valid={valid} isRequesting={isRequesting} />
         </form>
@@ -57,4 +70,4 @@ const LogIn = ({
   );
 };
 
-export default LogIn;
+export default injectIntl(LogIn);
