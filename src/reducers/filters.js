@@ -6,7 +6,6 @@ const visibilityFilters = (state = [], action) => {
       let arr = [
         ...state,
         {
-          id: action.payload.filter.id,
           filterName: action.payload.filter.filterName,
           value: action.payload.filter.value,
         },
@@ -18,7 +17,9 @@ const visibilityFilters = (state = [], action) => {
        *an array.
      */
       return Object.values(
-        arr.reduce((acc, el) => Object.assign(acc, { [el.filterName]: el }), {})
+        arr.reduce((acc, el) => {
+          return Object.assign(acc, { [el.filterName]: el });
+        }, {})
       );
 
     default:
