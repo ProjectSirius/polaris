@@ -4,16 +4,11 @@ import { reduxForm } from 'redux-form';
 import { createStructuredSelector } from 'reselect';
 
 import search from '../actions/data';
-import { selectCurrentUser, selectIsAuth, selectOption } from '../selectors';
+import { selectCurrentUser, selectIsAuth } from '../selectors';
 
 import SelectOptionFilter from '../components/SelectOptionFilter';
 
-const SelectOptionFilterContainer = ({
-  search,
-  currentUser,
-  isAuth,
-  option,
-}) => {
+const SelectOptionFilterContainer = ({ search, currentUser, isAuth }) => {
   const handleChange = (dataType, query, filter) => {
     search(dataType, query, filter);
   };
@@ -23,7 +18,6 @@ const SelectOptionFilterContainer = ({
       handleChange={handleChange}
       currentUser={currentUser}
       isAuth={isAuth}
-      option={option}
     />
   );
 };
@@ -39,7 +33,6 @@ const SelectOptionFilterForm = reduxForm({
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
   isAuth: selectIsAuth,
-  option: selectOption,
 });
 
 const mapDispatchToProps = dispatch => ({
