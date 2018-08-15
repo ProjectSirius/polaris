@@ -85,4 +85,3 @@ LogIn.PropTypes = {
 LogIn.defaultProps = {};
 
 export default injectIntl(LogIn);
-
