@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Cards = ({ data, isRequesting, classes, view, lang, type }) => {
   return isRequesting ? (
-    <h2>Requesting</h2>
+    <h2>Loading...</h2>
   ) : (
     <div
       className={
