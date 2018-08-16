@@ -52,5 +52,35 @@ export default {
     filterWrapper: {
       width: '100%',
     },
+
+    filterItemsWrapper: {
+      display: 'flex',
+      width: '100%',
+      position: 'absolute',
+      zIndex: '10000',
+      left: '-100%',
+      top: 60,
+      transition: 'background .2s ease-out,left .2s ease-out .1s',
+      background: 'rgba(51, 51, 51, 0.8)',
+    },
+
+    filterItemsWrapperOpen: {
+      left: 0,
+    },
+
+    filterItems: {
+      width: '60%',
+      background: '#fff',
+      borderRadius: 0,
+    },
+
+    closeFilter: {
+      '& > span': {
+        color: '#fff',
+        fontSize: '20px',
+        cursor: 'pointer',
+        marginLeft: 'auto',
+      },
+    },
   },
 };
