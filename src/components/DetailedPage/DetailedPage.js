@@ -64,7 +64,6 @@ const DetailedPage = ({ title, classes }) => {
             <li>asd</li>
             <li>asd</li>
             <li>asd</li>
-
             <li>asd</li>
             <li>asd</li>
           </ul>
