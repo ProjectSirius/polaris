@@ -2,12 +2,12 @@ export default {
   parentLinkList: {
     display: 'inline-block',
     width: '80%',
-    margin: '40px auto',
+    margin: '40px 0',
   },
 
   parentLinkGrid: {
     display: 'inline-block',
-    margin: '40px auto',
+    margin: '40px 0',
   },
 
   cardsWrapperGrid: {
