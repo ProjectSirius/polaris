@@ -22,10 +22,9 @@ class TextField extends Component {
     const { classes } = props;
 
     return (
-      <div>
-        <ControlLabel>
-          <label
-            className={`
+      <ControlLabel className={classes.checkboxItem}>
+        <label
+          className={`
             btn
             btn-default
             active
@@ -55,11 +54,7 @@ const renderField = props => {
     meta: { touched, error },
     ...custom
   } = props;
-  return (
-    <div>
-      <TextField touched={touched} error={error} {...input} {...custom} />
-    </div>
-  );
+  return <TextField touched={touched} error={error} {...input} {...custom} />;
 };
 
 export default renderField;

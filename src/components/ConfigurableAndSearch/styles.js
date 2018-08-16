@@ -1,6 +1,7 @@
 export default {
   confAndSearchWrapper: {
     display: 'flex',
+    alignItems: 'center',
   },
 
   searchWrapper: {
@@ -14,5 +15,23 @@ export default {
     display: 'flex',
     flexDirection: 'column',
     marginLeft: '15px',
+
+    '& > div': {
+      display: 'flex',
+      justifyContent: 'flex-end',
+    },
+  },
+
+  '@media screen and (max-width: 640px)': {
+    confAndSearchWrapper: {
+      flexDirection: 'column',
+      '& > div': {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: '100%',
+        margin: '10px 0',
+      },
+    },
   },
 };

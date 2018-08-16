@@ -1,7 +1,9 @@
 import React from 'react';
-import { DropdownButton, MenuItem, Glyphicon } from 'react-bootstrap';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { injectIntl, defineMessages } from 'react-intl';
+
+import { DropdownButton, MenuItem, Glyphicon } from 'react-bootstrap';
 
 import AuthButtonsContainer from '../../containers/AuthButtonsContainer';
 
@@ -13,6 +15,30 @@ const messages = defineMessages({
   content: {
     id: 'content',
     defaultMessage: 'Content',
+  },
+  closeMessage: {
+    id: 'close-message',
+    defaultMessage: 'CLOSE',
+  },
+  menu: {
+    id: 'menu',
+    defaultMessage: 'MENU',
+  },
+  langRu: {
+    id: 'ru',
+    defaultMessage: 'Русский',
+  },
+  langEn: {
+    id: 'en',
+    defaultMessage: 'English',
+  },
+  logOut: {
+    id: 'log-out',
+    defaultMessage: 'Log out',
+  },
+  projectTitle: {
+    id: 'project-title',
+    defaultMessage: 'Polaris',
   },
 });
 
@@ -53,12 +79,16 @@ class MainNavBar extends React.Component {
             {isOpen ? (
               <React.Fragment>
                 <Glyphicon glyph="glyphicon glyphicon-remove" />
-                <span className={classes.hamburgerTitle}>CLOSE</span>
+                <span className={classes.hamburgerTitle}>
+                  {formatMessage(messages.closeMessage)}
+                </span>
               </React.Fragment>
             ) : (
               <React.Fragment>
                 <Glyphicon glyph="glyphicon glyphicon-align-justify" />
-                <span className={classes.hamburgerTitle}>MENU</span>
+                <span className={classes.hamburgerTitle}>
+                  {formatMessage(messages.menu)}
+                </span>
               </React.Fragment>
             )}
           </div>
@@ -70,37 +100,27 @@ class MainNavBar extends React.Component {
                   search: `?locale=${lang}`,
                 }}
               >
-                Polaris
+                <img
+                  className={classes.mainLogo}
+                  src={require('../../assets/polaris.png')}
+                  alt="Polaris"
+                />
               </Link>
             </h2>
           </div>
-          <div className={classes.languagesWrapper}>
-            <div className={classes.languages}>
-              <div>
-                <DropdownButton
-                  bsStyle="default"
-                  title={lang}
-                  id="lang-dropdown"
-                  pullRight
+          <div className={classes.authBig}>
+            {isAuth ? (
+              <div className={classes.navLinksAuth}>
+                <div
+                  className={classes.navLinkLogout}
+                  onClick={this.handleLogOut}
                 >
-                  <MenuItem
-                    href={`${path}?locale=ru`}
-                    eventKey="1"
-                    active={lang === 'ru' ? true : false}
-                  >
-                    Русский
-                  </MenuItem>
-                  <MenuItem divider />
-                  <MenuItem
-                    href={`${path}?locale=en`}
-                    eventKey="2"
-                    active={lang === 'en' ? true : false}
-                  >
-                    English
-                  </MenuItem>
-                </DropdownButton>
+                  <span>{formatMessage(messages.logOut)}</span>
+                </div>
               </div>
-            </div>
+            ) : (
+              <AuthButtonsContainer />
+            )}
           </div>
         </div>
         <div
@@ -128,26 +148,67 @@ class MainNavBar extends React.Component {
                   search: `?locale=${lang}`,
                 }}
               >
-                Content Owner
+                {formatMessage(messages.content)}
               </Link>
             </div>
           </nav>
-          {isAuth ? (
-            <div className={classes.navLinksAuth}>
-              <div
-                className={classes.navLinkLogout}
-                onClick={this.handleLogOut}
-              >
-                <span>Log Out</span>
+          <div className={classes.authSmall}>
+            {isAuth ? (
+              <div className={classes.navLinksAuth}>
+                <div
+                  className={classes.navLinkLogout}
+                  onClick={this.handleLogOut}
+                >
+                  <span>{formatMessage(messages.logOut)}</span>
+                </div>
+              </div>
+            ) : (
+              <AuthButtonsContainer />
+            )}
+          </div>
+          <div className={classes.mainNavRight}>
+            <div className={classes.languagesWrapper}>
+              <div className={classes.languages}>
+                <DropdownButton
+                  bsStyle="default"
+                  title={lang}
+                  id="lang-dropdown"
+                  pullRight
+                >
+                  <MenuItem
+                    href={`${path}?locale=ru`}
+                    eventKey="1"
+                    active={lang === 'ru'}
+                  >
+                    {formatMessage(messages.langRu)}
+                  </MenuItem>
+                  <MenuItem divider />
+                  <MenuItem
+                    href={`${path}?locale=en`}
+                    eventKey="2"
+                    active={lang === 'en'}
+                  >
+                    {formatMessage(messages.langEn)}
+                  </MenuItem>
+                </DropdownButton>
               </div>
             </div>
-          ) : (
-            <AuthButtonsContainer />
-          )}
+          </div>
         </div>
       </header>
     );
   }
 }
+
+MainNavBar.propTypes = {
+  isAuth: PropTypes.bool.isRequired,
+  currentUser: PropTypes.object.isRequired,
+  lang: PropTypes.string.isRequired,
+  isOpen: PropTypes.bool.isRequired,
+  toggleMenu: PropTypes.func.isRequired,
+  logOut: PropTypes.func.isRequired,
+};
+
+MainNavBar.defaultProps = {};
 
 export default injectIntl(MainNavBar);

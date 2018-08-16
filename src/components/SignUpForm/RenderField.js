@@ -4,9 +4,13 @@ import { FormGroup, FormControl } from 'react-bootstrap';
 const TextField = ({ id, label, touched, error, ...props }) => {
   return (
     <div>
-      {touched && error ? <span className="alert">{error}</span> : ''}
-      <FormGroup controlId={id} className="input-container">
+      <FormGroup
+        validationState={touched && error ? 'error' : null}
+        controlId={id}
+        className="input-container"
+      >
         <FormControl {...props} className="error" />
+        {touched && error ? <span>{error}</span> : ''}
       </FormGroup>
     </div>
   );

@@ -23,7 +23,7 @@ const PriceRangeSlider = ({
         name="min_price_range"
         min="0"
         max="100"
-        step="0.5"
+        step="1"
         type="range"
         className={classes.slider}
         component={RenderField}
@@ -33,12 +33,13 @@ const PriceRangeSlider = ({
             value: e.target.value,
           })
         }
+
       />
       <Field
         name="max_price_range"
         min="0"
         max="100"
-        step="0.5"
+        step="1"
         type="range"
         className={classes.slider}
         component={RenderField}

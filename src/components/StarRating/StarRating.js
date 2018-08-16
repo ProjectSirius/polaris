@@ -1,4 +1,5 @@
 import React from 'react';
+import { Glyphicon } from 'react-bootstrap';
 
 const range = (min, max) =>
   Array(max - min + 1)
@@ -56,5 +57,4 @@ const StarRating = ({
     </div>
   );
 };
-
 export default StarRating;

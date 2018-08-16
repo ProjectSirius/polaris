@@ -4,10 +4,17 @@ const signUpValidate = values => {
     'username',
     'email',
     'password',
-    'passwordConformation',
+    'passwordConfirmation',
   ];
 
   requiredFields.forEach(field => {
+    if (
+      field === 'passwordConfirmation' &&
+      values[field] !== values[requiredFields[2]]
+    ) {
+      errors[field] = 'Passwords do not match!';
+    }
+
     if (!values[field]) {
       errors[field] = `${field.charAt(0).toUpperCase() +
         field.slice(1)} is required!`;
@@ -18,13 +25,6 @@ const signUpValidate = values => {
       !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values[field])
     ) {
       errors[field] = 'Must be a valid email';
-    }
-
-    if (
-      field === 'passwordConformation' &&
-      values[field] !== values[requiredFields[2]]
-    ) {
-      errors[field] = 'Passwords do not match!';
     }
 
     if (values[field] && values[field].length < 5) {

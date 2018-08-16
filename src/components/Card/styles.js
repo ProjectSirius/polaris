@@ -1,128 +1,91 @@
 export default {
-  cardWrapper: {
-    width: '30%',
-    maxWidth: '400px',
-    margin: '15px 0',
-  },
-
   card: {
-    position: 'relative',
-    height: '518px',
-    backgroundColor: '#fff',
-    transition: 'all .6s',
-  },
-
-  img: {
-    height: '270px',
-    width: '100%',
-  },
-
-  imgModal: {
-    cursor: 'pointer',
-    position: 'absolute',
+    width: '280px',
+    height: '415px',
     display: 'flex',
-    justifyContent: 'flex-end',
-    alignItems: 'flex-end',
-    width: '100%',
-    height: '270px',
-    backgroundColor: '#202121',
-    opacity: '0',
-    transition: 'all .5s',
+    flexDirection: 'column',
+    boxShadow: '10px 5px 40px 20px rgba(0, 0, 0, .1)',
+    transition: '.25s',
+    backgroundColor: '#f4f7f6',
+    textDecoration: 'none !important',
 
     '&:hover': {
-      opacity: '.5',
-    },
-  },
-
-  title: {
-    fontSize: '16px',
-    fontWeight: '700',
-  },
-
-  content: {
-    padding: '10px 20px',
-    color: '#000',
-    transition: 'all 0.6s ease-in-out',
-  },
-
-  countryTime: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    margin: '20px 0',
-    fontWeight: '400',
-    textDecoration: 'italic',
-    fontStyle: 'italic',
-    color: '#777',
-  },
-
-  description: {
-    padding: '20px 0',
-    borderBottom: '1px solid #e5e5e5',
-    borderTop: '1px solid #e5e5e5',
-  },
-
-  descriptionText: {
-    height: '65px',
-    overflow: 'hidden',
-  },
-
-  tags: {
-    display: 'flex',
-    justifyContent: 'flex-end',
-    marginTop: '20px',
-
-    '& > span': {
-      margin: '0 3px',
-    },
-  },
-
-  icon: {
-    color: '#fff',
-    padding: '10px',
-    paddingBottom: '5px',
-    margin: '15px',
-    border: '1px solid #fff',
-    borderRadius: '50%',
-
-    '&:hover': {
-      borderColor: '#e5e5e5',
-      color: '#e5e5e5',
+      boxShadow: '10px 5px 40px 20px rgba(0, 0, 0, .2)',
+      cursor: 'pointer',
+      textDecoration: 'none !important',
     },
 
-    '& > a:hover': {
-      textDecoration: 'none',
-      color: '#e5e5e5',
+    '&:hover button': {
+      transform: 'translate(10px, 0)',
     },
-  },
-
-  /*********list view**********/
-  cardWrapperList: {
-    width: '100%',
-    maxWidth: '1000px',
-    margin: '15px 0',
   },
 
   cardList: {
-    display: 'flex',
-    position: 'relative',
-    height: 'max-content',
-    backgroundColor: '#fff',
-    transition: 'all .5s',
+    flexDirection: 'row',
+    width: '100%',
+    height: 'auto',
   },
 
-  imgWrapper: {
-    position: 'relative',
-    width: '35%',
+  cardHeader: {
+    height: '150px',
+    width: '100%',
+    padding: '15px',
+    backgroundImage: 'url(https://source.unsplash.com/user/erondu/600x400)',
+    backgroundSize: 'cover',
+    color: '#fff',
   },
 
-  imgList: {
-    height: '270px',
+  cardHeaderList: {
+    height: 'auto',
+    width: 'auto',
+  },
+
+  cardHeaderTitle: {
+    textTransform: 'uppercase',
+    margin: '0',
+    fontWeight: '300',
+  },
+
+  mainTitle: {
+    margin: '15px 0',
+    fontWeight: '600',
+  },
+
+  cardBody: {
+    padding: '15px',
+    backgroundColor: '#f4f7f6',
     width: '100%',
   },
 
-  contentList: {
-    padding: '10px 20px',
-    color: '#000',
-    width: '65%',
+  date: {
+    fontSize: '10px',
+    fontWeight: 500,
+    color: 'grey',
+  },
+
+  bodyContent: {
+    fontSize: '13px',
+    lineHeight: 1.8,
+  },
+
+  buttonPrimary: {
+    border: 'none',
+    boxShadow: 'none',
+    fontFamily: 'inherit',
+    backgroundColor: 'transparent',
+    color: 'blue',
+    padding: '15px',
+    marginTop: 'auto',
+    fontSize: '15px',
+    transition: '.25s',
+    textAlign: 'left',
+  },
+
+  designerLink: {
+    color: '#fff',
+    textAlign: 'center',
+    fonSize: '12px',
+    textDecoration: 'none',
+    display: 'block',
   },
 };

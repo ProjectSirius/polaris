@@ -9,6 +9,7 @@ import AudienceHomePage from '../AudienceHomePage';
 import ContentOwnerHomePage from '../ContentOwnerHomePage';
 import HomePageContainer from '../../containers/HomePageContainer';
 import MainNavBarContainer from '../../containers/MainNavBarContainer';
+import DetailedPageContainer from '../../containers/DetailedPageContainer';
 
 const App = ({ content, title }) => {
   return (
@@ -26,6 +27,14 @@ const App = ({ content, title }) => {
         <ProtectedRouteContainer
           path="/contentowner"
           component={ContentOwnerHomePage}
+        />
+        <ProtectedRouteContainer
+          path="/channels/:id"
+          component={DetailedPageContainer}
+        />
+        <ProtectedRouteContainer
+          path="/contents/:id"
+          component={DetailedPageContainer}
         />
         <Route render={() => <h1>Not Found App</h1>} />
       </Switch>

@@ -1,5 +1,50 @@
 [
   {
+    "id": "filters-panel-title",
+    "defaultMessage": "FILTERS",
+    "filepath": "src/components/FilterBar/FilterBar.js"
+  },
+  {
+    "id": "star-rating-title",
+    "defaultMessage": "Rating",
+    "filepath": "src/components/FilterBar/FilterBar.js"
+  },
+  {
+    "id": "price-range-title",
+    "defaultMessage": "Price Range",
+    "filepath": "src/components/FilterBar/FilterBar.js"
+  },
+  {
+    "id": "checkboxes-filter-title",
+    "defaultMessage": "Checkboxes",
+    "filepath": "src/components/FilterBar/FilterBar.js"
+  },
+  {
+    "id": "select-option-filter-title",
+    "defaultMessage": "Select",
+    "filepath": "src/components/FilterBar/FilterBar.js"
+  },
+  {
+    "id": "requesting-alert",
+    "defaultMessage": "Please wait...",
+    "filepath": "src/components/LogIn/LogIn.js"
+  },
+  {
+    "id": "login-form",
+    "defaultMessage": "Log In to Polaris",
+    "filepath": "src/components/LogIn/LogIn.js"
+  },
+  {
+    "id": "login-audience",
+    "defaultMessage": "Audience",
+    "filepath": "src/components/LogIn/LogIn.js"
+  },
+  {
+    "id": "login-contentOwner",
+    "defaultMessage": "Content",
+    "filepath": "src/components/LogIn/LogIn.js"
+  },
+  {
     "id": "audience",
     "defaultMessage": "Audience",
     "filepath": "src/components/MainNavBar/MainNavBar.js"
@@ -10,8 +55,98 @@
     "filepath": "src/components/MainNavBar/MainNavBar.js"
   },
   {
+    "id": "close-message",
+    "defaultMessage": "CLOSE",
+    "filepath": "src/components/MainNavBar/MainNavBar.js"
+  },
+  {
+    "id": "menu",
+    "defaultMessage": "MENU",
+    "filepath": "src/components/MainNavBar/MainNavBar.js"
+  },
+  {
+    "id": "ru",
+    "defaultMessage": "Русский",
+    "filepath": "src/components/MainNavBar/MainNavBar.js"
+  },
+  {
+    "id": "en",
+    "defaultMessage": "English",
+    "filepath": "src/components/MainNavBar/MainNavBar.js"
+  },
+  {
+    "id": "log-out",
+    "defaultMessage": "Log out",
+    "filepath": "src/components/MainNavBar/MainNavBar.js"
+  },
+  {
+    "id": "project-title",
+    "defaultMessage": "Polaris",
+    "filepath": "src/components/MainNavBar/MainNavBar.js"
+  },
+  {
+    "id": "audience",
+    "defaultMessage": "Audience",
+    "filepath": "src/containers/AuthButtonsContainer.js"
+  },
+  {
+    "id": "content",
+    "defaultMessage": "Content",
+    "filepath": "src/containers/AuthButtonsContainer.js"
+  },
+  {
+    "id": "auth-buttons-sign-up",
+    "defaultMessage": "Sign Up As a",
+    "filepath": "src/containers/AuthButtonsContainer.js"
+  },
+  {
+    "id": "detailed-page-title",
+    "defaultMessage": "Detailed Page",
+    "filepath": "src/containers/DetailedPageContainer.js"
+  },
+  {
     "id": "home-page-title",
     "defaultMessage": "Home Page",
     "filepath": "src/containers/HomePageContainer.js"
+  },
+  {
+    "id": "audience",
+    "defaultMessage": "Audience",
+    "filepath": "src/containers/SignUpAudienceContainer.js"
+  },
+  {
+    "id": "content",
+    "defaultMessage": "Content",
+    "filepath": "src/containers/SignUpAudienceContainer.js"
+  },
+  {
+    "id": "requesting-alert",
+    "defaultMessage": "Please wait...",
+    "filepath": "src/containers/SignUpAudienceContainer.js"
+  },
+  {
+    "id": "Form",
+    "defaultMessage": "Form",
+    "filepath": "src/containers/SignUpAudienceContainer.js"
+  },
+  {
+    "id": "audience",
+    "defaultMessage": "Audience",
+    "filepath": "src/containers/SignUpContentMakerContainer.js"
+  },
+  {
+    "id": "content",
+    "defaultMessage": "Content",
+    "filepath": "src/containers/SignUpContentMakerContainer.js"
+  },
+  {
+    "id": "requesting-alert",
+    "defaultMessage": "Please wait...",
+    "filepath": "src/containers/SignUpContentMakerContainer.js"
+  },
+  {
+    "id": "Form",
+    "defaultMessage": "Form",
+    "filepath": "src/containers/SignUpContentMakerContainer.js"
   }
 ]

@@ -9,6 +9,7 @@ import search from '../actions/data';
 import { setFilters } from '../actions';
 
 import PriceRangeSlider from '../components/PriceRangeSlider';
+import { selectMinPrice, selectMaxPrice } from '../selectors';
 
 const PriceRangeSliderContainer = ({
   currentUser,
@@ -48,6 +49,11 @@ const mapDispatchToProps = dispatch => ({
   search: (dataType, query, filter) =>
     dispatch(search(dataType, query, filter)),
   setFilters: filter => dispatch(setFilters(filter)),
+});
+
+const mapStateToProps = createStructuredSelector({
+  minPrice: selectMinPrice,
+  maxPrice: selectMaxPrice,
 });
 
 export default connect(

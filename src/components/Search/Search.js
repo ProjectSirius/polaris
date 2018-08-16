@@ -9,6 +9,7 @@ const Search = ({ classes, handleSearch, currentUser, isAuth }) => {
       ? 'channels'
       : 'contents'
     : '';
+
   return (
     <div className={classes.searchWrapper}>
       <Field
@@ -16,9 +17,7 @@ const Search = ({ classes, handleSearch, currentUser, isAuth }) => {
         component={RenderField}
         type="search"
         label="search"
-        bsSize="large"
         placeholder="Search..."
-        className={classes.search}
         onChange={e => handleSearch(dataType, e.target.value)}
       />
     </div>
