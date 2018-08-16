@@ -27,7 +27,7 @@ const getData = (dataType, query = '') => (dispatch, getState) => {
   let filtersQuery = !filters
     ? ''
     : filters.reduce((acc, el) => {
-        if (!el.value) return;
+        if (!el.value) return null;
         return acc + ('&' + el.filterName + '=' + el.value);
       }, '');
 
@@ -46,6 +46,7 @@ const getData = (dataType, query = '') => (dispatch, getState) => {
   }
 
   dispatch(dataRequest(true));
+
   return get(url)
     .then(payload => dispatch(dataReceiveSuccess(payload.data)))
     .catch(err => dispatch(dataReceiveFailure(err)));
