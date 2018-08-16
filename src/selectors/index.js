@@ -8,6 +8,9 @@ export const selectLanguage = state => state.lang;
 export const selectIsSignUp = state => state.isSignUp;
 export const selectError = state => state.error;
 export const selectFilteringPageRating = state => state.filteringPage.rating;
+
+export const selectIsOpenFilterMenu = state =>
+  state.filteringPage.isOpenFilterMenu;
 export const selectFilteringPageFilterBar = state =>
   state.filteringPage.filterBar;
 export const selectRating = state => state.filterBar.rating;

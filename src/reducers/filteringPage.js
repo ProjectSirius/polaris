@@ -1,5 +1,18 @@
-import { UPD_FILTER_BAR, UPD_RATING } from '../actions/constants';
+import {
+  UPD_FILTER_BAR,
+  UPD_RATING,
+  TOGGLE_FILTER,
+} from '../actions/constants';
 import { combineReducers } from 'redux';
+
+const isOpenFilterMenu = (state = false, action) => {
+  switch (action.type) {
+    case TOGGLE_FILTER:
+      return action.payload.isOpen;
+    default:
+      return state;
+  }
+};
 
 // 3 options: table view, list view and map
 const filterBar = (state = 'table', action) => {
@@ -20,4 +33,4 @@ const rating = (state = 1, action) => {
   }
 };
 
-export default combineReducers({ filterBar, rating });
+export default combineReducers({ filterBar, rating, isOpenFilterMenu });
