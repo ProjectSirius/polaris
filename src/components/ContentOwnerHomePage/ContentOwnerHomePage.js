@@ -1,6 +1,6 @@
 import React from 'react';
 
-import FilterBar from '../FilterBar';
+import FilterBarContainer from '../../containers/FilterBarContainer';
 import CardsContainer from '../../containers/CardsContainer';
 import ConfigurableAndSearch from '../ConfigurableAndSearch/';
 
@@ -8,7 +8,7 @@ const ContentOwnerHomePage = ({ classes }) => {
   return (
     <div className={classes.filterPageWrapper}>
       <div className={classes.filterPageLeft}>
-        <FilterBar />
+        <FilterBarContainer />
       </div>
       <div className={classes.filterPageRight}>
         <ConfigurableAndSearch />
