@@ -76,11 +76,9 @@ const mapStateToProps = createStructuredSelector({
   lang: selectLanguage,
 });
 
-const mapDispatchToProps = dispatch => ({
-  getData: dataType => dispatch(getData(dataType)),
-});
-
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  {
+    getData,
+  }
 )(FilterBarContainer);

@@ -7,7 +7,7 @@ import { loadState, saveState } from '../localStorage';
 
 const configureStore = () => {
   const persistedState = loadState('polaris');
-  const middlewares = [logger, thunk];
+  const middlewares = [thunk, logger];
 
   const store = createStore(
     rootReducer,
