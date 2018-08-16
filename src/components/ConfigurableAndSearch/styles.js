@@ -15,5 +15,10 @@ export default {
     display: 'flex',
     flexDirection: 'column',
     marginLeft: '15px',
+
+    '& > div': {
+      display: 'flex',
+      justifyContent: 'flex-end',
+    },
   },
 };
