@@ -6,6 +6,7 @@ import filterBar from './filter-bar';
 import rating from './rating';
 import toggleMenu from './main-menu';
 import getData from './data';
+import setFilters from './filters';
 import filterMenu from './filter-menu';
 
 export {
@@ -17,5 +18,6 @@ export {
   filterBar,
   rating,
   getData,
+  setFilters,
   filterMenu,
 };

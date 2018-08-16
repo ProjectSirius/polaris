@@ -3,7 +3,14 @@ import { Field } from 'redux-form';
 
 import renderField from './RenderField';
 
-const CheckboxFilter = ({ classes }) => (
+const CheckboxFilter = ({ classes, handleChange, isAuth, currentUser }) => {
+    const dataType = isAuth
+    ? currentUser.userType === 'content_owner'
+      ? 'channels'
+      : 'contents'
+    : '';
+  
+  return (
   <React.Fragment>
     <Field
       name="checkbox1"
@@ -11,6 +18,12 @@ const CheckboxFilter = ({ classes }) => (
       component={renderField}
       type="checkbox"
       label="Option One"
+      onChange={e =>
+        handleChange(dataType, '', {
+          filterName: 'checkbox1',
+          value: e.target.checked,
+        })
+      }
       classes={classes}
     />
     <Field
@@ -20,6 +33,12 @@ const CheckboxFilter = ({ classes }) => (
       type="checkbox"
       label="Option Two"
       classes={classes}
+      onChange={e =>
+        handleChange(dataType, '', {
+          filterName: 'checkbox2',
+          value: e.target.checked,
+        })
+      }
     />
     <Field
       name="checkbox3"
@@ -28,7 +47,15 @@ const CheckboxFilter = ({ classes }) => (
       type="checkbox"
       label="Option Three"
       classes={classes}
+      onChange={e =>
+        handleChange(dataType, '', {
+          filterName: 'checkbox3',
+          value: e.target.checked,
+        })
+      }
     />
   </React.Fragment>
 );
+}
+
 export default CheckboxFilter;

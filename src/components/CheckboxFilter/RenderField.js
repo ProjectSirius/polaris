@@ -30,20 +30,20 @@ class TextField extends Component {
             active
             ${classes.checkboxWrapper}
             `}
-        >
-          <input
-            {...props}
-            checked={this.state.value}
-            onChange={this.onChange}
-            className={classes.checkbox}
-          />
-          <Glyphicon
-            glyph="glyphicon glyphicon-ok"
-            className={this.state.value ? classes.checked : classes.unchecked}
-          />
-        </label>
-        <span className={classes.option}>{label}</span>
-      </ControlLabel>
+          >
+            <input
+              {...props}
+              onClick={this.onChange}
+              className={classes.checkbox}
+            />
+            <Glyphicon
+              glyph="glyphicon glyphicon-ok"
+              className={this.state.value ? classes.checked : classes.unchecked}
+            />
+          </label>
+          <span className={classes.option}>{label}</span>
+        </ControlLabel>
+      </div>
     );
   }
 }
