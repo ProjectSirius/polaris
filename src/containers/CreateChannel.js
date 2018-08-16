@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { injectIntl, defineMessages } from 'react-intl';
 
 import CreateChannel from '../components/CreateChannel';
+import { reduxForm } from 'redux-form';
+import loginValidate from '../helpers/loginValidate';
 
 const messages = defineMessages({
   title: {
@@ -23,4 +25,10 @@ let CreateChannelContainer = props => {
 
 CreateChannelContainer = injectIntl(CreateChannelContainer);
 
-export default connect()(CreateChannelContainer);
+const addNewChannelForm = reduxForm({
+  form: 'Add_new_channel_form',
+  validate: loginValidate,
+  destroyOnUnmount: false,
+})(CreateChannelContainer);
+
+export default connect()(addNewChannelForm);
