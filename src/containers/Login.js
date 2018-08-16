@@ -24,17 +24,14 @@ const mapStateToProps = createStructuredSelector({
   loginError: selectError,
 });
 
-const mapDispatchToProps = dispatch => ({
-  login: user => dispatch(login(user)),
-});
-
 const LoginForm = reduxForm({
   form: 'Login_form',
   validate: loginValidate,
-  destroyOnUnmount: false,
 })(LogIn);
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  {
+    login,
+  }
 )(LoginForm);
