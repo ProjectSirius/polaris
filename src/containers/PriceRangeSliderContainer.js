@@ -1,7 +1,9 @@
 import { connect } from 'react-redux';
 import { reduxForm } from 'redux-form';
+import { createStructuredSelector } from 'reselect';
 
 import PriceRangeSlider from '../components/PriceRangeSlider';
+import { selectMinPrice, selectMaxPrice } from '../selectors';
 
 const PriceRangeSliderForm = reduxForm({
   form: 'Price_range_form',
@@ -12,7 +14,12 @@ const PriceRangeSliderForm = reduxForm({
   destroyOnUnmount: false,
 })(PriceRangeSlider);
 
+const mapStateToProps = createStructuredSelector({
+  minPrice: selectMinPrice,
+  maxPrice: selectMaxPrice,
+});
+
 export default connect(
-  null,
+  mapStateToProps,
   null
 )(PriceRangeSliderForm);
