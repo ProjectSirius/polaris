@@ -170,17 +170,14 @@ export default {
     justifyContent: 'center',
     alignItems: 'center',
     cursor: 'pointer',
-    color: '#fff',
+    color: '#000',
     fontWeight: '700',
 
     height: '60px !important',
-    background: '#FF5A5F',
-    transition: '0.5s',
-    border: '#d9534f',
-    borderRadius: '0',
 
     '&:hover': {
-      background: '#d9534f !important',
+      borderBottom: '2px solid #d9534f !important',
+      marginTop: '2px',
     },
   },
 
