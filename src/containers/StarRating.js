@@ -3,24 +3,49 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
 import StarRating from '../components/StarRating';
-import { selectFilteringPageRating } from '../selectors';
-import { rating } from '../actions';
+import {
+  selectFilteringPageRating,
+  selectIsAuth,
+  selectCurrentUser,
+} from '../selectors';
+import { rating, setFilters } from '../actions';
+import search from '../actions/data';
 
 const mapStateToProps = createStructuredSelector({
-  selectFilteringPageRating,
+  rating: selectFilteringPageRating,
+  isAuth: selectIsAuth,
+  currentUser: selectCurrentUser,
 });
 
 const mapDispatchToProps = dispatch => ({
   updRating: rate => dispatch(rating(rate)),
+  setFilters: filter => dispatch(setFilters(filter)),
+  search: (dataType, query, filter) =>
+    dispatch(search(dataType, query, filter)),
 });
 
-let StarRatingContainer = ({ updRating, selectFilteringPageRating }) => {
+let StarRatingContainer = ({
+  updRating,
+  setFilters,
+  search,
+  isAuth,
+  currentUser,
+  rating,
+}) => {
+  const handleChange = (dataType, query, filter, rating) => {
+    updRating(rating);
+    setFilters(filter);
+    search(dataType, query);
+  };
+
   return (
     <StarRating
       min={1}
       max={5}
-      onChange={updRating}
-      value={selectFilteringPageRating}
+      onChange={handleChange}
+      value={rating}
+      isAuth={isAuth}
+      currentUser={currentUser}
     />
   );
 };

@@ -40,15 +40,7 @@ class FilterBarContainer extends React.Component {
       window.innerHeight + window.scrollY >=
       document.body.offsetHeight - 500
     ) {
-      const { isAuth, currentUser } = this.props;
-
-      const dataType = isAuth
-        ? currentUser.userType === 'content_owner'
-          ? 'channels'
-          : 'contents'
-        : '';
-
-      this.props.getData(dataType, '');
+      return true;
     }
   }
 
@@ -76,11 +68,9 @@ const mapStateToProps = createStructuredSelector({
   lang: selectLanguage,
 });
 
-const mapDispatchToProps = dispatch => ({
-  getData: dataType => dispatch(getData(dataType)),
-});
-
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  {
+    getData,
+  }
 )(FilterBarContainer);
