@@ -1,5 +1,23 @@
 {
+  "Form": "Form",
   "audience": "DJ",
-  "content": "Content",
-  "home-page-title": "Home Page"
+  "auth-buttons-sign-up": "Sign Up As a",
+  "checkboxes-filter-title": "Checkboxes",
+  "close-message": "CLOSE",
+  "content": "Composer",
+  "detailed-page-title": "Detailed Page",
+  "en": "English",
+  "filters-panel-title": "FILTERS",
+  "home-page-title": "Home Page",
+  "log-out": "Log out",
+  "login-audience": "DJ",
+  "login-contentOwner": "Composer",
+  "login-form": "Log In to Polaris",
+  "menu": "MENU",
+  "price-range-title": "Price Range",
+  "project-title": "Polaris",
+  "requesting-alert": "Please wait...",
+  "ru": "Русский",
+  "select-option-filter-title": "Select",
+  "star-rating-title": "Rating"
 }

@@ -6,6 +6,12 @@ export default {
       margin: 0,
       width: '100%',
     },
+
+    '& span': {
+      backgroundColor: '#fff',
+      color: '#4285f4 !important',
+      cursor: 'pointer',
+    },
   },
 
   search: {

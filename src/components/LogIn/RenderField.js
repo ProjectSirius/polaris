@@ -3,19 +3,23 @@ import { FormGroup, FormControl } from 'react-bootstrap';
 
 const TextField = ({ id, label, touched, error, ...props }) => {
   return (
-    <div>
-      {touched && error ? <span className="alert">{error}</span> : ''}
-      <FormGroup controlId={id} className="input-container">
-        <FormControl {...props} className="error" />
+    <React.Fragment>
+      <FormGroup
+        validationState={touched && error ? 'error' : null}
+        controlId={id}
+      >
+        <FormControl {...props} />
+        {touched && error ? <span className="feedbackError">{error}</span> : ''}
       </FormGroup>
-    </div>
+    </React.Fragment>
   );
 };
 
-const renderField = ({ input, meta: { touched, error }, ...custom }) => (
-  <div>
-    <TextField touched={touched} error={error} {...input} {...custom} />
-  </div>
-);
+const renderField = ({
+  input,
+  meta: { touched, error },
+  classes,
+  ...custom
+}) => <TextField touched={touched} error={error} {...input} {...custom} />;
 
 export default renderField;

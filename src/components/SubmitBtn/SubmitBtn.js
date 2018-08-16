@@ -7,6 +7,7 @@ const SubmitBtn = ({ valid, isRequesting, value, classes }) => {
     <div className={classes.submitWrapper}>
       <Button
         bsSize="large"
+        bsStyle="danger"
         block
         type="submit"
         disabled={!valid || isRequesting}

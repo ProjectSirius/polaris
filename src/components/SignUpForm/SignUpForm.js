@@ -1,6 +1,6 @@
 import React from 'react';
 import { Field } from 'redux-form';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import { Alert } from 'react-bootstrap';
 import { PropTypes } from 'prop-types';
 
@@ -15,8 +15,11 @@ const SignUpForm = ({
   valid,
   isRequesting,
   errorSignUp,
-  formTitle,
   classes,
+  messages,
+  formatMessage,
+  user,
+  lang,
 }) => {
   const { from } = location.state || { from: { pathname: '/login' } };
   return isSignUp ? (
@@ -24,7 +27,12 @@ const SignUpForm = ({
   ) : (
     <div className={classes.signUpForm}>
       <form onSubmit={handleSubmit(signUp)}>
-        <h1>{formTitle}</h1>
+        <h1 className={classes.signUpTitle}>
+          {user === 'audience'
+            ? formatMessage(messages.audience)
+            : formatMessage(messages.content)}
+          {' ' + formatMessage(messages.formTitle)}
+        </h1>
         <Field
           name="username"
           type="text"
@@ -50,10 +58,10 @@ const SignUpForm = ({
           className={classes.input}
         />
         <Field
-          name="passwordConformation"
+          name="passwordConfirmation"
           type="password"
           component={renderField}
-          placeholder="Password Conformation"
+          placeholder="Password Confirmation"
           bsSize="large"
           className={classes.input}
         />
@@ -63,7 +71,11 @@ const SignUpForm = ({
           component={renderField}
           className={classes.hiddenInput}
         />
-        {isRequesting && <Alert bsStyle="info">Please wait...</Alert>}
+        {isRequesting && (
+          <Alert bsStyle="info">
+            {formatMessage(messages.requestingAlert)}
+          </Alert>
+        )}
         {errorSignUp && <Alert bsStyle="danger">{errorSignUp}</Alert>}
         <SubmitBtn
           value="CREATE ACCOUNT!"
@@ -71,6 +83,14 @@ const SignUpForm = ({
           isRequesting={isRequesting}
         />
       </form>
+      <div className={classes.signUpDesc}>
+        <p>
+          Already have an account?{' '}
+          <Link to={{ pathname: `/login`, search: `?locale=${lang}` }}>
+            Log In
+          </Link>{' '}
+        </p>
+      </div>
     </div>
   );
 };

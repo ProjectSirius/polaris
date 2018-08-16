@@ -5,11 +5,10 @@ const TextField = ({ id, label, touched, error, ...props }) => {
   return (
     <FormGroup>
       <InputGroup>
+        <FormControl type="text" {...props} />
         <InputGroup.Addon>
           <Glyphicon glyph="glyphicon glyphicon-search" />
         </InputGroup.Addon>
-
-        <FormControl type="text" {...props} />
       </InputGroup>
     </FormGroup>
   );

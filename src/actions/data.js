@@ -21,10 +21,11 @@ const dataReceiveFailure = error => ({
 });
 
 const getData = (dataType, query = '') => dispatch => {
+  let url = !query
+    ? `https://my-json-server.typicode.com/angela0202/fake-db/${dataType}`
+    : `https://my-json-server.typicode.com/angela0202/fake-db/${dataType}?q=${query}`;
   dispatch(dataRequest(true));
-  return get(
-    `https://my-json-server.typicode.com/angela0202/fake-db/${dataType}?q=${query}`
-  )
+  return get(url)
     .then(payload => dispatch(dataReceiveSuccess(payload.data)))
     .catch(err => dispatch(dataReceiveFailure(err)));
 };
