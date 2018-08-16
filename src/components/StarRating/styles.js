@@ -1,38 +1,29 @@
 export default {
   rating: {
     lineHeight: 1,
-    display: 'inline-block',
-    textAlign: 'center',
+    display: 'flex',
+    padding: '5px 0',
+    justifyContent: 'center',
+    cursor: 'pointer',
   },
 
-  ratingItem: {
-    display: 'inline',
-    fontSize: 0,
-    marginLeft: '3px',
-
-    '&:before': {
-      fontSize: '30px',
-      content: '"★"',
-      color: '#d3d3d3',
+  defaultStar: {
+    '&:hover span': {
+      color: '#ED1C24',
     },
 
-    '&:hover': {
-      cursor: 'pointer',
-    },
-
-    '&:first-child': {
-      marginLeft: 0,
-    },
+    cursor: 'pointer',
+    fontSize: '30px',
+    padding: '5px',
   },
 
-  ratingItemSelected: {
-    '&:before': {
-      color: '#ffd700',
+  rateStar: {
+    '& span': {
+      color: '#ED1C24',
     },
-  },
 
-  ratingInput: {
-    position: 'absolute',
-    visibility: 'hidden',
+    cursor: 'pointer',
+    fontSize: '30px',
+    padding: '5px',
   },
 };
