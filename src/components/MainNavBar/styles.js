@@ -207,8 +207,8 @@ export default {
   },
 
   /*
- * media
- */
+   * media
+   */
   '@media screen and (max-width: 640px)': {
     mainNav: {
       flexDirection: 'column',
