@@ -27,4 +27,30 @@ export default {
     display: 'flex',
     justifyContent: 'space-between',
   },
+
+  uploadBtnWrapper: {
+    position: 'relative',
+    overflow: 'hidden',
+    display: 'inline-block',
+
+    '& > input[type=file]': {
+      fontSize: '32px',
+      position: 'absolute',
+      left: 0,
+      top: 0,
+      opacity: 0,
+      width: '170px',
+    },
+  },
+
+  btn: {
+    border: '2px solid gray',
+    color: 'gray',
+    backgroundColor: 'white',
+    padding: '8px 20px',
+    borderRadius: '8px',
+    fontSize: '20px',
+    fontWeight: 'bold',
+    cursor: 'pointer',
+  },
 };
