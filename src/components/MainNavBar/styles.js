@@ -113,12 +113,20 @@ export default {
   },
 
   navLink: {
-    margin: '5px',
-    color: '#212121',
-    fontWeight: '600',
-    fontSize: '12px',
-    textTransform: 'uppercase',
-    textAlign: 'center',
+    display: 'flex',
+    width: '100px',
+    justifyContent: 'center',
+    alignItems: 'center',
+    cursor: 'pointer',
+    color: '#000',
+    fontWeight: '700',
+
+    height: '60px !important',
+
+    '&:hover': {
+      borderBottom: '2px solid #d9534f !important',
+      marginTop: '2px',
+    },
   },
 
   navLinkLogin: {
