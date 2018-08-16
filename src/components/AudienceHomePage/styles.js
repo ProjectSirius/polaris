@@ -2,7 +2,7 @@ export default {
   filterPageWrapper: {
     display: 'flex',
     padding: '10px',
-    margin: '55px 0',
+    margin: '55px 30px',
   },
 
   filterPageLeft: {
@@ -15,6 +15,6 @@ export default {
     flexGrow: '1',
     display: 'flex',
     flexDirection: 'column',
-    marginLeft: '15px',
+    marginLeft: '50px',
   },
 };
