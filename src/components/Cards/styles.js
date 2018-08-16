@@ -32,4 +32,20 @@ export default {
       transition: 'all 0.6s ease-in-out',
     },
   },
+
+  '@media screen and (max-width: 640px)': {
+    cardsWrapperList: {
+      width: '100%',
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    cardsWrapperGrid: {
+      width: '100%',
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    parentLinkList: {
+      width: '100%',
+    },
+  },
 };

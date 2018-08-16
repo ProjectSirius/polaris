@@ -21,4 +21,17 @@ export default {
       justifyContent: 'flex-end',
     },
   },
+
+  '@media screen and (max-width: 640px)': {
+    confAndSearchWrapper: {
+      flexDirection: 'column',
+      '& > div': {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: '100%',
+        margin: '10px 0',
+      },
+    },
+  },
 };

@@ -1,6 +1,4 @@
 export default {
-  filterWrapper: {},
-
   filterHeading: {
     display: 'flex',
     alignItems: 'center',
@@ -48,5 +46,11 @@ export default {
     display: 'flex',
     margin: 0,
     padding: '10px',
+  },
+
+  '@media screen and (max-width: 640px)': {
+    filterWrapper: {
+      width: '100%',
+    },
   },
 };

@@ -26,4 +26,13 @@ export default {
     fontSize: '30px',
     padding: '5px',
   },
+
+  '@media screen and (max-width: 780px)': {
+    rateStar: {
+      fontSize: '25px',
+    },
+    defaultStar: {
+      fontSize: '25px',
+    },
+  },
 };
