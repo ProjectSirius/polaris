@@ -14,7 +14,6 @@ export default {
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'space-between',
-    margin: '15px 0',
 
     '& > div': {
       transition: 'all .9s ease',
