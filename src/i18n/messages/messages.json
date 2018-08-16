@@ -100,6 +100,11 @@
     "filepath": "src/containers/AuthButtonsContainer.js"
   },
   {
+    "id": "create-new-channel-title",
+    "defaultMessage": "New Channel Page",
+    "filepath": "src/containers/CreateChannel.js"
+  },
+  {
     "id": "detailed-page-title",
     "defaultMessage": "Detailed Page",
     "filepath": "src/containers/DetailedPageContainer.js"
