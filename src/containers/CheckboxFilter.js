@@ -44,13 +44,10 @@ const mapStateToProps = createStructuredSelector({
   isAuth: selectIsAuth,
 });
 
-const mapDispatchToProps = dispatch => ({
-  search: (dataType, query, filter) =>
-    dispatch(search(dataType, query, filter)),
-  setFilters: filter => dispatch(setFilters(filter)),
-});
-
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  {
+    search,
+    setFilters,
+  }
 )(CheckboxFilterForm);
