@@ -11,12 +11,24 @@ export default {
   },
 
   cardsWrapperGrid: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'space-between',
+    display: 'grid',
+    gridTemplateColumns: '32% 32% 32%',
+    gridGap: '3%',
+    backgroundColor: '#fff',
+    color: '#444',
 
     '& > div': {
       transition: 'all .9s ease',
+    },
+
+    '@media screen and (min-width: 1800px)': {
+      gridTemplateColumns: '24% 24% 24% 24%',
+      gridGap: '2%',
+    },
+
+    '@media screen and (min-width: 2600px)': {
+      gridTemplateColumns: '19% 19% 19% 19% 19%',
+      gridGap: '1%',
     },
   },
 
