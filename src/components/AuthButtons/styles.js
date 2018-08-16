@@ -17,12 +17,26 @@ export default {
   },
 
   navLink: {
-    margin: '5px',
-    color: '#212121',
-    fontWeight: '600',
-    fontSize: '12px',
-    textTransform: 'uppercase',
-    textAlign: 'center',
+    display: 'flex',
+    width: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    cursor: 'pointer',
+    color: '#000',
+    fontWeight: '700',
+
+    height: '60px !important',
+
+    '&:hover': {
+      borderBottom: '2px solid #d9534f !important',
+      marginTop: '2px',
+    },
+
+    '& a': {
+      display: 'flex',
+      alignItems: 'center',
+      height: '100%',
+    },
   },
 
   navLinkLogin: {
@@ -43,10 +57,10 @@ export default {
     '& button': {
       height: '60px ',
 
-      background: '#FF5A5F',
+      background: '#FF5A5F !important',
       transition: '0.5s',
 
-      border: '#FF5A5F',
+      border: '#FF5A5F !important',
       borderRadius: 0,
       color: '#fff !important',
       fontWeight: '700',

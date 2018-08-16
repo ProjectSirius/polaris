@@ -55,7 +55,12 @@ export default {
     fontSize: '16px',
 
     '& a': {
-      color: '#337ab7',
+      color: '#337ab7 !important',
+      fontWeight: '700',
+
+      '&:hover': {
+        textDecoration: 'underline !important',
+      },
     },
 
     '@media screen and (min-width: 900px)': {
