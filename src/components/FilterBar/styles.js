@@ -1,22 +1,30 @@
 export default {
-  container: {
-    display: 'flex',
-  },
-
-  filterBar: {},
+  filterWrapper: {},
 
   filterHeading: {
-    fontSize: '22px',
     display: 'flex',
+    alignItems: 'center',
     width: '100%',
+    padding: '15px',
+    marginBottom: '15px',
+    border: '1px solid rgba(206, 197, 197, .6)',
+    borderRadius: '5px',
+    fontSize: '20px',
+    fontWeight: '700',
+    cursor: 'pointer',
   },
 
   filterHeadingTitle: {
     marginLeft: '11px',
   },
 
-  filterWrapper: {
-    padding: '5px',
+  filterItems: {
+    border: '1px solid rgba(206, 197, 197, .6)',
+    borderRadius: '5px',
+  },
+
+  filterItem: {
+    padding: '30px 15px',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-around',
@@ -25,8 +33,10 @@ export default {
   },
 
   filterTitle: {
+    marginBottom: '15px',
     fontSize: '20px',
-    padding: '20px 0',
+    fontWeight: '500',
+    textTransform: 'uppercase',
   },
 
   filterTitleWithIcon: {

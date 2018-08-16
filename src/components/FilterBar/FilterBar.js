@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { Panel, Glyphicon } from 'react-bootstrap';
+import { Glyphicon } from 'react-bootstrap';
 import { injectIntl, defineMessages } from 'react-intl';
 
 import StarRating from '../../containers/StarRating';
@@ -38,50 +38,50 @@ class FilterBar extends PureComponent {
     } = this.props;
 
     return (
-      <Panel className={classes.filterBar}>
-        <Panel.Heading className={classes.filterHeading}>
+      <div className={classes.filterWrapper}>
+        <div className={classes.filterHeading}>
           <Glyphicon glyph="filter" />
           <span className={classes.filterHeadingTitle}>
             {formatMessage(messages.filtersPanelTitle)}
           </span>
-        </Panel.Heading>
-        <Panel.Body>
-          <div className={classes.filterWrapper}>
+        </div>
+        <div className={classes.filterItems}>
+          <div className={classes.filterItem}>
             <div className={classes.filterTitle}>
-              {formatMessage(messages.starRatingTitle)}
+              {formatMessage(messages.starRatingTitle)}:
             </div>
             <StarRating />
           </div>
-          <div className={classes.filterWrapper}>
+          <div className={classes.filterItem}>
             <div className={classes.filterTitle}>
-              {formatMessage(messages.priceRangeTitle)}
+              {formatMessage(messages.priceRangeTitle)}:
             </div>
             <PriceRangeSlider />
           </div>
-          <div className={classes.filterWrapper}>
+          <div className={classes.filterItem}>
             <div className={classes.filterTitle}>
               <div className={classes.filterTitleWithIcon}>
                 <Glyphicon glyph="glyphicon glyphicon-chevron-down" />
                 <span style={{ paddingLeft: '6px' }}>
-                  {formatMessage(messages.checkboxFilterTitle)}
+                  {formatMessage(messages.checkboxFilterTitle)}:
                 </span>
               </div>
             </div>
             <CheckboxFilter />
           </div>
-          <div className={classes.filterWrapper}>
+          <div className={classes.filterItem}>
             <div className={classes.filterTitle}>
               <div className={classes.filterTitleWithIcon}>
                 <Glyphicon glyph="glyphicon glyphicon-chevron-down" />
                 <span style={{ paddingLeft: '6px' }}>
-                  {formatMessage(messages.selectedOptionFilterTitle)}
+                  {formatMessage(messages.selectedOptionFilterTitle)}:
                 </span>
               </div>
             </div>
             <SelectOptionFilter />
           </div>
-        </Panel.Body>
-      </Panel>
+        </div>
+      </div>
     );
   }
 }
