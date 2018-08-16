@@ -44,13 +44,10 @@ const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
 });
 
-const mapDispatchToProps = dispatch => ({
-  search: (dataType, query, filter) =>
-    dispatch(search(dataType, query, filter)),
-  setFilters: filter => dispatch(setFilters(filter)),
-});
-
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  {
+    search,
+    setFilters,
+  }
 )(PriceRangeSliderForm);
