@@ -254,9 +254,11 @@ export default {
       borderBottom: '1px solid #e6eaea',
       color: '#212121',
       transition: '0.5s',
+      textAlign: 'center',
 
       '&:hover': {
         background: '#fff',
+        marginTop: '0',
       },
 
       '& a': {
