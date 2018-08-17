@@ -6,7 +6,7 @@ import { createStructuredSelector } from 'reselect';
 
 import { selectIsRequesting, selectTags } from '../selectors';
 
-import { addTags, removeTags } from '../actions';
+import { addTags, removeTags, sendData } from '../actions';
 
 import CreateChannel from '../components/CreateChannel';
 
@@ -20,7 +20,12 @@ const messages = defineMessages({
 });
 
 let CreateChannelContainer = props => {
-  return <CreateChannel messages={messages} {...props} />;
+  const onFormSubmit = formData => {
+    props.sendData(formData, 'createChannel');
+  };
+  return (
+    <CreateChannel messages={messages} {...props} onFormSubmit={onFormSubmit} />
+  );
 };
 
 CreateChannelContainer = injectIntl(CreateChannelContainer);
@@ -44,5 +49,6 @@ export default connect(
   {
     addTags,
     removeTags,
+    sendData,
   }
 )(addNewChannelForm);

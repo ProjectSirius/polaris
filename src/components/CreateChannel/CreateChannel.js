@@ -19,7 +19,14 @@ class CreateChannel extends React.Component {
   }
 
   render() {
-    const { isRequesting, classes, valid, tags } = this.props;
+    const {
+      isRequesting,
+      classes,
+      valid,
+      tags,
+      handleSubmit,
+      onFormSubmit,
+    } = this.props;
 
     return (
       <div className={classes.newChannelWrapper}>
@@ -27,7 +34,13 @@ class CreateChannel extends React.Component {
           <div className={classes.titleWrapper}>
             <div className={classes.title}>Create New Channel</div>
           </div>
-          <form className={classes.form}>
+          <form
+            className={classes.form}
+            onSubmit={handleSubmit(onFormSubmit)}
+            onKeyDown={e => {
+              if (e.key === 'Enter') e.preventDefault();
+            }}
+          >
             <Field
               label="Channel Title:"
               component={RenderField}
