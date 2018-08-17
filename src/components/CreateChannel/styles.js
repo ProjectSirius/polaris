@@ -139,6 +139,8 @@ export default {
             'border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s',
           OTransition:
             'border-color ease-in-out .15s,box-shadow ease-in-out .15s',
+          marginBottom: '10px',
+          marginTop: '5px',
         },
       },
     },
