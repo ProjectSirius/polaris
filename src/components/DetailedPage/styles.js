@@ -2,16 +2,19 @@ export default {
   '@global html ,body, #root, .App': {
     height: '100%',
   },
-  channelInfo: {
-    '& .text': {
-      borderTop: '4px double',
-      borderBottom: '4px double',
-    },
+  dropdownSeting: {
+    textAlign: 'right',
+    margin: '10px 0',
   },
-
   chanelImg: {
-    maxHeight: '400px',
+    width: '100%',
     margin: '20px 0',
+  },
+  channelDescription: {
+    fontSize: '16px',
+    maxHeight: '150px',
+    overflowY: 'auto',
+    margin: '10px 0',
   },
   userData: {
     marginTop: '10px',
@@ -20,27 +23,22 @@ export default {
       width: '80px',
       height: '80px',
     },
+    '& a': {
+      fontSize: '18px',
+      padding: '5px',
+    },
   },
-  changeChannel: {
+  rightChannel: {
+    '& .thumbnail': {
+      backgroundColor: 'transparent',
+    },
+  },
+
+  channelLeft: {
     '& button': {
-      margin: '5px',
+      margin: '10px',
       padding: '5px',
       minWidth: '70px',
-    },
-    '@media (min-width: 991px)': {
-      '& ': {
-        textAlign: 'right',
-      },
-    },
-  },
-  infoList: {
-    listStyle: 'none',
-    display: 'flex',
-    '& li': {
-      border: 'solid 1px #999',
-      padding: '5px',
-      flexDirection: 'row',
-      justifyContent: 'space-between',
     },
   },
 };
