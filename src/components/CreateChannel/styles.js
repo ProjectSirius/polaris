@@ -1,18 +1,33 @@
 export default {
   newChannelWrapper: {
     display: 'flex',
-    justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'column',
+    paddingTop: '40px',
+    width: '100%',
+
+    '& > div': {
+      display: 'flex',
+      alignItems: 'center',
+      flexDirection: 'column',
+      padding: '20px',
+    },
+  },
+
+  titleWrapper: {
+    width: '100%',
+    display: 'flex',
+    justifyContent: 'center',
+    borderBottom: '10px solid #ea585f',
   },
 
   title: {
-    fontSize: '35px',
-    padding: '32px',
+    fontSize: '32px',
+    padding: '18px',
   },
 
   form: {
-    width: '70%',
+    marginTop: '10px',
   },
 
   inputFiled: {
@@ -26,6 +41,10 @@ export default {
   minAndMaxPrice: {
     display: 'flex',
     justifyContent: 'space-between',
+
+    '& > div': {
+      padding: '0 5px',
+    },
   },
 
   uploadBtnWrapper: {
@@ -49,8 +68,25 @@ export default {
     backgroundColor: 'white',
     padding: '8px 20px',
     borderRadius: '8px',
-    fontSize: '20px',
+    fontSize: '15px',
     fontWeight: 'bold',
     cursor: 'pointer',
+  },
+
+  tag: {
+    display: 'inline-block',
+    padding: '2px',
+    margin: '2px 0',
+    background: '#FFF',
+    border: '1px solid #CCC',
+    width: '16em',
+    font: 'inherit',
+    borderRadius: '2px',
+    boxShadow: 'inset 0 1px 2px rgba(0, 0, 0, .1)',
+
+    '&:focus': {
+      borderColor: '#59F',
+      outline: 'none',
+    },
   },
 };
