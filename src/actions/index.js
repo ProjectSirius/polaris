@@ -6,6 +6,7 @@ import filterBar from './filter-bar';
 import rating from './rating';
 import toggleMenu from './main-menu';
 import getData from './data';
+import { addTags, removeTags } from './tags';
 
 export {
   signUp,
@@ -16,4 +17,6 @@ export {
   filterBar,
   rating,
   getData,
+  addTags,
+  removeTags,
 };
