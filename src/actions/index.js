@@ -7,6 +7,7 @@ import rating from './rating';
 import toggleMenu from './main-menu';
 import getData from './data';
 import { addTags, removeTags } from './tags';
+import sendData from './sendData';
 
 export {
   signUp,
@@ -19,4 +20,5 @@ export {
   getData,
   addTags,
   removeTags,
+  sendData,
 };
