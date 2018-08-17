@@ -20,6 +20,7 @@ export const selectMinInitalPrice = state =>
 export const selectMaxInitalPrice = state =>
   state.form.Price_range_form.initial.max_price_range;
 export const selectOption = state => state.form.SelectOptionFilter_form;
+export const selectTags = state => state.tags;
 
 export const selectIsAuth = createSelector(
   selectCurrentUser,
