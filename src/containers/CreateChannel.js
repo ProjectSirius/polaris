@@ -33,6 +33,9 @@ const mapStateToProps = createStructuredSelector({
 const addNewChannelForm = reduxForm({
   form: 'Add_new_channel_form',
   validate: channelFormValidate,
+  initialValues: {
+    unit: 'view',
+  },
   destroyOnUnmount: false,
 })(CreateChannelContainer);
 
