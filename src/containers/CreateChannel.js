@@ -1,10 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { reduxForm } from 'redux-form';
 import { injectIntl, defineMessages } from 'react-intl';
+import { createStructuredSelector } from 'reselect';
+
+import { selectIsRequesting } from '../selectors';
 
 import CreateChannel from '../components/CreateChannel';
-import { reduxForm } from 'redux-form';
-import loginValidate from '../helpers/loginValidate';
+
+import channelFormValidate from '../helpers/channelFormValidate';
 
 const messages = defineMessages({
   title: {
@@ -14,21 +18,19 @@ const messages = defineMessages({
 });
 
 let CreateChannelContainer = props => {
-  const {
-    intl: { formatMessage },
-  } = props;
-
-  const formattedTitle = formatMessage(messages.title);
-
-  return <CreateChannel title={formattedTitle} />;
+  return <CreateChannel messages={messages} {...props} />;
 };
 
 CreateChannelContainer = injectIntl(CreateChannelContainer);
 
+const mapStateToProps = createStructuredSelector({
+  isRequesting: selectIsRequesting,
+});
+
 const addNewChannelForm = reduxForm({
   form: 'Add_new_channel_form',
-  validate: loginValidate,
+  validate: channelFormValidate,
   destroyOnUnmount: false,
 })(CreateChannelContainer);
 
-export default connect()(addNewChannelForm);
+export default connect(mapStateToProps)(addNewChannelForm);
