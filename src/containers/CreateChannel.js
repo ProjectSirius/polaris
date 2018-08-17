@@ -4,7 +4,9 @@ import { reduxForm } from 'redux-form';
 import { injectIntl, defineMessages } from 'react-intl';
 import { createStructuredSelector } from 'reselect';
 
-import { selectIsRequesting } from '../selectors';
+import { selectIsRequesting, selectTags } from '../selectors';
+
+import { addTags, removeTags } from '../actions';
 
 import CreateChannel from '../components/CreateChannel';
 
@@ -25,6 +27,7 @@ CreateChannelContainer = injectIntl(CreateChannelContainer);
 
 const mapStateToProps = createStructuredSelector({
   isRequesting: selectIsRequesting,
+  tags: selectTags,
 });
 
 const addNewChannelForm = reduxForm({
@@ -33,4 +36,10 @@ const addNewChannelForm = reduxForm({
   destroyOnUnmount: false,
 })(CreateChannelContainer);
 
-export default connect(mapStateToProps)(addNewChannelForm);
+export default connect(
+  mapStateToProps,
+  {
+    addTags,
+    removeTags,
+  }
+)(addNewChannelForm);
