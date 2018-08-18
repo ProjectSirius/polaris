@@ -1,16 +1,5 @@
-// User+
-// Title+
-// Description+
-// DetailedText+
-// PriceValue+
-// PriceUnitId-
-// CreatedAt
-// UpdatedAt
-// Image +
-// Url-
-// Tags-
 import React from 'react';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import {
   Grid,
   Row,
@@ -19,37 +8,22 @@ import {
   ButtonGroup,
   Button,
   Thumbnail,
-  DropdownButton,
-  MenuItem,
   Image,
 } from 'react-bootstrap';
 
-const DetailedPage = ({ title, classes }) => {
+const DetailedPage = ({title, classes}) => {
   return (
     <Grid>
-      <div className={classes.dropdownSeting}>
-        <DropdownButton
-          bsSize="small"
-          title="SETINGS"
-          id="dropdown-size-large"
-          bsStyle="info"
-        >
-          <MenuItem eventKey="1">
+      <div className={classes.topButtons}>
             <Button bsSize="small" bsStyle="primary">
               Add
             </Button>
-          </MenuItem>
-          <MenuItem eventKey="2">
             <Button bsSize="small" bsStyle="warning">
               Edit
             </Button>
-          </MenuItem>
-          <MenuItem eventKey="3">
             <Button bsSize="small" bsStyle="danger">
               Delete
             </Button>
-          </MenuItem>
-        </DropdownButton>
       </div>
 
       <Row className="show-grid">
@@ -87,37 +61,39 @@ const DetailedPage = ({ title, classes }) => {
               <span>1200</span>
             </strong>
           </h2>
-          <Button bsStyle="primary" bsSize="large">
-            <Glyphicon glyph="usd" /> <strong> By </strong>
+          <Button bsStyle="primary" bsSize="large" className ={classes.byButton}>
+            <Glyphicon glyph="usd"/> <strong> By </strong>
           </Button>
           <div className={classes.userData}>
-            <Image
-              src="https://harsupesa.am/images/catalog/dj/dj-smoke/dj-smoke-4.jpg"
-              circle
-            />
-            <Link to={``}> User: Jhone Done</Link>
+            <div>
+              <Image src="https://harsupesa.am/images/catalog/dj/dj-smoke/dj-smoke-4.jpg"/>
+              <div>
+                <Link to={``}> User: Jhone Done</Link>
+                <Button> Contact </Button>
+              </div>
+            </div>
           </div>
 
           <h1> {'Here is the Title 1'} </h1>
 
           <div>
             <Button bsStyle="success">
-              <Glyphicon glyph="time" /> Released: 2018-04-25
+              <Glyphicon glyph="time"/> Released: 2018-10-25
             </Button>
           </div>
 
           <ButtonGroup>
             <Button>
-              <Glyphicon glyph="star" /> 5
+              <Glyphicon glyph="star"/> 5
             </Button>
             <Button>
-              <Glyphicon glyph="heart-empty" /> 17
+              <Glyphicon glyph="heart-empty"/> 17
             </Button>
             <Button>
-              <Glyphicon glyph="comment" /> 32
+              <Glyphicon glyph="comment"/> 32
             </Button>
             <Button>
-              <Glyphicon glyph="eye-open" /> 500
+              <Glyphicon glyph="eye-open"/> 500
             </Button>
           </ButtonGroup>
 
@@ -126,7 +102,11 @@ const DetailedPage = ({ title, classes }) => {
           <div>
             <strong> Countries: </strong> - United States of America
           </div>
+          <div  className= {classes.googlemap}>
+            <Image src ="https://maps.googleapis.com/maps/api/staticmap?center=3+Hakob+Hakobyan+St%2C+Yerevan+0033%2C+Armenia&zoom=12&size=400x228&scale=2&markers=color:red|3+Hakob+Hakobyan+St%2C+Yerevan+0033%2C+Armenia&key=AIzaSyDwsFdQ8rraJLTYf_GVMvHjORckgTa58HQ"/>
+          </div>
         </Col>
+
       </Row>
     </Grid>
   );

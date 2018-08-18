@@ -2,9 +2,12 @@ export default {
   '@global html ,body, #root, .App': {
     height: '100%',
   },
-  dropdownSeting: {
+  topButtons: {
     textAlign: 'right',
     margin: '10px 0',
+    '& button' :{
+      marginLeft:'5px',
+    }
   },
   chanelImg: {
     width: '100%',
@@ -19,18 +22,44 @@ export default {
   userData: {
     marginTop: '10px',
     marginBottom: '20px',
-    '& img': {
-      width: '80px',
-      height: '80px',
+    '& > div': {
+      display: 'flex',
+      '& img': {
+        width: '80px',
+        height: '85px',
+        flex: '0 0 90px',
+        borderRadius: '8px',
+      },
+      '& > div': {
+        maxWidth: '150px',
+        margin: '10px',
+      },
+      '& a': {
+        color: "#1f69c1",
+        fontWeight: 600,
+        fontSize: '20px',
+        display: 'block',
+        whiteSpace: 'nowrap',
+        overflow: 'hidden',
+        textOverflow: 'ellipsis',
+      },
+      '& button': {
+        minWidth: '100px',
+      }
     },
-    '& a': {
-      fontSize: '18px',
-      padding: '5px',
-    },
+
+  },
+  googlemap :{
+    width:'100%',
+    margin: '10px 0',
   },
   rightChannel: {
     '& .thumbnail': {
       backgroundColor: 'transparent',
+      '& img' :{
+        width: '100%',
+        maxHeight: '600px',
+      }
     },
   },
 
@@ -41,4 +70,8 @@ export default {
       minWidth: '70px',
     },
   },
+  byButton :{
+    width: '150px',
+    lineHeight: '30px'
+  }
 };
