@@ -1,30 +1,40 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { reduxForm } from 'redux-form';
-import { injectIntl, defineMessages } from 'react-intl';
+import { injectIntl } from 'react-intl';
 import { createStructuredSelector } from 'reselect';
 
-import { selectIsRequesting, selectTags } from '../selectors';
+import {
+  selectIsRequesting,
+  selectTags,
+  selectIsAuth,
+  selectCurrentUser,
+} from '../selectors';
 
 import { addTags, removeTags, sendData } from '../actions';
 
-import CreateChannel from '../components/CreateChannel';
+import CreateCard from '../components/CreateCard';
 
 import channelFormValidate from '../helpers/channelFormValidate';
-
-const messages = defineMessages({
-  title: {
-    id: 'create-new-channel-title',
-    defaultMessage: 'New Channel Page',
-  },
-});
+import messages from '../helpers/contentChannelFormMessages';
 
 let CreateChannelContainer = props => {
+  const {
+    intl: { formatMessage },
+  } = props;
+
   const onFormSubmit = formData => {
     props.sendData(formData, 'createChannel');
   };
+
   return (
-    <CreateChannel messages={messages} {...props} onFormSubmit={onFormSubmit} />
+    <CreateCard
+      messages={messages}
+      formatMessage={formatMessage}
+      {...props}
+      onFormSubmit={onFormSubmit}
+      userType="audience_owner"
+    />
   );
 };
 
@@ -33,6 +43,8 @@ CreateChannelContainer = injectIntl(CreateChannelContainer);
 const mapStateToProps = createStructuredSelector({
   isRequesting: selectIsRequesting,
   tags: selectTags,
+  isAuth: selectIsAuth,
+  currentUser: selectCurrentUser,
 });
 
 const addNewChannelForm = reduxForm({
