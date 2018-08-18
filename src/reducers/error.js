@@ -5,7 +5,7 @@ import {
   DATA_SEND_FAILURE,
 } from '../actions/constants';
 
-const error = (state = null, action) => {
+const error = (state = '', action) => {
   switch (action.type) {
     case SIGN_UP_FAILURE:
     case LOGIN_FAILURE:

@@ -8,6 +8,8 @@ import toggleMenu from './main-menu';
 import getData from './data';
 import { addTags, removeTags } from './tags';
 import sendData from './sendData';
+import setFilters from './filters';
+import filterMenu from './filter-menu';
 
 export {
   signUp,
@@ -21,4 +23,6 @@ export {
   addTags,
   removeTags,
   sendData,
+  setFilters,
+  filterMenu,
 };

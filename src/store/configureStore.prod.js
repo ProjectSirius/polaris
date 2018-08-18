@@ -1,11 +1,13 @@
 import { createStore, applyMiddleware } from 'redux';
 import throttle from 'lodash/throttle';
+import thunk from 'redux-thunk';
+
 import rootReducer from '../reducers';
 import { loadState, saveState } from '../localStorage';
 
 const configureStore = () => {
   const persistedState = loadState('polaris');
-  const middlewares = [];
+  const middlewares = [thunk];
 
   const store = createStore(
     rootReducer,
