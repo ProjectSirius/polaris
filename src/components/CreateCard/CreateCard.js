@@ -3,7 +3,7 @@ import { Field } from 'redux-form';
 
 import Tags from 'react-tagging-input';
 
-import { ControlLabel } from 'react-bootstrap';
+import { ControlLabel, Glyphicon } from 'react-bootstrap';
 
 import RenderField from './RenderField';
 import renderField from '../SelectOptionFilter/RenderField';
@@ -35,7 +35,7 @@ class FileInput extends React.Component {
   }
 }
 
-class CreateChannel extends React.Component {
+class CreateCard extends React.Component {
   onTagAdded(tag) {
     this.props.addTags(tag);
   }
@@ -52,13 +52,20 @@ class CreateChannel extends React.Component {
       tags,
       handleSubmit,
       onFormSubmit,
+      messages,
+      formatMessage,
+      userType,
     } = this.props;
 
     return (
       <div className={classes.newChannelWrapper}>
         <div>
           <div className={classes.titleWrapper}>
-            <div className={classes.title}>Create New Channel</div>
+            <div className={classes.title}>
+              {userType === 'audience_owner'
+                ? formatMessage(messages.channelTitle)
+                : formatMessage(messages.contentTitle)}
+            </div>
           </div>
           <form
             className={classes.form}
@@ -69,21 +76,25 @@ class CreateChannel extends React.Component {
             }}
           >
             <Field
-              label="Channel Title:"
+              label={
+                userType === 'audience_owner'
+                  ? formatMessage(messages.channelTitleInput)
+                  : formatMessage(messages.contentTitleInput)
+              }
               component={RenderField}
               name="title"
               className={classes.inputFiled}
               type="text"
             />
             <Field
-              label="Brief Description:"
+              label={formatMessage(messages.briefDescription)}
               component={RenderField}
               name="description"
               className={`${classes.inputFiled} `}
               componentClass="textarea"
             />
             <Field
-              label="Detailed Description:"
+              label={formatMessage(messages.detailedDescription)}
               component={RenderField}
               name="detailedText"
               className={`${classes.inputFiled} ${classes.textarea}`}
@@ -91,46 +102,77 @@ class CreateChannel extends React.Component {
             />
             <div className={classes.minAndMaxPrice}>
               <Field
-                label="Price:"
+                label={formatMessage(messages.price)}
                 component={RenderField}
                 name="price"
                 type="number"
                 min="1"
               />
               <Field
-                label="Per:"
+                label={formatMessage(messages.per)}
                 component={RenderField}
                 name="count"
                 placeholder="1000"
                 type="number"
               />
-              <Field label="Unit" name="unit" component={renderField}>
+              <Field
+                label={formatMessage(messages.unit)}
+                name="unit"
+                component={renderField}
+              >
                 <option>{'View'}</option>
                 <option>{'Finshed minute'}</option>
                 <option>{'Like'}</option>
               </Field>
             </div>
-            <Field
-              label="Link Of Your Channel:"
-              component={RenderField}
-              type="url"
-              name="url"
-              placeholder="https://example.com"
-              pattern="https://.*"
-            />
-
+            {userType === 'audience_owner' && (
+              <Field
+                label={formatMessage(messages.channelUrl)}
+                component={RenderField}
+                type="url"
+                name="url"
+                placeholder="https://example.com"
+                pattern="https://.*"
+              />
+            )}
             <div className={classes.tags}>
               <ControlLabel>
-                <span>Tags:</span>
+                <span>{formatMessage(messages.tags)}</span>
                 <Tags
                   tags={tags}
-                  placeholder="Add a tag"
+                  placeholder={formatMessage(messages.tagPlaceholder)}
                   onAdded={this.onTagAdded.bind(this)}
                   onRemoved={this.onTagRemoved.bind(this)}
                 />
               </ControlLabel>
             </div>
-            <Field type="file" name="poster" component={FileInput} />
+            <div className={classes.fileUploadWrapper}>
+              <div className={classes.fileUpload}>
+                <Field type="file" name="poster" component={FileInput} />
+                <span>
+                  <span>{formatMessage(messages.imgUpload)}</span>
+                  <Glyphicon glyph="glyphicon glyphicon-arrow-up" />
+                </span>
+              </div>
+              {userType === 'content_owner' && (
+                <React.Fragment>
+                  <div className={classes.fileUpload}>
+                    <Field type="file" name="poster" component={FileInput} />
+                    <span>
+                      <span>{formatMessage(messages.videoUpload)}</span>
+                      <Glyphicon glyph="glyphicon glyphicon-arrow-up" />
+                    </span>
+                  </div>
+                  <div className={classes.fileUpload}>
+                    <Field type="file" name="poster" component={FileInput} />
+                    <span>
+                      <span>{formatMessage(messages.audioUpload)}</span>
+                      <Glyphicon glyph="glyphicon glyphicon-arrow-up" />
+                    </span>
+                  </div>
+                </React.Fragment>
+              )}
+            </div>
             <SubmitBtn
               value="Submit"
               valid={valid}
@@ -143,4 +185,4 @@ class CreateChannel extends React.Component {
   }
 }
 
-export default CreateChannel;
+export default CreateCard;
