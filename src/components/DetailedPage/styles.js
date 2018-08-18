@@ -5,9 +5,9 @@ export default {
   topButtons: {
     textAlign: 'right',
     margin: '10px 0',
-    '& button' :{
-      marginLeft:'5px',
-    }
+    '& button': {
+      marginLeft: '5px',
+    },
   },
   chanelImg: {
     width: '100%',
@@ -35,7 +35,7 @@ export default {
         margin: '10px',
       },
       '& a': {
-        color: "#1f69c1",
+        color: '#1f69c1',
         fontWeight: 600,
         fontSize: '20px',
         display: 'block',
@@ -45,21 +45,20 @@ export default {
       },
       '& button': {
         minWidth: '100px',
-      }
+      },
     },
-
   },
-  googlemap :{
-    width:'100%',
+  googlemap: {
+    width: '100%',
     margin: '10px 0',
   },
   rightChannel: {
     '& .thumbnail': {
       backgroundColor: 'transparent',
-      '& img' :{
+      '& img': {
         width: '100%',
         maxHeight: '600px',
-      }
+      },
     },
   },
 
@@ -70,8 +69,8 @@ export default {
       minWidth: '70px',
     },
   },
-  byButton :{
+  byButton: {
     width: '150px',
-    lineHeight: '30px'
-  }
+    lineHeight: '30px',
+  },
 };
