@@ -1,11 +1,12 @@
 import React from 'react';
 import Card from '../Card';
 import { Link } from 'react-router-dom';
+import MapView from '../MapView'
 
 const Cards = ({ data, isRequesting, classes, view, lang, type }) => {
   return isRequesting ? (
     <h2>Loading...</h2>
-  ) : (
+  ) : view !== 'map' ? (
     <div
       className={
         view === 'table' ? classes.cardsWrapperGrid : classes.cardsWrapperList
@@ -23,7 +24,7 @@ const Cards = ({ data, isRequesting, classes, view, lang, type }) => {
         </Link>
       ))}
     </div>
-  );
+  ) : (<MapView data={data} />);
 };
 
 export default Cards;
