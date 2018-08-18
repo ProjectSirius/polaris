@@ -31,14 +31,7 @@ class FileInput extends React.Component {
       input: { value },
     } = this.props;*/
 
-    return (
-      <input
-        type="file"
-        value={this.state.value}
-        onChange={this.onChange}
-        onBlur={() => {}}
-      />
-    );
+    return <input type="file" onChange={this.onChange} onBlur={() => {}} />;
   }
 }
 
