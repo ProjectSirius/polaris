@@ -2,9 +2,11 @@ export default {
   '@global html ,body, #root, .App': {
     height: '100%',
   },
+  title: {
+    fontSize: '40px',
+  },
   topButtons: {
-    textAlign: 'right',
-    margin: '10px 0',
+    margin: '5px 0',
     '& button': {
       marginLeft: '5px',
     },
