@@ -9,6 +9,39 @@ import RenderField from './RenderField';
 import renderField from '../SelectOptionFilter/RenderField';
 import SubmitBtn from '../SubmitBtn';
 
+class FileInput extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.onChange = this.onChange.bind(this);
+  }
+
+  onChange(e) {
+    const {
+      input: { onChange },
+    } = this.props;
+    onChange({
+      file: e.target.files,
+      name: e.target.files[0].name,
+    });
+  }
+
+  render() {
+    /*    const {
+      input: { value },
+    } = this.props;*/
+
+    return (
+      <input
+        type="file"
+        value={this.state.value}
+        onChange={this.onChange}
+        onBlur={() => {}}
+      />
+    );
+  }
+}
+
 class CreateChannel extends React.Component {
   onTagAdded(tag) {
     this.props.addTags(tag);
@@ -37,6 +70,7 @@ class CreateChannel extends React.Component {
           <form
             className={classes.form}
             onSubmit={handleSubmit(onFormSubmit)}
+            encType="multipart/form-data"
             onKeyDown={e => {
               if (e.key === 'Enter') e.preventDefault();
             }}
@@ -103,6 +137,7 @@ class CreateChannel extends React.Component {
                 />
               </ControlLabel>
             </div>
+            <Field type="file" name="poster" component={FileInput} />
             <SubmitBtn
               value="Submit"
               valid={valid}
