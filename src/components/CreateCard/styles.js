@@ -145,4 +145,45 @@ export default {
       },
     },
   },
+
+  fileUploadWrapper: {
+    display: 'flex',
+    justifyContent: 'space-evenly',
+    paddingBottom: '12px',
+  },
+
+  fileUpload: {
+    height: '48px',
+    width: '224px',
+    borderRadius: '100px',
+    position: 'relative',
+
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+
+    border: '2px solid #008489',
+    overflow: 'hidden',
+    backgroundImage: 'linear-gradient(to bottom, #FFFFFF 50%, #FFFFFF 50%)',
+    backgroundSize: '100% 200%',
+    transition: 'all 1s',
+    color: '#008489',
+    fontSize: '16px',
+
+    '& input[type="file"]': {
+      height: '200px',
+      width: '200px',
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      opacity: 0,
+      cursor: 'pointer',
+    },
+
+    '&:hover': {
+      backgroundPosition: '0 -100%',
+
+      color: '#008489',
+    },
+  },
 };
