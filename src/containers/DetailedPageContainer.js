@@ -26,6 +26,8 @@ class DetailedPageContainer extends React.Component {
   render() {
     const {
       intl: { formatMessage },
+      isRequesting,
+      detailed,
     } = this.props;
 
     const formattedTitle = formatMessage(messages.title);
@@ -42,11 +44,14 @@ class DetailedPageContainer extends React.Component {
 
 const mapStateToProps = createStructuredSelector({
   detailed: selectDetailed,
+  isRequesting: selectIsRequesting,
 });
 
 DetailedPageContainer = injectIntl(DetailedPageContainer);
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  {
+    getDetails,
+  }
 )(DetailedPageContainer);
