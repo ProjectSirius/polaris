@@ -4,7 +4,12 @@ import { reduxForm } from 'redux-form';
 import { injectIntl } from 'react-intl';
 import { createStructuredSelector } from 'reselect';
 
-import { selectIsRequesting, selectTags } from '../selectors';
+import {
+  selectDetailed,
+  selectIsEditing,
+  selectIsRequesting,
+  selectTags,
+} from '../selectors';
 
 import { addTags, removeTags, sendData, getDetails } from '../actions';
 
@@ -31,6 +36,8 @@ class CreateContentContainer extends Component {
   render() {
     const {
       intl: { formatMessage },
+      isEditing,
+      data,
     } = this.props;
 
     return (
@@ -40,6 +47,8 @@ class CreateContentContainer extends Component {
         onFormSubmit={this.onFormSubmit}
         formatMessage={formatMessage}
         getData={this.getData}
+        data={data}
+        isEditing={isEditing}
         {...this.props}
       />
     );
@@ -51,6 +60,8 @@ CreateContentContainer = injectIntl(CreateContentContainer);
 const mapStateToProps = createStructuredSelector({
   isRequesting: selectIsRequesting,
   tags: selectTags,
+  data: selectDetailed,
+  isEditing: selectIsEditing,
 });
 
 const addNewContentForm = reduxForm({
