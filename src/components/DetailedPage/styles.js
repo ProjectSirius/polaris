@@ -24,6 +24,8 @@ export default {
   userData: {
     marginTop: '10px',
     marginBottom: '20px',
+    borderTop: 'solid 1px #c1c1c1',
+    paddingTop: '30px',
     '& > div': {
       display: 'flex',
       '& img': {

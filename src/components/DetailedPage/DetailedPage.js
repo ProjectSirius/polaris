@@ -25,8 +25,6 @@ const DetailedPage = ({ title, classes, detailed }) => {
           <Thumbnail className={''} src={detailed.image} alt="channel">
             <p className={classes.channelText}>{detailed.detailedText}</p>
             <p>
-              <Button bsStyle="primary">Button</Button>
-              &nbsp;
               <Button bsStyle="default">Button</Button>
             </p>
           </Thumbnail>
