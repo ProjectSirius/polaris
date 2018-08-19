@@ -23,8 +23,10 @@ const messages = defineMessages({
 class DetailedPageContainer extends React.Component {
   componentDidMount() {
     const dataType = 'channels';
+    const splittedPath = window.location.pathname.split('/');
+    const id = splittedPath[splittedPath.length - 1];
 
-    this.props.getDetails(dataType, '1');
+    this.props.getDetails(dataType, id);
   }
 
   handleEdit = () => {

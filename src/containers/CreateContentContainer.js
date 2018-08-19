@@ -21,12 +21,17 @@ import messages from '../helpers/contentChannelFormMessages';
 class CreateContentContainer extends Component {
   componentDidMount() {
     const dataType = 'contents';
+    const splittedPath = window.location.pathname.split('/');
+    const id = splittedPath[splittedPath.length - 1];
 
-    this.props.getDetails(dataType, '1');
+    this.props.getDetails(dataType, id);
   }
 
   getData = () => {
-    this.props.getDetails('contents', '1');
+    const splittedPath = window.location.pathname.split('/');
+    const id = splittedPath[splittedPath.length - 1];
+
+    this.props.getDetails('contents', id);
   };
 
   onFormSubmit = formData => {

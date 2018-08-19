@@ -23,8 +23,10 @@ import messages from '../helpers/contentChannelFormMessages';
 class CreateChannelContainer extends Component {
   componentDidMount() {
     const dataType = 'channels';
+    const splittedPath = window.location.pathname.split('/');
+    const id = splittedPath[splittedPath.length - 1];
 
-    this.props.getDetails(dataType, '1');
+    this.props.getDetails(dataType, id);
   }
 
   onFormSubmit = formData => {
@@ -32,7 +34,10 @@ class CreateChannelContainer extends Component {
   };
 
   getData = () => {
-    this.props.getDetails('channels', '1');
+    const splittedPath = window.location.pathname.split('/');
+    const id = splittedPath[splittedPath.length - 1];
+
+    this.props.getDetails('channels', id);
   };
 
   render() {
