@@ -62,6 +62,9 @@ const mapStateToProps = createStructuredSelector({
   tags: selectTags,
   data: selectDetailed,
   isEditing: selectIsEditing,
+  initialValues: window.location.pathname.split('/').includes('edit')
+    ? selectDetailed
+    : () => {},
 });
 
 const addNewContentForm = reduxForm({
