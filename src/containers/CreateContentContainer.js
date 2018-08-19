@@ -6,7 +6,7 @@ import { createStructuredSelector } from 'reselect';
 
 import { selectIsRequesting, selectTags } from '../selectors';
 
-import { addTags, removeTags, sendData } from '../actions';
+import { addTags, removeTags, sendData, getDetails } from '../actions';
 
 import CreateCard from '../components/CreateCard';
 
@@ -14,6 +14,16 @@ import channelFormValidate from '../helpers/channelFormValidate';
 import messages from '../helpers/contentChannelFormMessages';
 
 class CreateContentContainer extends Component {
+  componentDidMount() {
+    const dataType = 'contents';
+
+    this.props.getDetails(dataType, '1');
+  }
+
+  getData = () => {
+    this.props.getDetails('contents', '1');
+  };
+
   onFormSubmit = formData => {
     this.props.sendData(formData, 'createContent');
   };
@@ -29,6 +39,7 @@ class CreateContentContainer extends Component {
         userType="content_owner"
         onFormSubmit={this.onFormSubmit}
         formatMessage={formatMessage}
+        getData={this.getData}
         {...this.props}
       />
     );
@@ -57,5 +68,6 @@ export default connect(
     addTags,
     removeTags,
     sendData,
+    getDetails,
   }
 )(addNewContentForm);
