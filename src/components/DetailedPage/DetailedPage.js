@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Grid, Row, Col, Image } from 'react-bootstrap';
 
-const DetailedPage = ({ title, classes, data, isRequesting }) => {
+const DetailedPage = ({ title, classes, data, isRequesting, lang }) => {
   return isRequesting &&
     Object.keys(data).length === 0 &&
     data.constructor === Object ? (
@@ -39,7 +39,12 @@ const DetailedPage = ({ title, classes, data, isRequesting }) => {
           </div>
           <div className={classes.offer}>
             {data.user_id === '1' ? (
-              <Link to={`${window.location.pathname}/edit`}>
+              <Link
+                to={{
+                  pathname: `${window.location.pathname}/edit`,
+                  search: `?locale=${lang}`,
+                }}
+              >
                 <span>Edit Channel</span>
               </Link>
             ) : (
