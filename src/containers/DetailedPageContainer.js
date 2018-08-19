@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { injectIntl, defineMessages } from 'react-intl';
 import { createStructuredSelector } from 'reselect';
 
-import { getDetails } from '../actions';
+import { getDetails, edit } from '../actions';
 
 import {
   selectDetailed,
@@ -27,6 +27,10 @@ class DetailedPageContainer extends React.Component {
     this.props.getDetails(dataType, '1');
   }
 
+  handleEdit = () => {
+    this.props.edit();
+  };
+
   render() {
     const {
       intl: { formatMessage },
@@ -43,6 +47,7 @@ class DetailedPageContainer extends React.Component {
         data={detailed}
         isRequesting={isRequesting}
         lang={lang}
+        handleEdit={this.handleEdit}
       />
     );
   }
@@ -60,5 +65,6 @@ export default connect(
   mapStateToProps,
   {
     getDetails,
+    edit,
   }
 )(DetailedPageContainer);
