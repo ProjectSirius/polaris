@@ -38,9 +38,15 @@ const DetailedPage = ({ title, classes, data, isRequesting }) => {
             <div>Rating</div>
           </div>
           <div className={classes.offer}>
-            <Link to={''}>
-              <span>Make an offer</span>
-            </Link>
+            {data.user_id === '1' ? (
+              <Link to={`${window.location.pathname}/edit`}>
+                <span>Edit Channel</span>
+              </Link>
+            ) : (
+              <Link to={''}>
+                <span>Make an offer</span>
+              </Link>
+            )}
           </div>
         </Col>
         <Col md={1} />
