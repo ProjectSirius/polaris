@@ -78,6 +78,7 @@ const DetailedPage = ({ title, classes }) => {
                   Youtube channel:{' '}
                   <a
                     href="https://www.youtube.com/watch?v=cWGE9Gi0bB0"
+                    rel="noopener noreferrer"
                     target="_blank"
                   >
                     <span className={classes.link}>
@@ -89,6 +90,7 @@ const DetailedPage = ({ title, classes }) => {
                   Website:{' '}
                   <a
                     href="https://www.youtube.com/watch?v=cWGE9Gi0bB0"
+                    rel="noopener noreferrer"
                     target="_blank"
                   >
                     <span className={classes.link}>
