@@ -36,7 +36,11 @@ const DetailedPage = ({
             <h2>Channel Tags</h2>
             <div>
               {data.tags
-                ? data.tags.map((tag, index) => <span key={index}>{tag}</span>)
+                ? data.tags.map((tag, index) => (
+                    <span key={index} className={classes.tag}>
+                      {tag}
+                    </span>
+                  ))
                 : ''}
             </div>
           </div>

@@ -86,6 +86,9 @@ export default {
 
   tagsContainer: {
     minHeight: '112px',
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
 
     '& > h2': {
       fontSize: '16px',
@@ -98,13 +101,18 @@ export default {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-
-      '& > span': {
-        borderBottom: '1px solid rgba(0, 0, 0, 0.08)',
-        color: 'rgba(66, 66, 66, 0.7)',
-        paddingBottom: '1px',
-      },
+      flexWrap: 'wrap',
     },
+  },
+
+  tag: {
+    display: 'inline-flex',
+    margin: '1px',
+    borderRadius: '30px',
+    position: 'relative',
+    backgroundColor: '#F1F7FB',
+    color: '#636363',
+    padding: '10px 20px',
   },
 
   link: {
