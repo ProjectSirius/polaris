@@ -22,7 +22,6 @@ const App = ({ content, title }) => {
         <Route path="/login" component={LogIn} />
         <Route path="/signUpAudience" component={SignUpAudienceContainer} />
         <Route path="/signUpContentMaker" component={SignUpContentMaker} />
-
         <ProtectedRouteContainer
           path="/audience"
           component={AudienceHomePage}
@@ -40,11 +39,11 @@ const App = ({ content, title }) => {
           component={CreateContent}
         />
         <ProtectedRouteContainer
-          path="/channels/:id"
+          path="/channel/:id"
           component={DetailedPageContainer}
         />
         <ProtectedRouteContainer
-          path="/contents/:id"
+          path="/content/:id"
           component={DetailedPageContainer}
         />
         <Route render={() => <h1>Not Found App</h1>} />
