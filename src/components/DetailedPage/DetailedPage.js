@@ -2,8 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Grid, Row, Col, Image } from 'react-bootstrap';
 
-const DetailedPage = ({ title, classes }) => {
-  return (
+const DetailedPage = ({ title, classes, data, isRequesting }) => {
+  return isRequesting &&
+    Object.keys(data).length === 0 &&
+    data.constructor === Object ? (
+    <h2>Loading...</h2>
+  ) : (
     <Grid style={{ width: '100%', padding: '70px 31px 0' }}>
       <Row className="show-grid">
         <Col xs={12} sm={5} md={2} className={classes.channelLeft}>
