@@ -15,21 +15,22 @@ const DetailedPage = ({ title, classes, data, isRequesting }) => {
             <div>
               <Image src="https://harsupesa.am/images/catalog/dj/dj-smoke/dj-smoke-4.jpg" />
               <Link to={``}>
-                <span>John Done</span>
+                <span>{data.user_id}</span>
               </Link>
             </div>
           </div>
           <div className={classes.price}>
-            <span>$1200</span>
-            <span className={classes.subPrice}>per 10 view</span>
+            <span>${data.price}</span>
+            <span className={classes.subPrice}>
+              per {data.perUnit} {data.unit}
+            </span>
           </div>
           <div className={classes.tagsContainer}>
             <h2>Channel Tags</h2>
             <div>
-              <span>Jazz, </span>
-              <span>Rock, </span>
-              <span>Country, </span>
-              <span>House</span>
+              {data.tags
+                ? data.tags.map((tag, index) => <span key={index}>{tag}</span>)
+                : ''}
             </div>
           </div>
           <div className={classes.tagsContainer}>
@@ -51,30 +52,24 @@ const DetailedPage = ({ title, classes, data, isRequesting }) => {
         >
           <Row>
             <Col xs={12} sm={12} md={12} lg={11}>
-              <Image
-                src="http://auserwirth.info/wp-content/uploads/2018/03/anime-girl-dj-wallpaper-5-e-dj-anime-girl-wallpaper-hd-for-desktop-nightcore-anime.jpg"
-                style={{ width: '100%', maxHeight: '590px' }}
-              />
+              {data.image ? (
+                <Image
+                  src={data.image}
+                  style={{ width: '100%', maxHeight: '590px' }}
+                />
+              ) : (
+                ''
+              )}
             </Col>
             <Col xs={12} sm={12} md={12} lg={11}>
               <h1 className={`text-center ${classes.title}`}> Channel Title</h1>
               <div className={classes.channelDescription}>
                 <h2>Brief Description:</h2>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Adipisci assumenda consequatur, eius enim est et
-                  exercitationem ipsam itaque laborum maiores numquam odit.
-                </p>
+                <p> {data.briefDescription}</p>
               </div>
               <div className={classes.channelDescription}>
                 <h2>Detailed Description:</h2>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Adipisci assumenda consequatur, eius enim est et
-                  exercitationem ipsam itaque laborum maiores numquam odit,
-                  perspiciatis quaerat sint tempore voluptate voluptatem.
-                  Distinctio, impedit.
-                </p>
+                <p>{data.detailed_text}</p>
               </div>
               <div className={classes.channelDescription}>
                 <h2>Channel Links:</h2>
@@ -108,7 +103,7 @@ const DetailedPage = ({ title, classes, data, isRequesting }) => {
                   <h4> Location: </h4>
                   <span>3 Hakob Hakobyan, Yerevan, Armenia</span>
                 </div>
-                <Image src="https://maps.googleapis.com/maps/api/staticmap?center=3+Hakob+Hakobyan+St%2C+Yerevan+0033%2C+Armenia&zoom=12&size=400x228&scale=2&markers=color:red|3+Hakob+Hakobyan+St%2C+Yerevan+0033%2C+Armenia&key=AIzaSyDwsFdQ8rraJLTYf_GVMvHjORckgTa58HQ" />
+                <Image src="https://www.harvard.edu/sites/default/files/content/harvard-map-google.jpg" />
               </div>
             </Col>
           </Row>
