@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { reduxForm } from 'redux-form';
 import { injectIntl } from 'react-intl';
@@ -13,25 +13,27 @@ import CreateCard from '../components/CreateCard';
 import channelFormValidate from '../helpers/channelFormValidate';
 import messages from '../helpers/contentChannelFormMessages';
 
-let CreateContentContainer = props => {
-  const {
-    intl: { formatMessage },
-  } = props;
-
-  const onFormSubmit = formData => {
-    props.sendData(formData, 'createContent');
+class CreateContentContainer extends Component {
+  onFormSubmit = formData => {
+    this.props.sendData(formData, 'createContent');
   };
 
-  return (
-    <CreateCard
-      messages={messages}
-      userType="content_owner"
-      {...props}
-      onFormSubmit={onFormSubmit}
-      formatMessage={formatMessage}
-    />
-  );
-};
+  render() {
+    const {
+      intl: { formatMessage },
+    } = this.props;
+
+    return (
+      <CreateCard
+        messages={messages}
+        userType="content_owner"
+        onFormSubmit={this.onFormSubmit}
+        formatMessage={formatMessage}
+        {...this.props}
+      />
+    );
+  }
+}
 
 CreateContentContainer = injectIntl(CreateContentContainer);
 
