@@ -4,56 +4,147 @@ export default {
   },
   title: {
     fontSize: '40px',
+    fontWeight: 600,
+    color: '#484848',
   },
-  topButtons: {
-    margin: '5px 0',
-    '& button': {
-      marginLeft: '5px',
-    },
-  },
+
   chanelImg: {
     width: '100%',
     margin: '20px 0',
   },
+
   channelDescription: {
-    fontSize: '16px',
-    maxHeight: '150px',
-    overflowY: 'auto',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+    fontSize: '15px',
     margin: '10px 0',
+    padding: '18px 0px',
+
+    '& > h2': {
+      fontSize: '22px',
+      paddingBottom: '10px',
+    },
+
+    '&  > p': {
+      textAlign: 'justify',
+    },
   },
+
   userData: {
-    marginTop: '10px',
-    marginBottom: '20px',
+    padding: '20px 0',
+
     '& > div': {
       display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center',
+
       '& img': {
-        width: '80px',
-        height: '85px',
+        width: '90px',
+        height: '30%',
         flex: '0 0 90px',
-        borderRadius: '8px',
+        borderRadius: '50%',
       },
-      '& > div': {
-        maxWidth: '150px',
-        margin: '10px',
-      },
+
       '& a': {
-        color: '#1f69c1',
-        fontWeight: 600,
-        fontSize: '20px',
+        fontWeight: 500,
+        fontSize: '17px',
+        padding: '5px',
         display: 'block',
         whiteSpace: 'nowrap',
         overflow: 'hidden',
         textOverflow: 'ellipsis',
+        transition: 'color .2s ease-in-out',
+
+        '& span:hover': {
+          color: '#6FB7B0',
+          transition: 'color .2s ease-in-out',
+        },
       },
-      '& button': {
-        minWidth: '100px',
+    },
+  },
+
+  price: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    minHeight: '100px',
+    fontSize: '34px',
+    fontWeight: 300,
+    padding: '25px 0',
+
+    '& span': {
+      display: 'inline-flex',
+    },
+  },
+
+  subPrice: {
+    fontSize: '16px',
+  },
+
+  tagsContainer: {
+    minHeight: '112px',
+
+    '& > h2': {
+      fontSize: '16px',
+      fontWeight: 400,
+      textAlign: 'center',
+      padding: '23px',
+    },
+
+    '& > div': {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+
+      '& > span': {
+        borderBottom: '1px solid rgba(0, 0, 0, 0.08)',
+        color: 'rgba(66, 66, 66, 0.7)',
+        paddingBottom: '1px',
       },
+    },
+  },
+
+  link: {
+    color: '#6FB7B0',
+  },
+
+  offer: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    color: '#6FB7B0',
+    fontSize: '20px',
+    padding: '20px',
+    fontWeight: 600,
+
+    '& > a > span:hover': {
+      textDecoration: 'underline',
     },
   },
   googlemap: {
     width: '100%',
     margin: '10px 0',
+    fontSize: '22px',
+
+    '& > img': {
+      width: '100%',
+      maxHeight: '345px',
+    },
   },
+
+  location: {
+    display: 'flex',
+    paddingBottom: '10px',
+
+    '& > span': {
+      paddingLeft: '10px',
+      fontSize: '15px',
+    },
+  },
+
   rightChannel: {
     '& .thumbnail': {
       backgroundColor: 'transparent',
@@ -65,14 +156,8 @@ export default {
   },
 
   channelLeft: {
-    '& button': {
-      margin: '10px',
-      padding: '5px',
-      minWidth: '70px',
+    '& > div': {
+      borderBottom: '1px solid #e1e1e1',
     },
-  },
-  byButton: {
-    width: '150px',
-    lineHeight: '30px',
   },
 };
