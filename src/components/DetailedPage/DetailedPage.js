@@ -2,7 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Grid, Row, Col, Image } from 'react-bootstrap';
 
-const DetailedPage = ({ title, classes, data, isRequesting, lang }) => {
+const DetailedPage = ({
+  title,
+  classes,
+  data,
+  isRequesting,
+  lang,
+  handleEdit,
+}) => {
   return isRequesting &&
     Object.keys(data).length === 0 &&
     data.constructor === Object ? (
@@ -45,7 +52,7 @@ const DetailedPage = ({ title, classes, data, isRequesting, lang }) => {
                   search: `?locale=${lang}`,
                 }}
               >
-                <span>Edit Channel</span>
+                <span onClick={handleEdit}>Edit Channel</span>
               </Link>
             ) : (
               <Link to={''}>
