@@ -1,12 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { injectIntl, defineMessages } from 'react-intl';
-
-import DetailedPage from '../components/DetailedPage';
-import { getDetailed } from '../actions';
 import { createStructuredSelector } from 'reselect';
 
-import { selectDetailed } from '../selectors';
+import { getDetails } from '../actions';
+
+import { selectDetailed, selectIsRequesting } from '../selectors';
+
+import DetailedPage from '../components/DetailedPage';
 
 const messages = defineMessages({
   title: {
@@ -17,26 +18,28 @@ const messages = defineMessages({
 
 class DetailedPageContainer extends React.Component {
   componentDidMount() {
-    const dataType = 'channel';
+    const dataType = 'channels';
 
-    this.props.getDetailed(dataType, '56c782f18990ecf954f6e027');
+    this.props.getDetails(dataType, '1');
   }
 
   render() {
-    const { detailed } = this.props;
     const {
       intl: { formatMessage },
     } = this.props;
 
     const formattedTitle = formatMessage(messages.title);
 
-    return <DetailedPage title={formattedTitle} detailed={detailed} />;
+    return (
+      <DetailedPage
+        title={formattedTitle}
+        data={detailed}
+        isRequesting={isRequesting}
+      />
+    );
   }
 }
 
-const mapDispatchToProps = dispatch => ({
-  getDetailed: (dataType, id) => dispatch(getDetailed(dataType, id)),
-});
 const mapStateToProps = createStructuredSelector({
   detailed: selectDetailed,
 });
