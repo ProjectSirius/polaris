@@ -17,6 +17,7 @@ export const selectFilteringPageFilterBar = state =>
 export const selectRating = state => state.filterBar.rating;
 export const selectOption = state => state.form.SelectOptionFilter_form;
 export const selectTags = state => state.tags;
+export const selectIsEditing = state => state.isEditing;
 
 export const selectIsAuth = createSelector(
   selectCurrentUser,
