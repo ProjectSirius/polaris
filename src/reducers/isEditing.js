@@ -1,6 +1,4 @@
-import {
-EDIT,
-} from '../actions/constants';
+import { EDIT } from '../actions/constants';
 
 const isEditing = (state = false, action) => {
   switch (action.type) {
