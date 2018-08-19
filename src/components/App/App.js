@@ -39,6 +39,14 @@ const App = ({ content, title }) => {
           component={CreateContent}
         />
         <ProtectedRouteContainer
+          path="/channel/:id/edit"
+          component={CreateChannel}
+        />
+        <ProtectedRouteContainer
+          path="/content/:id/edit"
+          component={CreateContent}
+        />
+        <ProtectedRouteContainer
           path="/channel/:id"
           component={DetailedPageContainer}
         />
