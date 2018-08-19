@@ -12,6 +12,7 @@ import { addTags, removeTags } from './tags';
 import sendData from './sendData';
 import setFilters from './filters';
 import filterMenu from './filter-menu';
+import edit from './editing';
 
 export {
   signUp,
@@ -28,4 +29,5 @@ export {
   sendData,
   setFilters,
   filterMenu,
+  edit,
 };
