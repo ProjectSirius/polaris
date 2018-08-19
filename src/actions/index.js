@@ -7,7 +7,7 @@ import rating from './rating';
 import toggleMenu from './main-menu';
 import getData from './data';
 
-import getDetailed from './detailed';
+import getDetails from './detailed';
 import { addTags, removeTags } from './tags';
 import sendData from './sendData';
 import setFilters from './filters';
@@ -22,7 +22,7 @@ export {
   filterBar,
   rating,
   getData,
-  getDetailed,
+  getDetails,
   addTags,
   removeTags,
   sendData,

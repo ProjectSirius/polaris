@@ -1,31 +1,19 @@
-import {
-  DETAILED_REQUEST,
-  DETAILED_RECEIVE_SUCCESS,
-  DETAILED_RECEIVE_FAILURE,
-} from './constants';
+import { DETAILS_RECEIVE_SUCCESS } from './constants';
 import get from '../helpers/axiosWrapper';
+import { dataRequest, dataReceiveFailure } from '../helpers/dataRequests';
 
-const detRequest = isRequesting => ({
-  type: DETAILED_REQUEST,
-  payload: { isRequesting },
-});
-
-const detReceiveSuccess = data => ({
-  type: DETAILED_RECEIVE_SUCCESS,
+const dataInfoReceiveSuccess = data => ({
+  type: DETAILS_RECEIVE_SUCCESS,
   payload: { data },
 });
 
-const detdataReceiveFailure = error => ({
-  type: DETAILED_RECEIVE_FAILURE,
-  payload: { error },
-});
+const getDetails = (dataType, id) => dispatch => {
+  let url = `https://my-json-server.typicode.com/angela0202/fake-db/${dataType}/${id}`;
+  dispatch(dataRequest(true));
 
-const getDetailed = (dataType, id) => dispatch => {
-  let url = `https://my-json-server.typicode.com/NarGhuk/my-json-server/${dataType}/${id}`;
-  dispatch(detRequest(true));
   return get(url)
-    .then(payload => dispatch(detReceiveSuccess(payload.data)))
-    .catch(err => dispatch(detdataReceiveFailure(err)));
+    .then(payload => dispatch(dataInfoReceiveSuccess(payload.data)))
+    .catch(err => dispatch(dataReceiveFailure(err)));
 };
 
-export default getDetailed;
+export default getDetails;
