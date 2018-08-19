@@ -32,8 +32,9 @@
     "manage:translations": "node ./translationRunner.js",
     "translation": "yarn extract:messages && yarn manage:translations"
   },
-  "*.{js, jsx}": ["eslint --fix"],
-  
+  "lint-staged": {
+    "*.{js, jsx}": ["eslint --fix"]
+  },
   "devDependencies": {
     "eslint-plugin-prettier": "^2.6.2",
     "husky": "^0.14.3",
