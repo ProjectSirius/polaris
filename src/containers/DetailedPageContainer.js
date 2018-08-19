@@ -3,6 +3,10 @@ import { connect } from 'react-redux';
 import { injectIntl, defineMessages } from 'react-intl';
 
 import DetailedPage from '../components/DetailedPage';
+import { getDetailed } from '../actions';
+import { createStructuredSelector } from 'reselect';
+
+import { selectDetailed } from '../selectors';
 
 const messages = defineMessages({
   title: {
@@ -11,16 +15,35 @@ const messages = defineMessages({
   },
 });
 
-let HomePageContainer = props => {
-  const {
-    intl: { formatMessage },
-  } = props;
+class DetailedPageContainer extends React.Component {
+  componentDidMount() {
+    const dataType = 'channel';
 
-  const formattedTitle = formatMessage(messages.title);
+    this.props.getDetailed(dataType, '56c782f18990ecf954f6e027');
+  }
 
-  return <DetailedPage title={formattedTitle} />;
-};
+  render() {
+    const { detailed } = this.props;
+    const {
+      intl: { formatMessage },
+    } = this.props;
 
-HomePageContainer = injectIntl(HomePageContainer);
+    const formattedTitle = formatMessage(messages.title);
 
-export default connect()(HomePageContainer);
+    return <DetailedPage title={formattedTitle} detailed={detailed} />;
+  }
+}
+
+const mapDispatchToProps = dispatch => ({
+  getDetailed: (dataType, id) => dispatch(getDetailed(dataType, id)),
+});
+const mapStateToProps = createStructuredSelector({
+  detailed: selectDetailed,
+});
+
+DetailedPageContainer = injectIntl(DetailedPageContainer);
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(DetailedPageContainer);

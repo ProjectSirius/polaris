@@ -6,7 +6,6 @@ const signUpValidate = values => {
     'password',
     'passwordConformation',
   ];
-
   requiredFields.forEach(field => {
     if (!values[field]) {
       errors[field] = `${field.charAt(0).toUpperCase() +

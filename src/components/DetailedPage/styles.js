@@ -15,7 +15,7 @@ export default {
     width: '100%',
     margin: '20px 0',
   },
-  channelDescription: {
+  channelText: {
     fontSize: '16px',
     maxHeight: '150px',
     overflowY: 'auto',

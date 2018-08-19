@@ -10,13 +10,10 @@ import {
   Image,
 } from 'react-bootstrap';
 
-const DetailedPage = ({ title, classes }) => {
+const DetailedPage = ({ title, classes, detailed }) => {
   return (
     <Grid>
-      <h1 className={`text-center ${classes.title}`}>
-        {' '}
-        {'Here is the Title'}{' '}
-      </h1>
+      <h1 className={`text-center ${classes.title}`}>{detailed.title}</h1>
 
       <Row className="show-grid">
         <Col
@@ -25,18 +22,8 @@ const DetailedPage = ({ title, classes }) => {
           md={8}
           className={`text-center ${classes.rightChannel}`}
         >
-          <Thumbnail
-            className={''}
-            src="https://24tv.ua/resources/photos/news/610x344_DIR/201803/942790.jpg?201803034643"
-            alt="channel"
-          >
-            <p className={classes.channelDescription}>
-              Description: Lorem ipsum dolor sit amet, consectetur adipisicing
-              elit. Adipisci assumenda consequatur, eius enim est et
-              exercitationem ipsam itaque laborum maiores numquam odit,
-              perspiciatis quaerat sint tempore voluptate voluptatem.
-              Distinctio, impedit.
-            </p>
+          <Thumbnail className={''} src={detailed.image} alt="channel">
+            <p className={classes.channelText}>{detailed.detailedText}</p>
             <p>
               <Button bsStyle="primary">Button</Button>
               &nbsp;
@@ -49,7 +36,8 @@ const DetailedPage = ({ title, classes }) => {
           <h2>
             <strong>
               <span>$</span>
-              <span> 1200 </span> /<span> 10 view</span>
+              <span> {detailed.priceUnitId} </span> /
+              <span>{detailed.priceValue}</span>
             </strong>
           </h2>
           <Button bsStyle="primary" bsSize="large" className={classes.byButton}>
@@ -57,9 +45,9 @@ const DetailedPage = ({ title, classes }) => {
           </Button>
           <div className={classes.userData}>
             <div>
-              <Image src="https://harsupesa.am/images/catalog/dj/dj-smoke/dj-smoke-4.jpg" />
+              <Image src={detailed.userPhoto} />
               <div>
-                <Link to={``}> User: Jhone Done</Link>
+                <Link to={``}> {detailed.user}</Link>
                 <Button> Contact </Button>
               </div>
             </div>
@@ -79,7 +67,7 @@ const DetailedPage = ({ title, classes }) => {
             <Glyphicon glyph="star" /> 5
           </Button>
 
-          <h3>Description orem ipsum dolor sit amet</h3>
+          <h3>{detailed.description}</h3>
 
           <div>
             <strong> Countries: </strong> - United States of America
