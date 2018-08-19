@@ -70,9 +70,7 @@ const mapStateToProps = createStructuredSelector({
 const addNewContentForm = reduxForm({
   form: 'Add_new_content_form',
   validate: channelFormValidate,
-  initialValues: {
-    unit: 'view',
-  },
+  enableReinitialize: true,
   destroyOnUnmount: false,
 })(CreateContentContainer);
 
