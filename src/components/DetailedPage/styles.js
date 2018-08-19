@@ -89,6 +89,8 @@ export default {
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'column',
 
     '& > h2': {
       fontSize: '16px',
