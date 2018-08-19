@@ -80,7 +80,7 @@ const DetailedPage = ({
               )}
             </Col>
             <Col xs={12} sm={12} md={12} lg={11}>
-              <h1 className={`text-center ${classes.title}`}> Channel Title</h1>
+              <h1 className={`text-center ${classes.title}`}>{data.title}</h1>
               <div className={classes.channelDescription}>
                 <h2>Brief Description:</h2>
                 <p> {data.briefDescription}</p>
