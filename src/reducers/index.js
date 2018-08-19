@@ -10,6 +10,8 @@ import isRequesting from './isRequesting';
 import error from './error';
 import data from './data';
 import filteringPage from './filteringPage';
+import tags from './tags';
+import filters from './filters';
 
 export default combineReducers({
   form: formReducer,
@@ -22,4 +24,6 @@ export default combineReducers({
   error,
   data,
   filteringPage,
+  tags,
+  filters,
 });

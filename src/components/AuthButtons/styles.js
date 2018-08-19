@@ -15,13 +15,28 @@ export default {
       },
     },
   },
+
   navLink: {
-    margin: '5px',
-    color: '#212121',
+    display: 'flex',
+    width: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    cursor: 'pointer',
+    color: '#000',
     fontWeight: '700',
-    fontSize: '12px',
-    textTransform: 'uppercase',
-    textAlign: 'center',
+
+    height: '60px !important',
+
+    '&:hover': {
+      borderBottom: '2px solid #d9534f !important',
+      marginTop: '2px',
+    },
+
+    '& a': {
+      display: 'flex',
+      alignItems: 'center',
+      height: '100%',
+    },
   },
 
   navLinkLogin: {
@@ -29,7 +44,7 @@ export default {
   },
 
   navLinksAuth: {
-    width: '50%',
+    width: '120px',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'flex-end',
@@ -42,57 +57,62 @@ export default {
     '& button': {
       height: '60px ',
 
-      background: '#49c5b6',
+      background: '#FF5A5F !important',
       transition: '0.5s',
 
-      border: '#49c5b6',
+      border: '#FF5A5F !important',
       borderRadius: 0,
-      color: '#fff',
+      color: '#fff !important',
+      fontWeight: '700',
 
       '&:hover': {
-        background: '#7cc0b8 !important',
-        color: '#fff',
+        background: '#d9534f !important',
+        color: '#fff !important',
       },
 
       '&:focus': {
-        background: '#7cc0b8 !important',
-        color: '#fff',
+        background: '#d9534f !important',
+        color: '#fff !important',
       },
 
       '&:active': {
-        background: '#7cc0b8 !important',
-        color: '#fff',
+        background: '#d9534f !important',
+        color: '#fff !important',
       },
 
       '&:active:hover': {
-        background: '#7cc0b8 !important',
+        background: '#d9534f !important',
         color: '#fff',
       },
 
       '&:active:focus': {
-        background: '#7cc0b8 !important',
-        color: '#fff',
+        background: '#FF5A5F !important',
+        color: '#fff !important',
       },
 
       '&:checked': {
-        background: '#7cc0b8 !important',
-        color: '#fff',
+        background: '#d9534f !important',
+        color: '#fff !important',
       },
 
       '&:visited': {
-        background: '#7cc0b8 !important',
-        color: '#fff',
+        background: '#d9534f !important',
+        color: '#fff !important',
       },
+    },
+    '& div ul div a': {
+      padding: '5px 0',
+      margin: '5px 0',
     },
   },
 
   /*
  * media
  */
-  '@media screen and (max-width: 640px)': {
+  '@media screen and (max-width: 500px)': {
     navLinksAuth: {
       flexDirection: 'column',
-      width: '100%',
+      width: 'auto',
       height: 'auto',
     },
 

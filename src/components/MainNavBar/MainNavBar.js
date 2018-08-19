@@ -108,33 +108,19 @@ class MainNavBar extends React.Component {
               </Link>
             </h2>
           </div>
-          <div className={classes.languagesWrapper}>
-            <div className={classes.languages}>
-              <div>
-                <DropdownButton
-                  bsStyle="default"
-                  title={lang}
-                  id="lang-dropdown"
-                  pullRight
+          <div className={classes.authBig}>
+            {isAuth ? (
+              <div className={classes.navLinksAuth}>
+                <div
+                  className={classes.navLinkLogout}
+                  onClick={this.handleLogOut}
                 >
-                  <MenuItem
-                    href={`${path}?locale=ru`}
-                    eventKey="1"
-                    active={lang === 'ru'}
-                  >
-                    {formatMessage(messages.langRu)}
-                  </MenuItem>
-                  <MenuItem divider />
-                  <MenuItem
-                    href={`${path}?locale=en`}
-                    eventKey="2"
-                    active={lang === 'en'}
-                  >
-                    {formatMessage(messages.langEn)}
-                  </MenuItem>
-                </DropdownButton>
+                  <span>{formatMessage(messages.logOut)}</span>
+                </div>
               </div>
-            </div>
+            ) : (
+              <AuthButtonsContainer />
+            )}
           </div>
         </div>
         <div
@@ -166,18 +152,48 @@ class MainNavBar extends React.Component {
               </Link>
             </div>
           </nav>
-          {isAuth ? (
-            <div className={classes.navLinksAuth}>
-              <div
-                className={classes.navLinkLogout}
-                onClick={this.handleLogOut}
-              >
-                <span>{formatMessage(messages.logOut)}</span>
+          <div className={classes.authSmall}>
+            {isAuth ? (
+              <div className={classes.navLinksAuth}>
+                <div
+                  className={classes.navLinkLogout}
+                  onClick={this.handleLogOut}
+                >
+                  <span>{formatMessage(messages.logOut)}</span>
+                </div>
+              </div>
+            ) : (
+              <AuthButtonsContainer />
+            )}
+          </div>
+          <div className={classes.mainNavRight}>
+            <div className={classes.languagesWrapper}>
+              <div className={classes.languages}>
+                <DropdownButton
+                  bsStyle="default"
+                  title={lang}
+                  id="lang-dropdown"
+                  pullRight
+                >
+                  <MenuItem
+                    href={`${path}?locale=ru`}
+                    eventKey="1"
+                    active={lang === 'ru'}
+                  >
+                    {formatMessage(messages.langRu)}
+                  </MenuItem>
+                  <MenuItem divider />
+                  <MenuItem
+                    href={`${path}?locale=en`}
+                    eventKey="2"
+                    active={lang === 'en'}
+                  >
+                    {formatMessage(messages.langEn)}
+                  </MenuItem>
+                </DropdownButton>
               </div>
             </div>
-          ) : (
-            <AuthButtonsContainer />
-          )}
+          </div>
         </div>
       </header>
     );

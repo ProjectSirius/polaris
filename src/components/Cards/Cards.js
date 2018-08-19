@@ -10,9 +10,7 @@ const Cards = ({ data, isRequesting, classes, view }) => {
         view === 'table' ? classes.cardsWrapperGrid : classes.cardsWrapperList
       }
     >
-      {data.map(info => (
-        <Card key={info.id} info={info} view={view} />
-      ))}
+      {data.map(info => <Card key={info.id} info={info} view={view} />)}
     </div>
   );
 };

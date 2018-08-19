@@ -16,7 +16,7 @@ export default {
     width: '100%',
     height: '15px',
     borderRadius: '5px',
-    background: '#d3d3d3',
+    background: '#fff',
     outline: 'none',
     opacity: '1',
     WebkitTransition: '.2s',
@@ -31,7 +31,7 @@ export default {
       width: '28px',
       height: '28px',
       borderRadius: '50%',
-      background: '#49c5b6',
+      background: 'blue',
     },
 
     '&::-moz-range-thumb': {
@@ -42,7 +42,7 @@ export default {
       width: '28px',
       height: '28px',
       borderRadius: '50%',
-      background: '#49c5b6',
+      background: 'blue',
     },
   },
 };

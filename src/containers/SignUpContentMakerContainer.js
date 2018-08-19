@@ -7,7 +7,12 @@ import { injectIntl, defineMessages } from 'react-intl';
 import { signUp } from '../actions';
 import SignUpForm from '../components/SignUpForm';
 
-import { selectIsRequesting, selectIsSignUp, selectError } from '../selectors';
+import {
+  selectIsRequesting,
+  selectIsSignUp,
+  selectError,
+  selectLanguage,
+} from '../selectors';
 
 import signUpValidate from '../helpers/signUpValidate';
 
@@ -34,6 +39,7 @@ const mapStateToProps = createStructuredSelector({
   isSignUp: selectIsSignUp,
   isRequesting: selectIsRequesting,
   errorSignUp: selectError,
+  lang: selectLanguage,
 });
 
 const mapDispatchToProps = dispatch => ({

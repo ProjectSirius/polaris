@@ -10,6 +10,8 @@ import ContentOwnerHomePage from '../ContentOwnerHomePage';
 import HomePageContainer from '../../containers/HomePageContainer';
 import MainNavBarContainer from '../../containers/MainNavBarContainer';
 import DetailedPageContainer from '../../containers/DetailedPageContainer';
+import CreateChannel from '../../containers/CreateChannel';
+import CreateContent from '../../containers/CreateContentContainer';
 
 const App = ({ content, title }) => {
   return (
@@ -28,6 +30,14 @@ const App = ({ content, title }) => {
         <ProtectedRouteContainer
           path="/contentowner"
           component={ContentOwnerHomePage}
+        />
+        <ProtectedRouteContainer
+          path="/channels/new"
+          component={CreateChannel}
+        />
+        <ProtectedRouteContainer
+          path="/contents/new"
+          component={CreateContent}
         />
         <ProtectedRouteContainer
           path="/channels/:id"
