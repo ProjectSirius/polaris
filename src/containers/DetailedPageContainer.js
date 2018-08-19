@@ -5,7 +5,11 @@ import { createStructuredSelector } from 'reselect';
 
 import { getDetails } from '../actions';
 
-import { selectDetailed, selectIsRequesting } from '../selectors';
+import {
+  selectDetailed,
+  selectIsRequesting,
+  selectLanguage,
+} from '../selectors';
 
 import DetailedPage from '../components/DetailedPage';
 
@@ -28,6 +32,7 @@ class DetailedPageContainer extends React.Component {
       intl: { formatMessage },
       isRequesting,
       detailed,
+      lang,
     } = this.props;
 
     const formattedTitle = formatMessage(messages.title);
@@ -37,6 +42,7 @@ class DetailedPageContainer extends React.Component {
         title={formattedTitle}
         data={detailed}
         isRequesting={isRequesting}
+        lang={lang}
       />
     );
   }
@@ -45,6 +51,7 @@ class DetailedPageContainer extends React.Component {
 const mapStateToProps = createStructuredSelector({
   detailed: selectDetailed,
   isRequesting: selectIsRequesting,
+  lang: selectLanguage,
 });
 
 DetailedPageContainer = injectIntl(DetailedPageContainer);
