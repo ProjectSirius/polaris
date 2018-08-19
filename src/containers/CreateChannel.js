@@ -66,7 +66,9 @@ const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
   data: selectDetailed,
   isEditing: selectIsEditing,
-  initialValues: selectDetailed,
+  initialValues: window.location.pathname.split('/').includes('edit')
+    ? selectDetailed
+    : () => {},
 });
 
 const addNewChannelForm = reduxForm({
