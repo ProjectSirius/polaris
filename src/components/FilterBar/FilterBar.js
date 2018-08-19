@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { Panel, Glyphicon } from 'react-bootstrap';
+import { Glyphicon } from 'react-bootstrap';
 import { injectIntl, defineMessages } from 'react-intl';
 
 import StarRating from '../../containers/StarRating';
@@ -31,57 +31,88 @@ const messages = defineMessages({
 });
 
 class FilterBar extends PureComponent {
+  constructor(props) {
+    super(props);
+
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    const { toggleMenu, isOpen } = this.props;
+
+    toggleMenu(!isOpen);
+  }
+
   render() {
     const {
       classes,
       intl: { formatMessage },
+      isOpen,
     } = this.props;
 
     return (
-      <Panel className={classes.filterBar}>
-        <Panel.Heading className={classes.filterHeading}>
+      <div className={classes.filterWrapper}>
+        <div className={classes.filterHeading} onClick={this.handleClick}>
           <Glyphicon glyph="filter" />
           <span className={classes.filterHeadingTitle}>
             {formatMessage(messages.filtersPanelTitle)}
           </span>
-        </Panel.Heading>
-        <Panel.Body>
-          <div className={classes.filterWrapper}>
-            <div className={classes.filterTitle}>
-              {formatMessage(messages.starRatingTitle)}
-            </div>
-            <StarRating />
-          </div>
-          <div className={classes.filterWrapper}>
-            <div className={classes.filterTitle}>
-              {formatMessage(messages.priceRangeTitle)}
-            </div>
-            <PriceRangeSlider />
-          </div>
-          <div className={classes.filterWrapper}>
-            <div className={classes.filterTitle}>
-              <div className={classes.filterTitleWithIcon}>
-                <Glyphicon glyph="glyphicon glyphicon-chevron-down" />
-                <span style={{ paddingLeft: '6px' }}>
-                  {formatMessage(messages.checkboxFilterTitle)}
-                </span>
+        </div>
+        <div
+          className={
+            !isOpen
+              ? classes.filterItemsWrapper
+              : `${classes.filterItemsWrapperOpen} ${
+                  classes.filterItemsWrapper
+                }`
+          }
+        >
+          <div className={classes.filterItems}>
+            <div className={classes.filterItem}>
+              <div className={classes.filterTitle}>
+                {formatMessage(messages.starRatingTitle)}:
               </div>
+              <StarRating />
             </div>
-            <CheckboxFilter />
-          </div>
-          <div className={classes.filterWrapper}>
-            <div className={classes.filterTitle}>
-              <div className={classes.filterTitleWithIcon}>
-                <Glyphicon glyph="glyphicon glyphicon-chevron-down" />
-                <span style={{ paddingLeft: '6px' }}>
-                  {formatMessage(messages.selectedOptionFilterTitle)}
-                </span>
+            <div className={classes.filterItem}>
+              <div className={classes.filterTitle}>
+                {formatMessage(messages.priceRangeTitle)}:
               </div>
+              <PriceRangeSlider />
             </div>
-            <SelectOptionFilter />
+            <div className={classes.filterItem}>
+              <div className={classes.filterTitle}>
+                <div className={classes.filterTitleWithIcon}>
+                  <Glyphicon glyph="glyphicon glyphicon-chevron-down" />
+                  <span style={{ paddingLeft: '6px' }}>
+                    {formatMessage(messages.checkboxFilterTitle)}:
+                  </span>
+                </div>
+              </div>
+              <CheckboxFilter />
+            </div>
+            <div className={classes.filterItem}>
+              <div className={classes.filterTitle}>
+                <div className={classes.filterTitleWithIcon}>
+                  <Glyphicon glyph="glyphicon glyphicon-chevron-down" />
+                  <span style={{ paddingLeft: '6px' }}>
+                    {formatMessage(messages.selectedOptionFilterTitle)}:
+                  </span>
+                </div>
+              </div>
+              <SelectOptionFilter />
+            </div>
           </div>
-        </Panel.Body>
-      </Panel>
+
+          {isOpen ? (
+            <span onClick={this.handleClick} className={classes.closeFilter}>
+              <Glyphicon glyph="glyphicon glyphicon-remove" />
+            </span>
+          ) : (
+            ''
+          )}
+        </div>
+      </div>
     );
   }
 }

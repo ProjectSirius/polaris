@@ -11,6 +11,8 @@ import error from './error';
 import data from './data';
 import filteringPage from './filteringPage';
 import detailed from './detailed';
+import tags from './tags';
+import filters from './filters';
 
 export default combineReducers({
   form: formReducer,
@@ -24,4 +26,6 @@ export default combineReducers({
   data,
   filteringPage,
   detailed,
+  tags,
+  filters,
 });

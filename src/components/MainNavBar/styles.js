@@ -57,7 +57,6 @@ export default {
   hamburgerTitle: {
     marginLeft: '10px',
     marginTop: '3px',
-    fontWeight: '700',
   },
 
   /*
@@ -96,6 +95,12 @@ export default {
     zIndex: 3,
   },
 
+  mainNavRight: {
+    width: '50%',
+    display: 'flex',
+    justifyContent: 'flex-end',
+  },
+
   /*
  * nav links
  */
@@ -108,20 +113,39 @@ export default {
   },
 
   navLink: {
-    margin: '5px',
-    color: '#212121',
+    display: 'flex',
+    width: '100px',
+    justifyContent: 'center',
+    alignItems: 'center',
+    cursor: 'pointer',
+    color: '#000',
     fontWeight: '700',
-    fontSize: '12px',
-    textTransform: 'uppercase',
-    textAlign: 'center',
+
+    height: '60px !important',
+
+    '&:hover': {
+      borderBottom: '2px solid #d9534f !important',
+      marginTop: '2px',
+    },
+
+    '& a': {
+      display: 'flex',
+      height: '100%',
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
   },
 
   navLinkLogin: {
     marginRight: '20px',
   },
 
+  authSmall: {
+    display: 'none',
+  },
+
   navLinksAuth: {
-    width: '50%',
+    width: '120px',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'flex-end',
@@ -135,14 +159,14 @@ export default {
     marginLeft: '5px',
     height: '100%',
     width: '120px',
-    background: '#49c5b6',
+    background: '#FF5A5F',
     color: '#fff',
     fontWeight: '700',
     cursor: 'pointer',
     transition: '0.5s',
 
     '&:hover': {
-      background: '#42ab9e',
+      background: '#d9534f',
     },
 
     '& > a': {
@@ -157,21 +181,27 @@ export default {
 
   navLinkLogout: {
     display: 'flex',
+    width: '80%',
     justifyContent: 'center',
     alignItems: 'center',
-    width: '20%',
     cursor: 'pointer',
-    color: '#fff',
+    color: '#000',
     fontWeight: '700',
 
     height: '60px !important',
-    background: '#49c5b6',
-    transition: '0.5s',
-    border: '#49c5b6',
-    borderRadius: '0',
 
     '&:hover': {
-      background: '#7cc0b8 !important',
+      borderBottom: '2px solid #d9534f !important',
+      marginTop: '2px',
+    },
+
+    '& > a': {
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center',
+      textDecoration: 'none',
+      color: 'inherit',
     },
   },
 
@@ -193,12 +223,33 @@ export default {
   },
 
   /*
- * media
- */
+   * media
+   */
   '@media screen and (max-width: 640px)': {
     mainNav: {
       flexDirection: 'column',
       padding: '0',
+    },
+
+    mainNavRight: {
+      width: '100%',
+      justifyContent: 'center',
+    },
+
+    languagesWrapper: {
+      width: '100%',
+      '& > div': {
+        width: '100%',
+        height: '100%',
+        '& > div': {
+          width: '100%',
+          height: '100%',
+          '& > button, & > ul': {
+            width: '100%',
+            height: '100%',
+          },
+        },
+      },
     },
 
     navLinks: {
@@ -209,7 +260,6 @@ export default {
 
     navLinksAuth: {
       flexDirection: 'column',
-      width: '100%',
       height: 'auto',
     },
 
@@ -220,9 +270,11 @@ export default {
       borderBottom: '1px solid #e6eaea',
       color: '#212121',
       transition: '0.5s',
+      textAlign: 'center',
 
       '&:hover': {
         background: '#fff',
+        marginTop: '0',
       },
 
       '& a': {
@@ -255,7 +307,25 @@ export default {
       },
     },
   },
+
   '@media screen and (max-width: 500px)': {
+    authBig: {
+      display: 'none',
+    },
+
+    authSmall: {
+      display: 'block',
+      width: '100%',
+    },
+
+    navLinkLogout: {
+      width: '100%',
+    },
+
+    navLinksAuth: {
+      width: '100%',
+    },
+
     mainNav: {
       flexDirection: 'column',
       padding: '0',
@@ -269,10 +339,6 @@ export default {
     mainNavTitleWrapper: {
       width: 'auto',
       marginRight: '10px',
-    },
-
-    languagesWrapper: {
-      display: 'none',
     },
 
     topNav: { padding: 0 },

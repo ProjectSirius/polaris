@@ -1,4 +1,8 @@
 export default {
+  checkboxItem: {
+    cursor: 'pointer',
+  },
+
   checkboxWrapper: {
     padding: '1px 4px',
   },

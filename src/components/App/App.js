@@ -10,6 +10,8 @@ import ContentOwnerHomePage from '../ContentOwnerHomePage';
 import HomePageContainer from '../../containers/HomePageContainer';
 import MainNavBarContainer from '../../containers/MainNavBarContainer';
 import DetailedPageContainer from '../../containers/DetailedPageContainer';
+import CreateChannel from '../../containers/CreateChannel';
+import CreateContent from '../../containers/CreateContentContainer';
 
 const App = ({ content, title }) => {
   return (
@@ -20,7 +22,6 @@ const App = ({ content, title }) => {
         <Route path="/login" component={LogIn} />
         <Route path="/signUpAudience" component={SignUpAudienceContainer} />
         <Route path="/signUpContentMaker" component={SignUpContentMaker} />
-
         <ProtectedRouteContainer
           path="/audience"
           component={AudienceHomePage}
@@ -30,11 +31,19 @@ const App = ({ content, title }) => {
           component={ContentOwnerHomePage}
         />
         <ProtectedRouteContainer
-          path="/channels/:id"
+          path="/channels/new"
+          component={CreateChannel}
+        />
+        <ProtectedRouteContainer
+          path="/contents/new"
+          component={CreateContent}
+        />
+        <ProtectedRouteContainer
+          path="/channel/:id"
           component={DetailedPageContainer}
         />
         <ProtectedRouteContainer
-          path="/contents/:id"
+          path="/content/:id"
           component={DetailedPageContainer}
         />
         <Route render={() => <h1>Not Found App</h1>} />

@@ -30,6 +30,21 @@
     "filepath": "src/components/LogIn/LogIn.js"
   },
   {
+    "id": "login-form",
+    "defaultMessage": "Log In to Polaris",
+    "filepath": "src/components/LogIn/LogIn.js"
+  },
+  {
+    "id": "login-audience",
+    "defaultMessage": "Audience",
+    "filepath": "src/components/LogIn/LogIn.js"
+  },
+  {
+    "id": "login-contentOwner",
+    "defaultMessage": "Content",
+    "filepath": "src/components/LogIn/LogIn.js"
+  },
+  {
     "id": "audience",
     "defaultMessage": "Audience",
     "filepath": "src/components/MainNavBar/MainNavBar.js"
@@ -133,5 +148,80 @@
     "id": "Form",
     "defaultMessage": "Form",
     "filepath": "src/containers/SignUpContentMakerContainer.js"
+  },
+  {
+    "id": "create-new-channel-title",
+    "defaultMessage": "Create New Channel",
+    "filepath": "src/helpers/contentChannelFormMessages.js"
+  },
+  {
+    "id": "channel-input-title",
+    "defaultMessage": "Channel Title:",
+    "filepath": "src/helpers/contentChannelFormMessages.js"
+  },
+  {
+    "id": "brief-description",
+    "defaultMessage": "Brief Description:",
+    "filepath": "src/helpers/contentChannelFormMessages.js"
+  },
+  {
+    "id": "detailed-description",
+    "defaultMessage": "Detailed Description:",
+    "filepath": "src/helpers/contentChannelFormMessages.js"
+  },
+  {
+    "id": "price",
+    "defaultMessage": "Price:",
+    "filepath": "src/helpers/contentChannelFormMessages.js"
+  },
+  {
+    "id": "per",
+    "defaultMessage": "Per:",
+    "filepath": "src/helpers/contentChannelFormMessages.js"
+  },
+  {
+    "id": "unit",
+    "defaultMessage": "Unit:",
+    "filepath": "src/helpers/contentChannelFormMessages.js"
+  },
+  {
+    "id": "tags",
+    "defaultMessage": "Tags:",
+    "filepath": "src/helpers/contentChannelFormMessages.js"
+  },
+  {
+    "id": "channel-url",
+    "defaultMessage": "Link Of Your Channel:",
+    "filepath": "src/helpers/contentChannelFormMessages.js"
+  },
+  {
+    "id": "tag-placeholder",
+    "defaultMessage": "Add a tag",
+    "filepath": "src/helpers/contentChannelFormMessages.js"
+  },
+  {
+    "id": "img-upload",
+    "defaultMessage": "Upload Image",
+    "filepath": "src/helpers/contentChannelFormMessages.js"
+  },
+  {
+    "id": "video-upload",
+    "defaultMessage": "Upload Video",
+    "filepath": "src/helpers/contentChannelFormMessages.js"
+  },
+  {
+    "id": "audio-upload",
+    "defaultMessage": "Upload Audio",
+    "filepath": "src/helpers/contentChannelFormMessages.js"
+  },
+  {
+    "id": "create-new-content-title",
+    "defaultMessage": "Create New Content",
+    "filepath": "src/helpers/contentChannelFormMessages.js"
+  },
+  {
+    "id": "content-input-title",
+    "defaultMessage": "Content Title:",
+    "filepath": "src/helpers/contentChannelFormMessages.js"
   }
 ]
