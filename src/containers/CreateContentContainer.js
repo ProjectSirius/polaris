@@ -4,12 +4,7 @@ import { reduxForm } from 'redux-form';
 import { injectIntl } from 'react-intl';
 import { createStructuredSelector } from 'reselect';
 
-import {
-  selectIsRequesting,
-  selectTags,
-  selectIsAuth,
-  selectCurrentUser,
-} from '../selectors';
+import { selectIsRequesting, selectTags } from '../selectors';
 
 import { addTags, removeTags, sendData } from '../actions';
 
@@ -18,43 +13,41 @@ import CreateCard from '../components/CreateCard';
 import channelFormValidate from '../helpers/channelFormValidate';
 import messages from '../helpers/contentChannelFormMessages';
 
-let CreateChannelContainer = props => {
+let CreateContentContainer = props => {
   const {
     intl: { formatMessage },
   } = props;
 
   const onFormSubmit = formData => {
-    props.sendData(formData, 'createChannel');
+    props.sendData(formData, 'createContent');
   };
 
   return (
     <CreateCard
       messages={messages}
-      formatMessage={formatMessage}
+      userType="content_owner"
       {...props}
       onFormSubmit={onFormSubmit}
-      userType="audience_owner"
+      formatMessage={formatMessage}
     />
   );
 };
 
-CreateChannelContainer = injectIntl(CreateChannelContainer);
+CreateContentContainer = injectIntl(CreateContentContainer);
 
 const mapStateToProps = createStructuredSelector({
   isRequesting: selectIsRequesting,
   tags: selectTags,
-  isAuth: selectIsAuth,
-  currentUser: selectCurrentUser,
 });
 
-const addNewChannelForm = reduxForm({
-  form: 'Add_new_channel_form',
+const addNewContentForm = reduxForm({
+  form: 'Add_new_content_form',
   validate: channelFormValidate,
   initialValues: {
     unit: 'view',
   },
   destroyOnUnmount: false,
-})(CreateChannelContainer);
+})(CreateContentContainer);
 
 export default connect(
   mapStateToProps,
@@ -63,4 +56,4 @@ export default connect(
     removeTags,
     sendData,
   }
-)(addNewChannelForm);
+)(addNewContentForm);
