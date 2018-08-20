@@ -127,13 +127,27 @@ export default {
     justifyContent: 'center',
     color: '#6FB7B0',
     fontSize: '20px',
-    padding: '20px',
+    padding: '20px 0',
     fontWeight: 600,
 
-    '& > a > span:hover': {
-      textDecoration: 'underline',
+    '& > a': {
+      width: '100%',
     },
   },
+
+  btn: {
+    height: '50px',
+    width: '100%',
+    background: '#fff',
+    outline: 'none',
+    border: '1px solid',
+
+    '&:hover': {
+      boxShadow: '0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)',
+      transition: 'all 0.3s cubic-bezier(.25, .8, .25, 1)',
+    },
+  },
+
   googlemap: {
     width: '100%',
     margin: '10px 0',

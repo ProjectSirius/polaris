@@ -56,7 +56,9 @@ const DetailedPage = ({
                   search: `?locale=${lang}`,
                 }}
               >
-                <span onClick={handleEdit}>Edit Channel</span>
+                <button onClick={handleEdit} className={classes.btn}>
+                  Edit Channel
+                </button>
               </Link>
             ) : (
               <Link to={''}>
@@ -64,6 +66,18 @@ const DetailedPage = ({
               </Link>
             )}
           </div>
+          {data.user_id === '1' ? (
+            <div className={classes.offer}>
+              <button
+                className={classes.btn}
+                style={{ borderColor: '#d9534f', color: '#d9534f' }}
+              >
+                Delete Channel
+              </button>
+            </div>
+          ) : (
+            ''
+          )}
         </Col>
         <Col md={1} />
         <Col
