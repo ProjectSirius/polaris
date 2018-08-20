@@ -38,6 +38,8 @@ class SimpleMap extends Component {
           bootstrapURLKeys={{ key: 'AIzaSyC3eoata7ct7kEsvsvf2PITnaiUHOMTO-Y' }}
           defaultCenter={this.props.center}
           defaultZoom={this.props.zoom}
+          onChange={(obj) => console.log('=====><=====', obj)}
+          onChildClick={(obj) => console.log('////><\\\\\\\\', obj)}
         >
           {this.markers}
         </GoogleMapReact>
