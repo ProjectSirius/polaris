@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { injectIntl, defineMessages } from 'react-intl';
+import { injectIntl } from 'react-intl';
 import { createStructuredSelector } from 'reselect';
 
 import { getDetails, edit } from '../actions';
@@ -9,20 +9,19 @@ import {
   selectDetailed,
   selectIsRequesting,
   selectLanguage,
+  selectCurrentUser,
 } from '../selectors';
 
 import DetailedPage from '../components/DetailedPage';
 
-const messages = defineMessages({
-  title: {
-    id: 'detailed-page-title',
-    defaultMessage: 'Detailed Page',
-  },
-});
+import messages from '../helpers/DetailsPageMessages';
 
-class ChannelDetailsContainer extends React.Component {
+class DetailsPageContainer extends React.Component {
   componentDidMount() {
-    const dataType = 'channels';
+    const dataType =
+      this.props.currentUser.userType === 'audience_owner'
+        ? 'channels'
+        : 'contents';
     const id = this.props.match.params.id;
 
     this.props.getDetails(dataType, id);
@@ -38,18 +37,18 @@ class ChannelDetailsContainer extends React.Component {
       isRequesting,
       detailed,
       lang,
+      currentUser,
     } = this.props;
-
-    const formattedTitle = formatMessage(messages.title);
 
     return (
       <DetailedPage
-        title={formattedTitle}
         data={detailed}
         isRequesting={isRequesting}
         lang={lang}
         handleEdit={this.handleEdit}
-        userType="audience_owner"
+        userType={currentUser.userType}
+        messages={messages}
+        formatMessage={formatMessage}
       />
     );
   }
@@ -59,9 +58,10 @@ const mapStateToProps = createStructuredSelector({
   detailed: selectDetailed,
   isRequesting: selectIsRequesting,
   lang: selectLanguage,
+  currentUser: selectCurrentUser,
 });
 
-ChannelDetailsContainer = injectIntl(ChannelDetailsContainer);
+DetailsPageContainer = injectIntl(DetailsPageContainer);
 
 export default connect(
   mapStateToProps,
@@ -69,4 +69,4 @@ export default connect(
     getDetails,
     edit,
   }
-)(ChannelDetailsContainer);
+)(DetailsPageContainer);
