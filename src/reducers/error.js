@@ -13,7 +13,7 @@ const error = (state = '', action) => {
     case LOGIN_FAILURE:
     case DATA_RECEIVE_FAILURE:
     case DATA_SEND_FAILURE:
-      return action.payload.error.message ? action.payload.error.message : '';
+      return action.payload.error ? action.payload.error : '';
     case DATA_REQUEST:
     case LOGOUT_SUCCESS:
       return '';
