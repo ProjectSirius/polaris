@@ -184,4 +184,23 @@ export default {
       borderBottom: '1px solid #e1e1e1',
     },
   },
+
+  audioContainer: {
+    width: '100%',
+    height: 'auto',
+    padding: '20px',
+    borderRadius: '5px',
+    backgroundColor: '#eee',
+    color: '#444',
+    margin: '20px auto',
+    overflow: 'hidden',
+
+    '& > audio': {
+      width: '100%',
+
+      '&:nth-child(2), audio:nth-child(4), audio:nth-child(6)': {
+        margin: 0,
+      },
+    },
+  },
 };
