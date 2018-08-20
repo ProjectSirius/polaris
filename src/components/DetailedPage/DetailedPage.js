@@ -10,6 +10,8 @@ const DetailedPage = ({
   lang,
   handleEdit,
   userType,
+  messages,
+  formatMessage,
 }) => {
   return isRequesting &&
     Object.keys(data).length === 0 &&
@@ -34,7 +36,11 @@ const DetailedPage = ({
             </span>
           </div>
           <div className={classes.tagsContainer}>
-            <h2>Channel Tags</h2>
+            <h2>
+              {userType === 'audience_owner'
+                ? formatMessage(messages.channelTagsTitle)
+                : formatMessage(messages.contentTagsTitle)}
+            </h2>
             <div>
               {data.tags
                 ? data.tags.map((tag, index) => (
@@ -46,7 +52,7 @@ const DetailedPage = ({
             </div>
           </div>
           <div className={classes.tagsContainer}>
-            <h2>Average Rating</h2>
+            <h2>{formatMessage(messages.averageRatingTitle)}</h2>
             <div>Rating</div>
           </div>
           <div className={classes.offer}>
@@ -58,12 +64,14 @@ const DetailedPage = ({
                 }}
               >
                 <button onClick={handleEdit} className={classes.btn}>
-                  Edit Channel
+                  {userType === 'audience_owner'
+                    ? formatMessage(messages.editChannel)
+                    : formatMessage(messages.editContent)}
                 </button>
               </Link>
             ) : (
               <Link to={''}>
-                <span>Make an offer</span>
+                <span>{formatMessage(messages.offerTitle)}</span>
               </Link>
             )}
           </div>
@@ -73,7 +81,9 @@ const DetailedPage = ({
                 className={classes.btn}
                 style={{ borderColor: '#d9534f', color: '#d9534f' }}
               >
-                Delete Channel
+                {userType === 'audience_owner'
+                  ? formatMessage(messages.deleteChannel)
+                  : formatMessage(messages.deleteContent)}
               </button>
             </div>
           ) : (
@@ -101,17 +111,17 @@ const DetailedPage = ({
             <Col xs={12} sm={12} md={12} lg={11}>
               <h1 className={`text-center ${classes.title}`}>{data.title}</h1>
               <div className={classes.channelDescription}>
-                <h2>Brief Description:</h2>
+                <h2>{formatMessage(messages.briefDescriptionTitle)}</h2>
                 <p> {data.briefDescription}</p>
               </div>
               <div className={classes.channelDescription}>
-                <h2>Detailed Description:</h2>
+                <h2>{formatMessage(messages.detailedDescriptionTitle)}</h2>
                 <p>{data.detailed_text}</p>
               </div>
               {userType === 'content_owner' ? (
                 <div>
                   <h2 style={{ fontSize: '22px', textAlign: 'start' }}>
-                    Piece Of Music:
+                    {formatMessage(messages.musicTitle)}
                   </h2>
                   <div className={classes.audioContainer}>
                     <audio controls loop={false} autoPlay={false}>
@@ -127,7 +137,7 @@ const DetailedPage = ({
               )}
               {userType === 'audience_owner' ? (
                 <div className={classes.channelDescription}>
-                  <h2>Channel Links:</h2>
+                  <h2>{formatMessage(messages.channelLinks)}</h2>
                   <span>
                     Youtube channel:{' '}
                     <a
@@ -158,7 +168,7 @@ const DetailedPage = ({
               )}
               <div className={classes.googlemap}>
                 <div className={classes.location}>
-                  <h4> Location: </h4>
+                  <h4>{formatMessage(messages.locationTitle)}</h4>
                   <span>3 Hakob Hakobyan, Yerevan, Armenia</span>
                 </div>
                 <Image src="https://www.harvard.edu/sites/default/files/content/harvard-map-google.jpg" />
