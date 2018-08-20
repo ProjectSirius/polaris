@@ -9,7 +9,8 @@ import AudienceHomePage from '../AudienceHomePage';
 import ContentOwnerHomePage from '../ContentOwnerHomePage';
 import HomePageContainer from '../../containers/HomePageContainer';
 import MainNavBarContainer from '../../containers/MainNavBarContainer';
-import DetailedPageContainer from '../../containers/DetailedPageContainer';
+import ChannelDetailsContainer from '../../containers/ChannelDetailsContainer';
+import ContentDetailsContainer from '../../containers/ContentDetailsContainer';
 import CreateChannel from '../../containers/CreateChannel';
 import CreateContent from '../../containers/CreateContentContainer';
 
@@ -48,11 +49,11 @@ const App = ({ content, title }) => {
         />
         <ProtectedRouteContainer
           path="/channel/:id"
-          component={DetailedPageContainer}
+          component={ChannelDetailsContainer}
         />
         <ProtectedRouteContainer
           path="/content/:id"
-          component={DetailedPageContainer}
+          component={ContentDetailsContainer}
         />
         <Route render={() => <h1>Not Found App</h1>} />
       </Switch>
