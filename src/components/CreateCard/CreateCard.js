@@ -55,6 +55,7 @@ class CreateCard extends React.Component {
       messages,
       formatMessage,
       userType,
+      data,
     } = this.props;
 
     return (
@@ -139,7 +140,7 @@ class CreateCard extends React.Component {
               <ControlLabel>
                 <span>{formatMessage(messages.tags)}</span>
                 <Tags
-                  tags={tags}
+                  tags={data.tags ? data.tags : tags}
                   placeholder={formatMessage(messages.tagPlaceholder)}
                   onAdded={this.onTagAdded.bind(this)}
                   onRemoved={this.onTagRemoved.bind(this)}
