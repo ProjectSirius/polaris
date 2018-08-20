@@ -9,6 +9,7 @@ const DetailedPage = ({
   isRequesting,
   lang,
   handleEdit,
+  userType,
 }) => {
   return isRequesting &&
     Object.keys(data).length === 0 &&
@@ -107,33 +108,54 @@ const DetailedPage = ({
                 <h2>Detailed Description:</h2>
                 <p>{data.detailed_text}</p>
               </div>
-              <div className={classes.channelDescription}>
-                <h2>Channel Links:</h2>
-                <span>
-                  Youtube channel:{' '}
-                  <a
-                    href="https://www.youtube.com/watch?v=cWGE9Gi0bB0"
-                    rel="noopener noreferrer"
-                    target="_blank"
-                  >
-                    <span className={classes.link}>
-                      https://www.youtube.com/watch?v=cWGE9Gi0bB0
-                    </span>
-                  </a>
-                </span>
-                <span>
-                  Website:{' '}
-                  <a
-                    href="https://www.youtube.com/watch?v=cWGE9Gi0bB0"
-                    rel="noopener noreferrer"
-                    target="_blank"
-                  >
-                    <span className={classes.link}>
-                      https://www.youtube.com/watch?v=cWGE9Gi0bB0
-                    </span>
-                  </a>
-                </span>
-              </div>
+              {userType === 'content_owner' ? (
+                <div>
+                  <h2 style={{ fontSize: '22px', textAlign: 'start' }}>
+                    Piece Of Music:
+                  </h2>
+                  <div className={classes.audioContainer}>
+                    <audio controls loop={false} autoPlay={false}>
+                      <source
+                        src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/9473/new_year_dubstep_minimix.ogg"
+                        type="audio/ogg"
+                      />
+                    </audio>
+                  </div>
+                </div>
+              ) : (
+                ''
+              )}
+              {userType === 'audience_owner' ? (
+                <div className={classes.channelDescription}>
+                  <h2>Channel Links:</h2>
+                  <span>
+                    Youtube channel:{' '}
+                    <a
+                      href="https://www.youtube.com/watch?v=cWGE9Gi0bB0"
+                      rel="noopener noreferrer"
+                      target="_blank"
+                    >
+                      <span className={classes.link}>
+                        https://www.youtube.com/watch?v=cWGE9Gi0bB0
+                      </span>
+                    </a>
+                  </span>
+                  <span>
+                    Website:{' '}
+                    <a
+                      href="https://www.youtube.com/watch?v=cWGE9Gi0bB0"
+                      rel="noopener noreferrer"
+                      target="_blank"
+                    >
+                      <span className={classes.link}>
+                        https://www.youtube.com/watch?v=cWGE9Gi0bB0
+                      </span>
+                    </a>
+                  </span>
+                </div>
+              ) : (
+                ''
+              )}
               <div className={classes.googlemap}>
                 <div className={classes.location}>
                   <h4> Location: </h4>
