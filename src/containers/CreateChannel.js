@@ -13,7 +13,7 @@ import {
   selectIsEditing,
 } from '../selectors';
 
-import { addTags, removeTags, sendData, getDetails } from '../actions';
+import { addTags, removeTags, sendData, getDetails, edit } from '../actions';
 
 import CreateCard from '../components/CreateCard';
 
@@ -26,6 +26,10 @@ class CreateChannelContainer extends Component {
     const id = this.props.match.params.id;
 
     this.props.getDetails(dataType, id);
+
+    if (this.props.match.path.split('/').includes('edit')) {
+      this.props.edit();
+    }
   }
 
   onFormSubmit = formData => {
@@ -88,5 +92,6 @@ export default connect(
     removeTags,
     sendData,
     getDetails,
+    edit,
   }
 )(addNewChannelForm);
