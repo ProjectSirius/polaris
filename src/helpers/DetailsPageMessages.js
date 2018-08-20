@@ -42,7 +42,7 @@ const messages = defineMessages({
   },
 
   detailedDescriptionTitle: {
-    id: 'brief-description',
+    id: 'detailed-description',
     defaultMessage: 'Detailed Description:',
   },
 
@@ -63,7 +63,7 @@ const messages = defineMessages({
 
   channelLinks: {
     id: 'channel-links',
-    defineMessages: 'Channel Links:',
+    defaultMessage: 'Channel Links:',
   },
 });
 
