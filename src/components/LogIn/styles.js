@@ -18,7 +18,7 @@ export default {
   },
 
   loginFormWrapper: {
-    margin: '50px 0',
+    padding: '72px 48px',
   },
 
   fieldReset: {
@@ -26,6 +26,7 @@ export default {
       marginBottom: '0 !important',
     },
   },
+
   label: {
     whiteSpace: 'normal',
   },
