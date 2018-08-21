@@ -77,11 +77,7 @@ const SignUpForm = ({
           </Alert>
         )}
         {errorSignUp && <Alert bsStyle="danger">{errorSignUp}</Alert>}
-        <SubmitBtn
-          value="CREATE ACCOUNT!"
-          valid={valid}
-          isRequesting={isRequesting}
-        />
+        <SubmitBtn value="Sign Up!" valid={valid} isRequesting={isRequesting} />
       </form>
       <div className={classes.signUpDesc}>
         <p>
