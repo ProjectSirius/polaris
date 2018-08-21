@@ -73,6 +73,7 @@ const LogIn = ({
               placeholder="Your Username"
               classes={classes}
               label="Username"
+              icon="address card"
             />
             <Field
               name="password"
@@ -81,6 +82,7 @@ const LogIn = ({
               placeholder="Your Password"
               classes={classes}
               label="Password"
+              icon="attention"
             />
             {isRequesting && (
               <RequestMessage

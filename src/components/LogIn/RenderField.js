@@ -1,11 +1,11 @@
 import React from 'react';
 import { Form, Label } from 'semantic-ui-react';
 
-const TextField = ({ id, label, touched, error, classes, ...props }) => {
+const TextField = ({ id, label, touched, error, classes, icon, ...props }) => {
   return (
     <Form.Field className={classes.fieldReset} widths="equal">
       <label>{label}:</label>
-      <Form.Input {...props} />
+      <Form.Input icon={icon ? icon : ''} iconPosition="left" {...props} />
       {touched && error ? (
         <Label pointing className={classes.label}>
           {error}
