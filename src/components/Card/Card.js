@@ -1,5 +1,5 @@
 import React from 'react';
-import { Glyphicon } from 'react-bootstrap';
+import { Card, Image, Icon, Button } from 'semantic-ui-react';
 
 const Card = ({ info: { title, briefDescription, date }, classes, view }) => {
   return (
