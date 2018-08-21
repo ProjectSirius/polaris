@@ -14,7 +14,6 @@ const error = (state = '', action) => {
     case LOGIN_FAILURE:
     case DATA_RECEIVE_FAILURE:
     case DATA_SEND_FAILURE:
-      debugger;
       return action.payload.error;
     case DATA_REQUEST:
     case LOGOUT_SUCCESS:
