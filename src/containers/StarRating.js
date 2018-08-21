@@ -30,7 +30,6 @@ let StarRatingContainer = ({
   search,
   isAuth,
   currentUser,
-  rating,
 }) => {
   const handleChange = (dataType, query, filter, rating) => {
     updRating(rating);
@@ -40,10 +39,8 @@ let StarRatingContainer = ({
 
   return (
     <StarRating
-      min={1}
       max={5}
       onChange={handleChange}
-      value={rating}
       isAuth={isAuth}
       currentUser={currentUser}
     />
