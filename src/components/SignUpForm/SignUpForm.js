@@ -51,6 +51,7 @@ const SignUpForm = ({
               className={classes.input}
               classes={classes}
               label="Username"
+              icon="address card"
             />
             <Field
               name="email"
@@ -59,6 +60,7 @@ const SignUpForm = ({
               placeholder="Email"
               classes={classes}
               label="Email"
+              icon="at"
             />
             <Field
               name="password"
@@ -69,6 +71,7 @@ const SignUpForm = ({
               className={classes.input}
               classes={classes}
               label="Password"
+              icon="attention"
             />
             <Field
               name="passwordConfirmation"
@@ -78,6 +81,7 @@ const SignUpForm = ({
               bsSize="large"
               classes={classes}
               label="Confirm Password"
+              icon="attention"
             />
             {isRequesting && (
               <RequestMessage
