@@ -1,4 +1,10 @@
 export default {
+  loading: {
+    position: 'absolute !important',
+    left: '57% !important',
+    top: '50% !important',
+  },
+
   parentLinkList: {
     display: 'inline-block',
     width: '80%',
