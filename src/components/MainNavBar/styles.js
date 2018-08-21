@@ -127,6 +127,13 @@ export default {
       borderBottom: '2px solid #d9534f !important',
       marginTop: '2px',
     },
+
+    '& a': {
+      display: 'flex',
+      height: '100%',
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
   },
 
   navLinkLogin: {
@@ -186,6 +193,15 @@ export default {
     '&:hover': {
       borderBottom: '2px solid #d9534f !important',
       marginTop: '2px',
+    },
+
+    '& > a': {
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center',
+      textDecoration: 'none',
+      color: 'inherit',
     },
   },
 

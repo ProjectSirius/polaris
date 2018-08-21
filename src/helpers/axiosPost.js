@@ -1,17 +1,17 @@
 import axios from 'axios';
 
-const get = () => {
+const post = () => {
   let call;
   return (url, data) => {
     if (call) {
       call.cancel();
     }
     call = axios.CancelToken.source();
-    return axios.get(url, {
+    return axios.post(url, {
       data,
       cancelToken: call.token,
     });
   };
 };
 
-export default get();
+export default post();
