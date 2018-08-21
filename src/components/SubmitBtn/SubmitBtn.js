@@ -4,7 +4,13 @@ import { Button } from 'semantic-ui-react';
 
 const SubmitBtn = ({ valid, isRequesting, value, size = 'large' }) => {
   return (
-    <Button active={!valid} primary fluid loading={isRequesting} size={size}>
+    <Button
+      disabled={!valid}
+      color="twitter"
+      fluid
+      loading={isRequesting}
+      size={size}
+    >
       {value}
     </Button>
   );
