@@ -5,7 +5,13 @@ const TextField = ({ id, label, touched, error, classes, ...props }) => {
   return (
     <Form.Field className={classes.fieldReset} widths="equal">
       <Form.Input {...props} />
-      {touched && error ? <Label pointing>{error}</Label> : ''}
+      {touched && error ? (
+        <Label pointing className={classes.label}>
+          {error}
+        </Label>
+      ) : (
+        ''
+      )}
     </Form.Field>
   );
 };

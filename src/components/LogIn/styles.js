@@ -26,4 +26,7 @@ export default {
       marginBottom: '0 !important',
     },
   },
+  label: {
+    whiteSpace: 'normal',
+  },
 };

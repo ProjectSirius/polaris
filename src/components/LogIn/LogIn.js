@@ -3,11 +3,12 @@ import { Field } from 'redux-form';
 import { Redirect, Link } from 'react-router-dom';
 import { injectIntl, defineMessages } from 'react-intl';
 import PropTypes from 'prop-types';
-import { Alert } from 'react-bootstrap';
 import { Form, Grid, Message, Icon } from 'semantic-ui-react';
 
 import RenderField from './RenderField';
 import SubmitBtn from '../SubmitBtn';
+import NegativeMessage from '../NegativeMsg/NegativeMsg';
+import RequestMessage from '../RequestMsg/RequestMsg';
 
 const messages = defineMessages({
   requestingAlert: {
@@ -34,7 +35,6 @@ const LogIn = ({
   isAuth,
   location,
   currentUser,
-  lang,
   valid,
   isRequesting,
   loginError,
@@ -46,8 +46,9 @@ const LogIn = ({
       ? 'audience'
       : 'contentowner'
     : '';
+
   const { from } = location.state || {
-    from: { pathname: `/${redirectPath}`, search: `?locale=${lang}` },
+    from: { pathname: `/${redirectPath}` },
   };
 
   return isAuth ? (
@@ -55,7 +56,7 @@ const LogIn = ({
   ) : (
     <div className={classes.loginFormWrapper}>
       <Grid columns={16} centered>
-        <Grid.Column computer={8} mobile={16}>
+        <Grid.Column computer={8} mobile={14}>
           <Message attached>
             <Message.Header className={classes.messageHeaderText}>
               {formatMessage(messages.loginForm)}
@@ -80,11 +81,11 @@ const LogIn = ({
               classes={classes}
             />
             {isRequesting && (
-              <Alert bsStyle="info">
-                {formatMessage(messages.requestingAlert)}
-              </Alert>
+              <RequestMessage
+                msgBody={formatMessage(messages.requestingAlert)}
+              />
             )}
-            {loginError && <Alert bsStyle="danger">{loginError}</Alert>}
+            {loginError && <NegativeMessage msgHeader={loginError} />}
             <SubmitBtn
               value="Log In"
               valid={valid}
@@ -100,7 +101,6 @@ const LogIn = ({
                 className={classes.link}
                 to={{
                   pathname: `/signupAudience`,
-                  search: `?locale=${lang}`,
                 }}
               >
                 {formatMessage(messages.audienceLogin)}
@@ -110,12 +110,10 @@ const LogIn = ({
                 className={classes.link}
                 to={{
                   pathname: `/signupContentmaker`,
-                  search: `?locale=${lang}`,
                 }}
               >
                 {formatMessage(messages.contentOwnerLogin)}
               </Link>{' '}
-              owner!
             </p>
           </Message>
         </Grid.Column>
@@ -133,7 +131,7 @@ LogIn.propTypes = {
   lang: PropTypes.string.isRequired,
   valid: PropTypes.bool.isRequired,
   isRequesting: PropTypes.bool.isRequired,
-  loginError: PropTypes.object.isRequired,
+  loginError: PropTypes.string.isRequired,
 };
 
 LogIn.defaultProps = {};
