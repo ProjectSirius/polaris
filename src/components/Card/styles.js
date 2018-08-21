@@ -1,10 +1,9 @@
 export default {
   card: {
+    display: 'inline-block',
     width: '100% !important',
-    height: '100%',
-    maxHeight: '575px',
-    transition: '.25s !important',
-    textDecoration: 'none !important',
+    transition: '.5s !important',
+    margin: '10px !important',
 
     '&:hover': {
       boxShadow: '0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)',
@@ -12,15 +11,48 @@ export default {
       textDecoration: 'none !important',
     },
 
+    '&:hover a': {
+      color: 'rgba(0, 0, 0, .87)',
+    },
+
     '&:hover div > a > span': {
       transform: 'translate(5px, 0)',
     },
   },
 
+  parentLinkList: {
+    width: '100% !important',
+    height: '100%',
+    maxHeight: '575px',
+    transition: '.25s !important',
+    textDecoration: 'none !important',
+    color: 'rgba(0, 0, 0, .87)',
+    display: 'flex',
+  },
+
+  parentLinkGrid: {
+    width: '100% !important',
+    height: '100%',
+    maxHeight: '575px',
+    transition: '.25s !important',
+    textDecoration: 'none !important',
+    maxWidth: '475px',
+    color: 'rgba(0,0,0,.87)',
+
+    '&:hover': {
+      color: 'rgba(0,0,0,.87)',
+    },
+  },
+
   cardList: {
     flexDirection: 'row !important',
-    height: '270px !important',
+    height: '270px ',
     transition: '.25s !important',
+    width: '80% !important',
+  },
+
+  cardContent: {
+    padding: '10px',
   },
 
   mainTitle: {
@@ -58,5 +90,17 @@ export default {
 
   iconColor: {
     color: '#55acee',
+  },
+
+  '@media screen and (max-width: 1020px)': {
+    cardList: {
+      width: '100% !important',
+    },
+  },
+
+  '@media screen and (max-width: 1040px)': {
+    cardList: {
+      width: '100% !important',
+    },
   },
 };
