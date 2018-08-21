@@ -47,7 +47,7 @@ export default {
     },
 
     '@media screen and (min-width: 1800px)': {
-      gridTemplateColumns: '24% 24% 24% 24%',
+      gridTemplateColumns: '23% 23% 23% 23%',
       gridGap: '2%',
     },
 
