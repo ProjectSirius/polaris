@@ -1,9 +1,9 @@
 export default {
   card: {
-    width: '100%',
-    height: '415px',
+    width: '100% !important',
+    height: '100%',
+    maxHeight: '506px',
     display: 'flex',
-    flexDirection: 'column',
     boxShadow: '10px 5px 40px 20px rgba(0, 0, 0, .1)',
     transition: '.25s',
     backgroundColor: '#f4f7f6',
