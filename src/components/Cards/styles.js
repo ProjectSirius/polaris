@@ -9,6 +9,7 @@ export default {
     display: 'inline-block',
     width: '80%',
     margin: '40px 0',
+    transition: '.5s !important',
   },
 
   parentLinkGrid: {
@@ -16,6 +17,12 @@ export default {
     margin: '40px 0',
     width: '100%',
     maxWidth: '475px',
+    color: 'rgba(0,0,0,.87)',
+    transition: '.5s !important',
+
+    '&:hover': {
+      color: 'rgba(0,0,0,.87)',
+    },
   },
 
   cardsWrapperGrid: {
