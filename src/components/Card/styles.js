@@ -10,7 +10,7 @@ export default {
     textDecoration: 'none !important',
 
     '&:hover': {
-      boxShadow: '10px 5px 40px 20px rgba(0, 0, 0, .2)',
+      boxShadow: '0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)',
       cursor: 'pointer',
       textDecoration: 'none !important',
     },
