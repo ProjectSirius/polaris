@@ -1,36 +1,49 @@
 import React from 'react';
 import { Card, Image, Icon, Button } from 'semantic-ui-react';
 
-const Card = ({ info: { title, briefDescription, date }, classes, view }) => {
+const CardComponent = ({
+  info: { title, briefDescription, date },
+  classes,
+  view,
+}) => {
   return (
-    <article
+    <Card
       className={`${classes.card} ${view === 'list' ? classes.cardList : ''}`}
     >
-      <header
-        className={`${classes.cardHeader} ${
-          view === 'list' ? classes.cardHeaderList : ''
-        }`}
-      >
-        <h4 className={classes.cardHeaderTitle}>Think Different</h4>
-      </header>
-      <div className={classes.cardBody}>
+      <Image
+        src="https://source.unsplash.com/user/erondu/600x400"
+        size={view === 'list' ? 'large' : ''}
+      />
+      <Card.Content>
         <p className={classes.date}>{date}</p>
-        <h3 className={classes.mainTitle}>{title}</h3>
-        <p className={classes.bodyContent}>
+        <Card.Header className={classes.mainTitle}>{title}</Card.Header>
+        <Card.Description className={classes.bodyContent}>
           {view === 'list'
             ? briefDescription
-            : `${briefDescription.slice(0, 180)}..`}
-        </p>
-      </div>
+            : view === 'list'
+              ? `${briefDescription.slice(0, 250)}..`
+              : `${briefDescription.slice(0, 140)}..`}
+        </Card.Description>
+      </Card.Content>
       {view === 'list' ? (
         ''
       ) : (
-        <button className={`${classes.button} ${classes.buttonPrimary}`}>
-          <Glyphicon glyph="glyphicon glyphicon-chevron-right" /> Find out more
-        </button>
+        <Card.Content extra>
+          <Button
+            basic
+            className={`${classes.button} ${classes.buttonPrimary}`}
+          >
+            <Icon
+              name="chevron circle right"
+              size="large"
+              className={classes.iconColor}
+            />
+            <span>Find out more</span>
+          </Button>
+        </Card.Content>
       )}
-    </article>
+    </Card>
   );
 };
 
-export default Card;
+export default CardComponent;
