@@ -1,6 +1,6 @@
 export default {
   card: {
-    width: '280px',
+    width: '100%',
     height: '415px',
     display: 'flex',
     flexDirection: 'column',

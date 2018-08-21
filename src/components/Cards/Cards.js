@@ -19,7 +19,10 @@ const Cards = ({ data, isRequesting, classes, view, lang, type }) => {
           className={
             view === 'table' ? classes.parentLinkGrid : classes.parentLinkList
           }
-          to={{ pathname: `/${type}/${info.id}`, search: `?locale=${lang}` }}
+          to={{
+            pathname: `/${type}/${info.id}`,
+            search: `?locale=${lang}`,
+          }}
         >
           {' '}
           <Card key={info.id} info={info} view={view} />

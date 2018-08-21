@@ -14,6 +14,8 @@ export default {
   parentLinkGrid: {
     display: 'inline-block',
     margin: '40px 0',
+    width: '100%',
+    maxWidth: '475px',
   },
 
   cardsWrapperGrid: {
@@ -25,6 +27,16 @@ export default {
 
     '& > div': {
       transition: 'all .9s ease',
+    },
+
+    '@media screen and (max-width: 1155px)': {
+      gridTemplateColumns: '50% 50%',
+      gridGap: '2%',
+    },
+
+    '@media screen and (max-width: 870px)': {
+      gridTemplateColumns: '100%',
+      gridGap: '2%',
     },
 
     '@media screen and (min-width: 1800px)': {
