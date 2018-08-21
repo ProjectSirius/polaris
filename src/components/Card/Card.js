@@ -1,8 +1,9 @@
 import React from 'react';
-import { Card, Image, Icon, Button } from 'semantic-ui-react';
+import { Card, Image, Icon } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 
 const CardComponent = ({
-  info: { title, briefDescription, date },
+  info: { title, briefDescription, date, id },
   classes,
   view,
 }) => {
@@ -28,18 +29,27 @@ const CardComponent = ({
       {view === 'list' ? (
         ''
       ) : (
-        <Card.Content extra>
-          <Button
-            basic
-            className={`${classes.button} ${classes.buttonPrimary}`}
-          >
-            <Icon
-              name="chevron circle right"
-              size="large"
-              className={classes.iconColor}
-            />
-            <span>Find out more</span>
-          </Button>
+        <Card.Content extra style={{ display: 'flex' }}>
+          <Link to={`/channel/${id}`}>
+            <span className={classes.moreOffer}>
+              <Icon
+                name="chevron circle right"
+                size="large"
+                className={classes.iconColor}
+              />
+              <span>Find out more</span>
+            </span>
+          </Link>
+          <Link to="/">
+            <span className={classes.moreOffer} onClick={() => {}}>
+              <Icon
+                name="shopping cart"
+                size="large"
+                className={classes.iconColor}
+              />
+              <span>Make an offer</span>
+            </span>
+          </Link>
         </Card.Content>
       )}
     </Card>
