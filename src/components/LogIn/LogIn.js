@@ -7,8 +7,8 @@ import { Form, Grid, Message, Icon } from 'semantic-ui-react';
 
 import RenderField from './RenderField';
 import SubmitBtn from '../SubmitBtn';
-import NegativeMessage from '../NegativeMsg/NegativeMsg';
-import RequestMessage from '../RequestMsg/RequestMsg';
+import NegativeMessage from '../Messages/NegativeMsg';
+import RequestMessage from '../Messages/RequestMsg/';
 
 const messages = defineMessages({
   requestingAlert: {
