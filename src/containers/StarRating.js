@@ -1,4 +1,3 @@
-import React from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
@@ -24,35 +23,7 @@ const mapDispatchToProps = dispatch => ({
     dispatch(search(dataType, query, filter)),
 });
 
-let StarRatingContainer = ({
-  updRating,
-  setFilters,
-  search,
-  isAuth,
-  currentUser,
-  rating,
-}) => {
-  const handleChange = (dataType, query, filter, rating) => {
-    updRating(rating);
-    setFilters(filter);
-    search(dataType, query);
-  };
-
-  return (
-    <StarRating
-      min={1}
-      max={5}
-      onChange={handleChange}
-      value={rating}
-      isAuth={isAuth}
-      currentUser={currentUser}
-    />
-  );
-};
-
-StarRatingContainer = connect(
+export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(StarRatingContainer);
-
-export default StarRatingContainer;
+)(StarRating);
