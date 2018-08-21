@@ -12,8 +12,8 @@ export default {
       textDecoration: 'none !important',
     },
 
-    '&:hover button': {
-      transform: 'translate(10px, 0)',
+    '&:hover div > a > span': {
+      transform: 'translate(5px, 0)',
     },
   },
 
@@ -39,7 +39,7 @@ export default {
     lineHeight: 1.8,
   },
 
-  buttonPrimary: {
+  moreOffer: {
     border: 'none !important',
     boxShadow: 'none !important',
     color: '#55acee !important',
@@ -48,9 +48,10 @@ export default {
     display: 'flex !important',
     alignItems: 'center',
     width: '100%',
+    padding: '10px 0 !important',
+    paddingLeft: '11px !important',
 
     '& > span': {
-      paddingLeft: '10px',
       color: '#55acee',
     },
   },
