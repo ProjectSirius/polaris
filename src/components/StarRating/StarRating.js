@@ -1,20 +1,7 @@
 import React from 'react';
-import { Glyphicon } from 'react-bootstrap';
+import { Rating } from 'semantic-ui-react';
 
-const range = (min, max) =>
-  Array(max - min + 1)
-    .fill()
-    .map((_, i) => min + i);
-
-const StarRating = ({
-  min,
-  max,
-  onChange,
-  value,
-  isAuth,
-  currentUser,
-  classes,
-}) => {
+const StarRating = ({ max, onChange, isAuth, currentUser, classes }) => {
   const dataType = isAuth
     ? currentUser.userType === 'content_owner'
       ? 'channels'
@@ -23,21 +10,20 @@ const StarRating = ({
 
   return (
     <div className={classes.rating}>
-      {range(min, max).map((item, index) => (
-        <div
-          className={item <= value ? classes.rateStar : classes.defaultStar}
-          onClick={() => {
-            return onChange(
-              dataType,
-              '',
-              { filterName: 'rating', value: index + 1 },
-              index + 1
-            );
-          }}
-        >
-          <Glyphicon glyph="glyphicon glyphicon-star" />
-        </div>
-      ))}
+      <Rating
+        icon="star"
+        defaultRating={1}
+        maxRating={max}
+        size="massive"
+        onRate={(e, { rating }) =>
+          onChange(
+            dataType,
+            '',
+            { filterName: 'rating', value: rating },
+            rating
+          )
+        }
+      />
     </div>
   );
 };
