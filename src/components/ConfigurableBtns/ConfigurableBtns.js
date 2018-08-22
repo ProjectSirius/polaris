@@ -7,10 +7,10 @@ const ConfigurableBtns = ({
   selectFilteringPageFilterBar: selected,
 }) => {
   return (
-    <Button.Group>
+    <Button.Group className={classes.confWrapper}>
       <Button
         color="twitter"
-        size="large"
+        size="huge"
         active={selected === 'table'}
         className={classes.btn}
         onClick={() => updFilterBar('table')}
@@ -19,7 +19,7 @@ const ConfigurableBtns = ({
       </Button>
       <Button
         color="twitter"
-        size="large"
+        size="huge"
         active={selected === 'list'}
         className={classes.btn}
         onClick={() => updFilterBar('list')}
@@ -28,7 +28,7 @@ const ConfigurableBtns = ({
       </Button>
       <Button
         color="twitter"
-        size="large"
+        size="huge"
         active={selected === 'map'}
         className={classes.btn}
         onClick={() => updFilterBar('map')}
