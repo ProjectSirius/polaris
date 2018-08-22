@@ -1,5 +1,5 @@
 export default {
-  buttonActive: {
-    background: '#e6e6e6',
+  btn: {
+    padding: '15px 5px !important',
   },
 };
