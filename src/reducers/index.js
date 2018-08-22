@@ -14,6 +14,7 @@ import tags from './tags';
 import filters from './filters';
 import notif from './notif';
 import details from './details';
+import isEditing from './isEditing';
 
 export default combineReducers({
   form: formReducer,
@@ -30,4 +31,5 @@ export default combineReducers({
   filters,
   notif,
   details,
+  isEditing,
 });
