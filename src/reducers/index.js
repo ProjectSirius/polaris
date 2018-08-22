@@ -12,6 +12,7 @@ import data from './data';
 import filteringPage from './filteringPage';
 import tags from './tags';
 import filters from './filters';
+import notif from './notif';
 
 export default combineReducers({
   form: formReducer,
@@ -26,4 +27,5 @@ export default combineReducers({
   filteringPage,
   tags,
   filters,
+  notif,
 });
