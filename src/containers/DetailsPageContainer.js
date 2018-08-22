@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { injectIntl, defineMessages } from 'react-intl';
 
-import DetailedPage from '../components/DetailedPage';
+import DetailedPage from '../components/DetailsPage';
 
 const messages = defineMessages({
   title: {

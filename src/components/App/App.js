@@ -9,7 +9,7 @@ import AudienceHomePage from '../AudienceHomePage';
 import ContentOwnerHomePage from '../ContentOwnerHomePage';
 import HomePageContainer from '../../containers/HomePageContainer';
 import MainNavBarContainer from '../../containers/MainNavBarContainer';
-import DetailedPageContainer from '../../containers/DetailedPageContainer';
+import DetailedPageContainer from '../../containers/DetailsPageContainer';
 import CreateChannel from '../../containers/CreateChannel';
 import CreateContent from '../../containers/CreateContentContainer';
 
