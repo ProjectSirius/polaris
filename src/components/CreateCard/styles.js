@@ -18,7 +18,9 @@ export default {
     width: '100%',
     display: 'flex',
     justifyContent: 'center',
-    borderBottom: '10px solid #ea585f',
+    background: 'linear-gradient(to right,#d7d7d7 0,#6de5ff 100%)',
+    color: '#fff',
+    fontWeight: '500',
   },
 
   title: {
@@ -86,24 +88,18 @@ export default {
           padding: 0,
 
           '& li': {
-            display: 'flex',
-            justifyContent: 'space-between',
-            padding: '3px',
-            background: '#ea585f',
-            margin: '2px',
-            fontWeight: 600,
-            borderRadius: '20px',
-            overflow: 'hidden',
-            height: '27px',
+            display: 'inline-flex',
+            margin: '1px',
+            borderRadius: '30px',
             position: 'relative',
-            color: '#fff',
-            minWidth: '80px',
+            background: 'linear-gradient(to right,#ffd1ee 0,#74dcfc 100%)',
+            padding: '10px 20px',
+            width: 'max-content',
 
             '& a': {
               width: '24%',
               justifyContent: 'center',
               display: 'flex',
-              background: '#a94442',
               marginLeft: '5px',
               color: '#fff',
               height: '32px',
@@ -185,5 +181,9 @@ export default {
 
       color: '#008489',
     },
+  },
+
+  formLabel: {
+    background: 'none !important',
   },
 };

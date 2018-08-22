@@ -2,6 +2,7 @@ export default {
   '@global html ,body, #root, .App': {
     height: '100%',
   },
+
   title: {
     fontSize: '40px',
     fontWeight: 600,

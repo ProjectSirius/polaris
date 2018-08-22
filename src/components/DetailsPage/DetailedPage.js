@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Loader } from 'semantic-ui-react';
-import { Grid, Row, Col, Image } from 'react-bootstrap';
+import { Loader, Grid, Image } from 'semantic-ui-react';
 
 const DetailsPage = ({
   title,
@@ -21,9 +20,17 @@ const DetailsPage = ({
       Loading
     </Loader>
   ) : (
-    <Grid style={{ width: '100%', padding: '70px 31px 0' }}>
-      <Row className="show-grid">
-        <Col xs={12} sm={5} md={2} className={classes.channelLeft}>
+    <Grid>
+      <Grid.Row columns={16} style={{ margin: '0 35px' }}>
+        <Grid.Column
+          xs={12}
+          sm={5}
+          md={2}
+          tablet={5}
+          computer={3}
+          mobile={16}
+          className={classes.channelLeft}
+        >
           <div className={classes.userData}>
             <div>
               <Image src="https://harsupesa.am/images/catalog/dj/dj-smoke/dj-smoke-4.jpg" />
@@ -92,16 +99,16 @@ const DetailsPage = ({
           ) : (
             ''
           )}
-        </Col>
-        <Col md={1} />
-        <Col
-          xs={12}
-          sm={7}
-          md={8}
-          className={`text-center ${classes.rightChannel}`}
+        </Grid.Column>
+        <Grid.Column computer={1} tablet={1} />
+        <Grid.Column
+          computer={12}
+          tablet={10}
+          mobile={16}
+          className={classes.rightChannel}
         >
-          <Row>
-            <Col xs={12} sm={12} md={12} lg={11}>
+          <Grid.Row>
+            <Grid.Column>
               {data.image ? (
                 <Image
                   src={data.image}
@@ -110,9 +117,9 @@ const DetailsPage = ({
               ) : (
                 ''
               )}
-            </Col>
-            <Col xs={12} sm={12} md={12} lg={11}>
-              <h1 className={`text-center ${classes.title}`}>{data.title}</h1>
+            </Grid.Column>
+            <Grid.Column>
+              <h1 className={classes.title}>{data.title}</h1>
               <div className={classes.channelDescription}>
                 <h2>{formatMessage(messages.briefDescriptionTitle)}</h2>
                 <p> {data.briefDescription}</p>
@@ -176,10 +183,10 @@ const DetailsPage = ({
                 </div>
                 <Image src="https://www.harvard.edu/sites/default/files/content/harvard-map-google.jpg" />
               </div>
-            </Col>
-          </Row>
-        </Col>
-      </Row>
+            </Grid.Column>
+          </Grid.Row>
+        </Grid.Column>
+      </Grid.Row>
     </Grid>
   );
 };
