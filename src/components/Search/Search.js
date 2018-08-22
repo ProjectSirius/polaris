@@ -19,6 +19,7 @@ const Search = ({ classes, handleSearch, currentUser, isAuth }) => {
         label="search"
         placeholder="Search..."
         onChange={e => handleSearch(dataType, e.target.value)}
+        classes={classes}
       />
     </div>
   );
