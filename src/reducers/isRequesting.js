@@ -11,10 +11,12 @@ import {
   DATA_SEND_REQUEST,
   DATA_SEND_SUCCESS,
   DATA_SEND_FAILURE,
+  DETAILS_RECEIVE_SUCCESS,
 } from '../actions/constants';
 
 const isRequesting = (state = false, action) => {
   switch (action.type) {
+    case DETAILS_RECEIVE_SUCCESS:
     case DATA_SEND_REQUEST:
     case SIGN_UP_REQUEST:
     case LOGIN_REQUEST:
