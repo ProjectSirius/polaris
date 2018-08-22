@@ -11,6 +11,7 @@ import {
   DATA_SEND_REQUEST,
   DATA_SEND_SUCCESS,
   DATA_SEND_FAILURE,
+  DETAILS_RECEIVE_SUCCESS,
 } from '../actions/constants';
 
 const isRequesting = (state = false, action) => {
@@ -28,6 +29,7 @@ const isRequesting = (state = false, action) => {
     case DATA_RECEIVE_FAILURE:
     case DATA_SEND_SUCCESS:
     case DATA_SEND_FAILURE:
+    case DETAILS_RECEIVE_SUCCESS:
       return false;
     default:
       return state;

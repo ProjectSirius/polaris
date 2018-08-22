@@ -1,24 +1,9 @@
-import {
-  DATA_REQUEST,
-  DATA_RECEIVE_SUCCESS,
-  DATA_RECEIVE_FAILURE,
-} from './constants';
 import get from '../helpers/axiosWrapper';
-
-const dataRequest = isRequesting => ({
-  type: DATA_REQUEST,
-  payload: { isRequesting },
-});
-
-const dataReceiveSuccess = data => ({
-  type: DATA_RECEIVE_SUCCESS,
-  payload: { data },
-});
-
-const dataReceiveFailure = error => ({
-  type: DATA_RECEIVE_FAILURE,
-  payload: { error },
-});
+import {
+  dataRequest,
+  dataReceiveFailure,
+  dataReceiveSuccess,
+} from '../helpers/dataRequests';
 
 const getData = (dataType, query = '') => (dispatch, getState) => {
   // Ask if its's a right approach

@@ -79,6 +79,7 @@ export default {
 
       '& > .react-tags': {
         display: 'flex',
+        flexDirection: 'column-reverse',
 
         '& > .react-tags__container': {
           listStyle: 'none',
@@ -86,24 +87,19 @@ export default {
           padding: 0,
 
           '& li': {
-            display: 'flex',
-            justifyContent: 'space-between',
-            padding: '3px',
-            background: '#ea585f',
-            margin: '2px',
-            fontWeight: 600,
-            borderRadius: '20px',
-            overflow: 'hidden',
-            height: '27px',
+            display: 'inline-flex',
+            margin: '1px',
+            borderRadius: '30px',
             position: 'relative',
-            color: '#fff',
-            minWidth: '80px',
+            backgroundColor: '#e7eaec;',
+            color: '#636363',
+            padding: '10px 20px',
+            fontWeight: 600,
 
             '& a': {
               width: '24%',
               justifyContent: 'center',
               display: 'flex',
-              background: '#a94442',
               marginLeft: '5px',
               color: '#fff',
               height: '32px',
@@ -114,6 +110,7 @@ export default {
               textDecoration: 'none',
               cursor: 'pointer',
               fontSize: '18px',
+              paddingRight: '3px',
             },
           },
         },

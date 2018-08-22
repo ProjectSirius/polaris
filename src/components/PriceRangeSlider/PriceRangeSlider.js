@@ -33,7 +33,6 @@ const PriceRangeSlider = ({
             value: e.target.value,
           })
         }
-
       />
       <Field
         name="max_price_range"

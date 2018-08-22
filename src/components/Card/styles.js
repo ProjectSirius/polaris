@@ -79,6 +79,10 @@ export default {
     fontSize: '15px',
     transition: '.25s',
     textAlign: 'left',
+
+    '&:focus': {
+      outline: 'none',
+    },
   },
 
   designerLink: {

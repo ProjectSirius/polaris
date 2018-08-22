@@ -1,51 +1,79 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { reduxForm } from 'redux-form';
 import { injectIntl } from 'react-intl';
 import { createStructuredSelector } from 'reselect';
 
-import { selectIsRequesting, selectTags } from '../selectors';
+import {
+  selectDetailed,
+  selectIsEditing,
+  selectIsRequesting,
+  selectTags,
+} from '../selectors';
 
-import { addTags, removeTags, sendData } from '../actions';
+import { addTags, removeTags, sendData, getDetails } from '../actions';
 
 import CreateCard from '../components/CreateCard';
 
 import channelFormValidate from '../helpers/channelFormValidate';
 import messages from '../helpers/contentChannelFormMessages';
 
-let CreateContentContainer = props => {
-  const {
-    intl: { formatMessage },
-  } = props;
+class CreateContentContainer extends Component {
+  componentDidMount() {
+    const dataType = 'contents';
+    const id = this.props.match.params.id;
 
-  const onFormSubmit = formData => {
-    props.sendData(formData, 'createContent');
+    this.props.getDetails(dataType, id);
+  }
+
+  getData = () => {
+    const id = this.props.match.params.id;
+
+    this.props.getDetails('contents', id);
   };
 
-  return (
-    <CreateCard
-      messages={messages}
-      userType="content_owner"
-      {...props}
-      onFormSubmit={onFormSubmit}
-      formatMessage={formatMessage}
-    />
-  );
-};
+  onFormSubmit = formData => {
+    this.props.sendData(formData, 'createContent');
+  };
+
+  render() {
+    const {
+      intl: { formatMessage },
+      isEditing,
+      data,
+    } = this.props;
+
+    return (
+      <CreateCard
+        messages={messages}
+        userType="content_owner"
+        onFormSubmit={this.onFormSubmit}
+        formatMessage={formatMessage}
+        getData={this.getData}
+        data={data}
+        isEditing={isEditing}
+        {...this.props}
+      />
+    );
+  }
+}
 
 CreateContentContainer = injectIntl(CreateContentContainer);
 
 const mapStateToProps = createStructuredSelector({
   isRequesting: selectIsRequesting,
   tags: selectTags,
+  data: selectDetailed,
+  isEditing: selectIsEditing,
+  initialValues: window.location.pathname.split('/').includes('edit')
+    ? selectDetailed
+    : () => {},
 });
 
 const addNewContentForm = reduxForm({
   form: 'Add_new_content_form',
   validate: channelFormValidate,
-  initialValues: {
-    unit: 'view',
-  },
+  enableReinitialize: true,
   destroyOnUnmount: false,
 })(CreateContentContainer);
 
@@ -55,5 +83,6 @@ export default connect(
     addTags,
     removeTags,
     sendData,
+    getDetails,
   }
 )(addNewContentForm);

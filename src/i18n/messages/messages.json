@@ -100,11 +100,6 @@
     "filepath": "src/containers/AuthButtonsContainer.js"
   },
   {
-    "id": "detailed-page-title",
-    "defaultMessage": "Detailed Page",
-    "filepath": "src/containers/DetailedPageContainer.js"
-  },
-  {
     "id": "home-page-title",
     "defaultMessage": "Home Page",
     "filepath": "src/containers/HomePageContainer.js"
@@ -223,5 +218,70 @@
     "id": "content-input-title",
     "defaultMessage": "Content Title:",
     "filepath": "src/helpers/contentChannelFormMessages.js"
+  },
+  {
+    "id": "channel-tags-title",
+    "defaultMessage": "Channel Tags",
+    "filepath": "src/helpers/DetailsPageMessages.js"
+  },
+  {
+    "id": "content-tags-title",
+    "defaultMessage": "Content Tags",
+    "filepath": "src/helpers/DetailsPageMessages.js"
+  },
+  {
+    "id": "average-rating-title",
+    "defaultMessage": "Average Rating",
+    "filepath": "src/helpers/DetailsPageMessages.js"
+  },
+  {
+    "id": "edit-channel",
+    "defaultMessage": "Edit Channel",
+    "filepath": "src/helpers/DetailsPageMessages.js"
+  },
+  {
+    "id": "edit-content",
+    "defaultMessage": "Edit Content",
+    "filepath": "src/helpers/DetailsPageMessages.js"
+  },
+  {
+    "id": "delete-channel",
+    "defaultMessage": "Delete Channel",
+    "filepath": "src/helpers/DetailsPageMessages.js"
+  },
+  {
+    "id": "delete-content",
+    "defaultMessage": "Delete Content",
+    "filepath": "src/helpers/DetailsPageMessages.js"
+  },
+  {
+    "id": "brief-description",
+    "defaultMessage": "Brief Description:",
+    "filepath": "src/helpers/DetailsPageMessages.js"
+  },
+  {
+    "id": "detailed-description",
+    "defaultMessage": "Detailed Description:",
+    "filepath": "src/helpers/DetailsPageMessages.js"
+  },
+  {
+    "id": "music-title",
+    "defaultMessage": "Piece Of Music",
+    "filepath": "src/helpers/DetailsPageMessages.js"
+  },
+  {
+    "id": "location-title",
+    "defaultMessage": "Location:",
+    "filepath": "src/helpers/DetailsPageMessages.js"
+  },
+  {
+    "id": "offer-title",
+    "defaultMessage": "Make An Offer",
+    "filepath": "src/helpers/DetailsPageMessages.js"
+  },
+  {
+    "id": "channel-links",
+    "defaultMessage": "Channel Links:",
+    "filepath": "src/helpers/DetailsPageMessages.js"
   }
 ]

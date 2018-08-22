@@ -6,7 +6,6 @@ const signUpValidate = values => {
     'password',
     'passwordConfirmation',
   ];
-
   requiredFields.forEach(field => {
     if (
       field === 'passwordConfirmation' &&
