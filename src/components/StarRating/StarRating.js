@@ -1,12 +1,29 @@
 import React from 'react';
 import { Rating, Responsive } from 'semantic-ui-react';
 
-const RatingExampleSize = ({ updRating, value, classes }) => {
+const RatingExampleSize = ({
+  onRatingChange,
+  isAuth,
+  currentUser,
+  classes,
+}) => {
+  const dataType = isAuth
+    ? currentUser.userType === 'content_owner'
+      ? 'channels'
+      : 'contents'
+    : '';
   return (
     <React.Fragment>
       <Responsive minWidth={768}>
         <Rating
-          onRate={(e, obj) => updRating(obj.rating)}
+          onRate={(e, obj) =>
+            onRatingChange(
+              dataType,
+              '',
+              { filterName: 'rating', value: obj.rating },
+              obj.rating
+            )
+          }
           maxRating={5}
           defaultRating={1}
           icon="star"
@@ -16,7 +33,14 @@ const RatingExampleSize = ({ updRating, value, classes }) => {
       </Responsive>
       <Responsive maxWidth={768}>
         <Rating
-          onRate={(e, obj) => updRating(obj.rating)}
+          onRate={(e, obj) =>
+            onRatingChange(
+              dataType,
+              '',
+              { filterName: 'rating', value: obj.rating },
+              obj.rating
+            )
+          }
           maxRating={5}
           defaultRating={1}
           icon="star"
