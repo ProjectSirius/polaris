@@ -1,16 +1,20 @@
 import React from 'react';
-import { FormGroup, InputGroup, FormControl, Glyphicon } from 'react-bootstrap';
+import { Form, Input, Responsive } from 'semantic-ui-react';
 
 const TextField = ({ id, label, touched, error, ...props }) => {
   return (
-    <FormGroup>
-      <InputGroup>
-        <FormControl type="text" {...props} />
-        <InputGroup.Addon>
-          <Glyphicon glyph="glyphicon glyphicon-search" />
-        </InputGroup.Addon>
-      </InputGroup>
-    </FormGroup>
+    <Responsive>
+      <Form.Group widths="equal">
+        <Form.Field>
+          <Input
+            icon="search"
+            style={{ width: '100%' }}
+            size="huge"
+            {...props}
+          />
+        </Form.Field>
+      </Form.Group>
+    </Responsive>
   );
 };
 
