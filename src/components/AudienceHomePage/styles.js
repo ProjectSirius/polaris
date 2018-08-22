@@ -24,7 +24,6 @@ export default {
   '@media screen and (max-width: 640px)': {
     filterPageWrapper: {
       flexDirection: 'column',
-      margin: '30px 50px',
       padding: 0,
     },
 
