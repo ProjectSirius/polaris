@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Responsive } from 'semantic-ui-react';
 import Search from '../../containers/SearchContainer';
 import ConfigurableBtnsContainer from '../../containers/ConfigurableBtnsContainer';
 
@@ -9,9 +9,11 @@ const ConfigurableAndSearch = ({ classes }) => {
       <div className={classes.searchWrapper}>
         <Search />
       </div>
-      <div className={classes.confWrapper}>
-        <ConfigurableBtnsContainer />
-      </div>
+      <Responsive minWidth={500}>
+        <div className={classes.confWrapper}>
+          <ConfigurableBtnsContainer />
+        </div>
+      </Responsive>
     </div>
   );
 };
