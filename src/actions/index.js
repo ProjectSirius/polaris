@@ -11,6 +11,7 @@ import sendData from './sendData';
 import setFilters from './filters';
 import filterMenu from './filter-menu';
 import getNotif from './notif';
+import getDetails from './details';
 
 export {
   signUp,
@@ -27,4 +28,5 @@ export {
   setFilters,
   filterMenu,
   getNotif,
+  getDetails,
 };
