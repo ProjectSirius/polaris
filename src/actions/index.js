@@ -10,6 +10,7 @@ import { addTags, removeTags } from './tags';
 import sendData from './sendData';
 import setFilters from './filters';
 import filterMenu from './filter-menu';
+import getNotif from './notif';
 
 export {
   signUp,
@@ -25,4 +26,5 @@ export {
   sendData,
   setFilters,
   filterMenu,
+  getNotif,
 };
