@@ -16,12 +16,12 @@ import {
 
 const isRequesting = (state = false, action) => {
   switch (action.type) {
-    case DETAILS_RECEIVE_SUCCESS:
     case DATA_SEND_REQUEST:
     case SIGN_UP_REQUEST:
     case LOGIN_REQUEST:
     case DATA_REQUEST:
       return true;
+    case DETAILS_RECEIVE_SUCCESS:
     case SIGN_UP_SUCCESS:
     case SIGN_UP_FAILURE:
     case LOGOUT_SUCCESS:
