@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Loader } from 'semantic-ui-react';
 import { Grid, Row, Col, Image } from 'react-bootstrap';
 
 const DetailsPage = ({
@@ -16,7 +17,9 @@ const DetailsPage = ({
   return isRequesting &&
     Object.keys(data).length === 0 &&
     data.constructor === Object ? (
-    <h2>Loading...</h2>
+    <Loader active inline="centered" size="large" className={classes.loading}>
+      Loading
+    </Loader>
   ) : (
     <Grid style={{ width: '100%', padding: '70px 31px 0' }}>
       <Row className="show-grid">

@@ -203,4 +203,10 @@ export default {
       },
     },
   },
+
+  loading: {
+    position: 'absolute !important',
+    left: '50% !important',
+    top: '50% !important',
+  },
 };
