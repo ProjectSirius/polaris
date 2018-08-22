@@ -10,11 +10,22 @@ export default {
     backgroundColor: 'rgba(255, 255, 255, 1) !important',
     padding: '0 30px',
 
-    '& .item': {
+    '& > .item, & > dropdown': {
       padding: '1.2em !important',
-      transition: 'all .5s !important',
       display: 'flex',
       justifyContent: 'center',
+      transition: 'all .5s !important',
+
+      '&:hover': {
+        borderBottom: '2px solid #000 !important',
+      },
+    },
+
+    '& > .right.menu > .item, & > .right.menu > dropdown': {
+      padding: '1.2em !important',
+      display: 'flex',
+      justifyContent: 'center',
+      transition: 'all .5s !important',
 
       '&:hover': {
         borderBottom: '2px solid #000 !important',
@@ -22,7 +33,7 @@ export default {
     },
 
     '@media screen and (max-width: 768px)': {
-      marginTop: '49px !important',
+      marginTop: '60px !important',
     },
   },
 
@@ -32,9 +43,17 @@ export default {
     textTransform: 'uppercase !important',
     letterSpacing: '3px',
 
+    '&.item': {
+      padding: '1.2em !important',
+    },
     '&.item:hover': {
       borderColor: 'transparent !important',
     },
+  },
+
+  burgerWrapper: {
+    height: '100% !important',
+    marginTop: '2px',
   },
 
   hamburger: {
@@ -51,6 +70,17 @@ export default {
     backgroundColor: 'rgba(255, 255, 255, 1) !important',
     padding: '0 30px',
     paddingRight: '0',
+  },
+
+  menuItemSettings: {
+    display: 'flex',
+    justifyContent: 'center',
+    padding: '1.2em !important',
+    transition: 'all .5s !important',
+
+    '&:hover': {
+      borderBottom: '2px solid #000 !important',
+    },
   },
 
   signUp: {
