@@ -9,6 +9,8 @@ export const selectIsSignUp = state => state.isSignUp;
 export const selectError = state => state.error;
 export const selectFilteringPageRating = state => state.filteringPage.rating;
 export const selectNotif = state => state.notif;
+export const selectNotifLength = state =>
+  state.notif ? state.notif.length : 0;
 export const selectIsOpenFilterMenu = state =>
   state.filteringPage.isOpenFilterMenu;
 export const selectFilteringPageFilterBar = state =>

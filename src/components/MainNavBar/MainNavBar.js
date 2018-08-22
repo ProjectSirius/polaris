@@ -10,7 +10,7 @@ import {
   Grid,
   Responsive,
 } from 'semantic-ui-react';
-import Notifications from '../Notifications';
+import Notifications from '../../containers/NotifsContainer';
 
 const messages = defineMessages({
   audience: {
@@ -103,6 +103,7 @@ class MainNavBar extends React.Component {
       classes,
       intl: { formatMessage },
       currentUser,
+      notifLength,
     } = this.props;
     const { activeItem, width } = this.state;
 
@@ -202,7 +203,7 @@ class MainNavBar extends React.Component {
                       <Icon name="bell outline" />
                       Notifications{' '}
                       <Label color="teal" size="mini">
-                        22
+                        {notifLength}
                       </Label>
                     </React.Fragment>
                   }
