@@ -6,7 +6,14 @@ import Notif from './Notification';
 const Notifications = ({ notifs, classes }) => (
   <Feed size="large">
     {notifs.map(({ body, id }) => (
-      <Notif classes={classes} key={id} id={id} summary={body} date="today" />
+      <Notif
+        classes={classes}
+        className={classes.notifs}
+        key={id}
+        id={id}
+        summary={body.slice(20)}
+        date="today"
+      />
     ))}
   </Feed>
 );
