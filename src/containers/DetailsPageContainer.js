@@ -6,7 +6,7 @@ import { createStructuredSelector } from 'reselect';
 import { getDetails, edit } from '../actions';
 
 import {
-  selectDetailed,
+  selectDetails,
   selectIsRequesting,
   selectLanguage,
   selectCurrentUser,
@@ -35,14 +35,14 @@ class DetailsPageContainer extends React.Component {
     const {
       intl: { formatMessage },
       isRequesting,
-      detailed,
+      details,
       lang,
       currentUser,
     } = this.props;
 
     return (
       <DetailedPage
-        data={detailed}
+        data={details}
         isRequesting={isRequesting}
         lang={lang}
         handleEdit={this.handleEdit}
@@ -55,7 +55,7 @@ class DetailsPageContainer extends React.Component {
 }
 
 const mapStateToProps = createStructuredSelector({
-  detailed: selectDetailed,
+  details: selectDetails,
   isRequesting: selectIsRequesting,
   lang: selectLanguage,
   currentUser: selectCurrentUser,
