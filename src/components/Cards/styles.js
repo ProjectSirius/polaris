@@ -23,8 +23,12 @@ export default {
     },
 
     '@media screen and (max-width: 870px)': {
-      gridTemplateColumns: '100%',
+      gridTemplateColumns: '93%',
       gridGap: '2%',
+    },
+
+    '@media screen and (max-width: 640px)': {
+      gridTemplateColumns: '78%',
     },
 
     '@media screen and (min-width: 1800px)': {
