@@ -5,7 +5,7 @@ import { injectIntl } from 'react-intl';
 import { createStructuredSelector } from 'reselect';
 
 import {
-  selectDetailed,
+  selectDetails,
   selectIsEditing,
   selectIsRequesting,
   selectTags,
@@ -63,10 +63,10 @@ CreateContentContainer = injectIntl(CreateContentContainer);
 const mapStateToProps = createStructuredSelector({
   isRequesting: selectIsRequesting,
   tags: selectTags,
-  data: selectDetailed,
+  data: selectDetails,
   isEditing: selectIsEditing,
   initialValues: window.location.pathname.split('/').includes('edit')
-    ? selectDetailed
+    ? selectDetails
     : () => {},
 });
 

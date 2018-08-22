@@ -9,7 +9,7 @@ import {
   selectTags,
   selectIsAuth,
   selectCurrentUser,
-  selectDetailed,
+  selectDetails,
   selectIsEditing,
 } from '../selectors';
 
@@ -71,10 +71,10 @@ const mapStateToProps = createStructuredSelector({
   tags: selectTags,
   isAuth: selectIsAuth,
   currentUser: selectCurrentUser,
-  data: selectDetailed,
+  data: selectDetails,
   isEditing: selectIsEditing,
   initialValues: window.location.pathname.split('/').includes('edit')
-    ? selectDetailed
+    ? selectDetails
     : () => {},
 });
 
