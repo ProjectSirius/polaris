@@ -20,9 +20,13 @@ const dataReceiveFailure = error => ({
   payload: { error },
 });
 
-const getData = (dataType, query = '') => (dispatch, getState) => {
+const getData = (query = '') => (dispatch, getState) => {
   // Ask if its's a right approach
   const filters = getState().filters;
+  const dataType =
+    getState().currentUser.userType === 'content_owner'
+      ? 'channels'
+      : 'contents';
 
   let filtersQuery = !filters
     ? ''

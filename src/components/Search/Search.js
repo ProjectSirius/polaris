@@ -3,19 +3,7 @@ import { Field } from 'redux-form';
 
 import RenderField from './RenderField';
 
-const Search = ({
-  classes,
-  handleSearch,
-  isRequesting,
-  currentUser,
-  isAuth,
-}) => {
-  const dataType = isAuth
-    ? currentUser.userType === 'content_owner'
-      ? 'channels'
-      : 'contents'
-    : '';
-
+const Search = ({ classes, handleSearch, isRequesting }) => {
   return (
     <div className={classes.searchWrapper}>
       <Field
@@ -25,7 +13,7 @@ const Search = ({
         label="search"
         placeholder="Search..."
         isRequesting={isRequesting}
-        onChange={e => handleSearch(dataType, e.target.value)}
+        onChange={e => handleSearch(e.target.value)}
       />
     </div>
   );
