@@ -66,4 +66,10 @@ export default {
       borderColor: 'transparent !important',
     },
   },
+
+  menuItemDrop: {
+    '&.item': {
+      padding: '.9em !important',
+    },
+  },
 };

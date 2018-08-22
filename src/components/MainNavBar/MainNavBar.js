@@ -10,6 +10,7 @@ import {
   Grid,
   Responsive,
 } from 'semantic-ui-react';
+import Notifications from '../Notifications';
 
 const messages = defineMessages({
   audience: {
@@ -188,18 +189,28 @@ class MainNavBar extends React.Component {
             </Menu.Item>
             {isAuth && (
               <Menu.Item
-                as={Link}
-                to="/"
                 active={activeItem === 'notifications'}
                 onClick={this.navItemChecker}
-                className={classes.menuItem}
                 name="notifications"
+                className={classes.menuItemDrop}
               >
-                <Icon name="bell outline" />
-                Notifications{' '}
-                <Label color="teal" size="mini">
-                  22
-                </Label>
+                <Dropdown
+                  pointing="top right"
+                  icon={null}
+                  trigger={
+                    <React.Fragment>
+                      <Icon name="bell outline" />
+                      Notifications{' '}
+                      <Label color="teal" size="mini">
+                        22
+                      </Label>
+                    </React.Fragment>
+                  }
+                >
+                  <Dropdown.Menu>
+                    <Dropdown.Item as={Notifications} />
+                  </Dropdown.Menu>
+                </Dropdown>
               </Menu.Item>
             )}
 
