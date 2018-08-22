@@ -39,11 +39,19 @@ const App = ({ content, title }) => {
           component={CreateContent}
         />
         <ProtectedRouteContainer
-          path="/channels/:id"
+          path="/channel/:id/edit"
+          component={CreateChannel}
+        />
+        <ProtectedRouteContainer
+          path="/content/:id/edit"
+          component={CreateContent}
+        />
+        <ProtectedRouteContainer
+          path="/channel/:id"
           component={DetailsPageContainer}
         />
         <ProtectedRouteContainer
-          path="/contents/:id"
+          path="/content/:id"
           component={DetailsPageContainer}
         />
         <Route render={() => <h1>Not Found App</h1>} />
