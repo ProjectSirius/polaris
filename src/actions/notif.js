@@ -1,5 +1,5 @@
 import { NOTIF_SUCCESS } from './constants';
-import get from '../helpers/axiosWrapper';
+import axios from 'axios';
 
 const notifReceive = data => ({
   type: NOTIF_SUCCESS,
@@ -7,9 +7,9 @@ const notifReceive = data => ({
 });
 
 const getNotif = () => dispatch => {
-  return get('https://jsonplaceholder.typicode.com/comments').then(payload =>
-    dispatch(notifReceive(payload.data))
-  );
+  return axios
+    .get('https://jsonplaceholder.typicode.com/comments')
+    .then(payload => dispatch(notifReceive(payload.data)));
 };
 
 export default getNotif;
