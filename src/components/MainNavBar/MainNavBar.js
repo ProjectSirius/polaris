@@ -196,6 +196,7 @@ class MainNavBar extends React.Component {
                 className={classes.menuItemDrop}
               >
                 <Dropdown
+                  scrolling
                   pointing="top right"
                   icon={null}
                   trigger={
