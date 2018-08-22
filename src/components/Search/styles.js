@@ -18,4 +18,12 @@ export default {
     height: '53px',
     borderRadius: 0,
   },
+
+  searchInput: {
+    width: '100%',
+
+    '& > input': {
+      borderRadius: '50px !important',
+    },
+  },
 };
