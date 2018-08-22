@@ -59,7 +59,7 @@ export default {
       position: 'absolute',
       zIndex: '10000',
       left: '-100%',
-      top: 60,
+      top: 48,
       transition: 'background .2s ease-out,left .2s ease-out .1s',
       background: 'rgba(51, 51, 51, 0.8)',
     },

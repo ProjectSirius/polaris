@@ -47,7 +47,7 @@ export default {
   },
 
   smallScreenMenu: {
-    zIndex: 100,
+    zIndex: '100000 !important',
     backgroundColor: 'rgba(255, 255, 255, 1) !important',
     padding: '0 30px',
     paddingRight: '0',
