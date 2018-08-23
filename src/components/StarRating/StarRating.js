@@ -1,15 +1,18 @@
 import React from 'react';
 import { Rating, Responsive } from 'semantic-ui-react';
 
-const RatingExampleSize = ({ updRating, value, classes, search }) => {
+const RatingExampleSize = ({
+  onRatingChange,
+  updRating,
+  value,
+  classes,
+  search,
+}) => {
   return (
     <React.Fragment>
       <Responsive minWidth={768}>
         <Rating
-          onRate={(e, obj) => {
-            updRating(obj.rating);
-            search(obj.rating);
-          }}
+          onRate={onRatingChange}
           maxRating={5}
           defaultRating={1}
           icon="star"
@@ -19,10 +22,7 @@ const RatingExampleSize = ({ updRating, value, classes, search }) => {
       </Responsive>
       <Responsive maxWidth={768}>
         <Rating
-          onRate={(e, obj) => {
-            updRating(obj.rating);
-            search(obj.rating);
-          }}
+          onRate={onRatingChange}
           maxRating={5}
           defaultRating={1}
           icon="star"

@@ -20,7 +20,7 @@ const dataReceiveFailure = error => ({
   payload: { error },
 });
 
-const getData = (query = '') => (dispatch, getState) => {
+const getData = () => (dispatch, getState) => {
   const dataType =
     getState().currentUser.userType === 'content_owner'
       ? 'channels'

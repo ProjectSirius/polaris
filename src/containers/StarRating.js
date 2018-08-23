@@ -18,10 +18,10 @@ let StarRatingContainer = ({
   isAuth,
   currentUser,
 }) => {
-  const onRatingChange = (dataType, query, filter, rating) => {
+  const onRatingChange = rating => {
     updRating(rating);
-    setFilters(filter);
-    search(dataType, query);
+    // setFilters();
+    search();
   };
 
   return (
