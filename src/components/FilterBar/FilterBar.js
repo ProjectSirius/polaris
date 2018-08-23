@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { Icon } from 'semantic-ui-react';
+import { Icon, Button } from 'semantic-ui-react';
 import { injectIntl, defineMessages } from 'react-intl';
 
 import StarRating from '../../containers/StarRating';
@@ -48,6 +48,7 @@ class FilterBar extends PureComponent {
       classes,
       intl: { formatMessage },
       isOpen,
+      groupOffer,
     } = this.props;
 
     return (
@@ -101,6 +102,16 @@ class FilterBar extends PureComponent {
                 </div>
               </div>
               <SelectOptionFilter />
+            </div>
+            <div className={classes.filterItem}>
+              <Button
+                basic
+                color="blue"
+                size="huge"
+                onClick={(e, data) => groupOffer()}
+              >
+                Make A Group Offer
+              </Button>
             </div>
           </div>
 

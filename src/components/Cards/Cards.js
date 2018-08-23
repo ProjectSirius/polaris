@@ -2,7 +2,15 @@ import React from 'react';
 import Card from '../Card';
 import { Loader } from 'semantic-ui-react';
 
-const Cards = ({ data, isRequesting, classes, view, lang, type }) => {
+const Cards = ({
+  data,
+  isRequesting,
+  classes,
+  view,
+  lang,
+  type,
+  groupOffer,
+}) => {
   return isRequesting ? (
     <Loader active inline="centered" size="large" className={classes.loading}>
       Loading
@@ -14,7 +22,14 @@ const Cards = ({ data, isRequesting, classes, view, lang, type }) => {
       }
     >
       {data.map(info => (
-        <Card key={info.id} info={info} view={view} lang={lang} type={type} />
+        <Card
+          key={info.id}
+          info={info}
+          view={view}
+          lang={lang}
+          type={type}
+          groupOffer={groupOffer}
+        />
       ))}
     </div>
   );
