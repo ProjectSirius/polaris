@@ -24,8 +24,19 @@ const TextField = ({
   );
 };
 
-const renderField = ({ input, meta: { touched, error }, ...custom }) => (
-  <TextField touched={touched} error={error} {...input} {...custom} />
+const renderField = ({
+  input,
+  meta: { touched, error },
+  classes,
+  ...custom
+}) => (
+  <TextField
+    touched={touched}
+    error={error}
+    classes={classes}
+    {...input}
+    {...custom}
+  />
 );
 
 export default renderField;

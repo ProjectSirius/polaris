@@ -48,7 +48,7 @@ export default {
     padding: '10px',
   },
 
-  '@media screen and (max-width: 640px)': {
+  '@media screen and (max-width: 650px)': {
     filterWrapper: {
       width: '100%',
     },

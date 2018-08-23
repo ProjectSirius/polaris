@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { Glyphicon } from 'react-bootstrap';
+import { Icon } from 'semantic-ui-react';
 import { injectIntl, defineMessages } from 'react-intl';
 
 import StarRating from '../../containers/StarRating';
@@ -53,7 +53,7 @@ class FilterBar extends PureComponent {
     return (
       <div className={classes.filterWrapper}>
         <div className={classes.filterHeading} onClick={this.handleClick}>
-          <Glyphicon glyph="filter" />
+          <Icon name="filter" />
           <span className={classes.filterHeadingTitle}>
             {formatMessage(messages.filtersPanelTitle)}
           </span>
@@ -83,7 +83,7 @@ class FilterBar extends PureComponent {
             <div className={classes.filterItem}>
               <div className={classes.filterTitle}>
                 <div className={classes.filterTitleWithIcon}>
-                  <Glyphicon glyph="glyphicon glyphicon-chevron-down" />
+                  <Icon name="chevron down" />
                   <span style={{ paddingLeft: '6px' }}>
                     {formatMessage(messages.checkboxFilterTitle)}:
                   </span>
@@ -94,7 +94,7 @@ class FilterBar extends PureComponent {
             <div className={classes.filterItem}>
               <div className={classes.filterTitle}>
                 <div className={classes.filterTitleWithIcon}>
-                  <Glyphicon glyph="glyphicon glyphicon-chevron-down" />
+                  <Icon name="chevron down" />
                   <span style={{ paddingLeft: '6px' }}>
                     {formatMessage(messages.selectedOptionFilterTitle)}:
                   </span>
@@ -106,7 +106,7 @@ class FilterBar extends PureComponent {
 
           {isOpen ? (
             <span onClick={this.handleClick} className={classes.closeFilter}>
-              <Glyphicon glyph="glyphicon glyphicon-remove" />
+              <Icon name="remove" />
             </span>
           ) : (
             ''

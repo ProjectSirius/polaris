@@ -14,6 +14,7 @@ const Search = ({ classes, handleSearch, isRequesting }) => {
         placeholder="Search..."
         isRequesting={isRequesting}
         onChange={e => handleSearch(e.target.value)}
+        classes={classes}
       />
     </div>
   );

@@ -21,9 +21,10 @@ export default {
   /*
    * media
    */
-  '@media screen and (max-width: 640px)': {
+  '@media screen and (max-width: 650px)': {
     filterPageWrapper: {
       flexDirection: 'column',
+      margin: '25px',
       padding: 0,
     },
 
@@ -37,7 +38,6 @@ export default {
       alignItems: 'center',
       justifyContent: 'center',
     },
-
     filterPageRight: {
       width: '100%',
       maxWidth: '100%',

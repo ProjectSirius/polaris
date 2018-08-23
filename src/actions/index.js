@@ -12,6 +12,8 @@ import setFilters from './filters';
 import filterMenu from './filter-menu';
 import getNotif from './notif';
 import getTransactions from './getTransactions';
+import getDetails from './details';
+import edit from './edit';
 
 export {
   signUp,
@@ -29,4 +31,6 @@ export {
   filterMenu,
   getNotif,
   getTransactions,
+  getDetails,
+  edit,
 };
