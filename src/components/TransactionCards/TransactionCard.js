@@ -1,12 +1,8 @@
 import React from 'react';
-import { Button, Card, Loader } from 'semantic-ui-react';
+import { Button, Card } from 'semantic-ui-react';
 
 const TransactionCard = ({ isRequesting, name, price }) => {
-  return isRequesting ? (
-    <Loader active inline="centered" size="large">
-      Loading
-    </Loader>
-  ) : (
+  return (
     <Card>
       <Card.Content>
         <Card.Header>{name}</Card.Header>
