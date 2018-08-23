@@ -15,6 +15,7 @@ import filters from './filters';
 import notif from './notif';
 import details from './details';
 import isEditing from './isEditing';
+import isGroupOffering from './isGroupOffering';
 
 export default combineReducers({
   form: formReducer,
@@ -32,4 +33,5 @@ export default combineReducers({
   notif,
   details,
   isEditing,
+  isGroupOffering,
 });
