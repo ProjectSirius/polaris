@@ -14,6 +14,7 @@ import getNotif from './notif';
 import getTransactions from './getTransactions';
 import getDetails from './details';
 import edit from './edit';
+import groupOffer from './groupOffer';
 
 export {
   signUp,
@@ -33,4 +34,5 @@ export {
   getTransactions,
   getDetails,
   edit,
+  groupOffer,
 };

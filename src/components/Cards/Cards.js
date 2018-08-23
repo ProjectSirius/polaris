@@ -2,7 +2,15 @@ import React from 'react';
 import Card from '../Card';
 import { Loader } from 'semantic-ui-react';
 
-const Cards = ({ data, isRequesting, classes, view, lang, type }) => {
+const Cards = ({
+  data,
+  isRequesting,
+  classes,
+  view,
+  lang,
+  type,
+  groupOffer,
+}) => {
   return isRequesting ? (
     <Loader active inline="centered" size="large" className={classes.loading}>
       Loading
@@ -13,42 +21,16 @@ const Cards = ({ data, isRequesting, classes, view, lang, type }) => {
         view === 'table' ? classes.cardsWrapperGrid : classes.cardsWrapperList
       }
     >
-      {Object.keys(data).map(key => {
-        if (data[key].briefDescription && data[key].title && data[key].date) {
-          return (
-            <div>
-              <Link
-                className={
-                  view === 'table'
-                    ? classes.parentLinkGrid
-                    : classes.parentLinkList
-                }
-                to={{
-                  pathname: `/${type}/${data[key].id}`,
-                  search: `?locale=${lang}`,
-                }}
-              >
-                {' '}
-                <Card key={data[key].id} info={data[key]} view={view} />
-              </Link>
-            </div>
-          );
-        } else {
-          return (
-            <div
-              style={{
-                position: 'absolute',
-                top: '50%',
-                left: '50%',
-                fontWeight: '100',
-                fontSize: '20px',
-              }}
-            >
-              Server is loading...
-            </div>
-          );
-        }
-      })}
+      {data.map(info => (
+        <Card
+          key={info.id}
+          info={info}
+          view={view}
+          lang={lang}
+          type={type}
+          groupOffer={groupOffer}
+        />
+      ))}
     </div>
   );
 };
