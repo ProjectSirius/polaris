@@ -10,8 +10,8 @@ const TransactionCards = ({ transactions, isRequesting }) =>
     </Loader>
   ) : (
     <Card.Group>
-      {transactions.map(({ buyer, price, name }) => (
-        <TransactionCard buyer={buyer} price={price} name={name} />
+      {transactions.map(({ id, buyer, price, name }) => (
+        <TransactionCard key={id} buyer={buyer} price={price} name={name} />
       ))}
     </Card.Group>
   );
