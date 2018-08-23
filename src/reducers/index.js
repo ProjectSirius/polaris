@@ -12,6 +12,10 @@ import data from './data';
 import filteringPage from './filteringPage';
 import tags from './tags';
 import filters from './filters';
+import notif from './notif';
+import transactions from './transactions';
+import details from './details';
+import isEditing from './isEditing';
 
 export default combineReducers({
   form: formReducer,
@@ -26,4 +30,8 @@ export default combineReducers({
   filteringPage,
   tags,
   filters,
+  notif,
+  transactions,
+  details,
+  isEditing,
 });

@@ -9,6 +9,7 @@ import {
   selectCurrentUser,
   selectLanguage,
   selectIsOpenMainMenu,
+  selectNotifLength,
 } from '../selectors';
 
 const mapStateToProps = createStructuredSelector({
@@ -16,6 +17,7 @@ const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
   lang: selectLanguage,
   isOpen: selectIsOpenMainMenu,
+  notifLength: selectNotifLength,
 });
 
 const mapDispatchToProps = dispatch => ({

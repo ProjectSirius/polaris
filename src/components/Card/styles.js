@@ -1,91 +1,106 @@
 export default {
   card: {
-    width: '280px',
-    height: '415px',
-    display: 'flex',
-    flexDirection: 'column',
-    boxShadow: '10px 5px 40px 20px rgba(0, 0, 0, .1)',
-    transition: '.25s',
-    backgroundColor: '#f4f7f6',
-    textDecoration: 'none !important',
+    display: 'inline-block',
+    width: '100% !important',
+    transition: '.5s !important',
+    margin: '10px !important',
 
     '&:hover': {
-      boxShadow: '10px 5px 40px 20px rgba(0, 0, 0, .2)',
+      boxShadow: '0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)',
       cursor: 'pointer',
       textDecoration: 'none !important',
     },
 
-    '&:hover button': {
-      transform: 'translate(10px, 0)',
+    '&:hover a': {
+      color: 'rgba(0, 0, 0, .87)',
+    },
+
+    '&:hover div > a > span': {
+      transform: 'translate(5px, 0)',
+    },
+  },
+
+  parentLinkList: {
+    width: '100% !important',
+    height: '100%',
+    maxHeight: '575px',
+    transition: '.25s !important',
+    textDecoration: 'none !important',
+    color: 'rgba(0, 0, 0, .87)',
+    display: 'flex',
+  },
+
+  parentLinkGrid: {
+    width: '100% !important',
+    height: '100%',
+    maxHeight: '575px',
+    transition: '.25s !important',
+    textDecoration: 'none !important',
+    maxWidth: '475px',
+    color: 'rgba(0,0,0,.87)',
+
+    '&:hover': {
+      color: 'rgba(0,0,0,.87)',
     },
   },
 
   cardList: {
-    flexDirection: 'row',
-    width: '100%',
-    height: 'auto',
+    flexDirection: 'row !important',
+    height: '270px ',
+    transition: '.25s !important',
+    width: '80% !important',
   },
 
-  cardHeader: {
-    height: '150px',
-    width: '100%',
-    padding: '15px',
-    backgroundImage: 'url(https://source.unsplash.com/user/erondu/600x400)',
-    backgroundSize: 'cover',
-    color: '#fff',
-  },
-
-  cardHeaderList: {
-    height: 'auto',
-    width: 'auto',
-  },
-
-  cardHeaderTitle: {
-    textTransform: 'uppercase',
-    margin: '0',
-    fontWeight: '300',
+  cardContent: {
+    padding: '10px',
   },
 
   mainTitle: {
-    margin: '15px 0',
+    margin: '15px 0 !important',
     fontWeight: '600',
   },
 
-  cardBody: {
-    padding: '15px',
-    backgroundColor: '#f4f7f6',
-    width: '100%',
-  },
-
   date: {
-    fontSize: '10px',
+    fontSize: '13px',
     fontWeight: 500,
     color: 'grey',
   },
 
   bodyContent: {
-    fontSize: '13px',
+    fontSize: '15px',
     lineHeight: 1.8,
   },
 
-  buttonPrimary: {
-    border: 'none',
-    boxShadow: 'none',
-    fontFamily: 'inherit',
-    backgroundColor: 'transparent',
-    color: 'blue',
-    padding: '15px',
-    marginTop: 'auto',
-    fontSize: '15px',
-    transition: '.25s',
-    textAlign: 'left',
+  moreOffer: {
+    border: 'none !important',
+    boxShadow: 'none !important',
+    color: '#55acee !important',
+    fontSize: '15px !important',
+    transition: '.25s !important',
+    display: 'flex !important',
+    alignItems: 'center',
+    width: '100%',
+    padding: '10px 0 !important',
+    paddingLeft: '11px !important',
+
+    '& > span': {
+      color: '#55acee',
+    },
   },
 
-  designerLink: {
-    color: '#fff',
-    textAlign: 'center',
-    fonSize: '12px',
-    textDecoration: 'none',
-    display: 'block',
+  iconColor: {
+    color: '#55acee',
+  },
+
+  '@media screen and (max-width: 1020px)': {
+    cardList: {
+      width: '100% !important',
+    },
+  },
+
+  '@media screen and (max-width: 1040px)': {
+    cardList: {
+      width: '100% !important',
+    },
   },
 };

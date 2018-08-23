@@ -3,10 +3,12 @@ import { Field } from 'redux-form';
 import { Redirect, Link } from 'react-router-dom';
 import { injectIntl, defineMessages } from 'react-intl';
 import PropTypes from 'prop-types';
-import { Alert } from 'react-bootstrap';
+import { Form, Grid, Message, Icon } from 'semantic-ui-react';
 
 import RenderField from './RenderField';
 import SubmitBtn from '../SubmitBtn';
+import NegativeMessage from '../Messages/NegativeMsg';
+import RequestMessage from '../Messages/RequestMsg/';
 
 const messages = defineMessages({
   requestingAlert: {
@@ -33,7 +35,6 @@ const LogIn = ({
   isAuth,
   location,
   currentUser,
-  lang,
   valid,
   isRequesting,
   loginError,
@@ -45,63 +46,82 @@ const LogIn = ({
       ? 'audience'
       : 'contentowner'
     : '';
+
   const { from } = location.state || {
-    from: { pathname: `/${redirectPath}`, search: `?locale=${lang}` },
+    from: { pathname: `/${redirectPath}` },
   };
 
   return isAuth ? (
     <Redirect to={from} />
   ) : (
     <div className={classes.loginFormWrapper}>
-      <h1 className={classes.loginTitle}>
-        {formatMessage(messages.loginForm)}
-      </h1>
-      <div className={classes.loginForm}>
-        <form onSubmit={handleSubmit(login)}>
-          <Field
-            name="username"
-            component={RenderField}
-            type="text"
-            bsSize="large"
-            placeholder="Your Username"
-          />
-          <Field
-            name="password"
-            component={RenderField}
-            type="password"
-            placeholder="Your Password"
-            bsSize="large"
-          />
-          {isRequesting && (
-            <Alert bsStyle="info">
-              {formatMessage(messages.requestingAlert)}
-            </Alert>
-          )}
-          {loginError && <Alert bsStyle="danger">{loginError}</Alert>}
-          <SubmitBtn value="Log In" valid={valid} isRequesting={isRequesting} />
-          <div className={classes.signUpDesc}>
-            <p>New to Polaris?</p>
+      <Grid columns={16} centered>
+        <Grid.Column computer={8} mobile={14}>
+          <Message attached>
+            <Message.Header className={classes.messageHeaderText}>
+              {formatMessage(messages.loginForm)}
+            </Message.Header>
+            <Message.Content className={classes.messageText}>
+              Fill out the form below to log-in!
+            </Message.Content>
+          </Message>
+          <Form onSubmit={handleSubmit(login)} className="attached segment">
+            <Field
+              name="username"
+              component={RenderField}
+              type="text"
+              placeholder="Your Username"
+              classes={classes}
+              label="Username"
+              icon="address card"
+            />
+            <Field
+              name="password"
+              component={RenderField}
+              type="password"
+              placeholder="Your Password"
+              classes={classes}
+              label="Password"
+              icon="attention"
+            />
+            {isRequesting && (
+              <RequestMessage
+                msgBody={formatMessage(messages.requestingAlert)}
+              />
+            )}
+            {loginError && <NegativeMessage msgHeader={loginError} />}
+            <SubmitBtn
+              value="Log In"
+              valid={valid}
+              isRequesting={isRequesting}
+            />
+          </Form>
+          <Message attached="bottom" warning>
+            <Icon name="help" />
+            New to Polaris?
             <p>
               Sign up as{' '}
               <Link
-                to={{ pathname: `/signupAudience`, search: `?locale=${lang}` }}
+                className={classes.link}
+                to={{
+                  pathname: `/signupAudience`,
+                }}
               >
                 {formatMessage(messages.audienceLogin)}
               </Link>{' '}
               or{' '}
               <Link
+                className={classes.link}
                 to={{
                   pathname: `/signupContentmaker`,
-                  search: `?locale=${lang}`,
                 }}
               >
                 {formatMessage(messages.contentOwnerLogin)}
               </Link>{' '}
-              owner!
             </p>
-          </div>
-        </form>
-      </div>
+          </Message>
+        </Grid.Column>
+      </Grid>
     </div>
   );
 };
@@ -115,7 +135,7 @@ LogIn.propTypes = {
   lang: PropTypes.string.isRequired,
   valid: PropTypes.bool.isRequired,
   isRequesting: PropTypes.bool.isRequired,
-  loginError: PropTypes.object.isRequired,
+  loginError: PropTypes.string.isRequired,
 };
 
 LogIn.defaultProps = {};

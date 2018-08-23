@@ -1,17 +1,17 @@
+* {
+  white-space: normal !important;
+}
+
 body {
   margin: 0;
   padding: 0;
   font-family: 'Poppins', sans-serif;
   background-color: #fff;
+  padding: 80px 0;
 }
 
 img {
   max-width: 100%;
-}
-
-a {
-  color: inherit !important;
-  text-decoration: none !important;
 }
 
 p {
