@@ -3,13 +3,13 @@ import { Card, Loader } from 'semantic-ui-react';
 
 import TransactionCard from './TransactionCard';
 
-const TransactionCards = ({ transactions, isRequesting }) =>
+const TransactionCards = ({ classes, transactions, isRequesting }) =>
   isRequesting ? (
     <Loader active inline="centered" size="large">
       Loading
     </Loader>
   ) : (
-    <Card.Group>
+    <Card.Group className={classes.transactionsWrapper}>
       {transactions.map(({ id, buyer, price, name }) => (
         <TransactionCard key={id} buyer={buyer} price={price} name={name} />
       ))}
