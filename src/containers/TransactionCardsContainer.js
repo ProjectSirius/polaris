@@ -6,7 +6,7 @@ import { selectTransaction, selectIsRequesting } from '../selectors';
 
 import { getTransactions } from '../actions';
 
-import TransactionCards from '../components/TransactionCards/TransactionCards';
+import TransactionCards from '../components/TransactionCards/';
 
 const mapStateToProps = createStructuredSelector({
   transactions: selectTransaction,
