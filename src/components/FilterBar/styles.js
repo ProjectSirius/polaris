@@ -57,9 +57,9 @@ export default {
       display: 'flex',
       width: '100%',
       position: 'absolute',
-      zIndex: '10000',
+      zIndex: '30000000',
       left: '-100%',
-      top: 48,
+      top: 60,
       transition: 'background .2s ease-out,left .2s ease-out .1s',
       background: 'rgba(51, 51, 51, 0.8)',
     },
@@ -75,6 +75,8 @@ export default {
     },
 
     closeFilter: {
+      width: '40%',
+
       '& > span': {
         color: '#fff',
         fontSize: '20px',

@@ -2,14 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { injectIntl, defineMessages } from 'react-intl';
-import {
-  Menu,
-  Icon,
-  Label,
-  Dropdown,
-  Grid,
-  Responsive,
-} from 'semantic-ui-react';
+import { Menu, Icon, Dropdown, Grid, Responsive } from 'semantic-ui-react';
 import Notifications from '../../containers/NotifsContainer';
 
 const messages = defineMessages({
@@ -103,7 +96,6 @@ class MainNavBar extends React.Component {
       classes,
       intl: { formatMessage },
       currentUser,
-      notifLength,
     } = this.props;
     const { activeItem, width } = this.state;
 
@@ -133,7 +125,7 @@ class MainNavBar extends React.Component {
                   </Menu.Item>
                 </Grid.Column>
                 <Grid.Column floated="right" textAlign="right">
-                  <Menu.Item position="right">
+                  <Menu.Item position="right" className={classes.burgerWrapper}>
                     <Grid.Column floated="right" textAlign="right">
                       <Icon
                         name="bars"
@@ -190,35 +182,27 @@ class MainNavBar extends React.Component {
             </Menu.Item>
             {isAuth && (
               <Menu.Item
+                as={Notifications}
                 active={activeItem === 'notifications'}
                 onClick={this.navItemChecker}
                 name="notifications"
-                className={classes.menuItemDrop}
-              >
-                <Dropdown
-                  scrolling
-                  pointing="top right"
-                  icon={null}
-                  trigger={
-                    <React.Fragment>
-                      <Icon name="bell outline" />
-                      Notifications{' '}
-                      <Label color="teal" size="mini">
-                        {notifLength}
-                      </Label>
-                    </React.Fragment>
-                  }
-                >
-                  <Dropdown.Menu>
-                    <Dropdown.Item as={Notifications} />
-                  </Dropdown.Menu>
-                </Dropdown>
-              </Menu.Item>
+                className={classes.menuItem}
+              />
             )}
+            <Menu.Item
+              as={Link}
+              to="/dashboard"
+              active={activeItem === 'dashboard'}
+              onClick={this.navItemChecker}
+              className={classes.menuItem}
+              name="Dashboard"
+            >
+              Dashboard
+            </Menu.Item>
 
             {isAuth ? (
               <Menu.Menu position="right">
-                <Menu.Item className={classes.menuItem} name="settings">
+                <Menu.Item className={classes.menuItemSettings} name="settings">
                   <Dropdown
                     pointing="top right"
                     trigger={
