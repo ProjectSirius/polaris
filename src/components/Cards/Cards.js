@@ -1,6 +1,7 @@
 import React from 'react';
 import Card from '../Card';
 import { Loader } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 
 const Cards = ({ data, isRequesting, classes, view, lang, type }) => {
   return isRequesting ? (
