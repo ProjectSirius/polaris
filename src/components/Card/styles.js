@@ -4,6 +4,7 @@ export default {
     width: '100% !important',
     transition: '.5s !important',
     margin: '10px !important',
+    position: 'relative',
 
     '&:hover': {
       boxShadow: '0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)',
@@ -90,6 +91,32 @@ export default {
 
   iconColor: {
     color: '#55acee',
+  },
+
+  chadCheck: {
+    position: 'absolute',
+    zIndex: 100,
+
+    '& > div': {
+      margin: '0  !important',
+
+      '& > input:checked~label:after': {
+        fontSize: '30px !important',
+      },
+
+      '& > label': {
+        fontSize: '30px !important',
+
+        '&:before': {
+          height: '25px !important',
+          width: '25px !important',
+
+          '&:after': {
+            fontSize: '30px !important',
+          },
+        },
+      },
+    },
   },
 
   '@media screen and (max-width: 1020px)': {

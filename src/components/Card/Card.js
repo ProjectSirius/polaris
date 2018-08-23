@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Image, Icon } from 'semantic-ui-react';
+import { Card, Image, Icon, Form } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
 const CardComponent = ({
@@ -8,11 +8,16 @@ const CardComponent = ({
   view,
   type,
   lang,
+  groupOffer,
 }) => {
   return (
     <Card
       className={`${classes.card} ${view === 'list' ? classes.cardList : ''}`}
     >
+      <Form.Checkbox
+        className={classes.chadCheck}
+        onChange={(e, data) => groupOffer({ id, value: data.checked })}
+      />
       <Link
         className={
           view === 'table' ? classes.parentLinkGrid : classes.parentLinkList
