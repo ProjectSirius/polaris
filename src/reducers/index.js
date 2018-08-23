@@ -13,6 +13,7 @@ import filteringPage from './filteringPage';
 import tags from './tags';
 import filters from './filters';
 import notif from './notif';
+import transactions from './transactions';
 
 export default combineReducers({
   form: formReducer,
@@ -28,4 +29,5 @@ export default combineReducers({
   tags,
   filters,
   notif,
+  transactions,
 });
