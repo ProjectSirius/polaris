@@ -189,6 +189,16 @@ class MainNavBar extends React.Component {
                 className={classes.menuItem}
               />
             )}
+            <Menu.Item
+              as={Link}
+              to="/dashboard"
+              active={activeItem === 'dashboard'}
+              onClick={this.navItemChecker}
+              className={classes.menuItem}
+              name="Dashboard"
+            >
+              Dashboard
+            </Menu.Item>
 
             {isAuth ? (
               <Menu.Menu position="right">
