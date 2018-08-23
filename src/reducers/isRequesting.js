@@ -11,6 +11,12 @@ import {
   DATA_SEND_REQUEST,
   DATA_SEND_SUCCESS,
   DATA_SEND_FAILURE,
+  TRANSACTION_REQUEST,
+  TRANSACTION_FAILURE,
+  TRANSACTION_SUCCESS,
+  NOTIF_REQUEST,
+  NOTIF_FAILURE,
+  NOTIF_SUCCESS,
 } from '../actions/constants';
 
 const isRequesting = (state = false, action) => {
@@ -19,6 +25,8 @@ const isRequesting = (state = false, action) => {
     case SIGN_UP_REQUEST:
     case LOGIN_REQUEST:
     case DATA_REQUEST:
+    case TRANSACTION_REQUEST:
+    case NOTIF_REQUEST:
       return true;
     case SIGN_UP_SUCCESS:
     case SIGN_UP_FAILURE:
@@ -28,6 +36,10 @@ const isRequesting = (state = false, action) => {
     case DATA_RECEIVE_FAILURE:
     case DATA_SEND_SUCCESS:
     case DATA_SEND_FAILURE:
+    case TRANSACTION_FAILURE:
+    case TRANSACTION_SUCCESS:
+    case NOTIF_FAILURE:
+    case NOTIF_SUCCESS:
       return false;
     default:
       return state;
