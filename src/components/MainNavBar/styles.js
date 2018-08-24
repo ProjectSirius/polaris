@@ -9,7 +9,7 @@ export default {
   mainNavBar: {
     backgroundColor: 'rgba(255, 255, 255, 1) !important',
     padding: '0 30px',
-    zIndex: '1000 !important',
+    zIndex: '100000 !important',
 
     '& > .item, & > dropdown': {
       padding: '1.2em !important',

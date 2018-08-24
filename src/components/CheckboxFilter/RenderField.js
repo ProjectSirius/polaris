@@ -3,9 +3,8 @@ import { Checkbox } from 'semantic-ui-react';
 
 class TextField extends Component {
   render() {
-    const { label } = this.props;
-
-    return <Checkbox label={label} />;
+    const { label, onChange, checked } = this.props;
+    return <Checkbox label={label} checked={checked} onChange={onChange} />;
   }
 }
 
