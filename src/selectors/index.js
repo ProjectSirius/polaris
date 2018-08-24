@@ -14,12 +14,13 @@ export const selectNotif = state => state.notif;
 export const selectNotifLength = state =>
   state.notif ? state.notif.length : 0;
 export const selectSearch = state =>
-  state.Search_Form ? state.Search_Form.values.search : '';
+  state.form.Search_Form.values ? state.form.Search_Form.values.search : '';
 export const selectIsOpenFilterMenu = state =>
   state.filteringPage.isOpenFilterMenu;
 export const selectFilteringPageFilterBar = state =>
   state.filteringPage.filterBar;
-export const selectRating = state => state.filterBar.rating;
+export const selectRating = state =>
+  state.filteringPage ? state.filteringPage.rating : 1;
 export const selectOption = state => state.form.SelectOptionFilter_form;
 export const selectTags = state => state.tags;
 export const selectDetails = state => state.details;
@@ -29,4 +30,8 @@ export const selectIsGroupOffering = state => state.isGroupOffering;
 export const selectIsAuth = createSelector(
   selectCurrentUser,
   currentUser => currentUser !== null
+);
+
+export const selectChoosenGenres = createSelector(selectGenres, genres =>
+  genres.filter(({ checked }) => checked)
 );

@@ -7,7 +7,6 @@ import {
   selectCurrentUser,
   selectIsAuth,
   selectIsRequesting,
-  selectSearch,
 } from '../selectors';
 
 import search from '../actions/data';
@@ -15,17 +14,16 @@ import search from '../actions/data';
 import Search from '../components/Search';
 
 class SearchContainer extends Component {
-  handleSearch = (dataType, query) => {
+  handleSearch = searchValue => {
     const { search } = this.props;
 
-    search(dataType, query);
+    search(searchValue);
   };
 
   render() {
-    const { isAuth, currentUser, isRequesting, searchValue } = this.props;
+    const { isAuth, currentUser, isRequesting } = this.props;
     return (
       <Search
-        searchValue={searchValue}
         handleSearch={this.handleSearch}
         isAuth={isAuth}
         currentUser={currentUser}
@@ -39,7 +37,6 @@ const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
   isAuth: selectIsAuth,
   isRequesting: selectIsRequesting,
-  searchValue: selectSearch,
 });
 
 const mapDispatchToProps = dispatch => ({
