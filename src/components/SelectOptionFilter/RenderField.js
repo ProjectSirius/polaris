@@ -1,10 +1,11 @@
 import React from 'react';
-import { FormGroup, FormControl } from 'react-bootstrap';
+import { FormGroup, FormControl, ControlLabel } from 'react-bootstrap';
 
 const TextField = ({ id, label, touched, error, ...props }) => {
   return (
     <div>
       <FormGroup controlId="formControlsSelect">
+        <ControlLabel>{label}</ControlLabel>
         <FormControl
           {...props}
           componentClass="select"
@@ -15,9 +16,21 @@ const TextField = ({ id, label, touched, error, ...props }) => {
   );
 };
 
-const renderField = ({ input, meta: { touched, error }, data, ...custom }) => (
+const renderField = ({
+  input,
+  meta: { touched, error },
+  data,
+  label,
+  ...custom
+}) => (
   <div>
-    <TextField touched={touched} error={error} {...input} {...custom} />
+    <TextField
+      touched={touched}
+      error={error}
+      label={label}
+      {...input}
+      {...custom}
+    />
   </div>
 );
 

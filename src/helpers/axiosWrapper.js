@@ -1,16 +1,17 @@
 import axios from 'axios';
 
-const requestCreator = () => {
+const get = () => {
   let call;
-  return url => {
+  return (url, data) => {
     if (call) {
       call.cancel();
     }
     call = axios.CancelToken.source();
     return axios.get(url, {
+      data,
       cancelToken: call.token,
     });
   };
 };
 
-export default requestCreator();
+export default get();

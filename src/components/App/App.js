@@ -1,6 +1,5 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-
 import LogIn from '../../containers/Login';
 import SignUpAudienceContainer from '../../containers/SignUpAudienceContainer';
 import SignUpContentMaker from '../../containers/SignUpContentMakerContainer';
@@ -9,8 +8,12 @@ import AudienceHomePage from '../AudienceHomePage';
 import ContentOwnerHomePage from '../ContentOwnerHomePage';
 import HomePageContainer from '../../containers/HomePageContainer';
 import MainNavBarContainer from '../../containers/MainNavBarContainer';
-import DetailedPageContainer from '../../containers/DetailedPageContainer';
 import Map from '../MapView';
+import DetailsPageContainer from '../../containers/DetailsPageContainer';
+import CreateChannel from '../../containers/CreateChannel';
+import CreateContent from '../../containers/CreateContentContainer';
+import Dashboard from '../../containers/DashboardContainer';
+
 
 const App = ({ content, title }) => {
   return (
@@ -31,12 +34,29 @@ const App = ({ content, title }) => {
           component={ContentOwnerHomePage}
         />
         <ProtectedRouteContainer
-          path="/channels/:id"
-          component={DetailedPageContainer}
+          path="/channels/new"
+          component={CreateChannel}
         />
         <ProtectedRouteContainer
-          path="/contents/:id"
-          component={DetailedPageContainer}
+          path="/contents/new"
+          component={CreateContent}
+        />
+        <ProtectedRouteContainer path="/dashboard" component={Dashboard} />
+        <ProtectedRouteContainer
+          path="/channel/:id/edit"
+          component={CreateChannel}
+        />
+        <ProtectedRouteContainer
+          path="/content/:id/edit"
+          component={CreateContent}
+        />
+        <ProtectedRouteContainer
+          path="/channel/:id"
+          component={DetailsPageContainer}
+        />
+        <ProtectedRouteContainer
+          path="/content/:id"
+          component={DetailsPageContainer}
         />
         <Route render={() => <h1>Not Found App</h1>} />
       </Switch>
