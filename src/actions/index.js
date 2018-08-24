@@ -15,7 +15,7 @@ import getTransactions from './getTransactions';
 import getDetails from './details';
 import edit from './edit';
 import groupOffer from './groupOffer';
-import getGenres from './genres';
+import getGenres, { toggleGenre } from './genres';
 
 export {
   signUp,
@@ -37,4 +37,5 @@ export {
   edit,
   groupOffer,
   getGenres,
+  toggleGenre,
 };

@@ -1,6 +1,11 @@
 import axios from 'axios';
 
-import { GENRES_FAILURE, GENRES_REQUEST, GENRES_SUCCESS } from './constants';
+import {
+  GENRES_FAILURE,
+  GENRES_REQUEST,
+  GENRES_SUCCESS,
+  TOGGLE_GENRE,
+} from './constants';
 
 const genresReceive = data => ({
   type: GENRES_SUCCESS,
@@ -15,6 +20,11 @@ const genresRequest = data => ({
 const genresReceiveFailure = error => ({
   type: GENRES_FAILURE,
   payload: { error },
+});
+
+export const toggleGenre = (id, bool, data) => ({
+  type: TOGGLE_GENRE,
+  payload: { id, value: bool, data },
 });
 
 const getGenres = () => dispatch => {
