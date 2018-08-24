@@ -10,7 +10,7 @@ import {
   selectError,
 } from '../selectors';
 
-import { getData as search, getGenres } from '../actions';
+import { getData as search, getGenres, toggleGenre } from '../actions';
 
 import CheckboxFilter from '../components/CheckboxFilter';
 
@@ -25,8 +25,9 @@ class CheckboxFilterContainer extends React.Component {
     this.props.getGenres();
   }
 
-  handleChange() {
+  handleChange(id, bool) {
     this.props.search();
+    this.props.toggleGenre(id, bool, this.props.genres);
   }
 
   render() {
@@ -64,5 +65,6 @@ export default connect(
   {
     search,
     getGenres,
+    toggleGenre,
   }
 )(CheckboxFilterForm);
