@@ -1,16 +1,10 @@
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
 
-import Marker from './Marker'
+import Marker from './StickMarker';
+import { K_SIZE } from './styles';
 
-
-const getCord = (n = 0) => {
-  let cord = n + 2 * Math.random();
-  cord = cord.toFixed(7);
-  console.log(+cord);
-  return +cord;
-  
-};
+const getCord = (n = 0, m = 1) => +(n + m * Math.random()).toFixed(7);
 
 class SimpleMap extends Component {
   static defaultProps = {
@@ -18,20 +12,38 @@ class SimpleMap extends Component {
       lat: 40.1860052,
       lng: 44.5150187,
     },
-    zoom: 12,
+    zoom: 11,
   };
+
+  static onBoundsChange = (center, zoom /* , bounds, marginBounds */) => {
+    this.props.onCenterChange(center);
+    this.props.onZoomChange(zoom);
+  };
+
+  static onChildClick = (key, childProps) => {
+    this.props.onCenterChange([childProps.lat, childProps.lng]);
+  };
+
+  static onChildMouseEnter = (key /*, childProps */) => {
+    this.props.onHoverKeyChange(key);
+  };
+
+  static onChildMouseLeave = (/* key, childProps */) => {
+    this.props.onHoverKeyChange(null);
+  };
+
   markers = this.props.data.map(info => {
-    return <Marker
-            key={info.id}
-            lat={info.lat || getCord(40)}
-            lng={info.lng || getCord(43)}
-            title={info.title}
-    />
-  })
-  render() {
-    
     return (
-      
+      <Marker
+        key={info.id}
+        lat={info.lat || getCord(40, 0.2)}
+        lng={info.lng || getCord(44.5, 0.3)}
+        text={info.title.slice(0, 3)}
+      />
+    );
+  });
+  render() {
+    return (
       // Important! Always set the container height explicitly
       <div style={{ height: '100vh', width: '100%' }}>
         <GoogleMapReact
@@ -40,6 +52,11 @@ class SimpleMap extends Component {
           defaultZoom={this.props.zoom}
           onChange={(obj) => console.log('=====><=====', obj)}
           onChildClick={(obj) => console.log('////><\\\\\\\\', obj)}
+          hoverDistance={K_SIZE / 2}
+          onBoundsChange={this._onBoundsChange}
+          
+          onChildMouseEnter={this._onChildMouseEnter}
+          onChildMouseLeave={this._onChildMouseLeave}
         >
           {this.markers}
         </GoogleMapReact>

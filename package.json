@@ -33,7 +33,7 @@
     "translation": "yarn extract:messages && yarn manage:translations"
   },
   "lint-staged": {
-    "*.{js, jsx}": "./node_modules/eslint/bin/eslint.js"
+    "*.{ jsx}": "./node_modules/eslint/bin/eslint.js"
   },
   "devDependencies": {
     "eslint-plugin-prettier": "^2.6.2",

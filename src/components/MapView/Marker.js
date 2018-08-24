@@ -1,27 +1,18 @@
-import React, {PureComponent} from 'react';
-import injectSheet from 'react-jss';
-import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 
-import { marker } from './styles'
+import { greatPlaceStyle, greatPlaceStyleHover } from './styles';
 
-class Marker extends PureComponent {
-  render () {
+export default class MyGreatPlaceWithControllableHover extends Component {
+  render() {
+    const style = this.props.hover ? greatPlaceStyleHover : greatPlaceStyle;
+
     return (
-      <div >
-        <h1 style={{border: 'solid 1px red'}}>
-          {this.props.title}
-        </h1>
+      <div className="hint hint--html hint--info hint--top" style={style}>
+        <div>{this.props.text}</div>
+        <div style={{ width: 80 }} className="hint__content">
+          Сlick me
+        </div>
       </div>
-    )
+    );
   }
 }
-
-Marker.proptypes = {
-  title: PropTypes.string,
-}
-
-Marker.defaultProps = {
-  title: 'some place',
-}
-
-export default injectSheet(marker)(Marker);
