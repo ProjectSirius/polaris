@@ -52,8 +52,6 @@ const logIn = user => dispatch => {
   })
     .then(r => r.json())
     .then(userData => {
-      debugger;
-
       if (userData.error) {
         throw new Error(userData.error);
       }
@@ -62,7 +60,6 @@ const logIn = user => dispatch => {
       return dispatch(loginSuccess(userData.user));
     })
     .catch(msg => {
-      debugger;
       dispatch(loginFailure(msg.message));
     });
 };
