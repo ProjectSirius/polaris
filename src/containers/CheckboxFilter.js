@@ -3,7 +3,12 @@ import { connect } from 'react-redux';
 import { reduxForm } from 'redux-form';
 import { createStructuredSelector } from 'reselect';
 
-import { selectCurrentUser, selectIsAuth, selectGenres } from '../selectors';
+import {
+  selectCurrentUser,
+  selectIsAuth,
+  selectGenres,
+  selectError,
+} from '../selectors';
 
 import { getData as search, getGenres } from '../actions';
 
@@ -25,7 +30,11 @@ class CheckboxFilterContainer extends React.Component {
   }
 
   render() {
-    const { currentUser, isAuth, genres } = this.props;
+    const { currentUser, isAuth, genres, checkBoxError } = this.props;
+
+    if (checkBoxError) {
+      return <strong>Sorry, something went wrong!</strong>;
+    }
 
     return (
       <CheckboxFilter
@@ -47,6 +56,7 @@ const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
   isAuth: selectIsAuth,
   genres: selectGenres,
+  checkBoxError: selectError,
 });
 
 export default connect(
