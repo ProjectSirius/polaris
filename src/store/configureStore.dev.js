@@ -25,6 +25,7 @@ const configureStore = () => {
         {
           isAuth: store.getState().isAuth,
           currentUser: store.getState().currentUser,
+          authToken: store.getState().authToken,
         },
         'polaris'
       );
