@@ -1,4 +1,16 @@
-import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE } from './constants';
+import {
+  LOGIN_REQUEST,
+  LOGIN_SUCCESS,
+  LOGIN_FAILURE,
+  SAVE_TOKEN,
+} from './constants';
+
+const saveToken = token => ({
+  type: SAVE_TOKEN,
+  payload: {
+    token,
+  },
+});
 
 const loginRequest = isRequesting => ({
   type: LOGIN_REQUEST,
@@ -21,32 +33,35 @@ const loginFailure = error => ({
   },
 });
 
-const fakeFetch = userData => {
-  return new Promise((resolve, reject) => {
-    const rand = Math.random();
-
-    if (rand > 0.5) {
-      setTimeout(() => {
-        return resolve({ ...userData, userType: 'audience_owner' });
-      }, 1000);
-    } else if (rand > 0.2) {
-      setTimeout(() => {
-        return resolve({ ...userData, userType: 'content_owner' });
-      }, 1000);
-    } else {
-      setTimeout(() => {
-        return reject(new Error('Failed to Log in'));
-      }, 2000);
-    }
-  });
-};
-
 const logIn = user => dispatch => {
   dispatch(loginRequest(true));
+  fetch('https://acampapi.haffollc.com/v1/login', {
+    method: 'POST', // *GET, POST, PUT, DELETE, etc.
+    mode: 'cors', // no-cors, cors, *same-origin
+    cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+    credentials: 'same-origin', // include, same-origin, *omit
+    headers: {
+      'Content-Type': 'application/json; charset=utf-8',
+    },
+    redirect: 'follow', // manual, *follow, error
+    referrer: 'no-referrer', // no-referrer, *client
+    body: JSON.stringify({
+      username: user.username,
+      password: user.password,
+    }), // body data type must match "Content-Type" header
+  })
+    .then(r => r.json())
+    .then(userData => {
+      if (userData.error) {
+        throw new Error(userData.error);
+      }
 
-  fakeFetch(user)
-    .then(userData => dispatch(loginSuccess(userData)))
-    .catch(msg => dispatch(loginFailure(msg.message)));
+      dispatch(saveToken(userData.authToken));
+      return dispatch(loginSuccess(userData.user));
+    })
+    .catch(msg => {
+      dispatch(loginFailure(msg.message));
+    });
 };
 
 export default logIn;

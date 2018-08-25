@@ -11,13 +11,14 @@ import error from './error';
 import data from './data';
 import filteringPage from './filteringPage';
 import tags from './tags';
-import filters from './filters';
 import notif from './notif';
 import transactions from './transactions';
 import details from './details';
 import isEditing from './isEditing';
 import isGroupOffering from './isGroupOffering';
 import groupOffer from './groupOffer';
+import genres from './genres';
+import authToken from './authToken';
 
 export default combineReducers({
   form: formReducer,
@@ -31,11 +32,12 @@ export default combineReducers({
   data,
   filteringPage,
   tags,
-  filters,
   notif,
   transactions,
   details,
   isEditing,
   isGroupOffering,
   groupOffer,
+  genres,
+  authToken,
 });

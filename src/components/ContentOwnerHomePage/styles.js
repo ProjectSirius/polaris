@@ -24,14 +24,12 @@ export default {
   '@media screen and (max-width: 650px)': {
     filterPageWrapper: {
       flexDirection: 'column',
-      margin: '25px',
       padding: 0,
     },
 
     filterPageLeft: {
       width: '100%',
       maxWidth: '100%',
-      margin: '20px 0',
       padding: 0,
       display: 'flex',
       flexDirection: 'column',

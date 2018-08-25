@@ -9,9 +9,11 @@ import {
   selectCurrentUser,
   selectFilteringPageFilterBar,
   selectLanguage,
+  selectIsGroupOffering,
+  groupOffer,
 } from '../selectors';
 
-import { getData, groupOffer } from '../actions';
+import { getData, addToGroupOffer, removeFromGroupOffer } from '../actions';
 
 import Cards from '../components/Cards';
 
@@ -23,15 +25,7 @@ class CardsContainer extends React.Component {
   }
 
   componentDidMount() {
-    const { isAuth, currentUser } = this.props;
-
-    const dataType = isAuth
-      ? currentUser.userType === 'content_owner'
-        ? 'channels'
-        : 'contents'
-      : '';
-
-    this.props.getData(dataType, '');
+    this.props.getData('');
     window.addEventListener('scroll', this.onScroll, false);
   }
 
@@ -52,6 +46,8 @@ class CardsContainer extends React.Component {
       type,
       lang,
       isGroupOffering,
+      addToGroupOffer,
+      removeFromGroupOffer,
       groupOffer,
     } = this.props;
 
@@ -63,6 +59,8 @@ class CardsContainer extends React.Component {
         view={view}
         lang={lang}
         isGroupOffering={isGroupOffering}
+        addToGroupOffer={addToGroupOffer}
+        removeFromGroupOffer={removeFromGroupOffer}
         groupOffer={groupOffer}
       />
     );
@@ -76,12 +74,15 @@ const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
   view: selectFilteringPageFilterBar,
   lang: selectLanguage,
+  isGroupOffering: selectIsGroupOffering,
+  groupOffer,
 });
 
 export default connect(
   mapStateToProps,
   {
     getData,
-    groupOffer,
+    addToGroupOffer,
+    removeFromGroupOffer,
   }
 )(CardsContainer);

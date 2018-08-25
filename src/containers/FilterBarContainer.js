@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
 import FilterBar from '../components/FilterBar';
-import { filterMenu, groupOffer } from '../actions/';
+import { filterMenu } from '../actions/';
 
 import { selectIsOpenFilterMenu } from '../selectors';
 
@@ -14,6 +14,5 @@ export default connect(
   mapStateToProps,
   {
     toggleMenu: filterMenu,
-    groupOffer,
   }
 )(FilterBar);

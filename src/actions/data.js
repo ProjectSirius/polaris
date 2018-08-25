@@ -4,6 +4,7 @@ import {
   DATA_RECEIVE_FAILURE,
 } from './constants';
 import get from '../helpers/axiosWrapper';
+import { selectChoosenGenres, selectSearch, selectRating } from '../selectors';
 
 const dataRequest = isRequesting => ({
   type: DATA_REQUEST,
@@ -20,11 +21,17 @@ const dataReceiveFailure = error => ({
   payload: { error },
 });
 
-const getData = (query = '') => (dispatch, getState) => {
+const getData = (searchValue, genresValue) => (dispatch, getState) => {
   const dataType =
     getState().currentUser.userType === 'content_owner'
       ? 'channels'
       : 'contents';
+
+  /* eslint-disable */
+  const search = searchValue ? searchValue : selectSearch(getState());
+  const rating = selectRating(getState());
+  const genres = selectChoosenGenres(getState());
+  /* eslint-enable */
 
   const url = `https://my-json-server.typicode.com/angela0202/fake-db/${dataType}`;
 
