@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Image, Icon, Form } from 'semantic-ui-react';
+import { Card, Image, Icon } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
 const CardComponent = ({
@@ -7,16 +7,15 @@ const CardComponent = ({
   classes,
   view,
   type,
+  removeFromGroupOffer,
+  addToGroupOffer,
+  isGroupOffering,
   groupOffer,
 }) => {
   return (
     <Card
       className={`${classes.card} ${view === 'list' ? classes.cardList : ''}`}
     >
-      <Form.Checkbox
-        className={classes.chadCheck}
-        onChange={(e, data) => groupOffer({ id, value: data.checked })}
-      />
       <Link
         className={
           view === 'table' ? classes.parentLinkGrid : classes.parentLinkList
@@ -45,6 +44,31 @@ const CardComponent = ({
         ''
       ) : (
         <Card.Content extra style={{ display: 'flex' }}>
+          {!groupOffer.includes(id) ? (
+            <span
+              className={`${classes.moreOffer} ${classes.addOffer}`}
+              onClick={() => addToGroupOffer(id)}
+            >
+              <Icon
+                name="add to cart"
+                size="large"
+                className={classes.iconColor}
+              />
+              <span>Add to group offer</span>
+            </span>
+          ) : (
+            <span
+              className={`${classes.moreOffer} ${classes.removeOffer}`}
+              onClick={() => removeFromGroupOffer(id)}
+            >
+              <Icon
+                name="remove"
+                size="large"
+                className={classes.delIconColor}
+              />
+              <span>Remove from group offer</span>
+            </span>
+          )}
           <Link to={`/channel/${id}`}>
             <span className={classes.moreOffer}>
               <Icon
@@ -53,16 +77,6 @@ const CardComponent = ({
                 className={classes.iconColor}
               />
               <span>Find out more</span>
-            </span>
-          </Link>
-          <Link to="/">
-            <span className={classes.moreOffer} onClick={() => {}}>
-              <Icon
-                name="shopping cart"
-                size="large"
-                className={classes.iconColor}
-              />
-              <span>Make an offer</span>
             </span>
           </Link>
         </Card.Content>

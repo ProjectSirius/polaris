@@ -1,6 +1,11 @@
-import { ADD_TO_GROUP_OFFER } from './constants';
-const groupOffer = selected => ({
+import { ADD_TO_GROUP_OFFER, REMOVE_FROM_GROUP_OFFER } from './constants';
+
+export const addToGroupOffer = id => ({
   type: ADD_TO_GROUP_OFFER,
-  payload: { selected },
+  payload: { id },
 });
-export default groupOffer;
+
+export const removeFromGroupOffer = id => ({
+  type: REMOVE_FROM_GROUP_OFFER,
+  payload: { id },
+});

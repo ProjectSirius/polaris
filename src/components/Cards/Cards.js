@@ -2,7 +2,17 @@ import React from 'react';
 import Card from '../Card';
 import { Loader } from 'semantic-ui-react';
 
-const Cards = ({ data, isRequesting, classes, view, type, groupOffer }) => {
+const Cards = ({
+  data,
+  isRequesting,
+  classes,
+  view,
+  type,
+  addToGroupOffer,
+  removeFromGroupOffer,
+  isGroupOffering,
+  groupOffer,
+}) => {
   return isRequesting ? (
     <Loader active inline="centered" size="large" className={classes.loading}>
       Loading
@@ -19,6 +29,8 @@ const Cards = ({ data, isRequesting, classes, view, type, groupOffer }) => {
           info={info}
           view={view}
           type={type}
+          addToGroupOffer={addToGroupOffer}
+          removeFromGroupOffer={removeFromGroupOffer}
           groupOffer={groupOffer}
         />
       ))}
