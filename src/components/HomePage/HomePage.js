@@ -112,11 +112,90 @@ const HomePage = ({ title, classes }) => {
               </div>
             </div>
           </div>
+
+          <div className={classes.leftRight}>
+            <div className={classes.leftRightInner}>
+              <h3>
+                At any age, possible
+                <br />
+                red flags for screening include
+                <br />
+              </h3>
+
+              <div class={classes.leftRightList}>
+                <ul>
+                  <li>Persistently nonverbal.</li>
+                  <li>Delayed language development.</li>
+                  <li>Constant repetition of words or phrases.</li>
+                  <li>Avoiding eye contact.</li>
+                  <li>Preference for being alone.</li>
+                  <li>Highly restricted interests.</li>
+                  <li>Struggling to understand the feelings of others.</li>
+                  <li>Upset by minor changes in surroundings or routine.</li>
+                  <li>
+                    Unusual and frequently intense reactions to lights, colors,
+                    sounds, smells, tastes, or textures.
+                  </li>
+                  <li>
+                    Repetitive behaviors such as rocking, flapping, or spinning.
+                  </li>
+                </ul>
+
+                <p>
+                  Your child’s loss of any previously acquired skills—speech,
+                  babbling, or social interactions—is also a reason to seek
+                  medical screening for ASD.
+                </p>
+                <p>
+                  <a href="http://mebefamily.com/services/speech/">
+                    Learn the signs of a speech or language disorder.
+                  </a>
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </main>
 
-      <section className="section6" />
-      <section className="section7" />
+      <section className={classes.callToAction}>
+        <div className={classes.callWrap}>
+          <div className={classes.col}>
+            <h4>Designed for your child</h4>
+            <p>
+              Our collaboration with you begins with conversation and in-home
+              assessment.
+            </p>
+            <a href="https://mebefamily.com/contact/" className="button">
+              Let's Talk
+            </a>
+          </div>
+
+          <div className={classes.col}>
+            <h4>Closing the gap</h4>
+            <p>
+              The sooner you seek help, the better the long-term outcomes are
+              likely to be.
+            </p>
+            <a href="https://mebefamily.com/services/" className="button">
+              Start Now
+            </a>
+          </div>
+
+          <div className={classes.col}>
+            <h4>Help with paperwork</h4>
+            <p>
+              We help expedite the insurance process to get your child started
+              as soon as possible.
+            </p>
+            <a
+              href="https://mebefamily.com/getting-started/insurance/"
+              className="button"
+            >
+              Paperwork &amp; Insurance
+            </a>
+          </div>
+        </div>
+      </section>
       <footer className="footer" />
     </div>
   );

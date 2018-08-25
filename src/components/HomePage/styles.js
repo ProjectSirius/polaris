@@ -228,7 +228,114 @@ export default {
       maxWidth: '45rem',
     },
   },
-
+  leftRight: {
+    background: '#fcf5ec',
+    padding: '0 0 15rem 0',
+    position: 'relative',
+    overflow: 'hidden',
+  },
+  leftRightInner: {
+    maxWidth: '1200px',
+    display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    width: '90%',
+    zIndex: '10',
+    position: 'relative',
+    '& > h3': {
+      fontSize: '4rem',
+      lineHeight: '4.5rem',
+      width: '50%',
+      color: '#f69979',
+      backgroundImage:
+        'url(http://www.emilyhirsh.com/wp-content/uploads/2016/07/gray-arrow.png) ',
+      backgroundSize: '20%',
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'center 10rem',
+      paddingRight: '2rem',
+    },
+  },
+  leftRightList: {
+    width: '50%',
+    border: '6px solid #f69979',
+    padding: '2.5rem 5rem 1rem 5rem',
+    '& > ul': {
+      paddingLeft: '2rem',
+      fontSize: '1.6666666667rem',
+      lineHeight: '2.25rem',
+      color: 'gray',
+      marginBottom: '2rem',
+      '& li': {
+        marginBottom: '.5rem',
+      },
+    },
+    '& p': {
+      fontSize: '1.6666666667rem',
+      lineHeight: '2.25rem',
+      color: 'gray',
+      marginBottom: '2rem',
+    },
+  },
+  //section6
+  callToAction: {
+    background:
+      '#91b35c  url(https://www.noknok.com/demo/m/img/bg/bg_tri_bot.png) no-repeat center bottom',
+    padding: '15rem 0 30rem 0',
+    backgroundSize: '80%',
+  },
+  callWrap: {
+    display: 'flex',
+    justifyContent: 'center',
+    flexWrap: 'wrap',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    width: '90%',
+    maxWidth: '1500px',
+    zIndex: '10',
+    position: 'relative',
+  },
+  col: {
+    width: '33%',
+    textAlign: 'center',
+    display: 'flex',
+    flexDirection: 'column',
+    '& > h4': {
+      fontSize: '3rem',
+      lineHeight: '4rem',
+      marginBottom: '2rem',
+    },
+    '& > p': {
+      fontSize: '1.6rem',
+      lineHeight: '2.25rem',
+      marginBottom: '2.5rem',
+      maxWidth: '30rem',
+      width: '80%',
+      marginLeft: 'auto',
+      marginRight: 'auto',
+    },
+    '& > a': {
+      marginTop: 'auto',
+      alignSelf: 'center',
+      transition: 'all 450ms cubic-bezier(0.19, 1, 0.22, 1)',
+      border: 'none',
+      outline: 'none',
+      minWidth: '20rem',
+      background: '#272c30',
+      fontSize: '1.333rem',
+      lineHeight: '1.5rem',
+      color: '#fff',
+      textTransform: 'uppercase',
+      letterSpacing: '1px',
+      display: 'inline-block',
+      textAlign: 'center',
+      padding: '1.75rem 4rem',
+      cursor: 'pointer',
+      borderRadius: 0,
+    },
+  },
   //@MEDIA
   '@media (min-width: 2000px)': {
     topSection: {
@@ -262,6 +369,9 @@ export default {
         lineHeight: '3rem',
         maxWidth: '1000px',
       },
+    },
+    leftRight: {
+      padding: '0 0 10rem 0',
     },
     leftTextInner: {
       width: '90%',
@@ -308,6 +418,27 @@ export default {
         maxWidth: '100%',
       },
     },
+    leftRightInner: {
+      maxWidth: '1000px',
+      '& > h3': {
+        fontSize: '3rem',
+        lineHeight: '3.5rem',
+      },
+    },
+    //section 6
+    callToAction: {
+      padding: '10rem 0 30rem 0',
+    },
+    col: {
+      '& > h4': {
+        fontSize: '2.5rem',
+        lineHeight: '3.5rem',
+        marginBottom: '1rem',
+      },
+      '& > a': {
+        minWidth: '15rem',
+      },
+    },
   },
   '@media (max-width: 1300px)': {
     rightImg: {
@@ -343,6 +474,9 @@ export default {
         lineHeight: '2.5rem',
         maxWidth: '1000px',
       },
+    },
+    leftRight: {
+      padding: '0 0 5rem 0',
     },
     leftTextInner: {
       '& > h3': {
@@ -387,6 +521,47 @@ export default {
         fontSize: '1.75rem',
         lineHeight: '2rem',
         maxWidth: '100%',
+      },
+    },
+    leftRightInner: {
+      maxWidth: '1000px',
+      '& > h3': {
+        fontSize: '2.5rem',
+        lineHeight: '3rem',
+      },
+    },
+    leftRightList: {
+      '& > ul': {
+        paddingLeft: '2rem',
+        fontSize: '1.2rem',
+        lineHeight: '2rem',
+      },
+      '& p': {
+        fontSize: '1.2rem',
+        lineHeight: '2rem',
+        marginBottom: '1rem',
+      },
+    },
+
+    //section 6
+    callToAction: {
+      padding: '5rem 0 25rem 0',
+      backgroundSize: 'contain',
+    },
+    col: {
+      '& > h4': {
+        fontSize: '2rem',
+        lineHeight: '2.5rem',
+        marginBottom: '1rem',
+      },
+      '& > p': {
+        width: '100%',
+        maxWidth: '100%',
+        margin: '0 0 2rem 0',
+      },
+      '& > a': {
+        minWidth: '10rem',
+        padding: '1.5rem 2rem',
       },
     },
   },
@@ -480,6 +655,39 @@ export default {
         fontSize: '1.5rem',
         lineHeight: '1.5em',
         maxWidth: '100%',
+      },
+    },
+    leftRightInner: {
+      '& > h3': {
+        width: '100%',
+        marginBottom: '3rem',
+        background: 'none',
+        textAlign: 'center',
+      },
+    },
+    leftRightList: {
+      width: '100%',
+      padding: '2.5rem 2.5rem 1rem 2.5rem',
+    },
+    //section 6
+    callToAction: {
+      padding: '5rem 0 6rem 0;',
+    },
+    callWrap: {
+      width: '80%',
+    },
+    col: {
+      width: '80%',
+      textAlign: 'left',
+      marginBottom: '5rem',
+      '& > h4': {
+        textAlign: 'center',
+      },
+      '& > p': {
+        textAlign: 'center',
+      },
+      '& > a': {
+        width: '100%',
       },
     },
   },
