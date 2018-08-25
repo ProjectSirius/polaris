@@ -9,7 +9,7 @@ const panes = [
     render: () => <TransactionCardsContainer />,
   },
   { menuItem: 'Payment', render: () => <Tab.Pane>Tab 2 Content</Tab.Pane> },
-  { menuItem: 'My Channels', render: () => <Tab.Pane>Tab 3 Content</Tab.Pane> },
+  { menuItem: 'My Channels', render: () => <Tab.Pane>My channels</Tab.Pane> },
 ];
 
 const TabExampleVerticalTabular = () => {

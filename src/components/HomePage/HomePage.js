@@ -12,4 +12,5 @@ HomePage.propTypes = {
 HomePage.defaultProps = {
   title: 'Polaris',
 };
+
 export default HomePage;

@@ -25,7 +25,6 @@ const sendData = (data, selector) => (dispatch, getState) => {
     createChannel: 'channels',
     createContent: 'contents',
   };
-
   doPost(url[selector], {
     title: data.title,
     description: data.briefDescription,

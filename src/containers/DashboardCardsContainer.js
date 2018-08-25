@@ -9,11 +9,9 @@ import {
   selectCurrentUser,
   selectFilteringPageFilterBar,
   selectLanguage,
-  selectIsGroupOffering,
-  groupOffer,
 } from '../selectors';
 
-import { getData, addToGroupOffer, removeFromGroupOffer } from '../actions';
+import { getMyData, groupOffer } from '../actions';
 
 import Cards from '../components/Cards';
 
@@ -40,30 +38,10 @@ class CardsContainer extends React.Component {
   }
 
   render() {
-    const {
-      data,
-      isRequesting,
-      view,
-      type,
-      lang,
-      isGroupOffering,
-      addToGroupOffer,
-      removeFromGroupOffer,
-      groupOffer,
-    } = this.props;
+    const { data, isRequesting, view, type } = this.props;
 
     return (
-      <Cards
-        type={type}
-        data={data}
-        isRequesting={isRequesting}
-        view={view}
-        lang={lang}
-        isGroupOffering={isGroupOffering}
-        addToGroupOffer={addToGroupOffer}
-        removeFromGroupOffer={removeFromGroupOffer}
-        groupOffer={groupOffer}
-      />
+      <Cards type={type} data={data} isRequesting={isRequesting} view={view} />
     );
   }
 }
@@ -75,15 +53,12 @@ const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
   view: selectFilteringPageFilterBar,
   lang: selectLanguage,
-  isGroupOffering: selectIsGroupOffering,
-  groupOffer,
 });
 
 export default connect(
   mapStateToProps,
   {
-    getData,
-    addToGroupOffer,
-    removeFromGroupOffer,
+    getMyData,
+    groupOffer,
   }
 )(CardsContainer);

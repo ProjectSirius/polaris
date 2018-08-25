@@ -21,11 +21,11 @@ const dataReceiveFailure = error => ({
   payload: { error },
 });
 
-const getData = (searchValue, genresValue) => (dispatch, getState) => {
+const getData = searchValue => (dispatch, getState) => {
   const dataType =
     getState().currentUser.type === 'content_owner'
       ? 'channels/search'
-      : 'contents';
+      : 'contents/search';
 
   /* eslint-disable */
   const search = searchValue ? searchValue : selectSearch(getState());
@@ -40,7 +40,7 @@ const getData = (searchValue, genresValue) => (dispatch, getState) => {
     query: search,
   })
     .then(payload => {
-      return dispatch(dataReceiveSuccess(payload.channels));
+      return dispatch(dataReceiveSuccess(payload.data));
     })
     .catch(err => dispatch(dataReceiveFailure(err)));
 };
