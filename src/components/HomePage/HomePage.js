@@ -161,28 +161,28 @@ const HomePage = ({ title, classes }) => {
       <section className={classes.callToAction}>
         <div className={classes.callWrap}>
           <div className={classes.colA}>
-            <h4>Designed for your child</h4>
+            <h4>Lorem Ipsum</h4>
             <p>
-              Our collaboration with you begins with conversation and in-home
-              assessment.
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              Dignissimos facere itaque nulla qui repellat voluptatibus.{' '}
             </p>
-            <a className="button">Let's Talk</a>
+            <a className="button">Lorem ipsum</a>
           </div>
 
           <div className={classes.colA}>
-            <h4>Closing the gap</h4>
+            <h4>Lorem ipsum ..</h4>
             <p>
-              The sooner you seek help, the better the long-term outcomes are
-              likely to be.
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              Dignissimos facere itaque nulla qui repellat voluptatibus.
             </p>
-            <a className="button">Start Now</a>
+            <a className="button">Lorem ipsum</a>
           </div>
 
           <div className={classes.colA}>
-            <h4>Help with paperwork</h4>
+            <h4>Lorem ipsum</h4>
             <p>
-              We help expedite the insurance process to get your child started
-              as soon as possible.
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              Dignissimos facere itaque nulla qui repellat voluptatibus.
             </p>
             <a className="button">Paperwork &amp; Insurance</a>
           </div>
@@ -192,8 +192,8 @@ const HomePage = ({ title, classes }) => {
         <div className={classes.fwrap}>
           <div className={classes.footerBrand}>
             <h3>
-              Everyone deserves <br />
-              the chance to live <br />
+              Lorem ipsum dolor <br />
+              ignissimos facere itaque <br />
               their best life
             </h3>
           </div>
@@ -267,7 +267,6 @@ const HomePage = ({ title, classes }) => {
     </div>
   );
 };
-
 HomePage.propTypes = {
   title: PropTypes.string.isRequired,
 };
