@@ -10,7 +10,6 @@ import ContentOwnerHomePage from '../ContentOwnerHomePage';
 import HomePageContainer from '../../containers/HomePageContainer';
 import MainNavBarContainer from '../../containers/MainNavBarContainer';
 import DetailedPageContainer from '../../containers/DetailedPageContainer';
-import Map from '../MapView';
 
 const App = ({ content, title }) => {
   return (
@@ -21,7 +20,6 @@ const App = ({ content, title }) => {
         <Route path="/login" component={LogIn} />
         <Route path="/signUpAudience" component={SignUpAudienceContainer} />
         <Route path="/signUpContentMaker" component={SignUpContentMaker} />
-        <Route path="/map" component={Map} />
         <ProtectedRouteContainer
           path="/audience"
           component={AudienceHomePage}
