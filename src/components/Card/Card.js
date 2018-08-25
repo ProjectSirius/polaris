@@ -3,7 +3,7 @@ import { Card, Image, Icon, Form } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
 const CardComponent = ({
-  info: { title, briefDescription, date, id },
+  info: { title, description, date, id },
   classes,
   view,
   type,
@@ -36,10 +36,10 @@ const CardComponent = ({
           <Card.Header className={classes.mainTitle}>{title}</Card.Header>
           <Card.Description className={classes.bodyContent}>
             {view === 'list'
-              ? briefDescription
+              ? description
               : view === 'list'
-                ? `${briefDescription.slice(0, 250)}..`
-                : `${briefDescription.slice(0, 140)}..`}
+                ? `${description.slice(0, 250)}..`
+                : `${description.slice(0, 140)}..`}
           </Card.Description>
         </Card.Content>
       </Link>
