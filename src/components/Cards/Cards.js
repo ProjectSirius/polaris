@@ -1,11 +1,23 @@
 import React from 'react';
 import Card from '../Card';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import MapView from '../MapView'
+import { Loader } from 'semantic-ui-react';
 
-const Cards = ({ data, isRequesting, classes, view, lang, type }) => {
+
+const Cards = ({
+  data,
+  isRequesting,
+  classes,
+  view,
+  lang,
+  type,
+  groupOffer,
+}) => {
   return isRequesting ? (
-    <h2>Loading...</h2>
+    <Loader active inline="centered" size="large" className={classes.loading}>
+      Loading
+    </Loader>
   ) : view !== 'map' ? (
     <div
       className={
@@ -13,15 +25,14 @@ const Cards = ({ data, isRequesting, classes, view, lang, type }) => {
       }
     >
       {data.map(info => (
-        <Link
-          className={
-            view === 'table' ? classes.parentLinkGrid : classes.parentLinkList
-          }
-          to={{ pathname: `/${type}/${info.id}`, search: `?locale=${lang}` }}
-        >
-          {' '}
-          <Card key={info.id} info={info} view={view} />
-        </Link>
+        <Card
+          key={info.id}
+          info={info}
+          view={view}
+          lang={lang}
+          type={type}
+          groupOffer={groupOffer}
+        />
       ))}
     </div>
   ) : (<MapView data={data} />);

@@ -1,21 +1,42 @@
 import React from 'react';
-import { FormGroup, InputGroup, FormControl, Glyphicon } from 'react-bootstrap';
+import { Search } from 'semantic-ui-react';
 
-const TextField = ({ id, label, touched, error, ...props }) => {
+const TextField = ({
+  id,
+  value,
+  label,
+  isRequesting,
+  touched,
+  error = '',
+  searchValue,
+  onChange,
+  ...props
+}) => {
   return (
-    <FormGroup>
-      <InputGroup>
-        <FormControl type="text" {...props} />
-        <InputGroup.Addon>
-          <Glyphicon glyph="glyphicon glyphicon-search" />
-        </InputGroup.Addon>
-      </InputGroup>
-    </FormGroup>
+    <Search
+      fluid
+      showNoResults={false}
+      loading={isRequesting}
+      value={searchValue}
+      onSearchChange={onChange}
+      {...props}
+    />
   );
 };
 
-const renderField = ({ input, meta: { touched, error }, ...custom }) => (
-  <TextField touched={touched} error={error} {...input} {...custom} />
+const renderField = ({
+  input,
+  meta: { touched, error },
+  classes,
+  ...custom
+}) => (
+  <TextField
+    touched={touched}
+    error={error}
+    classes={classes}
+    {...input}
+    {...custom}
+  />
 );
 
 export default renderField;

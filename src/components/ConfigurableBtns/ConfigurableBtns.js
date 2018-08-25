@@ -1,5 +1,5 @@
 import React from 'react';
-import { Glyphicon, ButtonGroup, Button } from 'react-bootstrap';
+import { Button, Icon } from 'semantic-ui-react';
 
 const ConfigurableBtns = ({
   classes,
@@ -7,29 +7,35 @@ const ConfigurableBtns = ({
   selectFilteringPageFilterBar: selected,
 }) => {
   return (
-    <ButtonGroup>
+    <Button.Group className={classes.confWrapper}>
       <Button
-        bsStyle={selected === 'table' ? 'danger' : 'default'}
+        color="twitter"
+        size="huge"
+        active={selected === 'table'}
+        className={classes.btn}
         onClick={() => updFilterBar('table')}
       >
-        {' '}
-        <Glyphicon glyph="th-large" />
+        <Icon name="grid layout" />
       </Button>
       <Button
-        bsStyle={selected === 'list' ? 'danger' : 'default'}
+        color="twitter"
+        size="huge"
+        active={selected === 'list'}
+        className={classes.btn}
         onClick={() => updFilterBar('list')}
       >
-        {' '}
-        <Glyphicon glyph="th-list" />
+        <Icon name="list" />
       </Button>
       <Button
-        bsStyle={selected === 'map' ? 'danger' : 'default'}
+        color="twitter"
+        size="huge"
+        active={selected === 'map'}
+        className={classes.btn}
         onClick={() => updFilterBar('map')}
       >
-        {' '}
-        <Glyphicon glyph="map-marker" />
+        <Icon name="map marker" />
       </Button>
-    </ButtonGroup>
+    </Button.Group>
   );
 };
 

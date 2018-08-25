@@ -1,45 +1,37 @@
 import React from 'react';
-import { Glyphicon } from 'react-bootstrap';
+import { Rating, Responsive } from 'semantic-ui-react';
 
-const range = (min, max) =>
-  Array(max - min + 1)
-    .fill()
-    .map((_, i) => min + i);
-
-const StarRating = ({
-  min,
-  max,
-  onChange,
+const RatingExampleSize = ({
+  onRatingChange,
+  updRating,
   value,
-  isAuth,
-  currentUser,
   classes,
+  search,
 }) => {
-  const dataType = isAuth
-    ? currentUser.userType === 'content_owner'
-      ? 'channels'
-      : 'contents'
-    : '';
-
   return (
-    <div className={classes.rating}>
-      {range(min, max).map((item, index) => (
-        <div
-          className={item <= value ? classes.rateStar : classes.defaultStar}
-          onClick={() => {
-            return onChange(
-              dataType,
-              '',
-              { filterName: 'rating', value: index + 1 },
-              index + 1
-            );
-          }}
-        >
-          <Glyphicon glyph="glyphicon glyphicon-star" />
-        </div>
-      ))}
-    </div>
+    <React.Fragment>
+      <Responsive minWidth={768}>
+        <Rating
+          onRate={onRatingChange}
+          maxRating={5}
+          defaultRating={1}
+          icon="star"
+          size="massive"
+          className={classes.starWrapper}
+        />
+      </Responsive>
+      <Responsive maxWidth={768}>
+        <Rating
+          onRate={onRatingChange}
+          maxRating={5}
+          defaultRating={1}
+          icon="star"
+          size="huge"
+          className={classes.starWrapper}
+        />{' '}
+      </Responsive>
+    </React.Fragment>
   );
 };
 
-export default StarRating;
+export default RatingExampleSize;

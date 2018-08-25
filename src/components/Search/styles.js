@@ -1,21 +1,15 @@
 export default {
   searchWrapper: {
-    width: '100%',
-
-    '& > div': {
-      margin: 0,
-      width: '100%',
-    },
-
-    '& span': {
-      backgroundColor: '#fff',
-      color: '#4285f4 !important',
-      cursor: 'pointer',
+    '& > div > div': {
+      width: '100% !important',
     },
   },
 
-  search: {
-    height: '53px',
-    borderRadius: 0,
+  searchInput: {
+    width: '100%',
+
+    '& > input': {
+      borderRadius: '50px !important',
+    },
   },
 };
