@@ -7,22 +7,23 @@ const HomePage = ({ title, classes }) => {
       <main className={classes.mainWrap}>
         <div className={classes.topSection}>
           {/*{title}*/}
-          <h1> Better Together </h1>
+          <h1> Lorem ipsum </h1>
         </div>
 
         <div className={classes.textBlock}>
           <div className={classes.textBlockInner}>
             <h2>
-              Everyone deserves the chance <br />
-              to live their best life
+              Lorem ipsum dolor sit <br />
+              maiores molestiae, repudiandae unde.
             </h2>
             <p>
-              Serious fun—that’s the essence of MeBe’s proven approach to
-              Applied Behavior Analysis (ABA), Speech and Language Pathology,
-              and verbal behavior therapy. We integrate diagnostic rigor and
-              research-based strategies with intense personal attention to
-              assessing and celebrating your child’s individuality as well as
-              your distinct family dynamics.
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi
+              corporis cum esse expedita libero maiores, necessitatibus quae
+              quas quos tenetur veniam, voluptatum? Accusamus eveniet facilis
+              inventore maiores molestiae, repudiandae unde. Lorem ipsum dolor
+              sit amet, consectetur adipisicing elit. Animi corporis cum esse
+              necessitatibus quae quas quos tenetur veniam, voluptatum?
+              Accusamus eveniet facilis.
             </p>
           </div>
         </div>
@@ -31,13 +32,15 @@ const HomePage = ({ title, classes }) => {
           <div className={classes.wrap}>
             <div className={classes.leftText}>
               <div className={classes.leftTextInner}>
-                <h3>Wait and see is not an option</h3>
+                <h3>Lorem ipsum dolor sit amet</h3>
                 <p>
-                  At MeBe, we champion early intervention for a very simple
-                  reason—it works. Research demonstrates that high-quality early
-                  intervention therapy can give your child a much better start
-                  in school and will likely result in much better outcomes
-                  throughout adulthood.
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Animi corporis cum esse expedita libero maiores,
+                  necessitatibus quae quas quos tenetur veniam, voluptatum?
+                  Accusamus eveniet facilis inventore maiores molestiae,
+                  repudiandae unde. Accusamus eveniet facilis inventore maiores
+                  molestiae, repudiandae unde. Accusamus eveniet facilis
+                  inventore maiores molestiae, repudiandae unde.
                 </p>
               </div>
             </div>
@@ -47,11 +50,11 @@ const HomePage = ({ title, classes }) => {
 
         <div className={classes.yellowSection}>
           <h3>
-            “Not every child who is nonverbal or exhibits
+            “Lorem ipsum dolor sit amet, consectetur
             <br />
             symptoms typically associated with autism
             <br />
-            spectrum disorder (ASD) is at risk, and not every <br />
+            inventore maiores molestiae, repudiandae unde. <br />
             child challenged by ASD exhibits all symptoms.”
           </h3>
           <p>— Abigail Bunt, MeBe Cofounder, Executive Director</p>
@@ -69,7 +72,7 @@ const HomePage = ({ title, classes }) => {
             </div>
 
             <div className={classes.teaser}>
-              <div className={`teaser-Img ${classes.teaserImage}`}> </div>
+              <div className={`teaser-Img ${classes.teaserImage}`} />
               <div className={`teaser-info ${classes.teaserCopy}`}>
                 <h3>lorem Ispum </h3>
                 <p>
@@ -80,7 +83,7 @@ const HomePage = ({ title, classes }) => {
             </div>
 
             <div className={classes.teaser}>
-              <div className={`teaser-Img ${classes.teaserImage}`}> </div>
+              <div className={`teaser-Img ${classes.teaserImage}`} />
               <div className={`teaser-info ${classes.teaserCopy}`}>
                 <h3>lorem Ispum </h3>
                 <p>
@@ -91,7 +94,7 @@ const HomePage = ({ title, classes }) => {
             </div>
 
             <div className={classes.teaser}>
-              <div className={`teaser-Img ${classes.teaserImage}`}> </div>
+              <div className={`teaser-Img ${classes.teaserImage}`} />
               <div className={`teaser-info ${classes.teaserCopy}`}>
                 <h3>lorem Ispum </h3>
                 <p>
@@ -102,7 +105,7 @@ const HomePage = ({ title, classes }) => {
             </div>
 
             <div className={classes.teaser}>
-              <div className={`teaser-Img ${classes.teaserImage}`}> </div>
+              <div className={`teaser-Img ${classes.teaserImage}`} />
               <div className={`teaser-info ${classes.teaserCopy}`}>
                 <h3>lorem Ispum </h3>
                 <p>
@@ -116,9 +119,9 @@ const HomePage = ({ title, classes }) => {
           <div className={classes.leftRight}>
             <div className={classes.leftRightInner}>
               <h3>
-                At any age, possible
+                Lorem ipsum dolor sit
                 <br />
-                red flags for screening include
+                inventore maiores molestiae, repudiandae.
                 <br />
               </h3>
 
@@ -147,9 +150,7 @@ const HomePage = ({ title, classes }) => {
                   medical screening for ASD.
                 </p>
                 <p>
-                  <a href="http://mebefamily.com/services/speech/">
-                    Learn the signs of a speech or language disorder.
-                  </a>
+                  <a>Learn the signs of a speech or language disorder.</a>
                 </p>
               </div>
             </div>
@@ -159,44 +160,110 @@ const HomePage = ({ title, classes }) => {
 
       <section className={classes.callToAction}>
         <div className={classes.callWrap}>
-          <div className={classes.col}>
+          <div className={classes.colA}>
             <h4>Designed for your child</h4>
             <p>
               Our collaboration with you begins with conversation and in-home
               assessment.
             </p>
-            <a href="https://mebefamily.com/contact/" className="button">
-              Let's Talk
-            </a>
+            <a className="button">Let's Talk</a>
           </div>
 
-          <div className={classes.col}>
+          <div className={classes.colA}>
             <h4>Closing the gap</h4>
             <p>
               The sooner you seek help, the better the long-term outcomes are
               likely to be.
             </p>
-            <a href="https://mebefamily.com/services/" className="button">
-              Start Now
-            </a>
+            <a className="button">Start Now</a>
           </div>
 
-          <div className={classes.col}>
+          <div className={classes.colA}>
             <h4>Help with paperwork</h4>
             <p>
               We help expedite the insurance process to get your child started
               as soon as possible.
             </p>
-            <a
-              href="https://mebefamily.com/getting-started/insurance/"
-              className="button"
-            >
-              Paperwork &amp; Insurance
-            </a>
+            <a className="button">Paperwork &amp; Insurance</a>
           </div>
         </div>
       </section>
-      <footer className="footer" />
+      <footer className={classes.mainFooter}>
+        <div className={classes.fwrap}>
+          <div className={classes.footerBrand}>
+            <h3>
+              Everyone deserves <br />
+              the chance to live <br />
+              their best life
+            </h3>
+          </div>
+
+          <nav className={classes.footerNav}>
+            <div className={classes.col}>
+              <h4>MeBe</h4>
+              <ul>
+                <li>
+                  <a>Homepage</a>
+                </li>
+                <li>
+                  <a>Contact</a>
+                </li>
+                <li>
+                  <a>Locations</a>
+                </li>
+              </ul>
+            </div>
+
+            <div className={classes.col}>
+              <h4>Getting Started</h4>
+              <ul>
+                <li>
+                  <a>Getting Started</a>
+                </li>
+                <li>
+                  <a>Access Services</a>
+                </li>
+                <li>
+                  <a>Insurance</a>
+                </li>
+              </ul>
+            </div>
+
+            <div className={classes.col}>
+              <h4>Services</h4>
+              <ul>
+                <li>
+                  <a>Our Approach</a>
+                </li>
+                <li>
+                  <a>Early Intervention</a>
+                </li>
+                <li>
+                  <a>Social Skills</a>
+                </li>
+                <li>
+                  <a>Speech</a>
+                </li>
+                <li>
+                  <a>School Services</a>
+                </li>
+              </ul>
+            </div>
+
+            <div className={classes.col}>
+              <h4>About</h4>
+              <ul>
+                <li>
+                  <a>Our Story</a>
+                </li>
+                <li>
+                  <a>Our People</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </footer>
     </div>
   );
 };

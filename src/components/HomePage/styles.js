@@ -297,7 +297,7 @@ export default {
     zIndex: '10',
     position: 'relative',
   },
-  col: {
+  colA: {
     width: '33%',
     textAlign: 'center',
     display: 'flex',
@@ -336,6 +336,62 @@ export default {
       borderRadius: 0,
     },
   },
+  //Footer
+  mainFooter: {
+    padding: '9rem 0',
+    background: '#272c30',
+  },
+  fwrap: {
+    display: 'flex',
+    justifyContent: 'center',
+    flexWrap: 'wrap',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    width: '90%',
+    maxWidth: '1500px',
+    zIndex: '10',
+    position: 'relative',
+  },
+  footerBrand: {
+    width: '50%',
+    '& > h3': {
+      color: '#fff',
+      fontSize: '4.5rem',
+      lineHeight: '5.5rem',
+      margin: '0',
+    },
+  },
+  footerNav: {
+    width: '50%',
+    display: 'flex',
+    justifyContent: 'space-between',
+    paddingTop: '1rem',
+  },
+  col: {
+    '& >h4': {
+      color: 'rgba(255,255,255,0.5)',
+      fontSize: '1.333rem',
+      lineHeight: '1.5rem',
+      margin: '0 0 2rem 0',
+      textTransform: 'uppercase',
+    },
+    '& > ul': {
+      margin: '0',
+      padding: '0',
+      listStyleType: 'none',
+      color: '#fff',
+      fontSize: '1.5rem',
+      lineHeight: '2rem',
+      '& li': {
+        marginBottom: '1rem',
+        '& a': {
+          color: '#fff',
+          textDecoration: 'none',
+        },
+      },
+    },
+  },
+
   //@MEDIA
   '@media (min-width: 2000px)': {
     topSection: {
@@ -429,7 +485,7 @@ export default {
     callToAction: {
       padding: '10rem 0 30rem 0',
     },
-    col: {
+    colA: {
       '& > h4': {
         fontSize: '2.5rem',
         lineHeight: '3.5rem',
@@ -548,7 +604,7 @@ export default {
       padding: '5rem 0 25rem 0',
       backgroundSize: 'contain',
     },
-    col: {
+    colA: {
       '& > h4': {
         fontSize: '2rem',
         lineHeight: '2.5rem',
@@ -562,6 +618,33 @@ export default {
       '& > a': {
         minWidth: '10rem',
         padding: '1.5rem 2rem',
+      },
+    },
+    //footer
+    mainFooter: {
+      padding: '5rem 0 0 0',
+    },
+    footerBrand: {
+      width: '40%',
+      '& > h3': {
+        fontSize: '3rem',
+        lineHeight: '3.5rem',
+      },
+    },
+    footerNav: {
+      width: '60%',
+    },
+    col: {
+      '& > ul': {
+        fontSize: '1.25rem',
+        lineHeight: '1.75rem',
+        '& li': {
+          margin: '0rem',
+          '& a': {
+            color: '#fff',
+            textDecoration: 'none',
+          },
+        },
       },
     },
   },
@@ -676,7 +759,7 @@ export default {
     callWrap: {
       width: '80%',
     },
-    col: {
+    colA: {
       width: '80%',
       textAlign: 'left',
       marginBottom: '5rem',
@@ -688,6 +771,32 @@ export default {
       },
       '& > a': {
         width: '100%',
+      },
+    },
+    //footer
+    mainFooter: {
+      padding: '3rem 0',
+    },
+    fwrap: {
+      paddingBottom: '3rem',
+    },
+    footerBrand: {
+      display: 'none',
+    },
+    footerNav: {
+      width: '100%',
+      flexDirection: 'column',
+      paddingTop: '0',
+    },
+    col: {
+      padding: '0 0 2rem 0',
+      '& > h4': {
+        margin: '0 0 1rem 0',
+      },
+      '& > ul': {
+        '& li': {
+          margin: '0rem',
+        },
       },
     },
   },
