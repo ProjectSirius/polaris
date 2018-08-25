@@ -3,51 +3,70 @@ import { connect } from 'react-redux';
 import { reduxForm } from 'redux-form';
 import { createStructuredSelector } from 'reselect';
 
-import { selectCurrentUser, selectIsAuth } from '../selectors';
+import {
+  selectCurrentUser,
+  selectIsAuth,
+  selectGenres,
+  selectError,
+} from '../selectors';
 
-import { setFilters } from '../actions';
-import search from '../actions/data';
+import { getData as search, getGenres, toggleGenre } from '../actions';
 
 import CheckboxFilter from '../components/CheckboxFilter';
 
-const CheckboxFilterContainer = ({
-  currentUser,
-  isAuth,
-  search,
-  setFilters,
-}) => {
-  const handleChange = (dataType, query, filter) => {
-    setFilters(filter);
-    search(dataType, query, filter);
-  };
-  return (
-    <CheckboxFilter
-      handleChange={handleChange}
-      currentUser={currentUser}
-      isAuth={isAuth}
-    />
-  );
-};
+class CheckboxFilterContainer extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  componentDidMount() {
+    this.props.getGenres();
+  }
+
+  handleChange(id, bool) {
+    const { genres } = this.props;
+
+    this.props.toggleGenre(id, bool, this.props.genres);
+    this.props.search(undefined, genres);
+  }
+
+  render() {
+    const { currentUser, isAuth, genres, checkBoxError } = this.props;
+
+    if (checkBoxError) {
+      return <strong>Sorry, something went wrong!</strong>;
+    }
+
+    return (
+      <CheckboxFilter
+        handleChange={this.handleChange}
+        currentUser={currentUser}
+        isAuth={isAuth}
+        genres={genres}
+      />
+    );
+  }
+}
 
 const CheckboxFilterForm = reduxForm({
   form: 'CheckboxFilter_form',
-  initialValues: {
-    checkbox1: false,
-    checkbox2: false,
-    checkbox3: false,
-  },
   destroyOnUnmount: false,
 })(CheckboxFilterContainer);
 
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
   isAuth: selectIsAuth,
+  genres: selectGenres,
+  checkBoxError: selectError,
 });
 
 export default connect(
   mapStateToProps,
   {
     search,
-    setFilters,
+    getGenres,
+    toggleGenre,
   }
 )(CheckboxFilterForm);

@@ -21,8 +21,8 @@ const App = ({ content, title }) => {
       <Switch>
         <Route exact path="/" component={HomePageContainer} />
         <Route path="/login" component={LogIn} />
-        <Route path="/signUpAudience" component={SignUpAudienceContainer} />
-        <Route path="/signUpContentMaker" component={SignUpContentMaker} />
+        <Route path="/audience-sign-up" component={SignUpAudienceContainer} />
+        <Route path="/content-sign-up" component={SignUpContentMaker} />
         <ProtectedRouteContainer
           path="/audience"
           component={AudienceHomePage}

@@ -26,12 +26,11 @@ export default {
     confAndSearchWrapper: {
       width: '100%',
 
-      '&  div': {
+      '& div': {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
         width: '100%',
-        margin: '10px 0',
       },
     },
   },

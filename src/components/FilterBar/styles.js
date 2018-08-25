@@ -74,15 +74,15 @@ export default {
       borderRadius: 0,
     },
 
-    closeFilter: {
+    closeFilterWrapper: {
       width: '40%',
+    },
 
-      '& > span': {
-        color: '#fff',
-        fontSize: '20px',
-        cursor: 'pointer',
-        marginLeft: 'auto',
-      },
+    closeFilter: {
+      color: '#fff',
+      fontSize: '20px !important',
+      cursor: 'pointer',
+      marginLeft: 'auto',
     },
   },
 };
