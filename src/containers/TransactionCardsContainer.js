@@ -2,15 +2,20 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
-import { selectTransaction, selectIsRequesting } from '../selectors';
+import {
+  selectTransaction,
+  selectIsRequesting,
+  selectError,
+} from '../selectors';
 
 import { getTransactions } from '../actions';
 
-import TransactionCards from '../components/TransactionCards/TransactionCards';
+import TransactionCards from '../components/TransactionCards/';
 
 const mapStateToProps = createStructuredSelector({
   transactions: selectTransaction,
   isRequesting: selectIsRequesting,
+  transError: selectError,
 });
 
 class TransactionCardsContainer extends React.Component {
@@ -21,7 +26,11 @@ class TransactionCardsContainer extends React.Component {
   }
 
   render() {
-    const { transactions, isRequesting } = this.props;
+    const { transactions, isRequesting, transError } = this.props;
+
+    if (transError) {
+      return <strong>Sorry, something went wrong!</strong>;
+    }
 
     return (
       <TransactionCards

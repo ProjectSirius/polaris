@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { Icon, Button, Modal } from 'semantic-ui-react';
+import { Icon, Button, Responsive, Modal } from 'semantic-ui-react';
 import { injectIntl, defineMessages } from 'react-intl';
 
 import StarRating from '../../containers/StarRating';
@@ -119,14 +119,19 @@ class FilterBar extends PureComponent {
               </Modal>
             </div>
           </div>
-
-          {isOpen ? (
-            <span onClick={this.handleClick} className={classes.closeFilter}>
-              <Icon name="remove" />
-            </span>
-          ) : (
-            ''
-          )}
+          <Responsive
+            onClick={this.handleClick}
+            className={classes.closeFilterWrapper}
+            maxWidth={586}
+          >
+            {isOpen ? (
+              <span className={classes.closeFilter}>
+                <Icon name="remove" />
+              </span>
+            ) : (
+              ''
+            )}
+          </Responsive>
         </div>
       </div>
     );

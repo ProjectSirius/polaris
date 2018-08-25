@@ -1,5 +1,6 @@
-import { NOTIF_SUCCESS, NOTIF_FAILURE, NOTIF_REQUEST } from './constants';
 import axios from 'axios';
+
+import { NOTIF_SUCCESS, NOTIF_FAILURE, NOTIF_REQUEST } from './constants';
 
 const notifReceive = data => ({
   type: NOTIF_SUCCESS,

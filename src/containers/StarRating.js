@@ -11,17 +11,10 @@ import {
 import { rating, setFilters } from '../actions';
 import search from '../actions/data';
 
-let StarRatingContainer = ({
-  updRating,
-  setFilters,
-  search,
-  isAuth,
-  currentUser,
-}) => {
-  const onRatingChange = (dataType, query, filter, rating) => {
-    updRating(rating);
-    setFilters(filter);
-    search(dataType, query);
+let StarRatingContainer = ({ updRating, search, isAuth, currentUser }) => {
+  const onRatingChange = (e, data) => {
+    updRating(data.rating);
+    search();
   };
 
   return (

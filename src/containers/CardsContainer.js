@@ -25,15 +25,7 @@ class CardsContainer extends React.Component {
   }
 
   componentDidMount() {
-    const { isAuth, currentUser } = this.props;
-
-    const dataType = isAuth
-      ? currentUser.userType === 'content_owner'
-        ? 'channels'
-        : 'contents'
-      : '';
-
-    this.props.getData(dataType, '');
+    this.props.getData('');
     window.addEventListener('scroll', this.onScroll, false);
   }
 

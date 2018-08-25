@@ -16,6 +16,7 @@ import getDetails from './details';
 import edit from './edit';
 import { addToGroupOffer } from './groupOffer';
 import { removeFromGroupOffer } from './groupOffer';
+import getGenres, { toggleGenre } from './genres';
 
 export {
   signUp,
@@ -37,4 +38,6 @@ export {
   edit,
   addToGroupOffer,
   removeFromGroupOffer,
+  getGenres,
+  toggleGenre,
 };

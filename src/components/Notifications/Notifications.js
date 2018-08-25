@@ -28,7 +28,7 @@ const Notifications = ({ notifs, classes }) => (
   >
     <Dropdown.Menu className={classes.dropdownMenu}>
       {notifs.map(({ body, id }) => (
-        <DropdownItem id={id}>
+        <DropdownItem key={id} id={id}>
           <Feed>
             <Feed.Event
               as={Link}
