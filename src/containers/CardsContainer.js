@@ -11,11 +11,11 @@ import {
   selectLanguage,
 } from '../selectors';
 
-import { getData } from '../actions';
+import { getData, groupOffer } from '../actions';
 
 import Cards from '../components/Cards';
 
-class FilterBarContainer extends React.Component {
+class CardsContainer extends React.Component {
   constructor(props) {
     super(props);
 
@@ -23,15 +23,7 @@ class FilterBarContainer extends React.Component {
   }
 
   componentDidMount() {
-    const { isAuth, currentUser } = this.props;
-
-    const dataType = isAuth
-      ? currentUser.userType === 'content_owner'
-        ? 'channels'
-        : 'contents'
-      : '';
-
-    this.props.getData(dataType, '');
+    this.props.getData('');
     window.addEventListener('scroll', this.onScroll, false);
   }
 
@@ -45,7 +37,15 @@ class FilterBarContainer extends React.Component {
   }
 
   render() {
-    const { data, isRequesting, view, type, lang } = this.props;
+    const {
+      data,
+      isRequesting,
+      view,
+      type,
+      lang,
+      isGroupOffering,
+      groupOffer,
+    } = this.props;
 
     return (
       <Cards
@@ -54,6 +54,8 @@ class FilterBarContainer extends React.Component {
         isRequesting={isRequesting}
         view={view}
         lang={lang}
+        isGroupOffering={isGroupOffering}
+        groupOffer={groupOffer}
       />
     );
   }
@@ -72,5 +74,6 @@ export default connect(
   mapStateToProps,
   {
     getData,
+    groupOffer,
   }
-)(FilterBarContainer);
+)(CardsContainer);

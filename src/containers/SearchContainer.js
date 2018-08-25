@@ -3,27 +3,31 @@ import { connect } from 'react-redux';
 import { reduxForm } from 'redux-form';
 import { createStructuredSelector } from 'reselect';
 
-import { selectCurrentUser, selectIsAuth } from '../selectors';
+import {
+  selectCurrentUser,
+  selectIsAuth,
+  selectIsRequesting,
+} from '../selectors';
 
 import search from '../actions/data';
 
 import Search from '../components/Search';
 
 class SearchContainer extends Component {
-  handleSearch = (dataType, query) => {
+  handleSearch = searchValue => {
     const { search } = this.props;
 
-    search(dataType, query);
+    search(searchValue);
   };
 
   render() {
-    const { isAuth, currentUser } = this.props;
-
+    const { isAuth, currentUser, isRequesting } = this.props;
     return (
       <Search
         handleSearch={this.handleSearch}
         isAuth={isAuth}
         currentUser={currentUser}
+        isRequesting={isRequesting}
       />
     );
   }
@@ -32,6 +36,7 @@ class SearchContainer extends Component {
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
   isAuth: selectIsAuth,
+  isRequesting: selectIsRequesting,
 });
 
 const mapDispatchToProps = dispatch => ({

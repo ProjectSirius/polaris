@@ -48,7 +48,7 @@ export default {
     padding: '10px',
   },
 
-  '@media screen and (max-width: 640px)': {
+  '@media screen and (max-width: 650px)': {
     filterWrapper: {
       width: '100%',
     },
@@ -57,7 +57,7 @@ export default {
       display: 'flex',
       width: '100%',
       position: 'absolute',
-      zIndex: '10000',
+      zIndex: '30000000',
       left: '-100%',
       top: 60,
       transition: 'background .2s ease-out,left .2s ease-out .1s',
@@ -74,13 +74,15 @@ export default {
       borderRadius: 0,
     },
 
+    closeFilterWrapper: {
+      width: '40%',
+    },
+
     closeFilter: {
-      '& > span': {
-        color: '#fff',
-        fontSize: '20px',
-        cursor: 'pointer',
-        marginLeft: 'auto',
-      },
+      color: '#fff',
+      fontSize: '20px !important',
+      cursor: 'pointer',
+      marginLeft: 'auto',
     },
   },
 };

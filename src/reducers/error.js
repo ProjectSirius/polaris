@@ -5,6 +5,10 @@ import {
   DATA_SEND_FAILURE,
   DATA_REQUEST,
   LOGOUT_SUCCESS,
+  LOGIN_REQUEST,
+  TRANSACTION_FAILURE,
+  NOTIF_FAILURE,
+  GENRES_FAILURE,
 } from '../actions/constants';
 
 const error = (state = '', action) => {
@@ -13,9 +17,13 @@ const error = (state = '', action) => {
     case LOGIN_FAILURE:
     case DATA_RECEIVE_FAILURE:
     case DATA_SEND_FAILURE:
-      return action.payload.error.message ? action.payload.error.message : '';
+    case TRANSACTION_FAILURE:
+    case NOTIF_FAILURE:
+    case GENRES_FAILURE:
+      return action.payload.error;
     case DATA_REQUEST:
     case LOGOUT_SUCCESS:
+    case LOGIN_REQUEST:
       return '';
     default:
       return state;

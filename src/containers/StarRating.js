@@ -11,6 +11,21 @@ import {
 import { rating, setFilters } from '../actions';
 import search from '../actions/data';
 
+let StarRatingContainer = ({ updRating, search, isAuth, currentUser }) => {
+  const onRatingChange = (e, data) => {
+    updRating(data.rating);
+    search();
+  };
+
+  return (
+    <StarRating
+      onRatingChange={onRatingChange}
+      isAuth={isAuth}
+      currentUser={currentUser}
+    />
+  );
+};
+
 const mapStateToProps = createStructuredSelector({
   rating: selectFilteringPageRating,
   isAuth: selectIsAuth,
@@ -24,35 +39,7 @@ const mapDispatchToProps = dispatch => ({
     dispatch(search(dataType, query, filter)),
 });
 
-let StarRatingContainer = ({
-  updRating,
-  setFilters,
-  search,
-  isAuth,
-  currentUser,
-  rating,
-}) => {
-  const handleChange = (dataType, query, filter, rating) => {
-    updRating(rating);
-    setFilters(filter);
-    search(dataType, query);
-  };
-
-  return (
-    <StarRating
-      min={1}
-      max={5}
-      onChange={handleChange}
-      value={rating}
-      isAuth={isAuth}
-      currentUser={currentUser}
-    />
-  );
-};
-
-StarRatingContainer = connect(
+export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(StarRatingContainer);
-
-export default StarRatingContainer;

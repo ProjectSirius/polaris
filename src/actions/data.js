@@ -3,7 +3,8 @@ import {
   DATA_RECEIVE_SUCCESS,
   DATA_RECEIVE_FAILURE,
 } from './constants';
-import get from '../helpers/axiosWrapper';
+import { doPost } from '../api/request';
+import { selectChoosenGenres, selectSearch, selectRating } from '../selectors';
 
 const dataRequest = isRequesting => ({
   type: DATA_REQUEST,
@@ -20,35 +21,27 @@ const dataReceiveFailure = error => ({
   payload: { error },
 });
 
-const getData = (dataType, query = '') => (dispatch, getState) => {
-  // Ask if its's a right approach
-  const filters = getState().filters;
+const getData = (searchValue, genresValue) => (dispatch, getState) => {
+  const dataType =
+    getState().currentUser.type === 'content_owner'
+      ? 'channels/search'
+      : 'contents';
 
-  let filtersQuery = !filters
-    ? ''
-    : filters.reduce((acc, el) => {
-        if (!el.value) return null;
-        return acc + ('&' + el.filterName + '=' + el.value);
-      }, '');
-
-  let url = !query
-    ? `https://my-json-server.typicode.com/angela0202/fake-db/${dataType}`
-    : `https://my-json-server.typicode.com/angela0202/fake-db/${dataType}?q=${query}`;
-
-  if (!query && !filtersQuery) {
-    url = `https://my-json-server.typicode.com/angela0202/fake-db/${dataType}`;
-  } else if (!query && filtersQuery) {
-    url = `https://my-json-server.typicode.com/angela0202/fake-db/${dataType}${filtersQuery}`;
-  } else if (query && !filtersQuery) {
-    url = `https://my-json-server.typicode.com/angela0202/fake-db/${dataType}?q=${query}`;
-  } else if (query && filtersQuery) {
-    url = `https://my-json-server.typicode.com/angela0202/fake-db/${dataType}?q=${query}${filtersQuery}`;
-  }
+  /* eslint-disable */
+  const search = searchValue ? searchValue : selectSearch(getState());
+  const rating = selectRating(getState());
+  const genres = selectChoosenGenres(getState());
+  /* eslint-enable */
 
   dispatch(dataRequest(true));
 
-  return get(url)
-    .then(payload => dispatch(dataReceiveSuccess(payload.data)))
+  return doPost(dataType, {
+    page: 1,
+    query: search,
+  })
+    .then(payload => {
+      return dispatch(dataReceiveSuccess(payload.channels));
+    })
     .catch(err => dispatch(dataReceiveFailure(err)));
 };
 

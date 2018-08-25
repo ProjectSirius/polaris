@@ -10,7 +10,7 @@ export default {
   },
 
   confWrapper: {
-    width: '33%',
+    width: '100%',
     maxWidth: '200px',
     display: 'flex',
     flexDirection: 'column',
@@ -22,15 +22,15 @@ export default {
     },
   },
 
-  '@media screen and (max-width: 640px)': {
+  '@media screen and (max-width: 645px)': {
     confAndSearchWrapper: {
-      flexDirection: 'column',
-      '& > div': {
+      width: '100%',
+
+      '& div': {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
         width: '100%',
-        margin: '10px 0',
       },
     },
   },

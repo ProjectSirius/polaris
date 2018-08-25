@@ -1,36 +1,76 @@
 import React from 'react';
-import { Glyphicon } from 'react-bootstrap';
+import { Card, Image, Icon, Form } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 
-const Card = ({ info: { title, briefDescription, date }, classes, view }) => {
+const CardComponent = ({
+  info: { title, description, date, id },
+  classes,
+  view,
+  type,
+  lang,
+  groupOffer,
+}) => {
   return (
-    <article
+    <Card
       className={`${classes.card} ${view === 'list' ? classes.cardList : ''}`}
     >
-      <header
-        className={`${classes.cardHeader} ${
-          view === 'list' ? classes.cardHeaderList : ''
-        }`}
+      <Form.Checkbox
+        className={classes.chadCheck}
+        onChange={(e, data) => groupOffer({ id, value: data.checked })}
+      />
+      <Link
+        className={
+          view === 'table' ? classes.parentLinkGrid : classes.parentLinkList
+        }
+        to={{
+          pathname: `/${type}/${id}`,
+          search: `?locale=${lang}`,
+        }}
       >
-        <h4 className={classes.cardHeaderTitle}>Think Different</h4>
-      </header>
-      <div className={classes.cardBody}>
-        <p className={classes.date}>{date}</p>
-        <h3 className={classes.mainTitle}>{title}</h3>
-        <p className={classes.bodyContent}>
-          {view === 'list'
-            ? briefDescription
-            : `${briefDescription.slice(0, 180)}..`}
-        </p>
-      </div>
+        <Image
+          src="https://source.unsplash.com/user/erondu/600x400"
+          size={view === 'list' ? 'medium' : 'large'}
+        />
+        <Card.Content className={classes.cardContent}>
+          <p className={classes.date}>{date}</p>
+          <Card.Header className={classes.mainTitle}>{title}</Card.Header>
+          <Card.Description className={classes.bodyContent}>
+            {view === 'list'
+              ? description
+              : view === 'list'
+                ? `${description.slice(0, 250)}..`
+                : `${description.slice(0, 140)}..`}
+          </Card.Description>
+        </Card.Content>
+      </Link>
       {view === 'list' ? (
         ''
       ) : (
-        <button className={`${classes.button} ${classes.buttonPrimary}`}>
-          <Glyphicon glyph="glyphicon glyphicon-chevron-right" /> Find out more
-        </button>
+        <Card.Content extra style={{ display: 'flex' }}>
+          <Link to={`/channel/${id}`}>
+            <span className={classes.moreOffer}>
+              <Icon
+                name="chevron circle right"
+                size="large"
+                className={classes.iconColor}
+              />
+              <span>Find out more</span>
+            </span>
+          </Link>
+          <Link to="/">
+            <span className={classes.moreOffer} onClick={() => {}}>
+              <Icon
+                name="shopping cart"
+                size="large"
+                className={classes.iconColor}
+              />
+              <span>Make an offer</span>
+            </span>
+          </Link>
+        </Card.Content>
       )}
-    </article>
+    </Card>
   );
 };
 
-export default Card;
+export default CardComponent;

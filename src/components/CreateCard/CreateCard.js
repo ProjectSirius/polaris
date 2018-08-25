@@ -55,6 +55,7 @@ class CreateCard extends React.Component {
       messages,
       formatMessage,
       userType,
+      data,
     } = this.props;
 
     return (
@@ -89,14 +90,14 @@ class CreateCard extends React.Component {
             <Field
               label={formatMessage(messages.briefDescription)}
               component={RenderField}
-              name="description"
+              name="briefDescription"
               className={`${classes.inputFiled} `}
               componentClass="textarea"
             />
             <Field
               label={formatMessage(messages.detailedDescription)}
               component={RenderField}
-              name="detailedText"
+              name="detailed_text"
               className={`${classes.inputFiled} ${classes.textarea}`}
               componentClass="textarea"
             />
@@ -111,7 +112,7 @@ class CreateCard extends React.Component {
               <Field
                 label={formatMessage(messages.per)}
                 component={RenderField}
-                name="count"
+                name="perUnit"
                 placeholder="1000"
                 type="number"
               />
@@ -139,7 +140,7 @@ class CreateCard extends React.Component {
               <ControlLabel>
                 <span>{formatMessage(messages.tags)}</span>
                 <Tags
-                  tags={tags}
+                  tags={data.tags ? data.tags : tags}
                   placeholder={formatMessage(messages.tagPlaceholder)}
                   onAdded={this.onTagAdded.bind(this)}
                   onRemoved={this.onTagRemoved.bind(this)}

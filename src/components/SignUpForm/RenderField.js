@@ -1,25 +1,35 @@
 import React from 'react';
-import { FormGroup, FormControl } from 'react-bootstrap';
+import { Form, Label } from 'semantic-ui-react';
 
-const TextField = ({ id, label, touched, error, ...props }) => {
+const TextField = ({ id, icon, label, touched, error, classes, ...props }) => {
   return (
-    <div>
-      <FormGroup
-        validationState={touched && error ? 'error' : null}
-        controlId={id}
-        className="input-container"
-      >
-        <FormControl {...props} className="error" />
-        {touched && error ? <span>{error}</span> : ''}
-      </FormGroup>
-    </div>
+    <Form.Field className={classes.fieldReset} widths="equal">
+      <label>{label}:</label>
+      <Form.Input icon={icon ? icon : ''} iconPosition="left" {...props} />
+      {touched && error ? (
+        <Label pointing className={classes.label}>
+          {error}
+        </Label>
+      ) : (
+        ''
+      )}
+    </Form.Field>
   );
 };
 
-const renderField = ({ input, meta: { touched, error }, ...custom }) => (
-  <div>
-    <TextField touched={touched} error={error} {...input} {...custom} />
-  </div>
+const renderField = ({
+  input,
+  classes,
+  meta: { touched, error },
+  ...custom
+}) => (
+  <TextField
+    touched={touched}
+    classes={classes}
+    error={error}
+    {...input}
+    {...custom}
+  />
 );
 
 export default renderField;

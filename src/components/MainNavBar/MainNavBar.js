@@ -2,40 +2,45 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { injectIntl, defineMessages } from 'react-intl';
-
-import { DropdownButton, MenuItem, Glyphicon } from 'react-bootstrap';
-
-import AuthButtonsContainer from '../../containers/AuthButtonsContainer';
+import { Menu, Icon, Dropdown, Grid, Responsive } from 'semantic-ui-react';
+import Notifications from '../../containers/NotifsContainer';
 
 const messages = defineMessages({
   audience: {
     id: 'audience',
     defaultMessage: 'Audience',
   },
+
   content: {
     id: 'content',
     defaultMessage: 'Content',
   },
+
   closeMessage: {
     id: 'close-message',
     defaultMessage: 'CLOSE',
   },
+
   menu: {
     id: 'menu',
     defaultMessage: 'MENU',
   },
+
   langRu: {
     id: 'ru',
     defaultMessage: 'Русский',
   },
+
   langEn: {
     id: 'en',
     defaultMessage: 'English',
   },
+
   logOut: {
     id: 'log-out',
     defaultMessage: 'Log out',
   },
+
   projectTitle: {
     id: 'project-title',
     defaultMessage: 'Polaris',
@@ -46,156 +51,225 @@ class MainNavBar extends React.Component {
   constructor(props) {
     super(props);
 
-    this.handleClick = this.handleClick.bind(this);
+    this.state = {
+      activeItem: '',
+      width: window.width,
+      height: window.height,
+    };
+
+    this.menuToggler = this.menuToggler.bind(this);
     this.handleLogOut = this.handleLogOut.bind(this);
+    this.navItemChecker = this.navItemChecker.bind(this);
+    this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
   }
 
-  handleClick() {
+  componentDidMount() {
+    window.addEventListener('resize', this.updateWindowDimensions);
+    this.updateWindowDimensions();
+  }
+
+  updateWindowDimensions() {
+    this.setState({ width: window.innerWidth, height: window.innerHeight });
+  }
+
+  navItemChecker(e, { name }) {
+    this.setState({ activeItem: name });
+  }
+
+  menuToggler() {
     const { toggleMenu, isOpen } = this.props;
 
     toggleMenu(!isOpen);
   }
 
-  handleLogOut() {
+  handleLogOut(name) {
     const { logOut } = this.props;
 
+    this.setState({ activeItem: name });
     logOut();
   }
 
   render() {
-    const path = window.location.pathname;
     const {
-      lang,
       isOpen,
       isAuth,
       classes,
       intl: { formatMessage },
+      currentUser,
     } = this.props;
+    const { activeItem, width } = this.state;
 
     return (
-      <header className={classes.mainNavHeader}>
-        <div className={classes.topNav}>
-          <div className={classes.hamburger} onClick={this.handleClick}>
-            {isOpen ? (
-              <React.Fragment>
-                <Glyphicon glyph="glyphicon glyphicon-remove" />
-                <span className={classes.hamburgerTitle}>
-                  {formatMessage(messages.closeMessage)}
-                </span>
-              </React.Fragment>
-            ) : (
-              <React.Fragment>
-                <Glyphicon glyph="glyphicon glyphicon-align-justify" />
-                <span className={classes.hamburgerTitle}>
-                  {formatMessage(messages.menu)}
-                </span>
-              </React.Fragment>
-            )}
-          </div>
-          <div className={classes.mainNavTitleWrapper}>
-            <h2 className={classes.mainNavTitle}>
-              <Link
-                to={{
-                  pathname: '/',
-                  search: `?locale=${lang}`,
-                }}
+      <React.Fragment>
+        {width < 768 && (
+          <Menu
+            className={classes.smallScreenMenu}
+            pointing
+            secondary
+            size="huge"
+            fixed="true"
+            stackable
+          >
+            <Grid>
+              <Grid.Row columns={2}>
+                <Grid.Column floated="left">
+                  <Menu.Item
+                    name=""
+                    onClick={this.navItemChecker}
+                    as={Link}
+                    to="/"
+                    className={classes.mainTitle}
+                  >
+                    <Icon name="home" />
+                    {formatMessage(messages.projectTitle)}
+                  </Menu.Item>
+                </Grid.Column>
+                <Grid.Column floated="right" textAlign="right">
+                  <Menu.Item position="right" className={classes.burgerWrapper}>
+                    <Grid.Column floated="right" textAlign="right">
+                      <Icon
+                        name="bars"
+                        className={classes.hamburger}
+                        onClick={this.menuToggler}
+                      />
+                    </Grid.Column>
+                  </Menu.Item>
+                </Grid.Column>
+              </Grid.Row>
+            </Grid>
+          </Menu>
+        )}{' '}
+        {(isOpen || width > 768) && (
+          <Menu
+            className={classes.mainNavBar}
+            pointing
+            secondary
+            size="huge"
+            fixed="top"
+            stackable
+          >
+            <Responsive minWidth="768">
+              <Menu.Item
+                as={Link}
+                to="/"
+                name=""
+                onClick={this.navItemChecker}
+                className={classes.mainTitle}
               >
-                <img
-                  className={classes.mainLogo}
-                  src={require('../../assets/polaris.png')}
-                  alt="Polaris"
+                <Icon name="home" />
+                {formatMessage(messages.projectTitle)}
+              </Menu.Item>
+            </Responsive>
+            <Menu.Item
+              as={Link}
+              to="/audience"
+              active={activeItem === formatMessage(messages.audience)}
+              onClick={this.navItemChecker}
+              name={formatMessage(messages.audience)}
+              className={classes.menuItem}
+            >
+              {formatMessage(messages.audience)}
+            </Menu.Item>
+            <Menu.Item
+              as={Link}
+              to="/contentowner"
+              active={activeItem === formatMessage(messages.content)}
+              onClick={this.navItemChecker}
+              className={classes.menuItem}
+              name={formatMessage(messages.content)}
+            >
+              {formatMessage(messages.content)}
+            </Menu.Item>
+            {isAuth && (
+              <Menu.Item
+                as={Notifications}
+                active={activeItem === 'notifications'}
+                onClick={this.navItemChecker}
+                name="notifications"
+                className={classes.menuItem}
+              />
+            )}
+            <Menu.Item
+              as={Link}
+              to="/dashboard"
+              active={activeItem === 'dashboard'}
+              onClick={this.navItemChecker}
+              className={classes.menuItem}
+              name="Dashboard"
+            >
+              Dashboard
+            </Menu.Item>
+
+            {isAuth ? (
+              <Menu.Menu position="right">
+                <Menu.Item className={classes.menuItemSettings} name="settings">
+                  <Dropdown
+                    pointing="top right"
+                    trigger={
+                      <span>
+                        <Icon name="user" />{' '}
+                        <strong>Hello, {currentUser.username}!</strong>
+                      </span>
+                    }
+                  >
+                    <Dropdown.Menu>
+                      <Dropdown.Item
+                        disabled
+                        text={`Signed in as ${currentUser.username}`}
+                        className={classes.dropLink}
+                      />
+                      <Dropdown.Divider />
+                      <Dropdown.Item
+                        as={Link}
+                        to="/profile"
+                        text="Profile"
+                        className={classes.dropLink}
+                      />
+                      <Dropdown.Item text="Help" className={classes.dropLink} />
+                      <Dropdown.Divider />
+                      <Dropdown.Item
+                        onClick={this.handleLogOut}
+                        text="Log Out"
+                        className={classes.dropLink}
+                      />
+                    </Dropdown.Menu>
+                  </Dropdown>
+                </Menu.Item>
+              </Menu.Menu>
+            ) : (
+              <Menu.Menu position="right">
+                <Menu.Item
+                  name="login"
+                  as={Link}
+                  to="/login"
+                  active={activeItem === 'login'}
+                  className={classes.menuItem}
+                  onClick={this.navItemChecker}
                 />
-              </Link>
-            </h2>
-          </div>
-          <div className={classes.authBig}>
-            {isAuth ? (
-              <div className={classes.navLinksAuth}>
-                <div
-                  className={classes.navLinkLogout}
-                  onClick={this.handleLogOut}
-                >
-                  <span>{formatMessage(messages.logOut)}</span>
-                </div>
-              </div>
-            ) : (
-              <AuthButtonsContainer />
+                <Menu.Item className={classes.signUp}>
+                  <Dropdown text="Sign Up" floating error>
+                    <Dropdown.Menu>
+                      <Dropdown.Item
+                        as={Link}
+                        to="/audience-sign-up"
+                        text="as DJ"
+                        className={classes.dropLink}
+                      />
+                      <Dropdown.Divider />
+                      <Dropdown.Item
+                        as={Link}
+                        to="/content-sign-up"
+                        text="as Composer"
+                        className={classes.dropLink}
+                      />
+                    </Dropdown.Menu>
+                  </Dropdown>
+                </Menu.Item>
+              </Menu.Menu>
             )}
-          </div>
-        </div>
-        <div
-          className={
-            isOpen
-              ? `${classes.mainNav} ${classes.mainNavOpened}`
-              : classes.mainNav
-          }
-        >
-          <nav className={classes.navLinks}>
-            <div className={classes.navLink}>
-              <Link
-                to={{
-                  pathname: '/audience',
-                  search: `?locale=${lang}`,
-                }}
-              >
-                {formatMessage(messages.audience)}
-              </Link>
-            </div>
-            <div className={classes.navLink}>
-              <Link
-                to={{
-                  pathname: '/contentowner',
-                  search: `?locale=${lang}`,
-                }}
-              >
-                {formatMessage(messages.content)}
-              </Link>
-            </div>
-          </nav>
-          <div className={classes.authSmall}>
-            {isAuth ? (
-              <div className={classes.navLinksAuth}>
-                <div
-                  className={classes.navLinkLogout}
-                  onClick={this.handleLogOut}
-                >
-                  <span>{formatMessage(messages.logOut)}</span>
-                </div>
-              </div>
-            ) : (
-              <AuthButtonsContainer />
-            )}
-          </div>
-          <div className={classes.mainNavRight}>
-            <div className={classes.languagesWrapper}>
-              <div className={classes.languages}>
-                <DropdownButton
-                  bsStyle="default"
-                  title={lang}
-                  id="lang-dropdown"
-                  pullRight
-                >
-                  <MenuItem
-                    href={`${path}?locale=ru`}
-                    eventKey="1"
-                    active={lang === 'ru'}
-                  >
-                    {formatMessage(messages.langRu)}
-                  </MenuItem>
-                  <MenuItem divider />
-                  <MenuItem
-                    href={`${path}?locale=en`}
-                    eventKey="2"
-                    active={lang === 'en'}
-                  >
-                    {formatMessage(messages.langEn)}
-                  </MenuItem>
-                </DropdownButton>
-              </div>
-            </div>
-          </div>
-        </div>
-      </header>
+          </Menu>
+        )}
+      </React.Fragment>
     );
   }
 }

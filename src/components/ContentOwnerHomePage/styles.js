@@ -2,7 +2,7 @@ export default {
   filterPageWrapper: {
     display: 'flex',
     padding: '10px',
-    margin: '55px 30px',
+    margin: '0 30px',
   },
 
   filterPageLeft: {
@@ -21,17 +21,15 @@ export default {
   /*
    * media
    */
-  '@media screen and (max-width: 640px)': {
+  '@media screen and (max-width: 650px)': {
     filterPageWrapper: {
       flexDirection: 'column',
-      margin: '30px 50px',
       padding: 0,
     },
 
     filterPageLeft: {
       width: '100%',
       maxWidth: '100%',
-      margin: '20px 0',
       padding: 0,
       display: 'flex',
       flexDirection: 'column',

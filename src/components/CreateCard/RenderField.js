@@ -1,17 +1,15 @@
 import React from 'react';
-import { FormGroup, FormControl, ControlLabel } from 'react-bootstrap';
+import { Form } from 'semantic-ui-react';
+import { FormControl } from 'react-bootstrap';
 
 const TextField = ({ id, label, touched, error, ...props }) => {
   return (
     <React.Fragment>
-      <FormGroup
-        controlId={id}
-        validationState={touched && error ? 'error' : null}
-      >
-        <ControlLabel>{label}</ControlLabel>
+      <Form.Group validationState={touched && error ? 'error' : null}>
+        <label>{label}</label>
         <FormControl {...props} />
         {touched && error ? <span className="feedbackError">{error}</span> : ''}
-      </FormGroup>
+      </Form.Group>
     </React.Fragment>
   );
 };
