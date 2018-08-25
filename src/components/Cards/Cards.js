@@ -1,9 +1,7 @@
 import React from 'react';
 import Card from '../Card';
-import { Link } from 'react-router-dom';
-import MapView from '../MapView'
+import MapView from '../MapView';
 import { Loader } from 'semantic-ui-react';
-
 
 const Cards = ({
   data,
@@ -18,10 +16,11 @@ const Cards = ({
   groupOffer,
 }) => {
   return isRequesting ? (
-
     <Loader active inline="centered" size="large" className={classes.loading}>
       Loading
     </Loader>
+  ) : view === 'map' ? (
+    <MapView data={data} />
   ) : (
     <div
       className={
@@ -41,7 +40,7 @@ const Cards = ({
         />
       ))}
     </div>
-  ) : (<MapView data={data} />);
+  );
 };
 
 export default Cards;
