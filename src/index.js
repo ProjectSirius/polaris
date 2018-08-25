@@ -2,12 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import registerServiceWorker from './registerServiceWorker';
-import configureStore from './store/configureStore';
 import './index.css';
 import 'normalize.css';
 import RootContainer from './containers/RootContainer';
-
-const store = configureStore();
+import store from './store';
 
 ReactDOM.render(
   <RootContainer store={store} />,
