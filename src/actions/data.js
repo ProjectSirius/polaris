@@ -3,7 +3,7 @@ import {
   DATA_RECEIVE_SUCCESS,
   DATA_RECEIVE_FAILURE,
 } from './constants';
-import get from '../helpers/axiosWrapper';
+import { doPost } from '../api/request';
 import { selectChoosenGenres, selectSearch, selectRating } from '../selectors';
 
 const dataRequest = isRequesting => ({
@@ -23,8 +23,8 @@ const dataReceiveFailure = error => ({
 
 const getData = (searchValue, genresValue) => (dispatch, getState) => {
   const dataType =
-    getState().currentUser.userType === 'content_owner'
-      ? 'channels'
+    getState().currentUser.type === 'content_owner'
+      ? 'channels/search'
       : 'contents';
 
   /* eslint-disable */
@@ -33,12 +33,15 @@ const getData = (searchValue, genresValue) => (dispatch, getState) => {
   const genres = selectChoosenGenres(getState());
   /* eslint-enable */
 
-  const url = `https://my-json-server.typicode.com/angela0202/fake-db/${dataType}`;
-
   dispatch(dataRequest(true));
 
-  return get(url)
-    .then(payload => dispatch(dataReceiveSuccess(payload.data)))
+  return doPost(dataType, {
+    page: 1,
+    query: search,
+  })
+    .then(payload => {
+      return dispatch(dataReceiveSuccess(payload.channels));
+    })
     .catch(err => dispatch(dataReceiveFailure(err)));
 };
 
