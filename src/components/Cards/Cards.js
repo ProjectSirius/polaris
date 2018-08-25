@@ -1,5 +1,6 @@
 import React from 'react';
 import Card from '../Card';
+import MapView from '../MapView';
 import { Loader } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
@@ -18,7 +19,7 @@ const Cards = ({
     <Loader active inline="centered" size="large" className={classes.loading}>
       Loading
     </Loader>
-  ) : (
+  ) : view !== 'map' ? (
     <div
       className={
         view === 'table' ? classes.cardsWrapperGrid : classes.cardsWrapperList
@@ -36,6 +37,13 @@ const Cards = ({
         />
       ))}
     </div>
+  ) : (
+    <MapView
+      data={data}
+      addToGroupOffer={addToGroupOffer}
+      removeFromGroupOffer={removeFromGroupOffer}
+      groupOffer={groupOffer}
+    />
   );
 };
 
