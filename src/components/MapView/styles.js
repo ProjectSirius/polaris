@@ -83,7 +83,12 @@ const greatPlaceStickStyleHover = {
 const greatPlaceStyleHover = {
   ...greatPlaceStyle,
   border: '5px solid #3f51b5',
-  color: '#f44336',
+  color: 'green',
+};
+const greatPlaceStyleSelected = {
+  ...greatPlaceStyle,
+  border: '5px solid #fafafa',
+  color: 'green',
 };
 
 export {
@@ -93,6 +98,7 @@ export {
   greatPlaceStickStyle,
   greatPlaceStickStyleHover,
   greatPlaceStickStyleShadow,
+  greatPlaceStyleSelected,
   greatPlaceStyleHover,
   K_CIRCLE_SIZE,
   K_STICK_SIZE,

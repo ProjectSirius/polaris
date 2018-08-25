@@ -32,16 +32,25 @@ class SimpleMap extends Component {
     this.props.onHoverKeyChange(null);
   };
 
-  markers = this.props.data.map(info => {
-    return (
-      <Marker
-        key={info.id}
-        lat={info.lat || getCord(40, 0.2)}
-        lng={info.lng || getCord(44.5, 0.3)}
-        text={info.title.slice(0, 3)}
-      />
-    );
-  });
+  childeClick = i => {
+    this.props.groupOffer.includes(`${i}`)
+      ? this.props.removeFromGroupOffer(`${i}`)
+      : this.props.addToGroupOffer(`${i}`);
+  };
+
+  markers = () => {
+    return this.props.data.map((info, i) => {
+      return (
+        <Marker
+          key={info.id}
+          lat={info.lat || getCord(40, 0.2)}
+          lng={info.lng || getCord(44.5, 0.3)}
+          text={info.title.slice(0, 3)}
+          selected={this.props.groupOffer.includes(`${i + 1}`)}
+        />
+      );
+    });
+  };
   render() {
     return (
       // Important! Always set the container height explicitly
@@ -50,15 +59,14 @@ class SimpleMap extends Component {
           bootstrapURLKeys={{ key: 'AIzaSyC3eoata7ct7kEsvsvf2PITnaiUHOMTO-Y' }}
           defaultCenter={this.props.center}
           defaultZoom={this.props.zoom}
-          onChange={(obj) => console.log('=====><=====', obj)}
-          onChildClick={(obj) => console.log('////><\\\\\\\\', obj)}
+          onChange={obj => obj}
+          onChildClick={i => this.childeClick(i)}
           hoverDistance={K_SIZE / 2}
           onBoundsChange={this._onBoundsChange}
-          
           onChildMouseEnter={this._onChildMouseEnter}
           onChildMouseLeave={this._onChildMouseLeave}
         >
-          {this.markers}
+          {this.markers()}
         </GoogleMapReact>
       </div>
     );

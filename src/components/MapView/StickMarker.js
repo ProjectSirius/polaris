@@ -7,6 +7,7 @@ import {
   greatPlaceStickStyle,
   greatPlaceStickStyleHover,
   greatPlaceStickStyleShadow,
+  greatPlaceStyleSelected,
 } from './styles';
 
 export default class MyGreatPlaceWithStick extends Component {
@@ -18,9 +19,11 @@ export default class MyGreatPlaceWithStick extends Component {
       zIndex: this.props.$hover ? 1000 : zIndex,
     };
 
-    const circleStyle = this.props.$hover
-      ? greatPlaceCircleStyleHover
-      : greatPlaceCircleStyle;
+    const circleStyle = this.props.selected
+      ? greatPlaceStyleSelected
+      : this.props.$hover
+        ? greatPlaceCircleStyleHover
+        : greatPlaceCircleStyle;
     const stickStyle = this.props.$hover
       ? greatPlaceStickStyleHover
       : greatPlaceStickStyle;

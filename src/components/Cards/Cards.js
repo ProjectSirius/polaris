@@ -1,9 +1,8 @@
 import React from 'react';
 import Card from '../Card';
 // import { Link } from 'react-router-dom';
-import MapView from '../MapView'
+import MapView from '../MapView';
 import { Loader } from 'semantic-ui-react';
-
 
 const Cards = ({
   data,
@@ -12,6 +11,9 @@ const Cards = ({
   view,
   lang,
   type,
+  addToGroupOffer,
+  removeFromGroupOffer,
+  isGroupOffering,
   groupOffer,
 }) => {
   return isRequesting ? (
@@ -31,11 +33,20 @@ const Cards = ({
           view={view}
           lang={lang}
           type={type}
+          addToGroupOffer={addToGroupOffer}
+          removeFromGroupOffer={removeFromGroupOffer}
           groupOffer={groupOffer}
         />
       ))}
     </div>
-  ) : (<MapView data={data} />);
+  ) : (
+    <MapView
+      data={data}
+      addToGroupOffer={addToGroupOffer}
+      removeFromGroupOffer={removeFromGroupOffer}
+      groupOffer={groupOffer}
+    />
+  );
 };
 
 export default Cards;

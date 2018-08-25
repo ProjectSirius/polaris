@@ -17,6 +17,8 @@ import details from './details';
 import isEditing from './isEditing';
 import isGroupOffering from './isGroupOffering';
 import groupOffer from './groupOffer';
+import genres from './genres';
+import authToken from './authToken';
 
 export default combineReducers({
   form: formReducer,
@@ -36,4 +38,6 @@ export default combineReducers({
   isEditing,
   isGroupOffering,
   groupOffer,
+  genres,
+  authToken,
 });
