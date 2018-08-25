@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
+    "google-map-react": "^1.0.6",
     "lodash": "^4.17.10",
     "normalize.css": "^8.0.0",
     "prop-types": "^15.6.2",
@@ -34,7 +35,7 @@
     "translation": "yarn extract:messages && yarn manage:translations"
   },
   "lint-staged": {
-    "*.{js, jsx}": "./node_modules/eslint/bin/eslint.js"
+    "*.{js, jsx}": ["eslint --fix"]
   },
   "devDependencies": {
     "eslint-plugin-prettier": "^2.6.2",
