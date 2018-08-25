@@ -41,8 +41,9 @@ const DATA_SEND_FAILURE = 'DATA_SEND_FAILURE';
 // edit data
 const EDIT = 'EDIT';
 
-// edit data
+// group offer
 const ADD_TO_GROUP_OFFER = 'ADD_TO_GROUP_OFFER';
+const REMOVE_FROM_GROUP_OFFER = 'REMOVE_FROM_GROUP_OFFER';
 
 export {
   SIGN_UP_REQUEST,
@@ -68,4 +69,5 @@ export {
   EDIT,
   DETAILS_RECEIVE_SUCCESS,
   ADD_TO_GROUP_OFFER,
+  REMOVE_FROM_GROUP_OFFER,
 };

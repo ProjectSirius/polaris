@@ -13,7 +13,8 @@ import filterMenu from './filter-menu';
 import getNotif from './notif';
 import getDetails from './details';
 import edit from './edit';
-import groupOffer from './groupOffer';
+import { addToGroupOffer } from './groupOffer';
+import { removeFromGroupOffer } from './groupOffer';
 
 export {
   signUp,
@@ -32,5 +33,6 @@ export {
   getNotif,
   getDetails,
   edit,
-  groupOffer,
+  addToGroupOffer,
+  removeFromGroupOffer,
 };

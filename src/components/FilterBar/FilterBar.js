@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { Icon, Button } from 'semantic-ui-react';
+import { Icon, Button, Modal } from 'semantic-ui-react';
 import { injectIntl, defineMessages } from 'react-intl';
 
 import StarRating from '../../containers/StarRating';
@@ -48,7 +48,6 @@ class FilterBar extends PureComponent {
       classes,
       intl: { formatMessage },
       isOpen,
-      groupOffer,
     } = this.props;
 
     return (
@@ -104,14 +103,20 @@ class FilterBar extends PureComponent {
               <SelectOptionFilter />
             </div>
             <div className={classes.filterItem}>
-              <Button
-                basic
-                color="blue"
-                size="huge"
-                onClick={(e, data) => groupOffer()}
+              <Modal
+                style={{
+                  height: 300,
+                  position: 'absolute',
+                  width: '700px',
+                  left: 'calc(50% - 350px)',
+                  top: 'calc(50% - 150px)',
+                }}
+                centered
+                dimmer
+                trigger={<Button>Show Modal</Button>}
               >
-                Make A Group Offer
-              </Button>
+                <div>Group offers</div>
+              </Modal>
             </div>
           </div>
 
