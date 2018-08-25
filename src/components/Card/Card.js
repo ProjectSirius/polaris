@@ -7,7 +7,6 @@ const CardComponent = ({
   classes,
   view,
   type,
-  lang,
   groupOffer,
 }) => {
   return (
@@ -24,7 +23,6 @@ const CardComponent = ({
         }
         to={{
           pathname: `/${type}/${id}`,
-          search: `?locale=${lang}`,
         }}
       >
         <Image

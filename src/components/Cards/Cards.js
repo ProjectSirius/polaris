@@ -2,15 +2,7 @@ import React from 'react';
 import Card from '../Card';
 import { Loader } from 'semantic-ui-react';
 
-const Cards = ({
-  data,
-  isRequesting,
-  classes,
-  view,
-  lang,
-  type,
-  groupOffer,
-}) => {
+const Cards = ({ data, isRequesting, classes, view, type, groupOffer }) => {
   return isRequesting ? (
     <Loader active inline="centered" size="large" className={classes.loading}>
       Loading
@@ -26,7 +18,6 @@ const Cards = ({
           key={info.id}
           info={info}
           view={view}
-          lang={lang}
           type={type}
           groupOffer={groupOffer}
         />
