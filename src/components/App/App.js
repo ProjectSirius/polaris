@@ -12,6 +12,7 @@ import MainNavBarContainer from '../../containers/MainNavBarContainer';
 import DetailsPageContainer from '../../containers/DetailsPageContainer';
 import CreateChannel from '../../containers/CreateChannel';
 import CreateContent from '../../containers/CreateContentContainer';
+import Dashboard from '../../containers/DashboardContainer';
 
 const App = ({ content, title }) => {
   return (
@@ -38,6 +39,7 @@ const App = ({ content, title }) => {
           path="/contents/new"
           component={CreateContent}
         />
+        <ProtectedRouteContainer path="/dashboard" component={Dashboard} />
         <ProtectedRouteContainer
           path="/channel/:id/edit"
           component={CreateChannel}

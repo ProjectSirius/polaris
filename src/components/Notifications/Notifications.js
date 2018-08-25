@@ -1,21 +1,49 @@
 import React from 'react';
-import { Feed } from 'semantic-ui-react';
-
-import Notif from './Notification';
+import {
+  Dropdown,
+  DropdownDivider,
+  DropdownItem,
+  Icon,
+  Label,
+  Feed,
+} from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 
 const Notifications = ({ notifs, classes }) => (
-  <Feed size="large">
-    {notifs.map(({ body, id }) => (
-      <Notif
-        classes={classes}
-        className={classes.notifs}
-        key={id}
-        id={id}
-        summary={body.slice(20)}
-        date="today"
-      />
-    ))}
-  </Feed>
+  <Dropdown
+    scrolling
+    pointing="top"
+    compact
+    icon={null}
+    trigger={
+      <React.Fragment>
+        <Icon name="bell outline" />
+        Notifications{' '}
+        <Label color="teal" size="mini">
+          {notifs.length}
+        </Label>
+      </React.Fragment>
+    }
+    className={classes.dropdownParent}
+  >
+    <Dropdown.Menu className={classes.dropdownMenu}>
+      {notifs.map(({ body, id }) => (
+        <DropdownItem id={id}>
+          <Feed>
+            <Feed.Event
+              as={Link}
+              to={`/users/${id}`}
+              className={classes.notifWrapper}
+              icon="pencil"
+              date="today"
+              summary={body}
+            />
+            <DropdownDivider />
+          </Feed>
+        </DropdownItem>
+      ))}
+    </Dropdown.Menu>
+  </Dropdown>
 );
 
 export default Notifications;

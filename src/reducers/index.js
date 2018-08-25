@@ -13,6 +13,7 @@ import filteringPage from './filteringPage';
 import tags from './tags';
 import filters from './filters';
 import notif from './notif';
+import transactions from './transactions';
 import details from './details';
 import isEditing from './isEditing';
 import isGroupOffering from './isGroupOffering';
@@ -32,6 +33,7 @@ export default combineReducers({
   tags,
   filters,
   notif,
+  transactions,
   details,
   isEditing,
   isGroupOffering,

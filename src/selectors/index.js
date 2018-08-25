@@ -1,6 +1,7 @@
 import { createSelector } from 'reselect';
 
 export const selectData = state => state.data;
+export const selectTransaction = state => state.transactions;
 export const selectIsOpenMainMenu = state => state.isOpenMainMenu;
 export const selectIsRequesting = state => state.isRequesting;
 export const selectCurrentUser = state => state.currentUser;
@@ -11,6 +12,8 @@ export const selectFilteringPageRating = state => state.filteringPage.rating;
 export const selectNotif = state => state.notif;
 export const selectNotifLength = state =>
   state.notif ? state.notif.length : 0;
+export const selectSearch = state =>
+  state.Search_Form ? state.Search_Form.values.search : '';
 export const selectIsOpenFilterMenu = state =>
   state.filteringPage.isOpenFilterMenu;
 export const selectFilteringPageFilterBar = state =>

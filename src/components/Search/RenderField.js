@@ -1,20 +1,26 @@
 import React from 'react';
-import { Form, Input, Responsive } from 'semantic-ui-react';
+import { Search } from 'semantic-ui-react';
 
-const TextField = ({ id, label, touched, error, classes, ...props }) => {
+const TextField = ({
+  id,
+  value,
+  label,
+  isRequesting,
+  touched,
+  error = '',
+  searchValue,
+  onChange,
+  ...props
+}) => {
   return (
-    <Responsive>
-      <Form.Group widths="equal">
-        <Form.Field>
-          <Input
-            icon="search"
-            size="huge"
-            className={classes.searchInput}
-            {...props}
-          />
-        </Form.Field>
-      </Form.Group>
-    </Responsive>
+    <Search
+      fluid
+      showNoResults={false}
+      loading={isRequesting}
+      value={searchValue}
+      onSearchChange={onChange}
+      {...props}
+    />
   );
 };
 
