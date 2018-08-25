@@ -12,6 +12,7 @@ const DetailsPage = ({
   userType,
   messages,
   formatMessage,
+  currentUser,
 }) => {
   return isRequesting &&
     Object.keys(data).length === 0 &&
@@ -66,7 +67,7 @@ const DetailsPage = ({
             <div>Rating</div>
           </div>
           <div className={classes.offer}>
-            {data.user_id === '1' ? (
+            {data.user_id === currentUser.id ? (
               <Link
                 to={{
                   pathname: `${window.location.pathname}/edit`,
@@ -122,11 +123,7 @@ const DetailsPage = ({
               <h1 className={classes.title}>{data.title}</h1>
               <div className={classes.channelDescription}>
                 <h2>{formatMessage(messages.briefDescriptionTitle)}</h2>
-                <p> {data.briefDescription}</p>
-              </div>
-              <div className={classes.channelDescription}>
-                <h2>{formatMessage(messages.detailedDescriptionTitle)}</h2>
-                <p>{data.detailed_text}</p>
+                <p>{data.description}</p>
               </div>
               {userType === 'content_owner' ? (
                 <div>

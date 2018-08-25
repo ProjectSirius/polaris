@@ -8,7 +8,6 @@ const Cards = ({
   isRequesting,
   classes,
   view,
-  lang,
   type,
   addToGroupOffer,
   removeFromGroupOffer,
@@ -30,7 +29,6 @@ const Cards = ({
           key={info.id}
           info={info}
           view={view}
-          lang={lang}
           type={type}
           addToGroupOffer={addToGroupOffer}
           removeFromGroupOffer={removeFromGroupOffer}
