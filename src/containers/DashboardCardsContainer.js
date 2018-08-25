@@ -11,7 +11,7 @@ import {
   selectLanguage,
 } from '../selectors';
 
-import { getData, groupOffer } from '../actions';
+import { getMyData, groupOffer } from '../actions';
 
 import Cards from '../components/Cards';
 
@@ -38,26 +38,10 @@ class CardsContainer extends React.Component {
   }
 
   render() {
-    const {
-      data,
-      isRequesting,
-      view,
-      type,
-      lang,
-      isGroupOffering,
-      groupOffer,
-    } = this.props;
+    const { data, isRequesting, view, type } = this.props;
 
     return (
-      <Cards
-        type={type}
-        data={data}
-        isRequesting={isRequesting}
-        view={view}
-        lang={lang}
-        isGroupOffering={isGroupOffering}
-        groupOffer={groupOffer}
-      />
+      <Cards type={type} data={data} isRequesting={isRequesting} view={view} />
     );
   }
 }
@@ -74,7 +58,7 @@ const mapStateToProps = createStructuredSelector({
 export default connect(
   mapStateToProps,
   {
-    getData,
+    getMyData,
     groupOffer,
   }
 )(CardsContainer);
