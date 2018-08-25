@@ -22,8 +22,8 @@ class DetailsPageContainer extends React.Component {
       this.props.currentUser.userType === 'audience_owner'
         ? 'channels'
         : 'contents';
-    const id = this.props.match.params.id;
 
+    const id = this.props.match.params.id;
     this.props.getDetails(dataType, id);
   }
 
@@ -49,6 +49,7 @@ class DetailsPageContainer extends React.Component {
         userType={currentUser.userType}
         messages={messages}
         formatMessage={formatMessage}
+        currentUser={currentUser}
       />
     );
   }
