@@ -1,6 +1,5 @@
 import React from 'react';
 import Card from '../Card';
-// import { Link } from 'react-router-dom';
 import MapView from '../MapView';
 import { Loader } from 'semantic-ui-react';
 
