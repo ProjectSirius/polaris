@@ -36,3 +36,9 @@ export const selectIsAuth = createSelector(
 export const selectChoosenGenres = createSelector(selectGenres, genres =>
   genres.filter(({ checked }) => checked)
 );
+
+export const selectEditDetails = createSelector(
+  selectDetails,
+  selectDetails =>
+    window.location.pathname.split('/').includes('edit') ? selectDetails : {}
+);
