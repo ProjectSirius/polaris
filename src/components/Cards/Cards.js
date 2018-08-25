@@ -9,6 +9,9 @@ const Cards = ({
   view,
   lang,
   type,
+  addToGroupOffer,
+  removeFromGroupOffer,
+  isGroupOffering,
   groupOffer,
 }) => {
   return isRequesting ? (
@@ -28,6 +31,8 @@ const Cards = ({
           view={view}
           lang={lang}
           type={type}
+          addToGroupOffer={addToGroupOffer}
+          removeFromGroupOffer={removeFromGroupOffer}
           groupOffer={groupOffer}
         />
       ))}

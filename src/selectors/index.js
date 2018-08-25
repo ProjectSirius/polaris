@@ -25,6 +25,7 @@ export const selectOption = state => state.form.SelectOptionFilter_form;
 export const selectTags = state => state.tags;
 export const selectDetails = state => state.details;
 export const selectIsEditing = state => state.isEditing;
+export const groupOffer = state => state.groupOffer;
 export const selectIsGroupOffering = state => state.isGroupOffering;
 
 export const selectIsAuth = createSelector(
