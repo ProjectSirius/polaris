@@ -25,8 +25,8 @@ const getData = (searchValue, genresValue) => (dispatch, getState) => {
   const dataType =
     getState().currentUser.type === 'content_owner'
       ? 'channels/search'
-      : 'contents';
-
+      : 'contents/search';
+  debugger;
   /* eslint-disable */
   const search = searchValue ? searchValue : selectSearch(getState());
   const rating = selectRating(getState());
@@ -40,7 +40,7 @@ const getData = (searchValue, genresValue) => (dispatch, getState) => {
     query: search,
   })
     .then(payload => {
-      return dispatch(dataReceiveSuccess(payload.channels));
+      return dispatch(dataReceiveSuccess(payload.data));
     })
     .catch(err => dispatch(dataReceiveFailure(err)));
 };
