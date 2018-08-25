@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { reduxForm } from 'redux-form';
 import { injectIntl } from 'react-intl';
+import { withRouter } from 'react-router-dom';
 import { createStructuredSelector } from 'reselect';
 
 import {
@@ -9,6 +10,7 @@ import {
   selectIsEditing,
   selectIsRequesting,
   selectTags,
+  selectEditDetails,
 } from '../selectors';
 
 import { addTags, removeTags, sendData, getDetails } from '../actions';
@@ -65,24 +67,25 @@ const mapStateToProps = createStructuredSelector({
   tags: selectTags,
   data: selectDetails,
   isEditing: selectIsEditing,
-  initialValues: window.location.pathname.split('/').includes('edit')
-    ? selectDetails
-    : () => {},
+  initialValues: selectEditDetails,
 });
 
-const addNewContentForm = reduxForm({
-  form: 'Add_new_content_form',
-  validate: channelFormValidate,
-  enableReinitialize: true,
-  destroyOnUnmount: false,
-})(CreateContentContainer);
+const addNewContentForm = withRouter(
+  reduxForm({
+    form: 'Add_new_content_form',
+    validate: channelFormValidate,
+    enableReinitialize: true,
+  })(CreateContentContainer)
+);
 
-export default connect(
-  mapStateToProps,
-  {
-    addTags,
-    removeTags,
-    sendData,
-    getDetails,
-  }
-)(addNewContentForm);
+export default withRouter(
+  connect(
+    mapStateToProps,
+    {
+      addTags,
+      removeTags,
+      sendData,
+      getDetails,
+    }
+  )(addNewContentForm)
+);
