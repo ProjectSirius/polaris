@@ -145,7 +145,7 @@ class MainNavBar extends React.Component {
             pointing
             secondary
             size="huge"
-            fixed="true"
+            fixed="top"
             stackable
           >
             <Responsive minWidth="768">

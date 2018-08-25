@@ -72,25 +72,40 @@ export default {
     lineHeight: 1.8,
   },
 
-  moreOffer: {
-    border: 'none !important',
-    boxShadow: 'none !important',
+  removeOffer: {
+    color: 'rgb(217, 83, 79)',
+
+    '& > span': {
+      color: 'rgb(217, 83, 79)',
+    },
+  },
+
+  addOffer: {
     color: '#55acee !important',
-    fontSize: '15px !important',
-    transition: '.25s !important',
-    display: 'flex !important',
-    alignItems: 'center',
-    width: '100%',
-    padding: '10px 0 !important',
-    paddingLeft: '11px !important',
 
     '& > span': {
       color: '#55acee',
     },
   },
 
+  moreOffer: {
+    border: 'none !important',
+    boxShadow: 'none !important',
+
+    fontSize: '15px !important',
+    transition: '.25s !important',
+    display: 'flex !important',
+    alignItems: 'center',
+    padding: '10px 0 !important',
+    paddingLeft: '11px !important',
+  },
+
   iconColor: {
     color: '#55acee',
+  },
+
+  delIconColor: {
+    color: 'rgb(217, 83, 79)',
   },
 
   chadCheck: {

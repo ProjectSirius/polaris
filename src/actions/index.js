@@ -14,7 +14,9 @@ import getNotif from './notif';
 import getTransactions from './getTransactions';
 import getDetails from './details';
 import edit from './edit';
-import groupOffer from './groupOffer';
+import { addToGroupOffer } from './groupOffer';
+import { removeFromGroupOffer } from './groupOffer';
+import getGenres, { toggleGenre } from './genres';
 
 export {
   signUp,
@@ -34,5 +36,8 @@ export {
   getTransactions,
   getDetails,
   edit,
-  groupOffer,
+  addToGroupOffer,
+  removeFromGroupOffer,
+  getGenres,
+  toggleGenre,
 };

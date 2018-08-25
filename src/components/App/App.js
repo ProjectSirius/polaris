@@ -25,6 +25,8 @@ const App = ({ content, title }) => {
         <Route path="/signUpAudience" component={SignUpAudienceContainer} />
         <Route path="/signUpContentMaker" component={SignUpContentMaker} />
         <Route path="/map" component={Map} />
+        <Route path="/audience-sign-up" component={SignUpAudienceContainer} />
+        <Route path="/content-sign-up" component={SignUpContentMaker} />
         <ProtectedRouteContainer
           path="/audience"
           component={AudienceHomePage}
