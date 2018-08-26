@@ -49,7 +49,6 @@ const NOTIF_FAILURE = 'NOTIF_FAILURE';
 // filtering page
 const UPD_RATING = 'UPD_RATING';
 const UPD_FILTER_BAR = 'UPD_FILTER_BAR';
-
 const ADD_FILTER = 'ADD_FILTER';
 const TOGGLE_FILTER = 'TOGGLE_FILTER';
 
