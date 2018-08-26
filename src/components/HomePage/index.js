@@ -1,3 +1,7 @@
+import injectSheet from 'react-jss';
+
 import HomePage from './HomePage';
 
-export default HomePage;
+import styles from './styles';
+
+export default injectSheet(styles)(HomePage);
