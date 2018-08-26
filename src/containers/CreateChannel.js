@@ -13,6 +13,7 @@ import {
   selectDetails,
   selectIsEditing,
   selectEditDetails,
+  selectIsDataSent,
 } from '../selectors';
 
 import { addTags, removeTags, sendData, getDetails, edit } from '../actions';
@@ -49,6 +50,8 @@ class CreateChannelContainer extends Component {
       data,
       isEditing,
       initialValues,
+      isDataSent,
+      currentUser,
     } = this.props;
 
     return (
@@ -56,11 +59,12 @@ class CreateChannelContainer extends Component {
         messages={messages}
         formatMessage={formatMessage}
         onFormSubmit={this.onFormSubmit}
-        userType="audience_owner"
+        type={currentUser.type}
         data={data}
         isEditing={isEditing}
         getData={this.getData}
         initialValues={initialValues}
+        isDataSent={isDataSent}
         {...this.props}
       />
     );
@@ -77,6 +81,7 @@ const mapStateToProps = createStructuredSelector({
   data: selectDetails,
   isEditing: selectIsEditing,
   initialValues: selectEditDetails,
+  isDataSent: selectIsDataSent,
 });
 
 const addNewChannelForm = withRouter(

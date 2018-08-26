@@ -11,6 +11,8 @@ import {
   selectIsRequesting,
   selectTags,
   selectEditDetails,
+  selectIsDataSent,
+  selectCurrentUser,
 } from '../selectors';
 
 import { addTags, removeTags, sendData, getDetails } from '../actions';
@@ -43,17 +45,20 @@ class CreateContentContainer extends Component {
       intl: { formatMessage },
       isEditing,
       data,
+      isDataSent,
+      currentUser,
     } = this.props;
 
     return (
       <CreateCard
         messages={messages}
-        userType="content_owner"
+        type={currentUser.type}
         onFormSubmit={this.onFormSubmit}
         formatMessage={formatMessage}
         getData={this.getData}
         data={data}
         isEditing={isEditing}
+        isDataSent={isDataSent}
         {...this.props}
       />
     );
@@ -68,6 +73,8 @@ const mapStateToProps = createStructuredSelector({
   data: selectDetails,
   isEditing: selectIsEditing,
   initialValues: selectEditDetails,
+  isDataSent: selectIsDataSent,
+  currentUser: selectCurrentUser,
 });
 
 const addNewContentForm = withRouter(
