@@ -61,7 +61,7 @@ class CreateCard extends React.Component {
       type,
     } = this.props;
 
-    const path = type === 'audience_owner' ? '/audience' : 'contentowner';
+    const path = type === 'audience_owner' ? '/audience' : '/contentowner';
 
     const { from } = this.props.location.state || { from: { pathname: path } };
 
