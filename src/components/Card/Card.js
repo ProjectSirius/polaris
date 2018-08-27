@@ -44,7 +44,7 @@ const CardComponent = ({
         ''
       ) : (
         <Card.Content extra style={{ display: 'flex' }}>
-          {!groupOffer.includes(id) ? (
+          {!groupOffer.selectedIds.includes(id) ? (
             <span
               className={`${classes.moreOffer} ${classes.addOffer}`}
               onClick={() => addToGroupOffer(id)}
