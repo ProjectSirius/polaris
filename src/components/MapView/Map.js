@@ -44,9 +44,11 @@ class SimpleMap extends Component {
       return (
         <Marker
           key={info.id}
+          id={info.id}
           lat={info.lat || getCord(40, 0.2)}
           lng={info.lng || getCord(44.5, 0.3)}
           text={info.title.slice(0, 3)}
+          title={info.title}
           selected={this.props.groupOffer.includes(`${id}`)}
         />
       );

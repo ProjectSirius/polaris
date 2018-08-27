@@ -91,6 +91,22 @@ const greatPlaceStyleSelected = {
   color: 'green',
 };
 
+const infoCard = {
+  backgroundColor: '#fafafa',
+  border: 'solid black 1px',
+  width: '100px',
+  height: '80px',
+  visibility: 'hidden',
+};
+
+const infoCardHower = {
+  backgroundColor: '#fafafa',
+  border: 'solid black 1px',
+  width: '100px',
+  height: '80px',
+  visibility: 'visible',
+  color: 'red',
+};
 export {
   greatPlaceStyle,
   greatPlaceCircleStyle,
@@ -100,6 +116,8 @@ export {
   greatPlaceStickStyleShadow,
   greatPlaceStyleSelected,
   greatPlaceStyleHover,
+  infoCard,
+  infoCardHower,
   K_CIRCLE_SIZE,
   K_STICK_SIZE,
   K_SIZE,

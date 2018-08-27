@@ -8,6 +8,8 @@ import {
   greatPlaceStickStyleHover,
   greatPlaceStickStyleShadow,
   greatPlaceStyleSelected,
+  infoCard,
+  infoCardHower,
 } from './styles';
 
 export default class MyGreatPlaceWithStick extends Component {
@@ -27,9 +29,14 @@ export default class MyGreatPlaceWithStick extends Component {
     const stickStyle = this.props.$hover
       ? greatPlaceStickStyleHover
       : greatPlaceStickStyle;
+    const info = this.props.$hover ? infoCardHower : infoCard;
 
     return (
       <div style={style}>
+        <div style={info}>
+          <a href={`/content/${this.props.id}`}>go to chanel</a>
+          <h3>{this.props.title}</h3>
+        </div>
         <div style={greatPlaceStickStyleShadow} />
         <div style={circleStyle}>{text}</div>
         <div style={stickStyle} />
