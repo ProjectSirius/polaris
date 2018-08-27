@@ -6,6 +6,7 @@ import StarRating from '../../containers/StarRating';
 import PriceRangeSlider from '../../containers/PriceRangeSliderContainer';
 import CheckboxFilter from '../../containers/CheckboxFilter';
 import SelectOptionFilter from '../../containers/SelectOptionFilter';
+import GroupOffer from '../../containers/GroupOfferContainer';
 
 const messages = defineMessages({
   filtersPanelTitle: {
@@ -105,17 +106,17 @@ class FilterBar extends PureComponent {
             <div className={classes.filterItem}>
               <Modal
                 style={{
-                  height: 300,
+                  height: 500,
                   position: 'absolute',
-                  width: '700px',
-                  left: 'calc(50% - 350px)',
-                  top: 'calc(50% - 150px)',
+                  width: '900px',
+                  left: 'calc(50% - 450px)',
+                  top: 'calc(50% - 250px)',
                 }}
                 centered
                 dimmer
                 trigger={<Button>Show Modal</Button>}
               >
-                <div>Group offers</div>
+                <GroupOffer />
               </Modal>
             </div>
           </div>
