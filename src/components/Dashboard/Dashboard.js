@@ -10,6 +10,7 @@ const panes = [
   },
   { menuItem: 'Payment', render: () => <Tab.Pane>Tab 2 Content</Tab.Pane> },
   { menuItem: 'My Channels', render: () => <Tab.Pane>My channels</Tab.Pane> },
+  { menuItem: 'Offers', render: () => <Tab.Pane>My offers</Tab.Pane> },
 ];
 
 const TabExampleVerticalTabular = () => {
