@@ -45,3 +45,8 @@ export const selectEditDetails = createSelector(
   selectDetails =>
     window.location.pathname.split('/').includes('edit') ? selectDetails : {}
 );
+
+export const selectSelectedGroupLength = createSelector(
+  groupOffer,
+  groupOffer => groupOffer.selectedIds.length
+);
