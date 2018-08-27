@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { reduxForm } from 'redux-form';
 import { injectIntl } from 'react-intl';
+import { withRouter } from 'react-router-dom';
 import { createStructuredSelector } from 'reselect';
 
 import {
@@ -11,6 +12,8 @@ import {
   selectCurrentUser,
   selectDetails,
   selectIsEditing,
+  selectEditDetails,
+  selectIsDataSent,
 } from '../selectors';
 
 import { addTags, removeTags, sendData, getDetails, edit } from '../actions';
@@ -24,7 +27,6 @@ class CreateChannelContainer extends Component {
   componentDidMount() {
     const dataType = 'channels';
     const id = this.props.match.params.id;
-
     this.props.getDetails(dataType, id);
 
     if (this.props.match.path.split('/').includes('edit')) {
@@ -47,6 +49,9 @@ class CreateChannelContainer extends Component {
       intl: { formatMessage },
       data,
       isEditing,
+      initialValues,
+      isDataSent,
+      currentUser,
     } = this.props;
 
     return (
@@ -54,10 +59,12 @@ class CreateChannelContainer extends Component {
         messages={messages}
         formatMessage={formatMessage}
         onFormSubmit={this.onFormSubmit}
-        userType="audience_owner"
+        type={currentUser.type}
         data={data}
         isEditing={isEditing}
         getData={this.getData}
+        initialValues={initialValues}
+        isDataSent={isDataSent}
         {...this.props}
       />
     );
@@ -73,25 +80,27 @@ const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
   data: selectDetails,
   isEditing: selectIsEditing,
-  initialValues: window.location.pathname.split('/').includes('edit')
-    ? selectDetails
-    : () => {},
+  initialValues: selectEditDetails,
+  isDataSent: selectIsDataSent,
 });
 
-const addNewChannelForm = reduxForm({
-  form: 'Add_new_channel_form',
-  validate: channelFormValidate,
-  destroyOnUnmount: false,
-  enableReinitialize: true,
-})(CreateChannelContainer);
+const addNewChannelForm = withRouter(
+  reduxForm({
+    form: 'Add_new_channel_form',
+    validate: channelFormValidate,
+    enableReinitialize: true,
+  })(CreateChannelContainer)
+);
 
-export default connect(
-  mapStateToProps,
-  {
-    addTags,
-    removeTags,
-    sendData,
-    getDetails,
-    edit,
-  }
-)(addNewChannelForm);
+export default withRouter(
+  connect(
+    mapStateToProps,
+    {
+      addTags,
+      removeTags,
+      sendData,
+      getDetails,
+      edit,
+    }
+  )(addNewChannelForm)
+);

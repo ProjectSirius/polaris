@@ -1,5 +1,6 @@
 import React from 'react';
 import { Field } from 'redux-form';
+import { Redirect } from 'react-router-dom';
 
 import Tags from 'react-tagging-input';
 
@@ -56,9 +57,17 @@ class CreateCard extends React.Component {
       formatMessage,
       userType,
       data,
+      isDataSent,
+      type,
     } = this.props;
 
-    return (
+    const path = type === 'audience_owner' ? '/audience' : '/contentowner';
+
+    const { from } = this.props.location.state || { from: { pathname: path } };
+
+    return isDataSent ? (
+      <Redirect to={from} />
+    ) : (
       <div className={classes.newChannelWrapper}>
         <div>
           <div className={classes.titleWrapper}>

@@ -160,26 +160,32 @@ class MainNavBar extends React.Component {
                 {formatMessage(messages.projectTitle)}
               </Menu.Item>
             </Responsive>
-            <Menu.Item
-              as={Link}
-              to="/audience"
-              active={activeItem === formatMessage(messages.audience)}
-              onClick={this.navItemChecker}
-              name={formatMessage(messages.audience)}
-              className={classes.menuItem}
-            >
-              {formatMessage(messages.audience)}
-            </Menu.Item>
-            <Menu.Item
-              as={Link}
-              to="/contentowner"
-              active={activeItem === formatMessage(messages.content)}
-              onClick={this.navItemChecker}
-              className={classes.menuItem}
-              name={formatMessage(messages.content)}
-            >
-              {formatMessage(messages.content)}
-            </Menu.Item>
+            {currentUser &&
+              currentUser.type === 'content_owner' && (
+                <Menu.Item
+                  as={Link}
+                  to="/audience"
+                  active={activeItem === formatMessage(messages.audience)}
+                  onClick={this.navItemChecker}
+                  name={formatMessage(messages.audience)}
+                  className={classes.menuItem}
+                >
+                  {formatMessage(messages.audience)}
+                </Menu.Item>
+              )}
+            {currentUser &&
+              currentUser.type === 'audience_owner' && (
+                <Menu.Item
+                  as={Link}
+                  to="/contentowner"
+                  active={activeItem === formatMessage(messages.content)}
+                  onClick={this.navItemChecker}
+                  className={classes.menuItem}
+                  name={formatMessage(messages.content)}
+                >
+                  {formatMessage(messages.content)}
+                </Menu.Item>
+              )}
             {isAuth && (
               <Menu.Item
                 as={Notifications}

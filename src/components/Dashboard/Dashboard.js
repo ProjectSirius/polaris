@@ -2,14 +2,26 @@ import React from 'react';
 import { Tab, Responsive } from 'semantic-ui-react';
 
 import TransactionCardsContainer from '../../containers/TransactionCardsContainer';
+import DashboardCardsContainer from '../../containers/DashboardCardsContainer';
 
 const panes = [
   {
     menuItem: 'Transactions',
-    render: () => <TransactionCardsContainer />,
+    render: () => (
+      <Tab.Pane>
+        <TransactionCardsContainer />
+      </Tab.Pane>
+    ),
   },
   { menuItem: 'Payment', render: () => <Tab.Pane>Tab 2 Content</Tab.Pane> },
-  { menuItem: 'My Channels', render: () => <Tab.Pane>Tab 3 Content</Tab.Pane> },
+  {
+    menuItem: 'My Channels',
+    render: () => (
+      <Tab.Pane>
+        <DashboardCardsContainer />
+      </Tab.Pane>
+    ),
+  },
 ];
 
 const TabExampleVerticalTabular = () => {

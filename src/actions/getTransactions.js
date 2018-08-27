@@ -24,7 +24,7 @@ const getTransaction = () => dispatch => {
   dispatch(transactionRequest(true));
 
   return axios
-    .get('http://5b7e8126adf2070014bfa378.mockapi.io/transactions')
+    .get('https://5b7e8126adf2070014bfa378.mockapi.io/transactions')
     .then(payload => dispatch(transactionReceiveSuccess(payload.data)))
     .catch(err => dispatch(transactionReceiveFailure(err)));
 };
