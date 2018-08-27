@@ -111,6 +111,8 @@ class FilterBar extends PureComponent {
                   width: '900px',
                   left: 'calc(50% - 450px)',
                   top: 'calc(50% - 250px)',
+                  display: 'flex !important',
+                  justifyContent: 'center',
                 }}
                 centered
                 dimmer

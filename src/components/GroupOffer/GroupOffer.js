@@ -5,14 +5,15 @@ import { Form } from 'semantic-ui-react';
 import RenderField from './RenderField';
 import SubmitBtn from '../SubmitBtn';
 
-const GroupOffer = ({ groupLength, valid }) => {
+const GroupOffer = ({ groupLength, valid, classes }) => {
   return (
-    <Form>
+    <Form className={classes.form}>
       <Field
         name="group_name"
         type="text"
         component={RenderField}
         label="Group name"
+        classes={classes}
       />
       <Field
         name="group_price"
@@ -20,6 +21,7 @@ const GroupOffer = ({ groupLength, valid }) => {
         component={RenderField}
         label="Price to offer"
         min="1"
+        classes={classes}
       />
       <Field
         name="group_accept_number"
@@ -28,6 +30,7 @@ const GroupOffer = ({ groupLength, valid }) => {
         label="Min number of acceptance"
         min="0"
         max={groupLength}
+        classes={classes}
       />
       <SubmitBtn value="Offer!" valid={valid} />
     </Form>
