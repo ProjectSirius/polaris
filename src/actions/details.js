@@ -27,11 +27,8 @@ const getDetails = (dataType, id) => dispatch => {
   };
 
   dispatch(dataRequest(true));
-
   return doGet(url[dataType])
-    .then(payload => {
-      dispatch(dataInfoReceiveSuccess(payload.data));
-    })
+    .then(payload => dispatch(dataInfoReceiveSuccess(payload.data)))
     .catch(err => dispatch(dataReceiveFailure(err)));
 };
 export default getDetails;

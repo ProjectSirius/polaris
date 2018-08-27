@@ -14,6 +14,10 @@ const DetailsPage = ({
   formatMessage,
   currentUser,
 }) => {
+  if (!data) {
+    return <h2>Sorry, we have a problems with server!</h2>;
+  }
+
   return isRequesting &&
     Object.keys(data).length === 0 &&
     data.constructor === Object ? (
@@ -36,7 +40,7 @@ const DetailsPage = ({
             <div>
               <Image src="https://harsupesa.am/images/catalog/dj/dj-smoke/dj-smoke-4.jpg" />
               <Link to={``}>
-                <span>{data.user_id}</span>
+                <span>{data.createdBy}</span>
               </Link>
             </div>
           </div>
@@ -67,7 +71,7 @@ const DetailsPage = ({
             <div>Rating</div>
           </div>
           <div className={classes.offer}>
-            {data.user_id === currentUser.id ? (
+            {+data.createdBy === +currentUser.id ? (
               <Link
                 to={{
                   pathname: `${window.location.pathname}/edit`,
@@ -86,7 +90,7 @@ const DetailsPage = ({
               </Link>
             )}
           </div>
-          {data.user_id === '1' ? (
+          {+data.createdBy === +currentUser.id ? (
             <div className={classes.offer}>
               <button
                 className={classes.btn}
