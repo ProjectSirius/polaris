@@ -106,7 +106,7 @@ class CreateCard extends React.Component {
             <Field
               label={formatMessage(messages.detailedDescription)}
               component={RenderField}
-              name="detailed_text"
+              name="description"
               className={`${classes.inputFiled} ${classes.textarea}`}
               componentClass="textarea"
             />

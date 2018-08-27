@@ -78,11 +78,11 @@ const DetailsPage = ({
                   search: `?locale=${lang}`,
                 }}
               >
-                <button onClick={handleEdit} className={classes.btn}>
+                <span onClick={handleEdit} className={classes.btn}>
                   {userType === 'audience_owner'
                     ? formatMessage(messages.editChannel)
                     : formatMessage(messages.editContent)}
-                </button>
+                </span>
               </Link>
             ) : (
               <Link to={''}>
