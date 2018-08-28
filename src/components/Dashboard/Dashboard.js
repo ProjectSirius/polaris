@@ -24,7 +24,9 @@ const panes = [
   },
 ];
 
-const TabExampleVerticalTabular = () => {
+const TabExampleVerticalTabular = props => {
+  panes[2].menuItem =
+    props.type.type === 'content-owner' ? 'My Channels' : 'My Contents'; //cheng to normal code!
   return (
     <React.Fragment>
       <Responsive minWidth="768">
