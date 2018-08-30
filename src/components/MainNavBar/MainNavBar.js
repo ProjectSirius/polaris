@@ -186,7 +186,7 @@ class MainNavBar extends React.Component {
                   {formatMessage(messages.content)}
                 </Menu.Item>
               )}
-            {isAuth && (
+            {/* {isAuth && (
               <Menu.Item
                 as={Notifications}
                 active={activeItem === 'notifications'}
@@ -194,7 +194,7 @@ class MainNavBar extends React.Component {
                 name="notifications"
                 className={classes.menuItem}
               />
-            )}
+            )} */}
             <Menu.Item
               as={Link}
               to="/dashboard"
@@ -208,6 +208,13 @@ class MainNavBar extends React.Component {
 
             {isAuth ? (
               <Menu.Menu position="right">
+                <Menu.Item
+                  as={Notifications}
+                  active={activeItem === 'notifications'}
+                  onClick={this.navItemChecker}
+                  name="notifications"
+                  className={classes.menuItem}
+                />
                 <Menu.Item className={classes.menuItemSettings} name="settings">
                   <Dropdown
                     pointing="top right"
