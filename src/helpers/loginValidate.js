@@ -15,8 +15,12 @@ const loginValidate = values => {
       errors[field] = 'Must be a valid email!';
     }
 
-    if (values[field] && values[field].length < 5) {
-      errors[field] = 'Your input must contain more than 5 symbols!';
+    if (values[field] && field === 'password' && values[field].length < 8) {
+      errors[field] = 'Your input must contain at least 8 symbols!';
+    }
+
+    if (values[field] && field === 'username' && values[field].length < 6) {
+      errors[field] = 'Your input must contain at least 5 symbols!';
     }
   });
 
