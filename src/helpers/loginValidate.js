@@ -19,7 +19,7 @@ const loginValidate = values => {
       errors[field] = 'Your input must contain at least 8 symbols!';
     }
 
-    if (values[field] && field === 'username' && values[field].length < 6) {
+    if (values[field] && field === 'username' && values[field].length < 5) {
       errors[field] = 'Your input must contain at least 5 symbols!';
     }
   });
