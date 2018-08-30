@@ -62,7 +62,7 @@ class CreateCard extends React.Component {
     } = this.props;
 
     const path = type === 'audience_owner' ? '/audience' : '/contentowner';
-
+    debugger;
     const { from } = this.props.location.state || { from: { pathname: path } };
 
     return isDataSent ? (
@@ -72,7 +72,7 @@ class CreateCard extends React.Component {
         <div>
           <div className={classes.titleWrapper}>
             <div className={classes.title}>
-              {userType === 'audience_owner'
+              {type === 'audience_owner'
                 ? formatMessage(messages.channelTitle)
                 : formatMessage(messages.contentTitle)}
             </div>
@@ -87,7 +87,7 @@ class CreateCard extends React.Component {
           >
             <Field
               label={
-                userType === 'audience_owner'
+                type === 'audience_owner'
                   ? formatMessage(messages.channelTitleInput)
                   : formatMessage(messages.contentTitleInput)
               }
