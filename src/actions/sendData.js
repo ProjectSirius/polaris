@@ -37,7 +37,13 @@ const sendData = (data, selector) => (dispatch, getState) => {
       },
     ],
   })
-    .then(data => dispatch(dataSendSuccess(data)))
+    .then(data => {
+      if (data.error) {
+        throw new Error(data.error);
+      }
+
+      return dispatch(dataSendSuccess(data.user));
+    })
     .catch(error => dispatch(dataSendFailure(error)));
 
   dataSendRequest(true);
