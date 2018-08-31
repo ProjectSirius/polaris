@@ -13,7 +13,7 @@ import filterMenu from './filter-menu';
 import getNotif from './notif';
 import getTransactions from './getTransactions';
 import getDetails from './details';
-import edit from './edit';
+import { editRequest } from './edit';
 import { addToGroupOffer } from './groupOffer';
 import { removeFromGroupOffer } from './groupOffer';
 import getGenres, { toggleGenre } from './genres';
@@ -36,7 +36,7 @@ export {
   getNotif,
   getTransactions,
   getDetails,
-  edit,
+  editRequest,
   addToGroupOffer,
   removeFromGroupOffer,
   getGenres,
