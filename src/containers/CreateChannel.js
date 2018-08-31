@@ -16,7 +16,13 @@ import {
   selectIsDataSent,
 } from '../selectors';
 
-import { addTags, removeTags, sendData, getDetails, edit } from '../actions';
+import {
+  addTags,
+  removeTags,
+  sendData,
+  getDetails,
+  editRequest,
+} from '../actions';
 
 import CreateCard from '../components/CreateCard';
 
@@ -30,7 +36,7 @@ class CreateChannelContainer extends Component {
     this.props.getDetails(dataType, id);
 
     if (this.props.match.path.split('/').includes('edit')) {
-      this.props.edit();
+      this.props.editRequest();
     }
   }
 
@@ -100,7 +106,7 @@ export default withRouter(
       removeTags,
       sendData,
       getDetails,
-      edit,
+      editRequest,
     }
   )(addNewChannelForm)
 );
