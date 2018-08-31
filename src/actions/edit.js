@@ -9,31 +9,37 @@ export const editRequest = () => ({
   type: DATA_EDIT_REQUEST,
 });
 
-const editSuccess = () => ({
+const editSuccess = (data, item) => ({
   type: DATA_EDIT_SUCCESS,
+  payload: {
+    data,
+    item,
+  },
 });
 
 const editFailure = () => ({
   type: DATA_EDIT_FAILURE,
 });
 
-const editData = (data, selector) => (dispatch, getState) => {
+const editData = item => (dispatch, getState) => {
   const url = {
-    createChannel: 'channels',
-    createContent: 'contents',
+    audience_owner: `channels/${item.id}`,
+    content_owner: `contents/${item.id}`,
   };
 
+  const selector = getState().currentUser.type;
+
   doPatch(url[selector], {
-    title: data.title,
-    description: data.description,
-    price: data.price,
+    title: item.title,
+    description: item.description,
+    price: item.price,
   })
-    .then(data => {
-      if (data.error) {
-        throw new Error(data.error);
+    .then(item => {
+      if (item.error) {
+        throw new Error(item.error);
       }
 
-      return dispatch(editSuccess(data));
+      return dispatch(editSuccess(getState().userData, item));
     })
     .catch(error => dispatch(editFailure(error)));
 

@@ -11,10 +11,10 @@ const data = (state = [], action) => {
     case DATA_DELETE_SUCCESS:
       return action.payload.data.filter(({ id }) => id !== action.payload.id);
     case DATA_EDIT_SUCCESS:
-      return {
-        ...action.payload.data,
-        [action.payload.item.id]: action.payload.item,
-      };
+      return action.payload.data.map(
+        elem =>
+          elem.id === action.payload.item.id ? action.payload.item : elem
+      );
     default:
       return state;
   }
