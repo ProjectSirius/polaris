@@ -5,6 +5,7 @@ import { createStructuredSelector } from 'reselect';
 import { selectUserData, selectCurrentUser } from '../selectors';
 import getUserData from '../actions/user-data';
 import DashboardCards from '../components/DashboardCards';
+import { delData } from '../actions';
 
 class DashboardCardsContainer extends React.Component {
   componentDidMount() {
@@ -12,9 +13,15 @@ class DashboardCardsContainer extends React.Component {
   }
 
   render() {
-    const { userData, currentUser } = this.props;
+    const { userData, currentUser, delData } = this.props;
 
-    return <DashboardCards userData={userData} currentUser={currentUser} />;
+    return (
+      <DashboardCards
+        delData={delData}
+        userData={userData}
+        currentUser={currentUser}
+      />
+    );
   }
 }
 
@@ -27,5 +34,6 @@ export default connect(
   mapStateToProps,
   {
     getUserData,
+    delData,
   }
 )(DashboardCardsContainer);
