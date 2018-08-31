@@ -124,7 +124,7 @@ const HomePage = ({ classes }) => {
                 <br />
               </h3>
 
-              <div class={classes.leftRightList}>
+              <div className={classes.leftRightList}>
                 <ul>
                   <li>Persistently nonverbal.</li>
                   <li>Delayed language development.</li>
