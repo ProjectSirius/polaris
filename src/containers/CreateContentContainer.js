@@ -4,6 +4,7 @@ import { reduxForm } from 'redux-form';
 import { injectIntl } from 'react-intl';
 import { withRouter } from 'react-router-dom';
 import { createStructuredSelector } from 'reselect';
+import editData from '../actions/edit';
 
 import {
   selectDetails,
@@ -37,7 +38,11 @@ class CreateContentContainer extends Component {
   };
 
   onFormSubmit = formData => {
-    this.props.sendData(formData, 'createContent');
+    if (this.props.history.location.pathname.includes('edit')) {
+      this.props.editData(formData);
+    } else {
+      this.props.sendData(formData, 'createContent');
+    }
   };
 
   render() {
@@ -92,6 +97,7 @@ export default withRouter(
       addTags,
       removeTags,
       sendData,
+      editData,
       getDetails,
     }
   )(addNewContentForm)
