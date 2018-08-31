@@ -24,7 +24,7 @@ const panes = [
   { menuItem: 'Payment', render: () => <Tab.Pane>Tab 2 Content</Tab.Pane> },
 ];
 
-const TabExampleVerticalTabular = () => {
+const TabMenu = () => {
   return (
     <React.Fragment>
       <Responsive minWidth="768">
@@ -43,4 +43,4 @@ const TabExampleVerticalTabular = () => {
   );
 };
 
-export default TabExampleVerticalTabular;
+export default TabMenu;
