@@ -198,7 +198,7 @@ class MainNavBar extends React.Component {
             <Menu.Item
               as={Link}
               to="/dashboard"
-              active={activeItem === 'dashboard'}
+              active={activeItem === 'Dashboard'}
               onClick={this.navItemChecker}
               className={classes.menuItem}
               name="Dashboard"
