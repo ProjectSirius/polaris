@@ -3,6 +3,12 @@ export default {
     height: '100%',
   },
 
+  delMsg: {
+    textAlign: 'center',
+    margin: '40px 0',
+    fontWeight: '700',
+  },
+
   title: {
     fontSize: '40px',
     fontWeight: 600,
@@ -137,11 +143,14 @@ export default {
   },
 
   btn: {
-    height: '50px',
-    width: '100%',
+    height: '50px !important',
+    width: '100% !important',
     background: '#fff',
     outline: 'none',
     border: '1px solid',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
 
     '&:hover': {
       boxShadow: '0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)',
