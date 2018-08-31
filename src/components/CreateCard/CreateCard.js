@@ -62,9 +62,7 @@ class CreateCard extends React.Component {
     } = this.props;
 
     const path = type === 'audience_owner' ? '/audience' : '/contentowner';
-    debugger;
     const { from } = this.props.location.state || { from: { pathname: path } };
-
     return isDataSent ? (
       <Redirect to={from} />
     ) : (
