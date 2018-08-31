@@ -5,7 +5,6 @@ import { injectIntl, defineMessages } from 'react-intl';
 import StarRating from '../../containers/StarRating';
 import PriceRangeSlider from '../../containers/PriceRangeSliderContainer';
 import CheckboxFilter from '../../containers/CheckboxFilter';
-import SelectOptionFilter from '../../containers/SelectOptionFilter';
 
 const messages = defineMessages({
   filtersPanelTitle: {
@@ -91,7 +90,7 @@ class FilterBar extends PureComponent {
               </div>
               <CheckboxFilter />
             </div>
-            <div className={classes.filterItem}>
+            {/* <div className={classes.filterItem}>
               <div className={classes.filterTitle}>
                 <div className={classes.filterTitleWithIcon}>
                   <Icon name="chevron down" />
@@ -101,7 +100,7 @@ class FilterBar extends PureComponent {
                 </div>
               </div>
               <SelectOptionFilter />
-            </div>
+            </div> */}
             <div className={classes.filterItem}>
               <Modal
                 style={{
