@@ -1,4 +1,8 @@
-import { USER_DATA_SUCCESS, DATA_DELETE_SUCCESS } from '../actions/constants';
+import {
+  USER_DATA_SUCCESS,
+  DATA_DELETE_SUCCESS,
+  DATA_EDIT_SUCCESS,
+} from '../actions/constants';
 
 const data = (state = [], action) => {
   switch (action.type) {
@@ -6,6 +10,11 @@ const data = (state = [], action) => {
       return action.payload.data;
     case DATA_DELETE_SUCCESS:
       return action.payload.data.filter(({ id }) => id !== action.payload.id);
+    case DATA_EDIT_SUCCESS:
+      return {
+        ...action.payload.data,
+        [action.payload.item.id]: action.payload.item,
+      };
     default:
       return state;
   }
