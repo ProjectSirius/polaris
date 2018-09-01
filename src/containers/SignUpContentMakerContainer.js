@@ -33,6 +33,46 @@ const messages = defineMessages({
     id: 'Form',
     defaultMessage: 'Form',
   },
+  fillSignUpForm: {
+    id: 'fillSignUpForm',
+    defaultMessage: 'Fill out the form below to sign up in a new account!',
+  },
+  haveAcc: {
+    id: 'haveAcc',
+    defaultMessage: 'Already have an account?',
+  },
+  login: {
+    id: 'login',
+    defaultMessage: 'Login here',
+  },
+  instead: {
+    id: 'instead',
+    defaultMessage: 'instead',
+  },
+  username: {
+    id: 'username',
+    defaultMessage: 'Username',
+  },
+  email: {
+    id: 'email',
+    defaultMessage: 'Email',
+  },
+  password: {
+    id: 'password',
+    defaultMessage: 'Password',
+  },
+  confirms: {
+    id: 'confirm',
+    defaultMessage: 'Confirm Password',
+  },
+  signUp: {
+    id: 'signUp',
+    defaultMessage: 'Sign Up',
+  },
+  contentSignUp: {
+    id: 'signUpContent',
+    defaultMessage: 'Content Owner',
+  },
 });
 
 const mapStateToProps = createStructuredSelector({
