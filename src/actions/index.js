@@ -14,9 +14,14 @@ import getNotif from './notif';
 import getTransactions from './getTransactions';
 import getDetails from './details';
 import edit from './edit';
-import { addToGroupOffer } from './groupOffer';
-import { removeFromGroupOffer } from './groupOffer';
+import {
+  addToGroupOffer,
+  removeFromGroupOffer,
+  createGroupOffer,
+} from './groupOffer';
 import getGenres, { toggleGenre } from './genres';
+import getOffers from './getOffers';
+import { cart, addToCart, removeFromCart } from './cart';
 
 export {
   signUp,
@@ -40,4 +45,9 @@ export {
   removeFromGroupOffer,
   getGenres,
   toggleGenre,
+  getOffers,
+  cart,
+  createGroupOffer,
+  addToCart,
+  removeFromCart,
 };
