@@ -33,7 +33,7 @@ class SimpleMap extends Component {
   };
 
   childeClick = i => {
-    this.props.groupOffer.includes(`${i}`)
+    this.props.groupOffer.selectedIds.includes(`${i}`)
       ? this.props.removeFromGroupOffer(`${i}`)
       : this.props.addToGroupOffer(`${i}`);
   };
@@ -49,7 +49,7 @@ class SimpleMap extends Component {
           lng={info.lng || getCord(44.5, 0.3)}
           text={info.title.slice(0, 3)}
           title={info.title}
-          selected={this.props.groupOffer.includes(`${id}`)}
+          selected={this.props.groupOffer.selectedIds.includes(`${id}`)}
         />
       );
     });

@@ -100,8 +100,7 @@ class FilterBar extends PureComponent {
                 </div>
               </div>
               <SelectOptionFilter />
-            </div>
-            <div className={classes.filterItem} />
+            </div> */}
           </div>
           <Responsive
             onClick={this.handleClick}
