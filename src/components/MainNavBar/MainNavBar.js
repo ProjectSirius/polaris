@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { injectIntl, defineMessages } from 'react-intl';
 import { Menu, Icon, Dropdown, Grid, Responsive } from 'semantic-ui-react';
 import Notifications from '../../containers/NotifsContainer';
+import SelectLanguages from '../SelectLanguages';
 
 const messages = defineMessages({
   audience: {
@@ -65,6 +66,25 @@ const messages = defineMessages({
   logIn: {
     id: 'logIn',
     defaultMessage: 'Log In',
+  },
+
+  profile: {
+    id: 'profile',
+    defaultMessage: 'Profile',
+  },
+
+  help: {
+    id: 'help',
+    defaultMessage: 'Help',
+  },
+
+  hello: {
+    id: 'hello',
+    defaultMessage: 'hello',
+  },
+  signedInAs: {
+    id: 'signedInAs',
+    defaultMessage: 'Signed in as',
   },
 });
 
@@ -225,6 +245,10 @@ class MainNavBar extends React.Component {
               name="Dashboard"
             >
               {formatMessage(messages.dashboard)}
+            </Menu.Item>
+            {/* lang */}
+            <Menu.Item to="/dashboard" className={classes.selectLanguage}>
+              <SelectLanguages />
             </Menu.Item>
 
             {isAuth ? (

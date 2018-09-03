@@ -145,6 +145,31 @@
     "filepath": "src/components/MainNavBar/MainNavBar.js"
   },
   {
+    "id": "profile",
+    "defaultMessage": "Profile",
+    "filepath": "src/components/MainNavBar/MainNavBar.js"
+  },
+  {
+    "id": "help",
+    "defaultMessage": "Help",
+    "filepath": "src/components/MainNavBar/MainNavBar.js"
+  },
+  {
+    "id": "hello",
+    "defaultMessage": "hello",
+    "filepath": "src/components/MainNavBar/MainNavBar.js"
+  },
+  {
+    "id": "signedInAs",
+    "defaultMessage": "Signed in as",
+    "filepath": "src/components/MainNavBar/MainNavBar.js"
+  },
+  {
+    "id": "notifications",
+    "defaultMessage": "Notifications",
+    "filepath": "src/components/Notifications/Notifications.js"
+  },
+  {
     "id": "audience",
     "defaultMessage": "Audience",
     "filepath": "src/containers/AuthButtonsContainer.js"
