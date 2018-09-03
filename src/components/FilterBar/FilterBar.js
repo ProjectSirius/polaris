@@ -62,7 +62,7 @@ class FilterBar extends PureComponent {
             !isOpen
               ? classes.filterItemsWrapper
               : `${classes.filterItemsWrapperOpen} ${
-                  classes.filterItemsWrapper
+                classes.filterItemsWrapper
                 }`
           }
         >
@@ -100,8 +100,7 @@ class FilterBar extends PureComponent {
                 </div>
               </div>
               <SelectOptionFilter />
-            </div>
-            <div className={classes.filterItem} />
+            </div> */}
           </div>
           <Responsive
             onClick={this.handleClick}

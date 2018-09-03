@@ -12,7 +12,7 @@ const panes = [
   },
   { menuItem: 'Payment', render: () => <Tab.Pane>Tab 2 Content</Tab.Pane> },
   { menuItem: 'Offers', render: () => <OffersListContainer /> },
-    menuItem: 'My Channels',
+  {  menuItem: 'My Channels',
     render: () => (
       <Tab.Pane>
         <DashboardCardsContainer />
