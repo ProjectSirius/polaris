@@ -5,7 +5,7 @@ import Dashboard from '../components/Dashboard';
 import { selectCurrentUser } from '../selectors';
 
 const mapStateToProps = createStructuredSelector({
-  type: selectCurrentUser,
+  currentUser: selectCurrentUser,
 });
 
 export default connect(mapStateToProps)(Dashboard);

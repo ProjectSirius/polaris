@@ -10,7 +10,7 @@ const dataSendRequest = isRequesting => ({
   payload: { isRequesting },
 });
 
-const dataSendSuccess = data => ({
+export const dataSendSuccess = data => ({
   type: DATA_SEND_SUCCESS,
   payload: { data },
 });

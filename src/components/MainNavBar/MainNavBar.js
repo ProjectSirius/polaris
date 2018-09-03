@@ -254,10 +254,6 @@ class MainNavBar extends React.Component {
             >
               {formatMessage(messages.dashboard)}
             </Menu.Item>
-            {/* lang */}
-            <Menu.Item to="/dashboard" className={classes.selectLanguage}>
-              <SelectLanguages />
-            </Menu.Item>
             <Menu.Item
               as={Link}
               to="/cart"
@@ -272,6 +268,10 @@ class MainNavBar extends React.Component {
 
             {isAuth ? (
               <Menu.Menu position="right">
+                {/* lang */}
+                <Menu.Item to="/dashboard" className={classes.selectLanguage}>
+                  <SelectLanguages />
+                </Menu.Item>
                 <Menu.Item
                   as={Notifications}
                   active={activeItem === 'notifications'}
@@ -323,6 +323,10 @@ class MainNavBar extends React.Component {
               </Menu.Menu>
             ) : (
               <Menu.Menu position="right">
+                {/* lang */}
+                <Menu.Item to="/dashboard" className={classes.selectLanguage}>
+                  <SelectLanguages />
+                </Menu.Item>
                 <Menu.Item
                   name={formatMessage(messages.logIn)}
                   as={Link}

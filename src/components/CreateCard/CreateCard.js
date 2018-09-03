@@ -59,13 +59,19 @@ class CreateCard extends React.Component {
       data,
       isDataSent,
       type,
+      editRedirect,
+      dataSendSuccess,
     } = this.props;
 
     const path = type === 'audience_owner' ? '/audience' : '/contentowner';
     const { from } = this.props.location.state || { from: { pathname: path } };
-    return isDataSent ? (
-      <Redirect to={from} />
-    ) : (
+
+    if (isDataSent) {
+      editRedirect();
+      return <Redirect to={from} />;
+    }
+
+    return (
       <div className={classes.newChannelWrapper}>
         <div>
           <div className={classes.titleWrapper}>
@@ -179,6 +185,7 @@ class CreateCard extends React.Component {
               value="Submit"
               valid={valid}
               isRequesting={isRequesting}
+              onClick={() => dataSendSuccess()}
             />
           </form>
         </div>
