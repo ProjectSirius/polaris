@@ -2,6 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Loader, Grid, Image } from 'semantic-ui-react';
 
+const music = true;
+const video = true;
+
 const DetailsPage = ({
   title,
   classes,
@@ -52,7 +55,7 @@ const DetailsPage = ({
           </div>
           <div className={classes.tagsContainer}>
             <h2>
-              {userType === 'audience_owner'
+              {userType === 'content_owner'
                 ? formatMessage(messages.channelTagsTitle)
                 : formatMessage(messages.contentTagsTitle)}
             </h2>
@@ -129,7 +132,9 @@ const DetailsPage = ({
                 <h2>{formatMessage(messages.briefDescriptionTitle)}</h2>
                 <p>{data.description}</p>
               </div>
-              {userType === 'content_owner' ? (
+              {/*If there is uploaded music*/}
+
+              {music ? (
                 <div>
                   <h2 style={{ fontSize: '22px', textAlign: 'start' }}>
                     {formatMessage(messages.musicTitle)}
@@ -142,6 +147,28 @@ const DetailsPage = ({
                       />
                     </audio>
                   </div>
+                </div>
+              ) : (
+                ''
+              )}
+              {video ? (
+                <div id="container">
+                  <video
+                    id="video"
+                    controls="controls"
+                    preload="none"
+                    width="800"
+                    poster="http://media.w3.org/2010/05/sintel/poster.png"
+                  >
+                    <source
+                      id="mp4"
+                      src="http://media.w3.org/2010/05/sintel/trailer.mp4"
+                      type="video/mp4"
+                    />
+                    <p>
+                      Your user agent does not support the HTML5 Video element.
+                    </p>
+                  </video>
                 </div>
               ) : (
                 ''
