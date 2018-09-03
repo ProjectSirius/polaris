@@ -18,7 +18,7 @@ class RootContainer extends React.Component {
      * if url = smth.com/search=1&locale=en then it looks like {search: 1, locale: 'en'}
      */
     const parseUrl = queryString.parse(window.location.search);
-    const locale = parseUrl.locale || 'en';
+    const locale = parseUrl.locale || 'ru';
 
     this.props.changeLang(locale);
   }

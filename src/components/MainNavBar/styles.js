@@ -73,6 +73,10 @@ export default {
     paddingRight: '0',
   },
 
+  selectLanguage: {
+    marginTop: '-10px !important',
+  },
+
   menuItemSettings: {
     display: 'flex',
     justifyContent: 'center',

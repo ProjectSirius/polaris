@@ -15,11 +15,15 @@ import {
   selectEditDetails,
   selectIsDataSent,
 } from '../selectors';
-
-import { addTags, removeTags, sendData, getDetails, edit } from '../actions';
-
+import {
+  addTags,
+  removeTags,
+  sendData,
+  getDetails,
+  editRequest,
+} from '../actions';
+import editData from '../actions/edit';
 import CreateCard from '../components/CreateCard';
-
 import channelFormValidate from '../helpers/channelFormValidate';
 import messages from '../helpers/contentChannelFormMessages';
 
@@ -30,12 +34,16 @@ class CreateChannelContainer extends Component {
     this.props.getDetails(dataType, id);
 
     if (this.props.match.path.split('/').includes('edit')) {
-      this.props.edit();
+      this.props.editRequest();
     }
   }
 
   onFormSubmit = formData => {
-    this.props.sendData(formData, 'createChannel');
+    if (this.props.history.location.pathname.includes('edit')) {
+      this.props.editData(formData);
+    } else {
+      this.props.sendData(formData, 'createChannel');
+    }
   };
 
   getData = () => {
@@ -99,8 +107,9 @@ export default withRouter(
       addTags,
       removeTags,
       sendData,
+      editData,
       getDetails,
-      edit,
+      editRequest,
     }
   )(addNewChannelForm)
 );

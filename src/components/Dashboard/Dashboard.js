@@ -12,7 +12,6 @@ const panes = [
   },
   { menuItem: 'Payment', render: () => <Tab.Pane>Tab 2 Content</Tab.Pane> },
   { menuItem: 'Offers', render: () => <OffersListContainer /> },
-  {
     menuItem: 'My Channels',
     render: () => (
       <Tab.Pane>
@@ -20,9 +19,18 @@ const panes = [
       </Tab.Pane>
     ),
   },
+  {
+    menuItem: 'Transactions',
+    render: () => (
+      <Tab.Pane>
+        <TransactionCardsContainer />
+      </Tab.Pane>
+    ),
+  },
+  { menuItem: 'Payment', render: () => <Tab.Pane>Tab 2 Content</Tab.Pane> },
 ];
 
-const TabExampleVerticalTabular = () => {
+const TabMenu = () => {
   return (
     <React.Fragment>
       <Responsive minWidth="768">
@@ -41,4 +49,4 @@ const TabExampleVerticalTabular = () => {
   );
 };
 
-export default TabExampleVerticalTabular;
+export default TabMenu;

@@ -1,15 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const HomePage = ({ title, classes }) => {
+const HomePage = ({ classes }) => {
   return (
     <div>
       <main className={classes.mainWrap}>
         <div className={classes.topSection}>
-          {/*{title}*/}
-          <h1>POLARIS</h1>
+          <h1> Polaris </h1>
         </div>
-
         <div className={classes.textBlock}>
           <div className={classes.textBlockInner}>
             <h2>
@@ -27,7 +25,6 @@ const HomePage = ({ title, classes }) => {
             </p>
           </div>
         </div>
-
         <div className={classes.blockTeaser}>
           <div className={classes.wrap}>
             <div className={classes.leftText}>
@@ -60,7 +57,6 @@ const HomePage = ({ title, classes }) => {
           <p>— Abigail Bunt, MeBe Cofounder, Executive Director</p>
           <div className={classes.yelloBg} />
         </div>
-
         <div className={classes.section5}>
           <div className={classes.wrapper}>
             <div className={classes.introduction}>
@@ -70,7 +66,6 @@ const HomePage = ({ title, classes }) => {
                 Dignissimos facere itaque nulla qui repellat voluptatibus.
               </p>
             </div>
-
             <div className={classes.teaser}>
               <div className={`teaser-Img ${classes.teaserImage}`}>1</div>
               <div className={`teaser-info ${classes.teaserCopy}`}>
@@ -81,7 +76,6 @@ const HomePage = ({ title, classes }) => {
                 </p>
               </div>
             </div>
-
             <div className={classes.teaser}>
               <div className={`teaser-Img ${classes.teaserImage}`}>2</div>
               <div className={`teaser-info ${classes.teaserCopy}`}>
@@ -92,7 +86,6 @@ const HomePage = ({ title, classes }) => {
                 </p>
               </div>
             </div>
-
             <div className={classes.teaser}>
               <div className={`teaser-Img ${classes.teaserImage}`}>3</div>
               <div className={`teaser-info ${classes.teaserCopy}`}>
@@ -103,7 +96,6 @@ const HomePage = ({ title, classes }) => {
                 </p>
               </div>
             </div>
-
             <div className={classes.teaser}>
               <div className={`teaser-Img ${classes.teaserImage}`}>4</div>
               <div className={`teaser-info ${classes.teaserCopy}`}>
@@ -115,7 +107,6 @@ const HomePage = ({ title, classes }) => {
               </div>
             </div>
           </div>
-
           <div className={classes.leftRight}>
             <div className={classes.leftRightInner}>
               <h3>
@@ -124,8 +115,7 @@ const HomePage = ({ title, classes }) => {
                 inventore maiores molestiae, repudiandae.
                 <br />
               </h3>
-
-              <div class={classes.leftRightList}>
+              <div className={classes.leftRightList}>
                 <ul>
                   <li>Persistently nonverbal.</li>
                   <li>Delayed language development.</li>
@@ -143,7 +133,6 @@ const HomePage = ({ title, classes }) => {
                     Repetitive behaviors such as rocking, flapping, or spinning.
                   </li>
                 </ul>
-
                 <p>
                   Your child’s loss of any previously acquired skills—speech,
                   babbling, or social interactions—is also a reason to seek
@@ -157,7 +146,6 @@ const HomePage = ({ title, classes }) => {
           </div>
         </div>
       </main>
-
       <section className={classes.callToAction}>
         <div className={classes.callWrap}>
           <div className={classes.colA}>
@@ -177,7 +165,6 @@ const HomePage = ({ title, classes }) => {
             </p>
             <a className="button">Lorem ipsum</a>
           </div>
-
           <div className={classes.colA}>
             <h4>Lorem ipsum</h4>
             <p>
@@ -197,7 +184,6 @@ const HomePage = ({ title, classes }) => {
               their best life
             </h3>
           </div>
-
           <nav className={classes.footerNav}>
             <div className={classes.col}>
               <h4>MeBe</h4>
@@ -213,7 +199,6 @@ const HomePage = ({ title, classes }) => {
                 </li>
               </ul>
             </div>
-
             <div className={classes.col}>
               <h4>Getting Started</h4>
               <ul>
@@ -228,7 +213,6 @@ const HomePage = ({ title, classes }) => {
                 </li>
               </ul>
             </div>
-
             <div className={classes.col}>
               <h4>Services</h4>
               <ul>
@@ -249,7 +233,6 @@ const HomePage = ({ title, classes }) => {
                 </li>
               </ul>
             </div>
-
             <div className={classes.col}>
               <h4>About</h4>
               <ul>

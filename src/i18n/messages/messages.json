@@ -45,6 +45,41 @@
     "filepath": "src/components/LogIn/LogIn.js"
   },
   {
+    "id": "newToPolaris",
+    "defaultMessage": "New to polaris",
+    "filepath": "src/components/LogIn/LogIn.js"
+  },
+  {
+    "id": "signUpAs",
+    "defaultMessage": "Sign Up As",
+    "filepath": "src/components/LogIn/LogIn.js"
+  },
+  {
+    "id": "or",
+    "defaultMessage": "or",
+    "filepath": "src/components/LogIn/LogIn.js"
+  },
+  {
+    "id": "fillForm",
+    "defaultMessage": "Fill out the form below to log-in!",
+    "filepath": "src/components/LogIn/LogIn.js"
+  },
+  {
+    "id": "logIn",
+    "defaultMessage": "Log In",
+    "filepath": "src/components/LogIn/LogIn.js"
+  },
+  {
+    "id": "password",
+    "defaultMessage": "Password",
+    "filepath": "src/components/LogIn/LogIn.js"
+  },
+  {
+    "id": "username",
+    "defaultMessage": "Username",
+    "filepath": "src/components/LogIn/LogIn.js"
+  },
+  {
     "id": "audience",
     "defaultMessage": "Audience",
     "filepath": "src/components/MainNavBar/MainNavBar.js"
@@ -85,6 +120,56 @@
     "filepath": "src/components/MainNavBar/MainNavBar.js"
   },
   {
+    "id": "dashboard",
+    "defaultMessage": "Dashboard",
+    "filepath": "src/components/MainNavBar/MainNavBar.js"
+  },
+  {
+    "id": "asDj",
+    "defaultMessage": "as DJ",
+    "filepath": "src/components/MainNavBar/MainNavBar.js"
+  },
+  {
+    "id": "asComposer",
+    "defaultMessage": "as Composer",
+    "filepath": "src/components/MainNavBar/MainNavBar.js"
+  },
+  {
+    "id": "signUp",
+    "defaultMessage": "Sign Up",
+    "filepath": "src/components/MainNavBar/MainNavBar.js"
+  },
+  {
+    "id": "logIn",
+    "defaultMessage": "Log In",
+    "filepath": "src/components/MainNavBar/MainNavBar.js"
+  },
+  {
+    "id": "profile",
+    "defaultMessage": "Profile",
+    "filepath": "src/components/MainNavBar/MainNavBar.js"
+  },
+  {
+    "id": "help",
+    "defaultMessage": "Help",
+    "filepath": "src/components/MainNavBar/MainNavBar.js"
+  },
+  {
+    "id": "hello",
+    "defaultMessage": "hello",
+    "filepath": "src/components/MainNavBar/MainNavBar.js"
+  },
+  {
+    "id": "signedInAs",
+    "defaultMessage": "Signed in as",
+    "filepath": "src/components/MainNavBar/MainNavBar.js"
+  },
+  {
+    "id": "notifications",
+    "defaultMessage": "Notifications",
+    "filepath": "src/components/Notifications/Notifications.js"
+  },
+  {
     "id": "audience",
     "defaultMessage": "Audience",
     "filepath": "src/containers/AuthButtonsContainer.js"
@@ -98,11 +183,6 @@
     "id": "auth-buttons-sign-up",
     "defaultMessage": "Sign Up As a",
     "filepath": "src/containers/AuthButtonsContainer.js"
-  },
-  {
-    "id": "detailed-page-title",
-    "defaultMessage": "Detailed Page",
-    "filepath": "src/containers/DetailedPageContainer.js"
   },
   {
     "id": "home-page-title",
@@ -130,6 +210,56 @@
     "filepath": "src/containers/SignUpAudienceContainer.js"
   },
   {
+    "id": "fillSignUpForm",
+    "defaultMessage": "Fill out the form below to sign up in a new account!",
+    "filepath": "src/containers/SignUpAudienceContainer.js"
+  },
+  {
+    "id": "haveAcc",
+    "defaultMessage": "Already have an account?",
+    "filepath": "src/containers/SignUpAudienceContainer.js"
+  },
+  {
+    "id": "login",
+    "defaultMessage": "Login here",
+    "filepath": "src/containers/SignUpAudienceContainer.js"
+  },
+  {
+    "id": "instead",
+    "defaultMessage": "instead",
+    "filepath": "src/containers/SignUpAudienceContainer.js"
+  },
+  {
+    "id": "username",
+    "defaultMessage": "Username",
+    "filepath": "src/containers/SignUpAudienceContainer.js"
+  },
+  {
+    "id": "email",
+    "defaultMessage": "email",
+    "filepath": "src/containers/SignUpAudienceContainer.js"
+  },
+  {
+    "id": "password",
+    "defaultMessage": "password",
+    "filepath": "src/containers/SignUpAudienceContainer.js"
+  },
+  {
+    "id": "confirm",
+    "defaultMessage": "Confirm Password",
+    "filepath": "src/containers/SignUpAudienceContainer.js"
+  },
+  {
+    "id": "signUp",
+    "defaultMessage": "Sign Up",
+    "filepath": "src/containers/SignUpAudienceContainer.js"
+  },
+  {
+    "id": "signUpAudience",
+    "defaultMessage": "Audience Owner",
+    "filepath": "src/containers/SignUpAudienceContainer.js"
+  },
+  {
     "id": "audience",
     "defaultMessage": "Audience",
     "filepath": "src/containers/SignUpContentMakerContainer.js"
@@ -147,6 +277,56 @@
   {
     "id": "Form",
     "defaultMessage": "Form",
+    "filepath": "src/containers/SignUpContentMakerContainer.js"
+  },
+  {
+    "id": "fillSignUpForm",
+    "defaultMessage": "Fill out the form below to sign up in a new account!",
+    "filepath": "src/containers/SignUpContentMakerContainer.js"
+  },
+  {
+    "id": "haveAcc",
+    "defaultMessage": "Already have an account?",
+    "filepath": "src/containers/SignUpContentMakerContainer.js"
+  },
+  {
+    "id": "login",
+    "defaultMessage": "Login here",
+    "filepath": "src/containers/SignUpContentMakerContainer.js"
+  },
+  {
+    "id": "instead",
+    "defaultMessage": "instead",
+    "filepath": "src/containers/SignUpContentMakerContainer.js"
+  },
+  {
+    "id": "username",
+    "defaultMessage": "Username",
+    "filepath": "src/containers/SignUpContentMakerContainer.js"
+  },
+  {
+    "id": "email",
+    "defaultMessage": "Email",
+    "filepath": "src/containers/SignUpContentMakerContainer.js"
+  },
+  {
+    "id": "password",
+    "defaultMessage": "Password",
+    "filepath": "src/containers/SignUpContentMakerContainer.js"
+  },
+  {
+    "id": "confirm",
+    "defaultMessage": "Confirm Password",
+    "filepath": "src/containers/SignUpContentMakerContainer.js"
+  },
+  {
+    "id": "signUp",
+    "defaultMessage": "Sign Up",
+    "filepath": "src/containers/SignUpContentMakerContainer.js"
+  },
+  {
+    "id": "signUpContent",
+    "defaultMessage": "Content Owner",
     "filepath": "src/containers/SignUpContentMakerContainer.js"
   },
   {
@@ -223,5 +403,70 @@
     "id": "content-input-title",
     "defaultMessage": "Content Title:",
     "filepath": "src/helpers/contentChannelFormMessages.js"
+  },
+  {
+    "id": "channel-tags-title",
+    "defaultMessage": "Channel Tags",
+    "filepath": "src/helpers/detailsPageMessages.js"
+  },
+  {
+    "id": "content-tags-title",
+    "defaultMessage": "Content Tags",
+    "filepath": "src/helpers/detailsPageMessages.js"
+  },
+  {
+    "id": "average-rating-title",
+    "defaultMessage": "Average Rating",
+    "filepath": "src/helpers/detailsPageMessages.js"
+  },
+  {
+    "id": "edit-channel",
+    "defaultMessage": "Edit Channel",
+    "filepath": "src/helpers/detailsPageMessages.js"
+  },
+  {
+    "id": "edit-content",
+    "defaultMessage": "Edit Content",
+    "filepath": "src/helpers/detailsPageMessages.js"
+  },
+  {
+    "id": "delete-channel",
+    "defaultMessage": "Delete Channel",
+    "filepath": "src/helpers/detailsPageMessages.js"
+  },
+  {
+    "id": "delete-content",
+    "defaultMessage": "Delete Content",
+    "filepath": "src/helpers/detailsPageMessages.js"
+  },
+  {
+    "id": "brief-description",
+    "defaultMessage": "Brief Description:",
+    "filepath": "src/helpers/detailsPageMessages.js"
+  },
+  {
+    "id": "detailed-description",
+    "defaultMessage": "Detailed Description:",
+    "filepath": "src/helpers/detailsPageMessages.js"
+  },
+  {
+    "id": "music-title",
+    "defaultMessage": "Piece Of Music",
+    "filepath": "src/helpers/detailsPageMessages.js"
+  },
+  {
+    "id": "location-title",
+    "defaultMessage": "Location:",
+    "filepath": "src/helpers/detailsPageMessages.js"
+  },
+  {
+    "id": "offer-title",
+    "defaultMessage": "Make An Offer",
+    "filepath": "src/helpers/detailsPageMessages.js"
+  },
+  {
+    "id": "channel-links",
+    "defaultMessage": "Channel Links:",
+    "filepath": "src/helpers/detailsPageMessages.js"
   }
 ]

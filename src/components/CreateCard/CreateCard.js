@@ -62,9 +62,7 @@ class CreateCard extends React.Component {
     } = this.props;
 
     const path = type === 'audience_owner' ? '/audience' : '/contentowner';
-
     const { from } = this.props.location.state || { from: { pathname: path } };
-
     return isDataSent ? (
       <Redirect to={from} />
     ) : (
@@ -97,16 +95,9 @@ class CreateCard extends React.Component {
               type="text"
             />
             <Field
-              label={formatMessage(messages.briefDescription)}
-              component={RenderField}
-              name="briefDescription"
-              className={`${classes.inputFiled} `}
-              componentClass="textarea"
-            />
-            <Field
               label={formatMessage(messages.detailedDescription)}
               component={RenderField}
-              name="detailed_text"
+              name="description"
               className={`${classes.inputFiled} ${classes.textarea}`}
               componentClass="textarea"
             />

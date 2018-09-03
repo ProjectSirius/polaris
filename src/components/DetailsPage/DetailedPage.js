@@ -1,6 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Loader, Grid, Image } from 'semantic-ui-react';
+import GoogleMapReact from 'google-map-react';
+
+import Marker from '../MapView/StickMarker';
 
 const music = true;
 const video = true;
@@ -16,9 +19,18 @@ const DetailsPage = ({
   messages,
   formatMessage,
   currentUser,
+  delData,
 }) => {
   if (!data) {
     return <h2>Sorry, we have a problems with server!</h2>;
+  }
+
+  if (data === 'deleted') {
+    return (
+      <h2 className={classes.delMsg} style={{ textAlign: 'center' }}>
+        We've successfully deleted!{' '}
+      </h2>
+    );
   }
 
   return isRequesting &&
@@ -81,11 +93,11 @@ const DetailsPage = ({
                   search: `?locale=${lang}`,
                 }}
               >
-                <button onClick={handleEdit} className={classes.btn}>
+                <span onClick={handleEdit} className={classes.btn}>
                   {userType === 'audience_owner'
                     ? formatMessage(messages.editChannel)
                     : formatMessage(messages.editContent)}
-                </button>
+                </span>
               </Link>
             ) : (
               <Link to={''}>
@@ -98,6 +110,7 @@ const DetailsPage = ({
               <button
                 className={classes.btn}
                 style={{ borderColor: '#d9534f', color: '#d9534f' }}
+                onClick={() => delData(data.id)}
               >
                 {userType === 'audience_owner'
                   ? formatMessage(messages.deleteChannel)
@@ -209,7 +222,21 @@ const DetailsPage = ({
                   <h4>{formatMessage(messages.locationTitle)}</h4>
                   <span>3 Hakob Hakobyan, Yerevan, Armenia</span>
                 </div>
-                <Image src="https://www.harvard.edu/sites/default/files/content/harvard-map-google.jpg" />
+                <div style={{ height: '30vh', width: '100%' }}>
+                  <GoogleMapReact
+                    bootstrapURLKeys={{
+                      key: 'AIzaSyC3eoata7ct7kEsvsvf2PITnaiUHOMTO-Y',
+                    }}
+                    defaultCenter={{
+                      lat: 40.1860052, // in the future this cordinats will be change to real cordinats from  props
+                      lng: 44.5150187,
+                    }}
+                    defaultZoom={11}
+                  >
+                    <Marker lat={40.1860052} lng={44.5150187} />
+                    {/*this cordinats too ) */}
+                  </GoogleMapReact>
+                </div>
               </div>
             </Grid.Column>
           </Grid.Row>
