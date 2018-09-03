@@ -22,6 +22,7 @@ import authToken from './authToken';
 import isDataSent from './isDataSent';
 import offers from './offers';
 import cart from './cart';
+import userData from './user-data';
 
 export default combineReducers({
   form: formReducer,
@@ -46,4 +47,5 @@ export default combineReducers({
   isDataSent,
   offers,
   cart,
+  userData,
 });

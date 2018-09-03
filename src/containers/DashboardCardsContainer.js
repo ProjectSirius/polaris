@@ -2,63 +2,30 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
-import {
-  selectData,
-  selectIsRequesting,
-  selectIsAuth,
-  selectCurrentUser,
-  selectFilteringPageFilterBar,
-  selectLanguage,
-} from '../selectors';
+import { selectUserData, selectCurrentUser } from '../selectors';
+import getUserData from '../actions/user-data';
+import DashboardCards from '../components/DashboardCards';
 
-import { getMyData, groupOffer } from '../actions';
-
-import Cards from '../components/Cards';
-
-class CardsContainer extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.onScroll = this.onScroll.bind(this);
-  }
-
+class DashboardCardsContainer extends React.Component {
   componentDidMount() {
-    this.props.getData('');
-
-    window.addEventListener('scroll', this.onScroll, false);
-  }
-
-  onScroll() {
-    if (
-      window.innerHeight + window.scrollY >=
-      document.body.offsetHeight - 500
-    ) {
-      return true;
-    }
+    this.props.getUserData();
   }
 
   render() {
-    const { data, isRequesting, view, type } = this.props;
+    const { userData, currentUser } = this.props;
 
-    return (
-      <Cards type={type} data={data} isRequesting={isRequesting} view={view} />
-    );
+    return <DashboardCards userData={userData} currentUser={currentUser} />;
   }
 }
 
 const mapStateToProps = createStructuredSelector({
-  data: selectData,
-  isRequesting: selectIsRequesting,
-  isAuth: selectIsAuth,
+  userData: selectUserData,
   currentUser: selectCurrentUser,
-  view: selectFilteringPageFilterBar,
-  lang: selectLanguage,
 });
 
 export default connect(
   mapStateToProps,
   {
-    getMyData,
-    groupOffer,
+    getUserData,
   }
-)(CardsContainer);
+)(DashboardCardsContainer);

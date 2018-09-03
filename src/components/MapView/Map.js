@@ -40,13 +40,14 @@ class SimpleMap extends Component {
 
   markers = () => {
     return this.props.data.map((info, i) => {
+      const id = this.props.data[i].id;
       return (
         <Marker
           key={info.id}
           lat={info.lat || getCord(40, 0.2)}
           lng={info.lng || getCord(44.5, 0.3)}
           text={info.title.slice(0, 3)}
-          selected={this.props.groupOffer.includes(`${i + 1}`)}
+          selected={this.props.groupOffer.includes(`${id}`)}
         />
       );
     });

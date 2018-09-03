@@ -1,6 +1,5 @@
 export default {
   '@global html ,body, #root, .App': {
-    height: '100%',
     height: '100vh',
     fontSize: '75%',
   },

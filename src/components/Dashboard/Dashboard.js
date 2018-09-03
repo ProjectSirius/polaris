@@ -3,6 +3,7 @@ import { Tab, Responsive } from 'semantic-ui-react';
 
 import TransactionCardsContainer from '../../containers/TransactionCardsContainer';
 import OffersListContainer from '../../containers/OffersListContainer';
+import DashboardCardsContainer from '../../containers/DashboardCardsContainer';
 
 const panes = [
   {
@@ -10,8 +11,15 @@ const panes = [
     render: () => <TransactionCardsContainer />,
   },
   { menuItem: 'Payment', render: () => <Tab.Pane>Tab 2 Content</Tab.Pane> },
-  { menuItem: 'My Channels', render: () => <Tab.Pane>My channels</Tab.Pane> },
   { menuItem: 'Offers', render: () => <OffersListContainer /> },
+  {
+    menuItem: 'My Channels',
+    render: () => (
+      <Tab.Pane>
+        <DashboardCardsContainer />
+      </Tab.Pane>
+    ),
+  },
 ];
 
 const TabExampleVerticalTabular = () => {

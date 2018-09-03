@@ -169,7 +169,7 @@ class MainNavBar extends React.Component {
               </Menu.Item>
             </Responsive>
             {currentUser &&
-              currentUser.type === 'audience_owner' && (
+              currentUser.type === 'content_owner' && (
                 <Menu.Item
                   as={Link}
                   to="/audience"
@@ -182,7 +182,7 @@ class MainNavBar extends React.Component {
                 </Menu.Item>
               )}
             {currentUser &&
-              currentUser.type === 'content_owner' && (
+              currentUser.type === 'audience_owner' && (
                 <Menu.Item
                   as={Link}
                   to="/contentowner"
