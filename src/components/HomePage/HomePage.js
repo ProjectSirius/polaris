@@ -7,7 +7,7 @@ const HomePage = ({ title, classes }) => {
       <main className={classes.mainWrap}>
         <div className={classes.topSection}>
           {/*{title}*/}
-          <h1> Lorem ipsum </h1>
+          <h1>POLARIS</h1>
         </div>
 
         <div className={classes.textBlock}>
@@ -64,7 +64,7 @@ const HomePage = ({ title, classes }) => {
         <div className={classes.section5}>
           <div className={classes.wrapper}>
             <div className={classes.introduction}>
-              <h2>lorem Ispum </h2>
+              <h2>How Polaris Works</h2>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                 Dignissimos facere itaque nulla qui repellat voluptatibus.
@@ -72,7 +72,7 @@ const HomePage = ({ title, classes }) => {
             </div>
 
             <div className={classes.teaser}>
-              <div className={`teaser-Img ${classes.teaserImage}`} />
+              <div className={`teaser-Img ${classes.teaserImage}`}>1</div>
               <div className={`teaser-info ${classes.teaserCopy}`}>
                 <h3>lorem Ispum </h3>
                 <p>
@@ -83,7 +83,7 @@ const HomePage = ({ title, classes }) => {
             </div>
 
             <div className={classes.teaser}>
-              <div className={`teaser-Img ${classes.teaserImage}`} />
+              <div className={`teaser-Img ${classes.teaserImage}`}>2</div>
               <div className={`teaser-info ${classes.teaserCopy}`}>
                 <h3>lorem Ispum </h3>
                 <p>
@@ -94,7 +94,7 @@ const HomePage = ({ title, classes }) => {
             </div>
 
             <div className={classes.teaser}>
-              <div className={`teaser-Img ${classes.teaserImage}`} />
+              <div className={`teaser-Img ${classes.teaserImage}`}>3</div>
               <div className={`teaser-info ${classes.teaserCopy}`}>
                 <h3>lorem Ispum </h3>
                 <p>
@@ -105,7 +105,7 @@ const HomePage = ({ title, classes }) => {
             </div>
 
             <div className={classes.teaser}>
-              <div className={`teaser-Img ${classes.teaserImage}`} />
+              <div className={`teaser-Img ${classes.teaserImage}`}>4</div>
               <div className={`teaser-info ${classes.teaserCopy}`}>
                 <h3>lorem Ispum </h3>
                 <p>

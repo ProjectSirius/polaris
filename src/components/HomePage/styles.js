@@ -11,8 +11,8 @@ export default {
   //top
   topSection: {
     minHeight: '60rem',
-    backgroundImage:
-      'url(https://3o69gd4d4mqa1l7ar9qgm7xh-wpengine.netdna-ssl.com/wp-content/uploads/2018/07/mebe-home-2560x1105.jpg)',
+    background:
+      'url(http://hdwallpapersbackgrounds.us/backgrounds-image/wallpapers-hd-3s-1600x900/hd-wallpapers-39089d881-3s-1600x900.jpg)',
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
     backgroundPosition: 'center center',
@@ -95,8 +95,7 @@ export default {
   },
 
   rightImg: {
-    backgroundImage:
-      'url(https://3o69gd4d4mqa1l7ar9qgm7xh-wpengine.netdna-ssl.com/wp-content/uploads/2018/07/Stocksy_txp382ce464N72200_Small_1723990.jpg)',
+    backgroundImage: 'url(https://wallpapercave.com/wp/bPTxuKj.jpg)',
     width: '50%',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
@@ -203,13 +202,12 @@ export default {
     maxWidth: '300px',
     maxHeight: '300px',
     borderRadius: '50%',
-    display: 'block',
-    backgroundImage:
-      'url(https://3o69gd4d4mqa1l7ar9qgm7xh-wpengine.netdna-ssl.com/wp-content/uploads/2018/07/Stocksy_txp382ce464N72200_Small_1336475.jpg)',
-    backgroundRepeat: 'no-repeat',
-    backgroundSize: 'cover',
-    backgroundPosition: 'center center',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
     border: '6px solid #fac450',
+    fontSize: '200px',
+    color: '#065075',
   },
 
   teaserCopy: {
