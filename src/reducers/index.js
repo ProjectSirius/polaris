@@ -20,6 +20,8 @@ import groupOffer from './groupOffer';
 import genres from './genres';
 import authToken from './authToken';
 import isDataSent from './isDataSent';
+import offers from './offers';
+import cart from './cart';
 
 export default combineReducers({
   form: formReducer,
@@ -42,4 +44,6 @@ export default combineReducers({
   genres,
   authToken,
   isDataSent,
+  offers,
+  cart,
 });

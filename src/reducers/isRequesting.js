@@ -18,6 +18,7 @@ import {
   NOTIF_FAILURE,
   NOTIF_SUCCESS,
   DETAILS_RECEIVE_SUCCESS,
+  CART_DATA_SUCCESS,
 } from '../actions/constants';
 
 const isRequesting = (state = false, action) => {
@@ -42,6 +43,7 @@ const isRequesting = (state = false, action) => {
     case TRANSACTION_SUCCESS:
     case NOTIF_FAILURE:
     case NOTIF_SUCCESS:
+    case CART_DATA_SUCCESS:
       return false;
     default:
       return state;
