@@ -2,7 +2,7 @@ import React from 'react';
 import { PropTypes } from 'prop-types';
 import { Button } from 'semantic-ui-react';
 
-const SubmitBtn = ({ valid, isRequesting, value, size = 'large' }) => {
+const SubmitBtn = ({ valid, isRequesting, value, size = 'large', onClick }) => {
   return (
     <Button
       disabled={!valid}
@@ -10,6 +10,7 @@ const SubmitBtn = ({ valid, isRequesting, value, size = 'large' }) => {
       fluid
       loading={isRequesting}
       size={size}
+      onClick={onClick || ''}
     >
       {value}
     </Button>

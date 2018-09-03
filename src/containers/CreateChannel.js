@@ -22,7 +22,8 @@ import {
   getDetails,
   editRequest,
 } from '../actions';
-import editData from '../actions/edit';
+import editData, { editRedirect } from '../actions/edit';
+import { dataSendSuccess } from '../actions/sendData';
 import CreateCard from '../components/CreateCard';
 import channelFormValidate from '../helpers/channelFormValidate';
 import messages from '../helpers/contentChannelFormMessages';
@@ -110,6 +111,8 @@ export default withRouter(
       editData,
       getDetails,
       editRequest,
+      editRedirect,
+      dataSendSuccess,
     }
   )(addNewChannelForm)
 );

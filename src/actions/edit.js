@@ -2,8 +2,13 @@ import {
   DATA_EDIT_FAILURE,
   DATA_EDIT_SUCCESS,
   DATA_EDIT_REQUEST,
+  DATA_EDIT_REDIRECT,
 } from './constants';
 import { doPatch } from '../api/request';
+
+export const editRedirect = () => ({
+  type: DATA_EDIT_REDIRECT,
+});
 
 export const editRequest = () => ({
   type: DATA_EDIT_REQUEST,

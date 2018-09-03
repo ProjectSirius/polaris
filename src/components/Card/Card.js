@@ -34,11 +34,7 @@ const CardComponent = ({
           <p className={classes.date}>{date}</p>
           <Card.Header className={classes.mainTitle}>{title}</Card.Header>
           <Card.Description className={classes.bodyContent}>
-            {view === 'list'
-              ? description
-              : view === 'list'
-                ? `${description.slice(0, 250)}..`
-                : `${description.slice(0, 140)}..`}
+            {description}
           </Card.Description>
         </Card.Content>
       </Link>

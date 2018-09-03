@@ -4,7 +4,6 @@ import { reduxForm } from 'redux-form';
 import { injectIntl } from 'react-intl';
 import { withRouter } from 'react-router-dom';
 import { createStructuredSelector } from 'reselect';
-import editData from '../actions/edit';
 
 import {
   selectDetails,
@@ -17,6 +16,8 @@ import {
 } from '../selectors';
 
 import { addTags, removeTags, sendData, getDetails } from '../actions';
+import editData, { editRedirect } from '../actions/edit';
+import { dataSendSuccess } from '../actions/sendData';
 
 import CreateCard from '../components/CreateCard';
 
@@ -99,6 +100,8 @@ export default withRouter(
       sendData,
       editData,
       getDetails,
+      editRedirect,
+      dataSendSuccess,
     }
   )(addNewContentForm)
 );
