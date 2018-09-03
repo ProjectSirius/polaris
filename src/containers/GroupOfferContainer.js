@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { reduxForm } from 'redux-form';
 import { createStructuredSelector } from 'reselect';
 
-import { selectSelectedGroupLength } from '../selectors';
+import { selectCartLength } from '../selectors';
 
 import GroupOffer from '../components/GroupOffer';
 
@@ -14,7 +14,7 @@ const GroupOfferForm = reduxForm({
 })(GroupOffer);
 
 const mapStateToProps = createStructuredSelector({
-  groupLength: selectSelectedGroupLength,
+  groupLength: selectCartLength,
 });
 
 export default connect(mapStateToProps)(GroupOfferForm);
