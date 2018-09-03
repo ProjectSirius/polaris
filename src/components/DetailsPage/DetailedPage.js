@@ -1,6 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Loader, Grid, Image } from 'semantic-ui-react';
+import GoogleMapReact from 'google-map-react';
+
+import Marker from '../MapView/StickMarker';
 
 const DetailsPage = ({
   title,
@@ -192,7 +195,21 @@ const DetailsPage = ({
                   <h4>{formatMessage(messages.locationTitle)}</h4>
                   <span>3 Hakob Hakobyan, Yerevan, Armenia</span>
                 </div>
-                <Image src="https://www.harvard.edu/sites/default/files/content/harvard-map-google.jpg" />
+                <div style={{ height: '30vh', width: '100%' }}>
+                  <GoogleMapReact
+                    bootstrapURLKeys={{
+                      key: 'AIzaSyC3eoata7ct7kEsvsvf2PITnaiUHOMTO-Y',
+                    }}
+                    defaultCenter={{
+                      lat: 40.1860052, // in the future this cordinats will be change to real cordinats from  props
+                      lng: 44.5150187,
+                    }}
+                    defaultZoom={11}
+                  >
+                    <Marker lat={40.1860052} lng={44.5150187} />
+                    {/*this cordinats too ) */}
+                  </GoogleMapReact>
+                </div>
               </div>
             </Grid.Column>
           </Grid.Row>
