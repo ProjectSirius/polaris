@@ -46,7 +46,7 @@ class DetailsPageContainer extends React.Component {
         isRequesting={isRequesting}
         lang={lang}
         handleEdit={this.handleEdit}
-        userType={currentUser.userType}
+        userType={currentUser.type}
         messages={messages}
         formatMessage={formatMessage}
         currentUser={currentUser}

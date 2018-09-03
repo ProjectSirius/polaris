@@ -86,7 +86,7 @@ const DetailsPage = ({
               </Link>
             )}
           </div>
-          {data.user_id === '1' ? (
+          {data.user_id === currentUser.id ? (
             <div className={classes.offer}>
               <button
                 className={classes.btn}
