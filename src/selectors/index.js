@@ -29,6 +29,8 @@ export const selectIsEditing = state => state.isEditing;
 export const groupOffer = state => state.groupOffer;
 export const selectIsGroupOffering = state => state.isGroupOffering;
 export const selectIsDataSent = state => state.isDataSent;
+export const selectOffers = state => state.offers;
+export const selectCart = state => state.cart;
 
 export const selectIsAuth = createSelector(
   selectCurrentUser,
