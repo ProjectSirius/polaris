@@ -14,7 +14,7 @@ const DashboardCards = ({ userData, currentUser }) => (
       Add new Channel
     </Link>
     {userData.map(({ description, title, id }) => (
-      <Card>
+      <Card key={id}>
         <Card.Content header={title} />
         <Card.Content description={description} />
         <Card.Content extra>

@@ -27,6 +27,34 @@ const messages = defineMessages({
     id: 'login-contentOwner',
     defaultMessage: 'Content',
   },
+  newToPolaris: {
+    id: 'newToPolaris',
+    defaultMessage: 'New to polaris',
+  },
+  signUpAs: {
+    id: 'signUpAs',
+    defaultMessage: 'Sign Up As',
+  },
+  or: {
+    id: 'or',
+    defaultMessage: 'or',
+  },
+  fillForm: {
+    id: 'fillForm',
+    defaultMessage: 'Fill out the form below to log-in!',
+  },
+  logIn: {
+    id: 'logIn',
+    defaultMessage: 'Log In',
+  },
+  password: {
+    id: 'password',
+    defaultMessage: 'Password',
+  },
+  username: {
+    id: 'username',
+    defaultMessage: 'Username',
+  },
 });
 
 const LogIn = ({
@@ -62,7 +90,7 @@ const LogIn = ({
               {formatMessage(messages.loginForm)}
             </Message.Header>
             <Message.Content className={classes.messageText}>
-              Fill out the form below to log-in!
+              {formatMessage(messages.fillForm)}
             </Message.Content>
           </Message>
           <Form onSubmit={handleSubmit(login)} className="attached segment">
@@ -70,18 +98,18 @@ const LogIn = ({
               name="username"
               component={RenderField}
               type="text"
-              placeholder="Your Username"
+              placeholder={formatMessage(messages.username)}
               classes={classes}
-              label="Username"
+              label={formatMessage(messages.username)}
               icon="address card"
             />
             <Field
               name="password"
               component={RenderField}
               type="password"
-              placeholder="Your Password"
+              placeholder={formatMessage(messages.password)}
               classes={classes}
-              label="Password"
+              label={formatMessage(messages.password)}
               icon="attention"
             />
             {isRequesting && (
@@ -91,16 +119,16 @@ const LogIn = ({
             )}
             {loginError && <NegativeMessage msgHeader={loginError} />}
             <SubmitBtn
-              value="Log In"
+              value={formatMessage(messages.logIn)}
               valid={valid}
               isRequesting={isRequesting}
             />
           </Form>
           <Message attached="bottom" warning>
             <Icon name="help" />
-            New to Polaris?
+            {formatMessage(messages.newToPolaris)}
             <p>
-              Sign up as{' '}
+              {formatMessage(messages.signUpAs)}{' '}
               <Link
                 className={classes.link}
                 to={{
@@ -109,7 +137,7 @@ const LogIn = ({
               >
                 {formatMessage(messages.audienceLogin)}
               </Link>{' '}
-              or{' '}
+              {formatMessage(messages.or)}{' '}
               <Link
                 className={classes.link}
                 to={{

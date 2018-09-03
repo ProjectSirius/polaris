@@ -1,13 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const HomePage = ({ title, classes }) => {
+const HomePage = ({ classes }) => {
   return (
     <div>
       <main className={classes.mainWrap}>
         <div className={classes.topSection}>
-          {/*{title}*/}
-          <h1> Lorem ipsum </h1>
+          <h1> Polaris </h1>
         </div>
 
         <div className={classes.textBlock}>
@@ -125,7 +124,7 @@ const HomePage = ({ title, classes }) => {
                 <br />
               </h3>
 
-              <div class={classes.leftRightList}>
+              <div className={classes.leftRightList}>
                 <ul>
                   <li>Persistently nonverbal.</li>
                   <li>Delayed language development.</li>

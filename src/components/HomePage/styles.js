@@ -1,8 +1,8 @@
 export default {
   '@global html ,body, #root, .App': {
     height: '100vh',
-    fontSize: '75%',
   },
+
   '@global body': {
     padding: '0',
   },
