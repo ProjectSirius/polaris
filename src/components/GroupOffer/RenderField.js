@@ -4,7 +4,7 @@ import { Form, Label } from 'semantic-ui-react';
 const TextField = ({ id, icon, label, touched, error, classes, ...props }) => {
   return (
     <Form.Field widths="equal">
-      <label className={classes.label}>{label}:</label>
+      {label ? <label className={classes.label}>{label}:</label> : ''}
       <Form.Input
         icon={icon ? icon : ''}
         iconPosition="left"
