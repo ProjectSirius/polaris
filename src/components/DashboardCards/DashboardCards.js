@@ -11,7 +11,9 @@ const DashboardCards = ({ userData, currentUser }) => (
         }/new`,
       }}
     >
-      Add new Channel
+      {currentUser.type === 'content_owner'
+        ? 'Add new Content'
+        : 'Add new Channel'}
     </Link>
     {userData.map(({ description, title, id }) => (
       <Card key={id}>
