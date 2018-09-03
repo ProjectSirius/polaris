@@ -1,12 +1,11 @@
 import React, { PureComponent } from 'react';
-import { Icon, Button, Responsive, Modal } from 'semantic-ui-react';
+import { Icon, Responsive } from 'semantic-ui-react';
 import { injectIntl, defineMessages } from 'react-intl';
 
 import StarRating from '../../containers/StarRating';
 import PriceRangeSlider from '../../containers/PriceRangeSliderContainer';
 import CheckboxFilter from '../../containers/CheckboxFilter';
 import SelectOptionFilter from '../../containers/SelectOptionFilter';
-import GroupOffer from '../../containers/GroupOfferContainer';
 
 const messages = defineMessages({
   filtersPanelTitle: {
@@ -103,24 +102,7 @@ class FilterBar extends PureComponent {
               </div>
               <SelectOptionFilter />
             </div>
-            <div className={classes.filterItem}>
-              <Modal
-                style={{
-                  height: 500,
-                  position: 'absolute',
-                  width: '900px',
-                  left: 'calc(50% - 450px)',
-                  top: 'calc(50% - 250px)',
-                  display: 'flex !important',
-                  justifyContent: 'center',
-                }}
-                centered
-                dimmer
-                trigger={<Button>Show Modal</Button>}
-              >
-                <GroupOffer />
-              </Modal>
-            </div>
+            <div className={classes.filterItem} />
           </div>
           <Responsive
             onClick={this.handleClick}
