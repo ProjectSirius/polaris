@@ -6,13 +6,14 @@ const languageOptions = [
   { key: 'English', text: 'eng', value: 'eng' },
 ];
 
-const SelectLanguages = () => (
+const SelectLanguages = ({ changeLang }) => (
   <Dropdown
     button
     className="icon"
     floating
     icon="world"
     options={languageOptions}
+    onChange={(e, data) => changeLang(data.value)}
   />
 );
 

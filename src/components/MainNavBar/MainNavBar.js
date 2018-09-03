@@ -11,7 +11,7 @@ import {
   Label,
 } from 'semantic-ui-react';
 import Notifications from '../../containers/NotifsContainer';
-import SelectLanguages from '../SelectLanguages';
+import SelectLanguages from '../../containers/SelectLanguagesContainer';
 
 const messages = defineMessages({
   audience: {
