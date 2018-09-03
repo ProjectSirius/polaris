@@ -1,23 +1,30 @@
 import {
-  ADD_TO_GROUP_OFFER,
-  REMOVE_FROM_GROUP_OFFER,
+  CART_DATA_SUCCESS,
+  ADD_TO_CART,
+  REMOVE_FROM_CART,
 } from '../actions/constants';
 
 const initialState = {
   buyer_id: null,
   selectedIds: [],
-  options: {},
+  cartData: [],
 };
 
-const groupOffer = (state = initialState, action) => {
+const cart = (state = initialState, action) => {
   switch (action.type) {
-    case ADD_TO_GROUP_OFFER:
+    case CART_DATA_SUCCESS:
+      return {
+        ...state,
+        buyer_id: action.payload.buyer_id,
+        cartData: action.payload.data,
+      };
+    case ADD_TO_CART:
       return {
         ...state,
         buyer_id: action.payload.buyer_id,
         selectedIds: [...state.selectedIds, action.payload.id],
       };
-    case REMOVE_FROM_GROUP_OFFER:
+    case REMOVE_FROM_CART:
       return {
         ...state,
         buyer_id: action.payload.buyer_id,
@@ -28,4 +35,4 @@ const groupOffer = (state = initialState, action) => {
   }
 };
 
-export default groupOffer;
+export default cart;

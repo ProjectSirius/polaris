@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { Icon, Button, Responsive, Modal } from 'semantic-ui-react';
+import { Icon, Responsive } from 'semantic-ui-react';
 import { injectIntl, defineMessages } from 'react-intl';
 
 import StarRating from '../../containers/StarRating';
@@ -100,23 +100,8 @@ class FilterBar extends PureComponent {
                 </div>
               </div>
               <SelectOptionFilter />
-            </div> */}
-            <div className={classes.filterItem}>
-              <Modal
-                style={{
-                  height: 300,
-                  position: 'absolute',
-                  width: '700px',
-                  left: 'calc(50% - 350px)',
-                  top: 'calc(50% - 150px)',
-                }}
-                centered
-                dimmer
-                trigger={<Button>Show Modal</Button>}
-              >
-                <div>Group offers</div>
-              </Modal>
             </div>
+            <div className={classes.filterItem} />
           </div>
           <Responsive
             onClick={this.handleClick}

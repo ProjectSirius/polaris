@@ -2,7 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { injectIntl, defineMessages } from 'react-intl';
-import { Menu, Icon, Dropdown, Grid, Responsive } from 'semantic-ui-react';
+import {
+  Menu,
+  Icon,
+  Dropdown,
+  Grid,
+  Responsive,
+  Label,
+} from 'semantic-ui-react';
 import Notifications from '../../containers/NotifsContainer';
 import SelectLanguages from '../SelectLanguages';
 
@@ -137,6 +144,7 @@ class MainNavBar extends React.Component {
       classes,
       intl: { formatMessage },
       currentUser,
+      offersCount,
     } = this.props;
     const { activeItem, width } = this.state;
 
@@ -249,6 +257,17 @@ class MainNavBar extends React.Component {
             {/* lang */}
             <Menu.Item to="/dashboard" className={classes.selectLanguage}>
               <SelectLanguages />
+            </Menu.Item>
+            <Menu.Item
+              as={Link}
+              to="/cart"
+              name="cart"
+              active={activeItem === 'cart'}
+              onClick={this.navItemChecker}
+              className={classes.cart}
+            >
+              Cart
+              <Label color="blue"> {offersCount}</Label>
             </Menu.Item>
 
             {isAuth ? (

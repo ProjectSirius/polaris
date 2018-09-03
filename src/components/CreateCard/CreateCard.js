@@ -113,6 +113,7 @@ class CreateCard extends React.Component {
                 label={formatMessage(messages.per)}
                 component={RenderField}
                 name="perUnit"
+                min="1"
                 placeholder="1000"
                 type="number"
               />
@@ -155,7 +156,7 @@ class CreateCard extends React.Component {
                   <Glyphicon glyph="glyphicon glyphicon-arrow-up" />
                 </span>
               </div>
-              {userType === 'content_owner' && (
+              {type === 'content_owner' && (
                 <React.Fragment>
                   <div className={classes.fileUpload}>
                     <Field type="file" name="poster" component={FileInput} />

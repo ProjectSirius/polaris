@@ -7,10 +7,12 @@ const CardComponent = ({
   classes,
   view,
   type,
-  removeFromGroupOffer,
+  removeFromCart,
   addToGroupOffer,
   isGroupOffering,
   groupOffer,
+  addToCart,
+  cart,
 }) => {
   return (
     <Card
@@ -44,29 +46,29 @@ const CardComponent = ({
         ''
       ) : (
         <Card.Content extra style={{ display: 'flex' }}>
-          {!groupOffer.includes(id) ? (
+          {!cart.selectedIds.includes(id) ? (
             <span
               className={`${classes.moreOffer} ${classes.addOffer}`}
-              onClick={() => addToGroupOffer(id)}
+              onClick={() => addToCart(id)}
             >
               <Icon
                 name="add to cart"
                 size="large"
                 className={classes.iconColor}
               />
-              <span>Add to group offer</span>
+              <span>Add to cart</span>
             </span>
           ) : (
             <span
               className={`${classes.moreOffer} ${classes.removeOffer}`}
-              onClick={() => removeFromGroupOffer(id)}
+              onClick={() => removeFromCart(id)}
             >
               <Icon
                 name="remove"
                 size="large"
                 className={classes.delIconColor}
               />
-              <span>Remove from group offer</span>
+              <span>Remove from cart</span>
             </span>
           )}
           <Link to={`/channel/${id}`}>

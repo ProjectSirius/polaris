@@ -107,4 +107,8 @@ export default {
       padding: '.9em !important',
     },
   },
+
+  cart: {
+    padding: '16px 13px !important',
+  },
 };
