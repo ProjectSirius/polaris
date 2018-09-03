@@ -25,9 +25,11 @@ const sendData = (data, selector) => (dispatch, getState) => {
     createChannel: 'channels',
     createContent: 'contents',
   };
+
   doPost(url[selector], {
     title: data.title,
-    description: data.briefDescription,
+    description: data.description,
+    price: data.price,
     fields: [
       {
         idField: 1,
@@ -35,7 +37,13 @@ const sendData = (data, selector) => (dispatch, getState) => {
       },
     ],
   })
-    .then(data => dispatch(dataSendSuccess(data)))
+    .then(data => {
+      if (data.error) {
+        throw new Error(data.error);
+      }
+
+      return dispatch(dataSendSuccess(data.user));
+    })
     .catch(error => dispatch(dataSendFailure(error)));
 
   dataSendRequest(true);

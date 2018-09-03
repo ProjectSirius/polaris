@@ -13,9 +13,18 @@ const DetailsPage = ({
   messages,
   formatMessage,
   currentUser,
+  delData,
 }) => {
   if (!data) {
     return <h2>Sorry, we have a problems with server!</h2>;
+  }
+
+  if (data === 'deleted') {
+    return (
+      <h2 className={classes.delMsg} style={{ textAlign: 'center' }}>
+        We've successfully deleted!{' '}
+      </h2>
+    );
   }
 
   return isRequesting &&
@@ -78,11 +87,11 @@ const DetailsPage = ({
                   search: `?locale=${lang}`,
                 }}
               >
-                <button onClick={handleEdit} className={classes.btn}>
+                <span onClick={handleEdit} className={classes.btn}>
                   {userType === 'audience_owner'
                     ? formatMessage(messages.editChannel)
                     : formatMessage(messages.editContent)}
-                </button>
+                </span>
               </Link>
             ) : (
               <Link to={''}>
@@ -95,6 +104,7 @@ const DetailsPage = ({
               <button
                 className={classes.btn}
                 style={{ borderColor: '#d9534f', color: '#d9534f' }}
+                onClick={() => delData(data.id)}
               >
                 {userType === 'audience_owner'
                   ? formatMessage(messages.deleteChannel)

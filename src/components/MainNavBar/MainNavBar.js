@@ -45,6 +45,27 @@ const messages = defineMessages({
     id: 'project-title',
     defaultMessage: 'Polaris',
   },
+  dashboard: {
+    id: 'dashboard',
+    defaultMessage: 'Dashboard',
+  },
+  asDj: {
+    id: 'asDj',
+    defaultMessage: 'as DJ',
+  },
+
+  asComposer: {
+    id: 'asComposer',
+    defaultMessage: 'as Composer',
+  },
+  signUp: {
+    id: 'signUp',
+    defaultMessage: 'Sign Up',
+  },
+  logIn: {
+    id: 'logIn',
+    defaultMessage: 'Log In',
+  },
 });
 
 class MainNavBar extends React.Component {
@@ -107,7 +128,7 @@ class MainNavBar extends React.Component {
             pointing
             secondary
             size="huge"
-            fixed="true"
+            fixed="top"
             stackable
           >
             <Grid>
@@ -186,7 +207,7 @@ class MainNavBar extends React.Component {
                   {formatMessage(messages.content)}
                 </Menu.Item>
               )}
-            {isAuth && (
+            {/* {isAuth && (
               <Menu.Item
                 as={Notifications}
                 active={activeItem === 'notifications'}
@@ -194,48 +215,63 @@ class MainNavBar extends React.Component {
                 name="notifications"
                 className={classes.menuItem}
               />
-            )}
+            )} */}
             <Menu.Item
               as={Link}
               to="/dashboard"
-              active={activeItem === 'dashboard'}
+              active={activeItem === 'Dashboard'}
               onClick={this.navItemChecker}
               className={classes.menuItem}
               name="Dashboard"
             >
-              Dashboard
+              {formatMessage(messages.dashboard)}
             </Menu.Item>
 
             {isAuth ? (
               <Menu.Menu position="right">
+                <Menu.Item
+                  as={Notifications}
+                  active={activeItem === 'notifications'}
+                  onClick={this.navItemChecker}
+                  name="notifications"
+                  className={classes.menuItem}
+                />
                 <Menu.Item className={classes.menuItemSettings} name="settings">
                   <Dropdown
                     pointing="top right"
                     trigger={
                       <span>
                         <Icon name="user" />{' '}
-                        <strong>Hello, {currentUser.username}!</strong>
+                        <strong>
+                          {formatMessage(messages.hello)},{' '}
+                          {currentUser.username}!
+                        </strong>
                       </span>
                     }
                   >
                     <Dropdown.Menu>
                       <Dropdown.Item
                         disabled
-                        text={`Signed in as ${currentUser.username}`}
+                        text={`${formatMessage(messages.signedInAs)} ${
+                          currentUser.username
+                        }`}
                         className={classes.dropLink}
                       />
                       <Dropdown.Divider />
                       <Dropdown.Item
                         as={Link}
                         to="/profile"
-                        text="Profile"
+                        text={formatMessage(messages.profile)}
                         className={classes.dropLink}
                       />
-                      <Dropdown.Item text="Help" className={classes.dropLink} />
+                      <Dropdown.Item
+                        text={formatMessage(messages.help)}
+                        className={classes.dropLink}
+                      />
                       <Dropdown.Divider />
                       <Dropdown.Item
                         onClick={this.handleLogOut}
-                        text="Log Out"
+                        text={formatMessage(messages.logOut)}
                         className={classes.dropLink}
                       />
                     </Dropdown.Menu>
@@ -245,7 +281,7 @@ class MainNavBar extends React.Component {
             ) : (
               <Menu.Menu position="right">
                 <Menu.Item
-                  name="login"
+                  name={formatMessage(messages.logIn)}
                   as={Link}
                   to="/login"
                   active={activeItem === 'login'}
@@ -253,19 +289,23 @@ class MainNavBar extends React.Component {
                   onClick={this.navItemChecker}
                 />
                 <Menu.Item className={classes.signUp}>
-                  <Dropdown text="Sign Up" floating error>
+                  <Dropdown
+                    text={formatMessage(messages.signUp)}
+                    floating
+                    error
+                  >
                     <Dropdown.Menu>
                       <Dropdown.Item
                         as={Link}
                         to="/audience-sign-up"
-                        text="as DJ"
+                        text={formatMessage(messages.asDj)}
                         className={classes.dropLink}
                       />
                       <Dropdown.Divider />
                       <Dropdown.Item
                         as={Link}
                         to="/content-sign-up"
-                        text="as Composer"
+                        text={formatMessage(messages.asComposer)}
                         className={classes.dropLink}
                       />
                     </Dropdown.Menu>

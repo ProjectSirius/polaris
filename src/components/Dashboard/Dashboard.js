@@ -6,6 +6,14 @@ import DashboardCardsContainer from '../../containers/DashboardCardsContainer';
 
 const panes = [
   {
+    menuItem: 'My Channels',
+    render: () => (
+      <Tab.Pane>
+        <DashboardCardsContainer />
+      </Tab.Pane>
+    ),
+  },
+  {
     menuItem: 'Transactions',
     render: () => (
       <Tab.Pane>
@@ -14,17 +22,9 @@ const panes = [
     ),
   },
   { menuItem: 'Payment', render: () => <Tab.Pane>Tab 2 Content</Tab.Pane> },
-  {
-    menuItem: 'My Channels',
-    render: () => (
-      <Tab.Pane>
-        <DashboardCardsContainer />
-      </Tab.Pane>
-    ),
-  },
 ];
 
-const TabExampleVerticalTabular = () => {
+const TabMenu = () => {
   return (
     <React.Fragment>
       <Responsive minWidth="768">
@@ -43,4 +43,4 @@ const TabExampleVerticalTabular = () => {
   );
 };
 
-export default TabExampleVerticalTabular;
+export default TabMenu;

@@ -4,7 +4,7 @@ import {
   DATA_RECEIVE_FAILURE,
 } from './constants';
 import { doPost } from '../api/request';
-import { selectChoosenGenres, selectSearch, selectRating } from '../selectors';
+import { selectChoosenGenres, selectRating } from '../selectors';
 
 const dataRequest = isRequesting => ({
   type: DATA_REQUEST,
@@ -28,7 +28,7 @@ const getData = searchValue => (dispatch, getState) => {
       : 'contents/search';
 
   /* eslint-disable */
-  const search = searchValue ? searchValue : selectSearch(getState());
+  const search = searchValue;
   const rating = selectRating(getState());
   const genres = selectChoosenGenres(getState());
   /* eslint-enable */
