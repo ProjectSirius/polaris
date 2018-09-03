@@ -56,6 +56,7 @@ const App = ({ content, title }) => {
           path="/content/:id"
           component={DetailsPageContainer}
         />
+        <ProtectedRouteContainer path="/cart" component={CartContainer} />
         <Route render={() => <h1>Not Found App</h1>} />
       </Switch>
     </div>

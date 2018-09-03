@@ -10,6 +10,7 @@ import {
   selectLanguage,
   selectIsOpenMainMenu,
   selectNotifLength,
+  selectCartLength,
 } from '../selectors';
 
 const mapStateToProps = createStructuredSelector({
@@ -18,6 +19,7 @@ const mapStateToProps = createStructuredSelector({
   lang: selectLanguage,
   isOpen: selectIsOpenMainMenu,
   notifLength: selectNotifLength,
+  offersCount: selectCartLength,
 });
 
 const mapDispatchToProps = dispatch => ({

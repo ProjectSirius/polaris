@@ -72,7 +72,7 @@ class CreateCard extends React.Component {
         <div>
           <div className={classes.titleWrapper}>
             <div className={classes.title}>
-              {userType === 'audience_owner'
+              {type === 'audience_owner'
                 ? formatMessage(messages.channelTitle)
                 : formatMessage(messages.contentTitle)}
             </div>
@@ -87,7 +87,7 @@ class CreateCard extends React.Component {
           >
             <Field
               label={
-                userType === 'audience_owner'
+                type === 'audience_owner'
                   ? formatMessage(messages.channelTitleInput)
                   : formatMessage(messages.contentTitleInput)
               }
@@ -165,7 +165,7 @@ class CreateCard extends React.Component {
                   <Glyphicon glyph="glyphicon glyphicon-arrow-up" />
                 </span>
               </div>
-              {userType === 'content_owner' && (
+              {type === 'content_owner' && (
                 <React.Fragment>
                   <div className={classes.fileUpload}>
                     <Field type="file" name="poster" component={FileInput} />
