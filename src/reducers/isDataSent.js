@@ -1,4 +1,4 @@
-import { DATA_SEND_SUCCESS , DATA_EDIT_REDIRECT} from '../actions/constants';
+import { DATA_SEND_SUCCESS, DATA_EDIT_REDIRECT } from '../actions/constants';
 
 const isDataSent = (state = false, action) => {
   switch (action.type) {
