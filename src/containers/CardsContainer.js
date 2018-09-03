@@ -11,9 +11,15 @@ import {
   selectLanguage,
   selectIsGroupOffering,
   groupOffer,
+  selectCart,
 } from '../selectors';
 
-import { getData, addToGroupOffer, removeFromGroupOffer } from '../actions';
+import {
+  getData,
+  addToGroupOffer,
+  addToCart,
+  removeFromCart,
+} from '../actions';
 
 import Cards from '../components/Cards';
 
@@ -48,8 +54,10 @@ class CardsContainer extends React.Component {
       lang,
       isGroupOffering,
       addToGroupOffer,
-      removeFromGroupOffer,
+      removeFromCart,
       groupOffer,
+      addToCart,
+      cart,
     } = this.props;
 
     return (
@@ -61,8 +69,10 @@ class CardsContainer extends React.Component {
         lang={lang}
         isGroupOffering={isGroupOffering}
         addToGroupOffer={addToGroupOffer}
-        removeFromGroupOffer={removeFromGroupOffer}
+        removeFromCart={removeFromCart}
         groupOffer={groupOffer}
+        addToCart={addToCart}
+        cart={cart}
       />
     );
   }
@@ -77,6 +87,7 @@ const mapStateToProps = createStructuredSelector({
   lang: selectLanguage,
   isGroupOffering: selectIsGroupOffering,
   groupOffer,
+  cart: selectCart,
 });
 
 export default connect(
@@ -84,6 +95,7 @@ export default connect(
   {
     getData,
     addToGroupOffer,
-    removeFromGroupOffer,
+    removeFromCart,
+    addToCart,
   }
 )(CardsContainer);

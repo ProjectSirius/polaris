@@ -2,7 +2,6 @@ import React from 'react';
 import Card from '../Card';
 import MapView from '../MapView';
 import { Loader } from 'semantic-ui-react';
-import { Link } from 'react-router-dom';
 
 const Cards = ({
   data,
@@ -11,9 +10,11 @@ const Cards = ({
   view,
   type,
   addToGroupOffer,
-  removeFromGroupOffer,
+  removeFromCart,
   isGroupOffering,
   groupOffer,
+  addToCart,
+  cart,
 }) => {
   return isRequesting ? (
     <Loader active inline="centered" size="large" className={classes.loading}>
@@ -32,8 +33,9 @@ const Cards = ({
           view={view}
           type={type}
           addToGroupOffer={addToGroupOffer}
-          removeFromGroupOffer={removeFromGroupOffer}
-          groupOffer={groupOffer}
+          removeFromCart={removeFromCart}
+          cart={cart}
+          addToCart={addToCart}
         />
       ))}
     </div>
@@ -41,7 +43,7 @@ const Cards = ({
     <MapView
       data={data}
       addToGroupOffer={addToGroupOffer}
-      removeFromGroupOffer={removeFromGroupOffer}
+      removeFromGroupOffer={removeFromCart}
       groupOffer={groupOffer}
     />
   );
