@@ -12,6 +12,7 @@ import DetailsPageContainer from '../../containers/DetailsPageContainer';
 import CreateChannel from '../../containers/CreateChannel';
 import CreateContent from '../../containers/CreateContentContainer';
 import Dashboard from '../../containers/DashboardContainer';
+import CartContainer from '../../containers/CartContainer';
 
 const App = ({ content, title }) => {
   return (
