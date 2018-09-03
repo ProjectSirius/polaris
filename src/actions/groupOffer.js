@@ -1,4 +1,12 @@
-import { ADD_TO_GROUP_OFFER, REMOVE_FROM_GROUP_OFFER } from './constants';
+import {
+  ADD_TO_GROUP_OFFER,
+  REMOVE_FROM_GROUP_OFFER,
+  CREATE_GROUP_OFFER,
+} from './constants';
+
+export const createGroupOffer = () => ({
+  type: CREATE_GROUP_OFFER,
+});
 
 export const addOffer = (id, buyer_id) => ({
   type: ADD_TO_GROUP_OFFER,
