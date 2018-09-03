@@ -23,7 +23,6 @@ export const selectFilteringPageFilterBar = state =>
   state.filteringPage.filterBar;
 export const selectRating = state =>
   state.filteringPage ? state.filteringPage.rating : 1;
-export const selectOption = state => state.form.SelectOptionFilter_form;
 export const selectTags = state => state.tags;
 export const selectDetails = state => state.details;
 export const selectIsEditing = state => state.isEditing;
@@ -46,7 +45,7 @@ export const selectEditDetails = createSelector(
     window.location.pathname.split('/').includes('edit') ? selectDetails : {}
 );
 
-export const selectSelectedGroupLength = createSelector(
-  groupOffer,
-  groupOffer => groupOffer.selectedIds.length
+export const selectCartLength = createSelector(
+  selectCart,
+  cart => cart.selectedIds.length
 );
