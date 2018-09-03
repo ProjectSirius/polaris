@@ -2,6 +2,7 @@ import React from 'react';
 import { Tab, Responsive } from 'semantic-ui-react';
 
 import TransactionCardsContainer from '../../containers/TransactionCardsContainer';
+import OffersListContainer from '../../containers/OffersListContainer';
 
 const panes = [
   {
@@ -10,7 +11,7 @@ const panes = [
   },
   { menuItem: 'Payment', render: () => <Tab.Pane>Tab 2 Content</Tab.Pane> },
   { menuItem: 'My Channels', render: () => <Tab.Pane>My channels</Tab.Pane> },
-  { menuItem: 'Offers', render: () => <Tab.Pane>My offers</Tab.Pane> },
+  { menuItem: 'Offers', render: () => <OffersListContainer /> },
 ];
 
 const TabExampleVerticalTabular = () => {
