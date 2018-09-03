@@ -8,8 +8,16 @@ import {
   Feed,
 } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
+import { injectIntl, defineMessages } from 'react-intl';
 
-const Notifications = ({ notifs, classes }) => (
+const messages = defineMessages({
+  notifications: {
+    id: 'notifications',
+    defaultMessage: 'Notifications',
+  },
+});
+
+const Notifications = ({ notifs, classes, intl: { formatMessage } }) => (
   <Dropdown
     scrolling
     pointing="top"
@@ -18,7 +26,7 @@ const Notifications = ({ notifs, classes }) => (
     trigger={
       <React.Fragment>
         <Icon name="bell outline" />
-        Notifications{' '}
+        {formatMessage(messages.notifications)}{' '}
         <Label color="teal" size="mini">
           {notifs.length}
         </Label>
@@ -46,4 +54,4 @@ const Notifications = ({ notifs, classes }) => (
   </Dropdown>
 );
 
-export default Notifications;
+export default injectIntl(Notifications);
