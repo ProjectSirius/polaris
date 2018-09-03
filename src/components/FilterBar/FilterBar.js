@@ -62,7 +62,7 @@ class FilterBar extends PureComponent {
             !isOpen
               ? classes.filterItemsWrapper
               : `${classes.filterItemsWrapperOpen} ${
-                classes.filterItemsWrapper
+                  classes.filterItemsWrapper
                 }`
           }
         >
