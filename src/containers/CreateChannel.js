@@ -44,6 +44,7 @@ class CreateChannelContainer extends Component {
       this.props.editData(formData);
     } else {
       this.props.sendData(formData, 'createChannel');
+      this.props.dataSendSuccess();
     }
   };
 
