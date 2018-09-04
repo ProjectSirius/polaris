@@ -1,5 +1,20 @@
 [
   {
+    "id": "add-to-cart",
+    "defaultMessage": "Add to cart",
+    "filepath": "src/components/Card/Card.js"
+  },
+  {
+    "id": "remove-from-cart",
+    "defaultMessage": "Remove from cart",
+    "filepath": "src/components/Card/Card.js"
+  },
+  {
+    "id": "find-out-more",
+    "defaultMessage": "Find out more",
+    "filepath": "src/components/Card/Card.js"
+  },
+  {
     "id": "filters-panel-title",
     "defaultMessage": "FILTERS",
     "filepath": "src/components/FilterBar/FilterBar.js"
@@ -170,6 +185,26 @@
     "filepath": "src/components/Notifications/Notifications.js"
   },
   {
+    "id": "payment",
+    "defaultMessage": "Payment",
+    "filepath": "src/components/TransactionCards/TransactionCard.js"
+  },
+  {
+    "id": "wants-to-buy-your-channel",
+    "defaultMessage": "wants to buy your channel by",
+    "filepath": "src/components/TransactionCards/TransactionCard.js"
+  },
+  {
+    "id": "approve",
+    "defaultMessage": "Approve",
+    "filepath": "src/components/TransactionCards/TransactionCard.js"
+  },
+  {
+    "id": "decline",
+    "defaultMessage": "Decline",
+    "filepath": "src/components/TransactionCards/TransactionCard.js"
+  },
+  {
     "id": "audience",
     "defaultMessage": "Audience",
     "filepath": "src/containers/AuthButtonsContainer.js"
@@ -183,6 +218,31 @@
     "id": "auth-buttons-sign-up",
     "defaultMessage": "Sign Up As a",
     "filepath": "src/containers/AuthButtonsContainer.js"
+  },
+  {
+    "id": "loading",
+    "defaultMessage": "Loading",
+    "filepath": "src/containers/CartContainer.js"
+  },
+  {
+    "id": "empty-cart-message",
+    "defaultMessage": "Your cart is empty",
+    "filepath": "src/containers/CartContainer.js"
+  },
+  {
+    "id": "make-group-offer",
+    "defaultMessage": "Make group offer",
+    "filepath": "src/containers/CartContainer.js"
+  },
+  {
+    "id": "create-group-offer",
+    "defaultMessage": "Create group offer",
+    "filepath": "src/containers/CartContainer.js"
+  },
+  {
+    "id": "make-single-offer",
+    "defaultMessage": "Make single offer",
+    "filepath": "src/containers/CartContainer.js"
   },
   {
     "id": "home-page-title",
@@ -328,6 +388,11 @@
     "id": "signUpContent",
     "defaultMessage": "Content Owner",
     "filepath": "src/containers/SignUpContentMakerContainer.js"
+  },
+  {
+    "id": "went-wrong",
+    "defaultMessage": "Sorry, something went wrong!",
+    "filepath": "src/containers/TransactionCardsContainer.js"
   },
   {
     "id": "create-new-channel-title",
