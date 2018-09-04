@@ -60,7 +60,6 @@ class CreateCard extends React.Component {
       isDataSent,
       type,
       editRedirect,
-      dataSendSuccess,
     } = this.props;
 
     const path = type === 'audience_owner' ? '/audience' : '/contentowner';
@@ -185,7 +184,6 @@ class CreateCard extends React.Component {
               value="Submit"
               valid={valid}
               isRequesting={isRequesting}
-              onClick={() => dataSendSuccess()}
             />
           </form>
         </div>

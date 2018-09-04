@@ -6,8 +6,6 @@ import OffersListContainer from '../../containers/OffersListContainer';
 import DashboardCardsContainer from '../../containers/DashboardCardsContainer';
 
 const panes = [
-  { menuItem: 'Payment', render: () => <Tab.Pane>Tab 2 Content</Tab.Pane> },
-  { menuItem: 'Offers', render: () => <OffersListContainer /> },
   {
     menuItem:
       JSON.parse(localStorage.getItem('polaris')).currentUser.type ===
@@ -20,6 +18,7 @@ const panes = [
       </Tab.Pane>
     ),
   },
+  { menuItem: 'Offers', render: () => <OffersListContainer /> },
   {
     menuItem: 'Transactions',
     render: () => (

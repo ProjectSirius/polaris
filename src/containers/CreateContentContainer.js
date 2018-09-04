@@ -43,6 +43,7 @@ class CreateContentContainer extends Component {
       this.props.editData(formData);
     } else {
       this.props.sendData(formData, 'createContent');
+      this.props.dataSendSuccess();
     }
   };
 

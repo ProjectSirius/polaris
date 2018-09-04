@@ -29,7 +29,6 @@ const signUp = ({
   email,
 }) => dispatch => {
   dispatch(signUpRequest({ userType, username, email }, true));
-  debugger;
 
   const path =
     userType === 'content_owner'
