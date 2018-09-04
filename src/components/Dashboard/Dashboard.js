@@ -5,32 +5,29 @@ import TransactionCardsContainer from '../../containers/TransactionCardsContaine
 import OffersListContainer from '../../containers/OffersListContainer';
 import DashboardCardsContainer from '../../containers/DashboardCardsContainer';
 
-const panes = [
-  {
-    menuItem:
-      JSON.parse(localStorage.getItem('polaris')).currentUser.type ===
-      'audience_owner'
-        ? 'My Channels'
-        : 'My Contents',
-    render: () => (
-      <Tab.Pane>
-        <DashboardCardsContainer />
-      </Tab.Pane>
-    ),
-  },
-  { menuItem: 'Offers', render: () => <OffersListContainer /> },
-  {
-    menuItem: 'Transactions',
-    render: () => (
-      <Tab.Pane>
-        <TransactionCardsContainer />
-      </Tab.Pane>
-    ),
-  },
-  { menuItem: 'Payment', render: () => <Tab.Pane>Tab 2 Content</Tab.Pane> },
-];
+const TabMenu = ({ currentUser }) => {
+  const panes = [
+    {
+      menuItem:
+        currentUser.type === 'audience_owner' ? 'My Channels' : 'My Contents',
+      render: () => (
+        <Tab.Pane>
+          <DashboardCardsContainer />
+        </Tab.Pane>
+      ),
+    },
+    { menuItem: 'Offers', render: () => <OffersListContainer /> },
+    {
+      menuItem: 'Transactions',
+      render: () => (
+        <Tab.Pane>
+          <TransactionCardsContainer />
+        </Tab.Pane>
+      ),
+    },
+    { menuItem: 'Payment', render: () => <Tab.Pane>Tab 2 Content</Tab.Pane> },
+  ];
 
-const TabMenu = () => {
   return (
     <React.Fragment>
       <Responsive minWidth="768">
