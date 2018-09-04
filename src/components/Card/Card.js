@@ -1,6 +1,22 @@
 import React from 'react';
 import { Card, Image, Icon } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
+import { injectIntl, defineMessages } from 'react-intl';
+
+const messages = defineMessages({
+  addToCart: {
+    id: 'add-to-cart',
+    defaultMessage: 'Add to cart',
+  },
+  removeFromCart: {
+    id: 'remove-from-cart',
+    defaultMessage: 'Remove from cart'
+  },
+  findOutMore: {
+    id: 'find-out-more',
+    defaultMessage: 'Find out more'
+  }
+});
 
 const CardComponent = ({
   info: { title, description, date, id },
@@ -13,6 +29,7 @@ const CardComponent = ({
   groupOffer,
   addToCart,
   cart,
+  intl: { formatMessage }
 }) => {
   return (
     <Card
@@ -52,7 +69,7 @@ const CardComponent = ({
                 size="large"
                 className={classes.iconColor}
               />
-              <span>Add to cart</span>
+              <span>{formatMessage(messages.addToCart)}</span>
             </span>
           ) : (
             <span
@@ -64,7 +81,7 @@ const CardComponent = ({
                 size="large"
                 className={classes.delIconColor}
               />
-              <span>Remove from cart</span>
+              <span>{formatMessage(messages.removeFromCart)}</span>
             </span>
           )}
           <Link to={`/channel/${id}`}>
@@ -74,7 +91,7 @@ const CardComponent = ({
                 size="large"
                 className={classes.iconColor}
               />
-              <span>Find out more</span>
+              <span>{formatMessage(messages.findOutMore)}</span>
             </span>
           </Link>
         </Card.Content>
@@ -83,4 +100,4 @@ const CardComponent = ({
   );
 };
 
-export default CardComponent;
+export default injectIntl(CardComponent);

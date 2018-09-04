@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
+import { injectIntl, defineMessages } from 'react-intl';
 
 import {
   selectTransaction,
@@ -26,10 +27,15 @@ class TransactionCardsContainer extends React.Component {
   }
 
   render() {
-    const { transactions, isRequesting, transError } = this.props;
+    const {
+      transactions,
+      isRequesting,
+      transError,
+      intl: { formatMessage }
+    } = this.props;
 
     if (transError) {
-      return <strong>Sorry, something went wrong!</strong>;
+      return <strong>{formatMessage(messages.wentWrong)}</strong>;
     }
 
     return (
@@ -41,11 +47,20 @@ class TransactionCardsContainer extends React.Component {
   }
 }
 
+const messages = defineMessages({
+  wentWrong: {
+    id: 'went-wrong',
+    defaultMessage: 'Sorry, something went wrong!',
+  },
+});
+
+const TransactionCardsContainerIntl = injectIntl(TransactionCardsContainer);
+
 TransactionCardsContainer = connect(
   mapStateToProps,
   {
     getTransactions,
   }
-)(TransactionCardsContainer);
+)(TransactionCardsContainerIntl);
 
 export default TransactionCardsContainer;
