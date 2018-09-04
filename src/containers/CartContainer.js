@@ -35,7 +35,7 @@ class CartContainer extends React.Component {
       addToGroupOffer,
       removeFromGroupOffer,
       groupOffer,
-      intl: { formatMessage }
+      intl: { formatMessage },
     } = this.props;
     return (
       <Cart
@@ -61,19 +61,19 @@ const messages = defineMessages({
   },
   emptyCartMessage: {
     id: 'empty-cart-message',
-    defaultMessage: 'Your cart is empty'
+    defaultMessage: 'Your cart is empty',
   },
   makeGroupOffer: {
     id: 'make-group-offer',
-    defaultMessage: 'Make group offer'
+    defaultMessage: 'Make group offer',
   },
   createGroupOffer: {
     id: 'create-group-offer',
-    defaultMessage: 'Create group offer'
+    defaultMessage: 'Create group offer',
   },
   makeSingleOffer: {
     id: 'make-single-offer',
-    defaultMessage: 'Make single offer'
+    defaultMessage: 'Make single offer',
   },
 });
 

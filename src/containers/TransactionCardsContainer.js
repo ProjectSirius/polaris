@@ -31,7 +31,7 @@ class TransactionCardsContainer extends React.Component {
       transactions,
       isRequesting,
       transError,
-      intl: { formatMessage }
+      intl: { formatMessage },
     } = this.props;
 
     if (transError) {

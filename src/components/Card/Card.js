@@ -10,12 +10,12 @@ const messages = defineMessages({
   },
   removeFromCart: {
     id: 'remove-from-cart',
-    defaultMessage: 'Remove from cart'
+    defaultMessage: 'Remove from cart',
   },
   findOutMore: {
     id: 'find-out-more',
-    defaultMessage: 'Find out more'
-  }
+    defaultMessage: 'Find out more',
+  },
 });
 
 const CardComponent = ({
@@ -29,7 +29,7 @@ const CardComponent = ({
   groupOffer,
   addToCart,
   cart,
-  intl: { formatMessage }
+  intl: { formatMessage },
 }) => {
   return (
     <Card

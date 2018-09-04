@@ -25,7 +25,7 @@ const TransactionCard = ({
   isRequesting,
   name,
   price,
-  intl: { formatMessage }
+  intl: { formatMessage },
 }) => {
   return (
     <Card>
@@ -33,7 +33,8 @@ const TransactionCard = ({
         <Card.Header>{name}</Card.Header>
         <Card.Meta>{formatMessage(messages.payment)}</Card.Meta>
         <Card.Description>
-          {name} {formatMessage(messages.wantsToBuyYourChannel)} <strong>{price}$</strong>
+          {name} {formatMessage(messages.wantsToBuyYourChannel)}{' '}
+          <strong>{price}$</strong>
         </Card.Description>
       </Card.Content>
       <Card.Content extra>
