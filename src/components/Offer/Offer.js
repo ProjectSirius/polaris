@@ -11,9 +11,9 @@ const messages = defineMessages({
     id: 'requiredNumber',
     defaultMessage: 'Required number of accepts:',
   },
-  accpeted: {
-    id: 'accpeted',
-    defaultMessage: 'Accpeted'
+  accepted: {
+    id: 'accepted',
+    defaultMessage: 'Accepted'
   }
 });
 
@@ -26,7 +26,7 @@ const Offer = ({ offer: { title, price, id, accepted, options }, intl: { formatM
         header={`${formatMessage(messages.requiredNumber)} ${options.min_accept_number}`}
       />
       <Card.Content>
-        <span>{formatMessage(messages.accpeted)}</span>
+        <span>{formatMessage(messages.accepted)}</span>
         <Progress
           percent={(100 / accepted) | 0}
           inverted

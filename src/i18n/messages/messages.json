@@ -56,7 +56,7 @@
   },
   {
     "id": "checkboxes-filter-title",
-    "defaultMessage": "Checkboxes",
+    "defaultMessage": "Categories",
     "filepath": "src/components/FilterBar/FilterBar.js"
   },
   {
@@ -225,8 +225,8 @@
     "filepath": "src/components/Offer/Offer.js"
   },
   {
-    "id": "accpeted",
-    "defaultMessage": "Accpeted",
+    "id": "accepted",
+    "defaultMessage": "Accepted",
     "filepath": "src/components/Offer/Offer.js"
   },
   {
