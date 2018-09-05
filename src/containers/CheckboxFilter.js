@@ -29,7 +29,7 @@ class CheckboxFilterContainer extends React.Component {
     const { genres } = this.props;
 
     this.props.toggleGenre(id, bool, this.props.genres);
-    this.props.search(undefined, genres);
+    this.props.search('', genres);
   }
 
   render() {
