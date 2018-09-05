@@ -21,7 +21,7 @@ const messages = defineMessages({
   },
   checkboxFilterTitle: {
     id: 'checkboxes-filter-title',
-    defaultMessage: 'Checkboxes',
+    defaultMessage: 'GENRES',
   },
   selectedOptionFilterTitle: {
     id: 'select-option-filter-title',
