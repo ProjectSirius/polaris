@@ -2,6 +2,18 @@ import React from 'react';
 import { Card, Image, Icon } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
+const imgs = [
+  'dj',
+  'composer',
+  'music',
+  'concert',
+  'guitar',
+  'singer',
+  'song',
+  'piano',
+  'jazz',
+];
+
 const CardComponent = ({
   info: { title, description, date, id },
   classes,
@@ -27,7 +39,9 @@ const CardComponent = ({
         }}
       >
         <Image
-          src="https://source.unsplash.com/user/erondu/600x400"
+          src={`https://source.unsplash.com/600x400/?${
+            imgs[Math.floor(Math.random() * imgs.length)]
+          }`}
           size={view === 'list' ? 'medium' : 'large'}
         />
         <Card.Content className={classes.cardContent}>
