@@ -20,6 +20,8 @@ import groupOffer from './groupOffer';
 import genres from './genres';
 import authToken from './authToken';
 import isDataSent from './isDataSent';
+import offers from './offers';
+import cart from './cart';
 import userData from './user-data';
 
 export default combineReducers({
@@ -43,5 +45,7 @@ export default combineReducers({
   genres,
   authToken,
   isDataSent,
+  offers,
+  cart,
   userData,
 });

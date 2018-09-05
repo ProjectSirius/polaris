@@ -59,20 +59,23 @@ class CreateCard extends React.Component {
       data,
       isDataSent,
       type,
+      editRedirect,
     } = this.props;
 
     const path = type === 'audience_owner' ? '/audience' : '/contentowner';
-
     const { from } = this.props.location.state || { from: { pathname: path } };
 
-    return isDataSent ? (
-      <Redirect to={from} />
-    ) : (
+    if (isDataSent) {
+      editRedirect();
+      return <Redirect to={from} />;
+    }
+
+    return (
       <div className={classes.newChannelWrapper}>
         <div>
           <div className={classes.titleWrapper}>
             <div className={classes.title}>
-              {userType === 'audience_owner'
+              {type === 'audience_owner'
                 ? formatMessage(messages.channelTitle)
                 : formatMessage(messages.contentTitle)}
             </div>
@@ -87,7 +90,7 @@ class CreateCard extends React.Component {
           >
             <Field
               label={
-                userType === 'audience_owner'
+                type === 'audience_owner'
                   ? formatMessage(messages.channelTitleInput)
                   : formatMessage(messages.contentTitleInput)
               }
@@ -95,13 +98,6 @@ class CreateCard extends React.Component {
               name="title"
               className={classes.inputFiled}
               type="text"
-            />
-            <Field
-              label={formatMessage(messages.briefDescription)}
-              component={RenderField}
-              name="briefDescription"
-              className={`${classes.inputFiled} `}
-              componentClass="textarea"
             />
             <Field
               label={formatMessage(messages.detailedDescription)}
@@ -122,6 +118,7 @@ class CreateCard extends React.Component {
                 label={formatMessage(messages.per)}
                 component={RenderField}
                 name="perUnit"
+                min="1"
                 placeholder="1000"
                 type="number"
               />
@@ -164,7 +161,7 @@ class CreateCard extends React.Component {
                   <Glyphicon glyph="glyphicon glyphicon-arrow-up" />
                 </span>
               </div>
-              {userType === 'content_owner' && (
+              {type === 'content_owner' && (
                 <React.Fragment>
                   <div className={classes.fileUpload}>
                     <Field type="file" name="poster" component={FileInput} />

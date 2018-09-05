@@ -18,6 +18,7 @@ import {
   NOTIF_FAILURE,
   NOTIF_SUCCESS,
   DETAILS_RECEIVE_SUCCESS,
+  CART_DATA_SUCCESS,
   USER_DATA_FAILURE,
   USER_DATA_SUCCESS,
   USER_DATA_REQUEST,
@@ -33,7 +34,6 @@ const isRequesting = (state = false, action) => {
     case NOTIF_REQUEST:
     case USER_DATA_REQUEST:
       return true;
-
     case DETAILS_RECEIVE_SUCCESS:
     case SIGN_UP_SUCCESS:
     case SIGN_UP_FAILURE:
@@ -47,10 +47,10 @@ const isRequesting = (state = false, action) => {
     case TRANSACTION_SUCCESS:
     case NOTIF_FAILURE:
     case NOTIF_SUCCESS:
+    case CART_DATA_SUCCESS:
     case USER_DATA_FAILURE:
     case USER_DATA_SUCCESS:
       return false;
-
     default:
       return state;
   }

@@ -33,20 +33,23 @@ class SimpleMap extends Component {
   };
 
   childeClick = i => {
-    this.props.groupOffer.includes(`${i}`)
+    this.props.groupOffer.selectedIds.includes(`${i}`)
       ? this.props.removeFromGroupOffer(`${i}`)
       : this.props.addToGroupOffer(`${i}`);
   };
 
   markers = () => {
-    return this.props.data.map((info, i) => {
+    return this.props.data.info.map((info, i) => {
+      const id = this.props.data.info[i].id;
       return (
         <Marker
           key={info.id}
+          id={info.id}
           lat={info.lat || getCord(40, 0.2)}
           lng={info.lng || getCord(44.5, 0.3)}
           text={info.title.slice(0, 3)}
-          selected={this.props.groupOffer.includes(`${i + 1}`)}
+          title={info.title}
+          selected={this.props.groupOffer.selectedIds.includes(`${id}`)}
         />
       );
     });

@@ -10,7 +10,7 @@ const dataSendRequest = isRequesting => ({
   payload: { isRequesting },
 });
 
-const dataSendSuccess = data => ({
+export const dataSendSuccess = data => ({
   type: DATA_SEND_SUCCESS,
   payload: { data },
 });
@@ -25,17 +25,28 @@ const sendData = (data, selector) => (dispatch, getState) => {
     createChannel: 'channels',
     createContent: 'contents',
   };
+
   doPost(url[selector], {
     title: data.title,
-    description: data.briefDescription,
+    description: data.description,
     fields: [
       {
         idField: 1,
         value: 'Musical theatre',
       },
+      {
+        idField: 16,
+        value: data.price,
+      },
     ],
   })
-    .then(data => dispatch(dataSendSuccess(data)))
+    .then(data => {
+      if (data.error) {
+        throw new Error(data.error);
+      }
+
+      return dispatch(dataSendSuccess(data.user));
+    })
     .catch(error => dispatch(dataSendFailure(error)));
 
   dataSendRequest(true);

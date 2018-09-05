@@ -1,11 +1,10 @@
 import React, { PureComponent } from 'react';
-import { Icon, Button, Responsive, Modal } from 'semantic-ui-react';
+import { Icon, Responsive } from 'semantic-ui-react';
 import { injectIntl, defineMessages } from 'react-intl';
 
 import StarRating from '../../containers/StarRating';
 import PriceRangeSlider from '../../containers/PriceRangeSliderContainer';
 import CheckboxFilter from '../../containers/CheckboxFilter';
-import SelectOptionFilter from '../../containers/SelectOptionFilter';
 
 const messages = defineMessages({
   filtersPanelTitle: {
@@ -22,7 +21,7 @@ const messages = defineMessages({
   },
   checkboxFilterTitle: {
     id: 'checkboxes-filter-title',
-    defaultMessage: 'Checkboxes',
+    defaultMessage: 'GENRES',
   },
   selectedOptionFilterTitle: {
     id: 'select-option-filter-title',
@@ -91,7 +90,7 @@ class FilterBar extends PureComponent {
               </div>
               <CheckboxFilter />
             </div>
-            <div className={classes.filterItem}>
+            {/* <div className={classes.filterItem}>
               <div className={classes.filterTitle}>
                 <div className={classes.filterTitleWithIcon}>
                   <Icon name="chevron down" />
@@ -101,23 +100,7 @@ class FilterBar extends PureComponent {
                 </div>
               </div>
               <SelectOptionFilter />
-            </div>
-            <div className={classes.filterItem}>
-              <Modal
-                style={{
-                  height: 300,
-                  position: 'absolute',
-                  width: '700px',
-                  left: 'calc(50% - 350px)',
-                  top: 'calc(50% - 150px)',
-                }}
-                centered
-                dimmer
-                trigger={<Button>Show Modal</Button>}
-              >
-                <div>Group offers</div>
-              </Modal>
-            </div>
+            </div> */}
           </div>
           <Responsive
             onClick={this.handleClick}

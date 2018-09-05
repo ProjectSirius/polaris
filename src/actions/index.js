@@ -13,10 +13,16 @@ import filterMenu from './filter-menu';
 import getNotif from './notif';
 import getTransactions from './getTransactions';
 import getDetails from './details';
-import edit from './edit';
-import { addToGroupOffer } from './groupOffer';
-import { removeFromGroupOffer } from './groupOffer';
+import {
+  addToGroupOffer,
+  removeFromGroupOffer,
+  createGroupOffer,
+} from './groupOffer';
 import getGenres, { toggleGenre } from './genres';
+import getOffers from './getOffers';
+import { cart, addToCart, removeFromCart } from './cart';
+import { editRequest } from './edit';
+import delData from './delData';
 
 export {
   signUp,
@@ -35,9 +41,15 @@ export {
   getNotif,
   getTransactions,
   getDetails,
-  edit,
+  editRequest,
   addToGroupOffer,
   removeFromGroupOffer,
   getGenres,
   toggleGenre,
+  getOffers,
+  cart,
+  createGroupOffer,
+  addToCart,
+  removeFromCart,
+  delData,
 };

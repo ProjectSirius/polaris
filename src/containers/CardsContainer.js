@@ -11,9 +11,15 @@ import {
   selectLanguage,
   selectIsGroupOffering,
   groupOffer,
+  selectCart,
 } from '../selectors';
 
-import { getData, addToGroupOffer, removeFromGroupOffer } from '../actions';
+import {
+  getData,
+  addToGroupOffer,
+  addToCart,
+  removeFromCart,
+} from '../actions';
 
 import Cards from '../components/Cards';
 
@@ -22,6 +28,7 @@ class CardsContainer extends React.Component {
     super(props);
 
     this.onScroll = this.onScroll.bind(this);
+    this.page = 1;
   }
 
   componentDidMount() {
@@ -31,10 +38,18 @@ class CardsContainer extends React.Component {
   }
 
   onScroll() {
+    const root = document.querySelector('#root');
+
     if (
-      window.innerHeight + window.scrollY >=
-      document.body.offsetHeight - 500
+      window.innerHeight + window.scrollY >= root.offsetHeight - 500 &&
+      this.props.data.currentPage === this.page &&
+      this.props.data.totalPages >= this.props.data.currentPage &&
+      this.props.data.currentPage !== this.props.data.totalPages
     ) {
+      if (this.props.data.currentPage < this.props.data.totalPages) {
+        this.page += 1;
+      }
+      this.props.getData('', this.page);
       return true;
     }
   }
@@ -48,8 +63,10 @@ class CardsContainer extends React.Component {
       lang,
       isGroupOffering,
       addToGroupOffer,
-      removeFromGroupOffer,
+      removeFromCart,
       groupOffer,
+      addToCart,
+      cart,
     } = this.props;
 
     return (
@@ -61,8 +78,10 @@ class CardsContainer extends React.Component {
         lang={lang}
         isGroupOffering={isGroupOffering}
         addToGroupOffer={addToGroupOffer}
-        removeFromGroupOffer={removeFromGroupOffer}
+        removeFromCart={removeFromCart}
         groupOffer={groupOffer}
+        addToCart={addToCart}
+        cart={cart}
       />
     );
   }
@@ -77,6 +96,7 @@ const mapStateToProps = createStructuredSelector({
   lang: selectLanguage,
   isGroupOffering: selectIsGroupOffering,
   groupOffer,
+  cart: selectCart,
 });
 
 export default connect(
@@ -84,6 +104,7 @@ export default connect(
   {
     getData,
     addToGroupOffer,
-    removeFromGroupOffer,
+    removeFromCart,
+    addToCart,
   }
 )(CardsContainer);

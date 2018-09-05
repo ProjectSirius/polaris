@@ -32,13 +32,13 @@ const SignUpForm = ({
         <Grid.Column computer={8} mobile={14}>
           <Message attached>
             <Message.Header className={classes.messageHeaderText}>
+              {formatMessage(messages.formTitle)}{' '}
               {user === 'audience'
-                ? formatMessage(messages.audience)
-                : formatMessage(messages.content)}
-              {' ' + formatMessage(messages.formTitle)}
+                ? formatMessage(messages.audienceSignUp)
+                : formatMessage(messages.contentSignUp)}
             </Message.Header>
             <Message.Content className={classes.messageText}>
-              Fill out the form below to sign up in a new account!
+              {formatMessage(messages.fillSignUpForm)}
             </Message.Content>
           </Message>
           <Form onSubmit={handleSubmit(signUp)} className="attached segment">
@@ -46,41 +46,41 @@ const SignUpForm = ({
               name="username"
               type="text"
               component={renderField}
-              placeholder="Username"
+              placeholder={formatMessage(messages.username)}
               bsSize="large"
               className={classes.input}
               classes={classes}
-              label="Username"
+              label={formatMessage(messages.username)}
               icon="address card"
             />
             <Field
               name="email"
               type="email"
               component={renderField}
-              placeholder="Email"
+              placeholder={formatMessage(messages.email)}
               classes={classes}
-              label="Email"
+              label={formatMessage(messages.email)}
               icon="at"
             />
             <Field
               name="password"
               type="password"
               component={renderField}
-              placeholder="Password"
+              placeholder={formatMessage(messages.password)}
               bsSize="large"
               className={classes.input}
               classes={classes}
-              label="Password"
+              label={formatMessage(messages.password)}
               icon="attention"
             />
             <Field
               name="passwordConfirmation"
               type="password"
               component={renderField}
-              placeholder="Password Confirmation"
+              placeholder={formatMessage(messages.confirms)}
               bsSize="large"
               classes={classes}
-              label="Confirm Password"
+              label={formatMessage(messages.confirms)}
               icon="attention"
             />
             {isRequesting && (
@@ -90,22 +90,22 @@ const SignUpForm = ({
             )}
             {errorSignUp && <NegativeMessage msgHeader={errorSignUp} />}
             <SubmitBtn
-              value="Sign Up!"
+              value={formatMessage(messages.signUp)}
               valid={valid}
               isRequesting={isRequesting}
             />
           </Form>
           <Message attached="bottom" warning>
             <Icon name="help" />
-            Already have an account?{' '}
+            {formatMessage(messages.haveAcc)}{' '}
             <p>
               <Link
                 className={classes.link}
                 to={{ pathname: `/login`, search: `?locale=${lang}` }}
               >
-                Login here
+                {formatMessage(messages.login)}
               </Link>{' '}
-              instead.
+              {formatMessage(messages.instead)}.
             </p>
           </Message>
         </Grid.Column>

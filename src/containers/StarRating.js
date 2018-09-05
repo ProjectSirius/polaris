@@ -8,13 +8,13 @@ import {
   selectIsAuth,
   selectCurrentUser,
 } from '../selectors';
-import { rating, setFilters } from '../actions';
-import search from '../actions/data';
+import { getData, rating, setFilters } from '../actions';
 
-let StarRatingContainer = ({ updRating, search, isAuth, currentUser }) => {
+let StarRatingContainer = ({ updRating, isAuth, currentUser, getData }) => {
   const onRatingChange = (e, data) => {
     updRating(data.rating);
-    search();
+
+    getData('');
   };
 
   return (
@@ -35,11 +35,12 @@ const mapStateToProps = createStructuredSelector({
 const mapDispatchToProps = dispatch => ({
   updRating: rate => dispatch(rating(rate)),
   setFilters: filter => dispatch(setFilters(filter)),
-  search: (dataType, query, filter) =>
-    dispatch(search(dataType, query, filter)),
+  getData: search => dispatch(getData(search)),
 });
 
-export default connect(
+StarRatingContainer = connect(
   mapStateToProps,
   mapDispatchToProps
 )(StarRatingContainer);
+
+export default StarRatingContainer;

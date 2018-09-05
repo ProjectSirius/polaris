@@ -15,27 +15,38 @@ import {
   selectEditDetails,
   selectIsDataSent,
 } from '../selectors';
-
-import { addTags, removeTags, sendData, getDetails, edit } from '../actions';
-
+import {
+  addTags,
+  removeTags,
+  sendData,
+  getDetails,
+  editRequest,
+} from '../actions';
+import editData, { editRedirect } from '../actions/edit';
+import { dataSendSuccess } from '../actions/sendData';
 import CreateCard from '../components/CreateCard';
-
 import channelFormValidate from '../helpers/channelFormValidate';
 import messages from '../helpers/contentChannelFormMessages';
 
 class CreateChannelContainer extends Component {
   componentDidMount() {
     const dataType = 'channels';
-    const id = this.props.match.params.id;
-    this.props.getDetails(dataType, id);
 
     if (this.props.match.path.split('/').includes('edit')) {
-      this.props.edit();
+      const id = this.props.match.params.id;
+      this.props.getDetails(dataType, id);
+      this.props.editRequest();
     }
   }
 
   onFormSubmit = formData => {
-    this.props.sendData(formData, 'createChannel');
+    if (this.props.history.location.pathname.includes('edit')) {
+      this.props.editData(formData);
+      this.props.history.push('/dashboard');
+    } else {
+      this.props.sendData(formData, 'createChannel');
+      this.props.dataSendSuccess();
+    }
   };
 
   getData = () => {
@@ -99,8 +110,11 @@ export default withRouter(
       addTags,
       removeTags,
       sendData,
+      editData,
       getDetails,
-      edit,
+      editRequest,
+      editRedirect,
+      dataSendSuccess,
     }
   )(addNewChannelForm)
 );

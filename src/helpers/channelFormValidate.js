@@ -5,20 +5,19 @@ const channelFormValidate = values => {
     'description',
     'detailedText',
     'price',
-    'count',
+    'perUnit',
   ];
 
   requiredFields.forEach(field => {
     if (!values[field]) {
-      errors[field] = `${field.charAt(0).toUpperCase() +
-        field.slice(1)} is required!`;
+      errors[field] = 'This field is required!';
     }
 
     if (field === 'price' && values[field] < 0) {
       errors[field] = "Price can't be negative!";
     }
 
-    if (field === 'count' && values[field] < 0) {
+    if (field === 'perUnit' && values[field] < 0) {
       errors[field] = "Unit value can't be negative!";
     }
   });

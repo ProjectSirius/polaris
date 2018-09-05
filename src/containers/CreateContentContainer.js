@@ -16,6 +16,8 @@ import {
 } from '../selectors';
 
 import { addTags, removeTags, sendData, getDetails } from '../actions';
+import editData, { editRedirect } from '../actions/edit';
+import { dataSendSuccess } from '../actions/sendData';
 
 import CreateCard from '../components/CreateCard';
 
@@ -37,7 +39,12 @@ class CreateContentContainer extends Component {
   };
 
   onFormSubmit = formData => {
-    this.props.sendData(formData, 'createContent');
+    if (this.props.history.location.pathname.includes('edit')) {
+      this.props.editData(formData);
+    } else {
+      this.props.sendData(formData, 'createContent');
+      this.props.dataSendSuccess();
+    }
   };
 
   render() {
@@ -92,7 +99,10 @@ export default withRouter(
       addTags,
       removeTags,
       sendData,
+      editData,
       getDetails,
+      editRedirect,
+      dataSendSuccess,
     }
   )(addNewContentForm)
 );

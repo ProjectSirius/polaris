@@ -4,16 +4,20 @@ import {
   DATA_RECEIVE_FAILURE,
 } from './constants';
 import { doPost } from '../api/request';
-import { selectChoosenGenres, selectSearch, selectRating } from '../selectors';
+import { selectChoosenGenres, selectRating } from '../selectors';
 
 const dataRequest = isRequesting => ({
   type: DATA_REQUEST,
   payload: { isRequesting },
 });
 
-const dataReceiveSuccess = data => ({
+const dataReceiveSuccess = payload => ({
   type: DATA_RECEIVE_SUCCESS,
-  payload: { data },
+  payload: {
+    info: payload.data,
+    totalPages: payload.totalPages,
+    currentPage: payload.page,
+  },
 });
 
 const dataReceiveFailure = error => ({
@@ -21,14 +25,14 @@ const dataReceiveFailure = error => ({
   payload: { error },
 });
 
-const getData = searchValue => (dispatch, getState) => {
+const getData = (searchValue, page = 1) => (dispatch, getState) => {
   const dataType =
     getState().currentUser.type === 'content_owner'
       ? 'channels/search'
       : 'contents/search';
 
   /* eslint-disable */
-  const search = searchValue ? searchValue : selectSearch(getState());
+  const search = searchValue;
   const rating = selectRating(getState());
   const genres = selectChoosenGenres(getState());
   /* eslint-enable */
@@ -36,11 +40,11 @@ const getData = searchValue => (dispatch, getState) => {
   dispatch(dataRequest(true));
 
   return doPost(dataType, {
-    page: 1,
+    page,
     query: search,
   })
     .then(payload => {
-      return dispatch(dataReceiveSuccess(payload.data));
+      return dispatch(dataReceiveSuccess(payload));
     })
     .catch(err => dispatch(dataReceiveFailure(err)));
 };

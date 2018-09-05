@@ -11,10 +11,12 @@ const DashboardCards = ({ userData, currentUser }) => (
         }/new`,
       }}
     >
-      Add new Channel
+      {currentUser.type === 'content_owner'
+        ? 'Add new Content'
+        : 'Add new Channel'}
     </Link>
     {userData.map(({ description, title, id }) => (
-      <Card>
+      <Card key={id}>
         <Card.Content header={title} />
         <Card.Content description={description} />
         <Card.Content extra>
@@ -22,7 +24,7 @@ const DashboardCards = ({ userData, currentUser }) => (
           <Link
             to={{
               pathname: `/${
-                currentUser.type === 'content_owner' ? 'contents' : 'channel'
+                currentUser.type === 'content_owner' ? 'content' : 'channel'
               }/${id}`,
             }}
           >

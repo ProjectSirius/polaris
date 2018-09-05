@@ -10,9 +10,11 @@ const Cards = ({
   view,
   type,
   addToGroupOffer,
-  removeFromGroupOffer,
+  removeFromCart,
   isGroupOffering,
   groupOffer,
+  addToCart,
+  cart,
 }) => {
   return isRequesting ? (
     <Loader active inline="centered" size="large" className={classes.loading}>
@@ -24,23 +26,26 @@ const Cards = ({
         view === 'table' ? classes.cardsWrapperGrid : classes.cardsWrapperList
       }
     >
-      {data.map(info => (
-        <Card
-          key={info.id}
-          info={info}
-          view={view}
-          type={type}
-          addToGroupOffer={addToGroupOffer}
-          removeFromGroupOffer={removeFromGroupOffer}
-          groupOffer={groupOffer}
-        />
-      ))}
+      {data.hasOwnProperty('info')
+        ? data.info.map(info => (
+            <Card
+              key={info.id}
+              info={info}
+              view={view}
+              type={type}
+              addToGroupOffer={addToGroupOffer}
+              removeFromCart={removeFromCart}
+              cart={cart}
+              addToCart={addToCart}
+            />
+          ))
+        : ''}
     </div>
   ) : (
     <MapView
       data={data}
       addToGroupOffer={addToGroupOffer}
-      removeFromGroupOffer={removeFromGroupOffer}
+      removeFromGroupOffer={removeFromCart}
       groupOffer={groupOffer}
     />
   );
