@@ -26,18 +26,20 @@ const Cards = ({
         view === 'table' ? classes.cardsWrapperGrid : classes.cardsWrapperList
       }
     >
-      {data.map(info => (
-        <Card
-          key={info.id}
-          info={info}
-          view={view}
-          type={type}
-          addToGroupOffer={addToGroupOffer}
-          removeFromCart={removeFromCart}
-          cart={cart}
-          addToCart={addToCart}
-        />
-      ))}
+      {data.hasOwnProperty('info')
+        ? data.info.map(info => (
+            <Card
+              key={info.id}
+              info={info}
+              view={view}
+              type={type}
+              addToGroupOffer={addToGroupOffer}
+              removeFromCart={removeFromCart}
+              cart={cart}
+              addToCart={addToCart}
+            />
+          ))
+        : ''}
     </div>
   ) : (
     <MapView

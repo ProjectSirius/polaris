@@ -28,6 +28,7 @@ const DashboardCards = ({ userData, currentUser, formatMessage, messages }) => (
               pathname: `/${
                 currentUser.type === 'content_owner' ? 'contents' : 'channel'
                 }/${id}`,
+
             }}
           >
             {`${formatMessage.explore} `}

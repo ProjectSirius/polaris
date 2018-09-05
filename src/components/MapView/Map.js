@@ -39,8 +39,8 @@ class SimpleMap extends Component {
   };
 
   markers = () => {
-    return this.props.data.map((info, i) => {
-      const id = this.props.data[i].id;
+    return this.props.data.info.map((info, i) => {
+      const id = this.props.data.info[i].id;
       return (
         <Marker
           key={info.id}

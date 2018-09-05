@@ -32,6 +32,12 @@ const DetailsPage = ({
       </h2>
     );
   }
+  const fields = data.fields;
+  const price = data.fields
+    ? fields.filter(el => +el.idField === 16)[0]
+      ? fields.filter(el => +el.idField === 16)[0].value
+      : ''
+    : '';
 
   return isRequesting &&
     Object.keys(data).length === 0 &&
@@ -65,15 +71,28 @@ const DetailsPage = ({
                 {formatMessage(messages.per)} {data.perUnit} {data.unit}
               </span>
             </div>
-            <div className={classes.tagsContainer}>
-              <h2>
-                {userType === 'content_owner'
+          </div>
+          <div className={classes.price}>
+            <span>${fields ? price : ''}</span>
+            <span className={classes.subPrice}>
+              per {data.perUnit} {data.unit}
+            </span>
+          </div>
+          <div className={classes.tagsContainer}>
+            <h2>
+              {userType === 'audience_owner'
+                ? +data.createdBy === +currentUser.id
                   ? formatMessage(messages.channelTagsTitle)
-                  : formatMessage(messages.contentTagsTitle)}
-              </h2>
-              <div>
-                {data.tags
-                  ? data.tags.map((tag, index) => (
+                  : formatMessage(messages.contentTagsTitle)
+                : ''}
+
+              {/*              {                userType === 'content_owner'
+                ? formatMessage(messages.channelTagsTitle)
+                : formatMessage(messages.contentTagsTitle)}*/}
+            </h2>
+            <div>
+              {data.tags
+                ? data.tags.map((tag, index) => (
                     <span key={index} className={classes.tag}>
                       {tag}
                     </span>
