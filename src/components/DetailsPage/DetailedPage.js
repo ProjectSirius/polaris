@@ -32,6 +32,10 @@ const DetailsPage = ({
       </h2>
     );
   }
+  const fields = data.fields;
+  const price = data.fields
+    ? fields.filter(el => +el.idField === 16)[0].value
+    : '';
 
   return isRequesting &&
     Object.keys(data).length === 0 &&
@@ -60,16 +64,22 @@ const DetailsPage = ({
             </div>
           </div>
           <div className={classes.price}>
-            <span>${data.price}</span>
+            <span>${fields ? price : ''}</span>
             <span className={classes.subPrice}>
               per {data.perUnit} {data.unit}
             </span>
           </div>
           <div className={classes.tagsContainer}>
             <h2>
-              {userType === 'content_owner'
+              {userType === 'audience_owner'
+                ? +data.createdBy === +currentUser.id
+                  ? formatMessage(messages.channelTagsTitle)
+                  : formatMessage(messages.contentTagsTitle)
+                : ''}
+
+              {/*              {                userType === 'content_owner'
                 ? formatMessage(messages.channelTagsTitle)
-                : formatMessage(messages.contentTagsTitle)}
+                : formatMessage(messages.contentTagsTitle)}*/}
             </h2>
             <div>
               {data.tags
