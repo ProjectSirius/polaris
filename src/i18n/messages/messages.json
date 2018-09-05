@@ -15,6 +15,31 @@
     "filepath": "src/components/Card/Card.js"
   },
   {
+    "id": "my-channels",
+    "defaultMessage": "My Channels",
+    "filepath": "src/components/Dashboard/Dashboard.js"
+  },
+  {
+    "id": "my-contents",
+    "defaultMessage": "My Contents",
+    "filepath": "src/components/Dashboard/Dashboard.js"
+  },
+  {
+    "id": "offers",
+    "defaultMessage": "Offers",
+    "filepath": "src/components/Dashboard/Dashboard.js"
+  },
+  {
+    "id": "transactions",
+    "defaultMessage": "Transactions",
+    "filepath": "src/components/Dashboard/Dashboard.js"
+  },
+  {
+    "id": "payments",
+    "defaultMessage": "Payments",
+    "filepath": "src/components/Dashboard/Dashboard.js"
+  },
+  {
     "id": "filters-panel-title",
     "defaultMessage": "FILTERS",
     "filepath": "src/components/FilterBar/FilterBar.js"
@@ -171,7 +196,7 @@
   },
   {
     "id": "hello",
-    "defaultMessage": "hello",
+    "defaultMessage": "Hello",
     "filepath": "src/components/MainNavBar/MainNavBar.js"
   },
   {
@@ -180,9 +205,29 @@
     "filepath": "src/components/MainNavBar/MainNavBar.js"
   },
   {
+    "id": "cart",
+    "defaultMessage": "Cart",
+    "filepath": "src/components/MainNavBar/MainNavBar.js"
+  },
+  {
     "id": "notifications",
     "defaultMessage": "Notifications",
     "filepath": "src/components/Notifications/Notifications.js"
+  },
+  {
+    "id": "offeredPrice",
+    "defaultMessage": "Offered price:",
+    "filepath": "src/components/Offer/Offer.js"
+  },
+  {
+    "id": "requiredNumber",
+    "defaultMessage": "Required number of accepts:",
+    "filepath": "src/components/Offer/Offer.js"
+  },
+  {
+    "id": "accpeted",
+    "defaultMessage": "Accpeted",
+    "filepath": "src/components/Offer/Offer.js"
   },
   {
     "id": "payment",
@@ -245,9 +290,34 @@
     "filepath": "src/containers/CartContainer.js"
   },
   {
+    "id": "addNewContent",
+    "defaultMessage": "Add new Content",
+    "filepath": "src/containers/DashboardCardsContainer.js"
+  },
+  {
+    "id": "addNewChannel",
+    "defaultMessage": "Add new Channel",
+    "filepath": "src/containers/DashboardCardsContainer.js"
+  },
+  {
+    "id": "explore",
+    "defaultMessage": "Explore",
+    "filepath": "src/containers/DashboardCardsContainer.js"
+  },
+  {
     "id": "home-page-title",
     "defaultMessage": "Home Page",
     "filepath": "src/containers/HomePageContainer.js"
+  },
+  {
+    "id": "loading",
+    "defaultMessage": "Loading",
+    "filepath": "src/containers/OffersListContainer.js"
+  },
+  {
+    "id": "search",
+    "defaultMessage": "Search",
+    "filepath": "src/containers/SearchContainer.js"
   },
   {
     "id": "audience",
@@ -390,8 +460,8 @@
     "filepath": "src/containers/SignUpContentMakerContainer.js"
   },
   {
-    "id": "went-wrong",
-    "defaultMessage": "Sorry, something went wrong!",
+    "id": "loading",
+    "defaultMessage": "Loading",
     "filepath": "src/containers/TransactionCardsContainer.js"
   },
   {
@@ -516,7 +586,7 @@
   },
   {
     "id": "music-title",
-    "defaultMessage": "Piece Of Music",
+    "defaultMessage": "Music sample",
     "filepath": "src/helpers/detailsPageMessages.js"
   },
   {
@@ -532,6 +602,46 @@
   {
     "id": "channel-links",
     "defaultMessage": "Channel Links:",
+    "filepath": "src/helpers/detailsPageMessages.js"
+  },
+  {
+    "id": "server-problem",
+    "defaultMessage": "Sorry, we have a problems with server!",
+    "filepath": "src/helpers/detailsPageMessages.js"
+  },
+  {
+    "id": "delete-success",
+    "defaultMessage": "We've successfully deleted!",
+    "filepath": "src/helpers/detailsPageMessages.js"
+  },
+  {
+    "id": "loading",
+    "defaultMessage": "Loading",
+    "filepath": "src/helpers/detailsPageMessages.js"
+  },
+  {
+    "id": "per",
+    "defaultMessage": "per",
+    "filepath": "src/helpers/detailsPageMessages.js"
+  },
+  {
+    "id": "rating",
+    "defaultMessage": "Rating",
+    "filepath": "src/helpers/detailsPageMessages.js"
+  },
+  {
+    "id": "no-html5-support",
+    "defaultMessage": "Your user agent does not support the HTML5 Video element.",
+    "filepath": "src/helpers/detailsPageMessages.js"
+  },
+  {
+    "id": "youtubeChannel",
+    "defaultMessage": "Youtube channel:",
+    "filepath": "src/helpers/detailsPageMessages.js"
+  },
+  {
+    "id": "website",
+    "defaultMessage": "Website:",
     "filepath": "src/helpers/detailsPageMessages.js"
   }
 ]
