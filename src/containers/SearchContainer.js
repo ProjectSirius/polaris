@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { reduxForm } from 'redux-form';
 import { createStructuredSelector } from 'reselect';
+import { injectIntl, defineMessages } from 'react-intl';
 
 import {
   selectCurrentUser,
@@ -21,17 +22,27 @@ class SearchContainer extends Component {
   };
 
   render() {
-    const { isAuth, currentUser, isRequesting } = this.props;
+    const { isAuth, currentUser, isRequesting, intl: { formatMessage }} = this.props;
     return (
       <Search
         handleSearch={this.handleSearch}
         isAuth={isAuth}
         currentUser={currentUser}
         isRequesting={isRequesting}
+        messages={messages}
+        formatMessage={formatMessage}
       />
     );
   }
 }
+
+const messages = defineMessages({
+  search: {
+    id: 'search',
+    defaultMessage: 'Search',
+  }
+});
+
 
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
@@ -43,9 +54,11 @@ const mapDispatchToProps = dispatch => ({
   search: (dataType, query) => dispatch(search(dataType, query)),
 });
 
+const SearchContainerIntl = injectIntl(SearchContainer);
+
 const SearchForm = reduxForm({
   form: 'Search_Form',
-})(SearchContainer);
+})(SearchContainerIntl);
 
 export default connect(
   mapStateToProps,

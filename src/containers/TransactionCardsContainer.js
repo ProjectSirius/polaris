@@ -42,25 +42,25 @@ class TransactionCardsContainer extends React.Component {
       <TransactionCards
         isRequesting={isRequesting}
         transactions={transactions}
+        formatMessage={formatMessage}
+        messages={messages}
       />
     );
   }
 }
 
 const messages = defineMessages({
-  wentWrong: {
-    id: 'went-wrong',
-    defaultMessage: 'Sorry, something went wrong!',
+  loading: {
+    id: 'loading',
+    defaultMessage: 'Loading'
   },
 });
 
 const TransactionCardsContainerIntl = injectIntl(TransactionCardsContainer);
 
-TransactionCardsContainer = connect(
+export default connect(
   mapStateToProps,
   {
     getTransactions,
   }
 )(TransactionCardsContainerIntl);
-
-export default TransactionCardsContainer;

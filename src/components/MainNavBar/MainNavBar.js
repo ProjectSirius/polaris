@@ -87,12 +87,18 @@ const messages = defineMessages({
 
   hello: {
     id: 'hello',
-    defaultMessage: 'hello',
+    defaultMessage: 'Hello',
   },
+
   signedInAs: {
     id: 'signedInAs',
     defaultMessage: 'Signed in as',
   },
+
+  cart: {
+    id: 'cart',
+    defaultMessage: 'Cart'
+  }
 });
 
 class MainNavBar extends React.Component {
@@ -262,7 +268,7 @@ class MainNavBar extends React.Component {
               onClick={this.navItemChecker}
               className={classes.cart}
             >
-              Cart
+              {formatMessage(messages.cart)}
               <Label color="blue"> {offersCount}</Label>
             </Menu.Item>
 
