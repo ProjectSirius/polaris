@@ -34,7 +34,9 @@ const DetailsPage = ({
   }
   const fields = data.fields;
   const price = data.fields
-    ? fields.filter(el => +el.idField === 16)[0].value
+    ? fields.filter(el => +el.idField === 16)[0]
+      ? fields.filter(el => +el.idField === 16)[0].value
+      : ''
     : '';
 
   return isRequesting &&
