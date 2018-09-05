@@ -16,7 +16,7 @@
   },
   {
     "id": "checkboxes-filter-title",
-    "defaultMessage": "Checkboxes",
+    "defaultMessage": "GENRES",
     "filepath": "src/components/FilterBar/FilterBar.js"
   },
   {

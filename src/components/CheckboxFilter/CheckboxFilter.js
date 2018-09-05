@@ -6,19 +6,21 @@ import renderField from './RenderField';
 const CheckboxFilter = ({ classes, handleChange, genres }) => {
   return (
     <React.Fragment>
-      {genres.map(({ value, id, checked }) => (
-        <Field
-          name={`${value}`}
-          checked={checked}
-          id={id}
-          key={id}
-          component={renderField}
-          type="checkbox"
-          label={`${value}`}
-          onChange={() => handleChange(id, checked)}
-          classes={classes}
-        />
-      ))}
+      {genres.length !== 0
+        ? genres.map(genre => (
+            <Field
+              name={`${genre.el}`}
+              checked={genre.checked}
+              id={genre.id}
+              key={genre.id}
+              component={renderField}
+              type="checkbox"
+              label={`${genre.el}`}
+              onChange={() => handleChange(genre.id, genre.checked)}
+              classes={classes}
+            />
+          ))
+        : ''}
     </React.Fragment>
   );
 };

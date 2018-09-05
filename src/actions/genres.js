@@ -1,4 +1,4 @@
-import axios from 'axios';
+import { doGet } from '../api/request';
 
 import {
   GENRES_FAILURE,
@@ -29,10 +29,13 @@ export const toggleGenre = (id, bool, data) => ({
 
 const getGenres = () => dispatch => {
   dispatch(genresRequest(true));
-
-  return axios
-    .get('https://5b7e8126adf2070014bfa378.mockapi.io/genres')
-    .then(payload => dispatch(genresReceive(payload.data)))
+  doGet('/admin/fields')
+    .then(payload => {
+      const a = payload.data.filter(
+        el => (el.name = 'Ganre' && el.idFieldType === '4')
+      );
+      return dispatch(genresReceive(eval(a[0].options)));
+    })
     .catch(err => dispatch(genresReceiveFailure(err)));
 };
 

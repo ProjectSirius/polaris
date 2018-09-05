@@ -28,6 +28,7 @@ class CardsContainer extends React.Component {
     super(props);
 
     this.onScroll = this.onScroll.bind(this);
+    this.page = 1;
   }
 
   componentDidMount() {
@@ -37,10 +38,18 @@ class CardsContainer extends React.Component {
   }
 
   onScroll() {
+    const root = document.querySelector('#root');
+
     if (
-      window.innerHeight + window.scrollY >=
-      document.body.offsetHeight - 500
+      window.innerHeight + window.scrollY >= root.offsetHeight - 500 &&
+      this.props.data.currentPage === this.page &&
+      this.props.data.totalPages >= this.props.data.currentPage &&
+      this.props.data.currentPage !== this.props.data.totalPages
     ) {
+      if (this.props.data.currentPage < this.props.data.totalPages) {
+        this.page += 1;
+      }
+      this.props.getData('', this.page);
       return true;
     }
   }

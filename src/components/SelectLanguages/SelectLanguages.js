@@ -3,7 +3,7 @@ import { Dropdown } from 'semantic-ui-react';
 
 const languageOptions = [
   { key: 'Russian', text: 'ru', value: 'ru' },
-  { key: 'English', text: 'eng', value: 'eng' },
+  { key: 'English', text: 'en', value: 'en' },
 ];
 
 const SelectLanguages = ({ changeLang }) => (
