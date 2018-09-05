@@ -7,7 +7,7 @@ const CheckboxFilter = ({ classes, handleChange, genres }) => {
   return (
     <React.Fragment>
       {genres.length !== 0
-        ? genres.map((genre) => (
+        ? genres.map(genre => (
             <Field
               name={`${genre.el}`}
               checked={genre.checked}
