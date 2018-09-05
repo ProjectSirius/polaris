@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
+import { injectIntl, defineMessages } from 'react-intl';
 
 import {
   cart,
@@ -34,6 +35,7 @@ class CartContainer extends React.Component {
       addToGroupOffer,
       removeFromGroupOffer,
       groupOffer,
+      intl: { formatMessage },
     } = this.props;
     return (
       <Cart
@@ -45,10 +47,37 @@ class CartContainer extends React.Component {
         addToGroupOffer={addToGroupOffer}
         removeFromGroupOffer={removeFromGroupOffer}
         groupOffer={groupOffer}
+        formatMessage={formatMessage}
+        messages={messages}
       />
     );
   }
 }
+
+const messages = defineMessages({
+  loading: {
+    id: 'loading',
+    defaultMessage: 'Loading',
+  },
+  emptyCartMessage: {
+    id: 'empty-cart-message',
+    defaultMessage: 'Your cart is empty',
+  },
+  makeGroupOffer: {
+    id: 'make-group-offer',
+    defaultMessage: 'Make group offer',
+  },
+  createGroupOffer: {
+    id: 'create-group-offer',
+    defaultMessage: 'Create group offer',
+  },
+  makeSingleOffer: {
+    id: 'make-single-offer',
+    defaultMessage: 'Make single offer',
+  },
+});
+
+const CartContainerIntl = injectIntl(CartContainer);
 
 const mapStateToProps = createStructuredSelector({
   cartData: selectCart,
@@ -66,4 +95,4 @@ export default connect(
     addToGroupOffer,
     removeFromGroupOffer,
   }
-)(CartContainer);
+)(CartContainerIntl);

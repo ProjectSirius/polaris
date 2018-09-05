@@ -19,15 +19,19 @@ const Cart = ({
   removeFromGroupOffer,
   classes,
   groupOffer,
+  messages,
+  formatMessage,
 }) => {
   return isRequesting ? (
     <Loader active inline="centered" size="huge" className={classes.loading}>
-      Loading
+      {formatMessage(messages.loading)}
     </Loader>
   ) : (
     <div>
       {cart.length === 0 ? (
-        <span className={classes.emptyCartMessage}>Your cart is empty</span>
+        <span className={classes.emptyCartMessage}>
+          {formatMessage(messages.emptyCartMessage)}
+        </span>
       ) : (
         <Container>
           {isGroupOffering ? (
@@ -40,7 +44,7 @@ const Cart = ({
                   color="twitter"
                   disabled={!!!groupOffer.selectedIds.length}
                 >
-                  Make group offer
+                  {formatMessage(messages.makeGroupOffer)}
                 </Button>
               }
             >
@@ -48,7 +52,7 @@ const Cart = ({
             </Modal>
           ) : (
             <Button color="twitter" onClick={createGroupOffer}>
-              Create group offer
+              {formatMessage(messages.createGroupOffer)}
             </Button>
           )}
           <List divided verticalAlign="middle">
@@ -59,7 +63,11 @@ const Cart = ({
                     className={classes.modal}
                     centered
                     dimmer
-                    trigger={<Button color="twitter">Make single offer</Button>}
+                    trigger={
+                      <Button color="twitter">
+                        {formatMessage(messages.makeSingleOffer)}
+                      </Button>
+                    }
                   >
                     <GroupOffer singleOffer={true} />
                   </Modal>
