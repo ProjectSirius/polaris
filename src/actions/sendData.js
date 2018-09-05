@@ -29,11 +29,14 @@ const sendData = (data, selector) => (dispatch, getState) => {
   doPost(url[selector], {
     title: data.title,
     description: data.description,
-    price: data.price,
     fields: [
       {
         idField: 1,
         value: 'Musical theatre',
+      },
+      {
+        idField: 16,
+        value: data.price,
       },
     ],
   })
