@@ -510,6 +510,26 @@
     "filepath": "src/helpers/contentChannelFormMessages.js"
   },
   {
+    "id": "img-url",
+    "defaultMessage": "Image Link:",
+    "filepath": "src/helpers/contentChannelFormMessages.js"
+  },
+  {
+    "id": "video-url",
+    "defaultMessage": "Video Link:",
+    "filepath": "src/helpers/contentChannelFormMessages.js"
+  },
+  {
+    "id": "edit-channel",
+    "defaultMessage": "Edit Channel",
+    "filepath": "src/helpers/contentChannelFormMessages.js"
+  },
+  {
+    "id": "edit-content",
+    "defaultMessage": "Edit Content",
+    "filepath": "src/helpers/contentChannelFormMessages.js"
+  },
+  {
     "id": "tag-placeholder",
     "defaultMessage": "Add a tag",
     "filepath": "src/helpers/contentChannelFormMessages.js"

@@ -22,13 +22,13 @@ const DetailsPage = ({
   delData,
 }) => {
   if (!data) {
-    return <h2>{formatMessage(messages.serverProblem)}</h2>;
+    return <h2>Sorry, we have a problems with server!</h2>;
   }
 
   if (data === 'deleted') {
     return (
       <h2 className={classes.delMsg} style={{ textAlign: 'center' }}>
-        {formatMessage(messages.deleteSuccess)}
+         {formatMessage(messages.deleteSuccess)}
       </h2>
     );
   }
@@ -38,12 +38,37 @@ const DetailsPage = ({
       ? fields.filter(el => +el.idField === 16)[0].value
       : ''
     : '';
+  const channelLink = data.fields
+    ? fields.filter(el => +el.idField === 21)[0]
+      ? fields.filter(el => +el.idField === 21)[0].value
+      : ''
+    : '';
+  const videoLink = data.fields
+    ? fields.filter(el => +el.idField === 22)[0]
+      ? fields.filter(el => +el.idField === 22)[0].value
+      : ''
+    : '';
+  const imgLink = data.fields
+    ? fields.filter(el => +el.idField === 23)[0]
+      ? fields.filter(el => +el.idField === 23)[0].value
+      : ''
+    : '';
+  const perUnit = data.fields
+    ? fields.filter(el => +el.idField === 25)[0]
+      ? fields.filter(el => +el.idField === 25)[0].value
+      : ''
+    : '';
+  const unit = data.fields
+    ? fields.filter(el => +el.idField === 26)[0]
+      ? fields.filter(el => +el.idField === 26)[0].value
+      : ''
+    : '';
 
   return isRequesting &&
     Object.keys(data).length === 0 &&
     data.constructor === Object ? (
     <Loader active inline="centered" size="large" className={classes.loading}>
-      {formatMessage(messages.loading)}
+      Loading
     </Loader>
   ) : (
     <Grid>
@@ -66,15 +91,9 @@ const DetailsPage = ({
             </div>
           </div>
           <div className={classes.price}>
-            <span>${data.price}</span>
-            <span className={classes.subPrice}>
-              {formatMessage(messages.per)} {data.perUnit} {data.unit}
-            </span>
-          </div>
-          <div className={classes.price}>
             <span>${fields ? price : ''}</span>
             <span className={classes.subPrice}>
-              per {data.perUnit} {data.unit}
+              per {fields ? perUnit : ''} {fields ? unit : ''}
             </span>
           </div>
           <div className={classes.tagsContainer}>
@@ -101,7 +120,7 @@ const DetailsPage = ({
           </div>
           <div className={classes.tagsContainer}>
             <h2>{formatMessage(messages.averageRatingTitle)}</h2>
-            <div>{formatMessage(messages.raiting)}</div>
+            <div>Rating</div>
           </div>
           <div className={classes.offer}>
             {+data.createdBy === +currentUser.id ? (
@@ -148,14 +167,10 @@ const DetailsPage = ({
         >
           <Grid.Row>
             <Grid.Column>
-              {data.image ? (
-                <Image
-                  src={data.image}
-                  style={{ width: '100%', maxHeight: '590px' }}
-                />
-              ) : (
-                ''
-              )}
+              <Image
+                src={fields ? imgLink : ''}
+                style={{ width: '100%', maxHeight: '590px' }}
+              />
             </Grid.Column>
             <Grid.Column>
               <h1 className={classes.title}>{data.title}</h1>
@@ -163,6 +178,13 @@ const DetailsPage = ({
                 <h2>{formatMessage(messages.briefDescriptionTitle)}</h2>
                 <p>{data.description}</p>
               </div>
+              <iframe
+                src={fields ? channelLink : ''}
+                frameBorder="0"
+                width="100%"
+                height="800"
+              />
+
               {/*If there is uploaded music*/}
 
               {music ? (
@@ -183,53 +205,16 @@ const DetailsPage = ({
                 ''
               )}
               {video ? (
-                <div id="container">
-                  <video
-                    id="video"
-                    controls="controls"
-                    preload="none"
-                    width="800"
-                    poster="http://media.w3.org/2010/05/sintel/poster.png"
-                  >
-                    <source
-                      id="mp4"
-                      src="http://media.w3.org/2010/05/sintel/trailer.mp4"
-                      type="video/mp4"
-                    />
-                    <p>{formatMessage(messages.noHtml5Support)}</p>
-                  </video>
-                </div>
-              ) : (
-                ''
-              )}
-              {userType === 'audience_owner' ? (
-                <div className={classes.channelDescription}>
-                  <h2>{formatMessage(messages.channelLinks)}</h2>
-                  <span>
-                    {formatMessage(messages.youtubeChannel)}
-                    <a
-                      href="https://www.youtube.com/watch?v=cWGE9Gi0bB0"
-                      rel="noopener noreferrer"
-                      target="_blank"
-                    >
-                      <span className={classes.link}>
-                        https://www.youtube.com/watch?v=cWGE9Gi0bB0
-                      </span>
-                    </a>
-                  </span>
-                  <span>
-                    {formatMessage(messages.website)}
-                    <a
-                      href="https://www.youtube.com/watch?v=cWGE9Gi0bB0"
-                      rel="noopener noreferrer"
-                      target="_blank"
-                    >
-                      <span className={classes.link}>
-                        https://www.youtube.com/watch?v=cWGE9Gi0bB0
-                      </span>
-                    </a>
-                  </span>
-                </div>
+                <iframe
+                  width="560"
+                  height="315"
+                  src={fields ? videoLink : ''}
+                  frameBorder="0"
+                  allow="autoplay; encrypted-media"
+                  allowFullScreen
+                >
+                  {' '}
+                </iframe>
               ) : (
                 ''
               )}

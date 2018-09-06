@@ -23,6 +23,7 @@ import getOffers from './getOffers';
 import { cart, addToCart, removeFromCart } from './cart';
 import { editRequest } from './edit';
 import delData from './delData';
+import addAddress from './newDataAddress';
 
 export {
   signUp,
@@ -52,4 +53,5 @@ export {
   addToCart,
   removeFromCart,
   delData,
+  addAddress,
 };

@@ -47,6 +47,7 @@
   "help": "Помощь",
   "home-page-title": "Домашнаяя страница",
   "img-upload": "Загрузить изображение",
+  "img-url": "Ссылка изображении:",
   "instead": "на сайт",
   "loading": "Загрузка",
   "location-title": "Местоположение:",
@@ -97,6 +98,7 @@
   "unit": "Ед. изм:",
   "username": "Логин",
   "video-upload": "Загрузить видео",
+  "video-url": "Ссылка видео:"
   "wants-to-buy-your-channel": "хочет купить ваш канал за",
   "website": "Веб-сайт:",
   "youtubeChannel": "Youtube канал:"

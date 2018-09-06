@@ -9,6 +9,7 @@ import { ControlLabel, Glyphicon } from 'react-bootstrap';
 import RenderField from './RenderField';
 import renderField from '../SelectOptionFilter/RenderField';
 import SubmitBtn from '../SubmitBtn';
+import LocationSearchInput from '../../containers/LocationSearchInputContainer';
 
 class FileInput extends React.Component {
   constructor(props) {
@@ -55,7 +56,6 @@ class CreateCard extends React.Component {
       onFormSubmit,
       messages,
       formatMessage,
-      userType,
       data,
       isDataSent,
       type,
@@ -76,8 +76,12 @@ class CreateCard extends React.Component {
           <div className={classes.titleWrapper}>
             <div className={classes.title}>
               {type === 'audience_owner'
-                ? formatMessage(messages.channelTitle)
-                : formatMessage(messages.contentTitle)}
+                ? window.location.pathname.split('/').includes('edit')
+                  ? formatMessage(messages.editChannel)
+                  : formatMessage(messages.channelTitle)
+                : window.location.pathname.split('/').includes('edit')
+                  ? formatMessage(messages.editContent)
+                  : formatMessage(messages.contentTitle)}
             </div>
           </div>
           <form
@@ -132,7 +136,7 @@ class CreateCard extends React.Component {
                 <option>{'Like'}</option>
               </Field>
             </div>
-            {userType === 'audience_owner' && (
+            {type === 'audience_owner' && (
               <Field
                 label={formatMessage(messages.channelUrl)}
                 component={RenderField}
@@ -142,6 +146,22 @@ class CreateCard extends React.Component {
                 pattern="https://.*"
               />
             )}
+            <Field
+              label={formatMessage(messages.imgUrl)}
+              component={RenderField}
+              type="url"
+              name="imgUrl"
+              placeholder="https://example.com"
+              pattern="https://.*"
+            />
+            <Field
+              label={formatMessage(messages.videoUrl)}
+              component={RenderField}
+              type="url"
+              name="videoUrl"
+              placeholder="https://example.com"
+              pattern="https://.*"
+            />
             <div className={classes.tags}>
               <ControlLabel>
                 <span>{formatMessage(messages.tags)}</span>
@@ -153,6 +173,7 @@ class CreateCard extends React.Component {
                 />
               </ControlLabel>
             </div>
+            <LocationSearchInput />
             <div className={classes.fileUploadWrapper}>
               <div className={classes.fileUpload}>
                 <Field type="file" name="poster" component={FileInput} />
