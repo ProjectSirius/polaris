@@ -28,7 +28,9 @@ const DetailsPage = ({
   if (data === 'deleted') {
     return (
       <h2 className={classes.delMsg} style={{ textAlign: 'center' }}>
-        We've successfully deleted!{' '}
+        {userType === 'audience_owner'
+          ? 'Channel successfully deleted!'
+          : 'Content successfully deleted!'}
       </h2>
     );
   }
@@ -36,6 +38,31 @@ const DetailsPage = ({
   const price = data.fields
     ? fields.filter(el => +el.idField === 16)[0]
       ? fields.filter(el => +el.idField === 16)[0].value
+      : ''
+    : '';
+  const channelLink = data.fields
+    ? fields.filter(el => +el.idField === 21)[0]
+      ? fields.filter(el => +el.idField === 21)[0].value
+      : ''
+    : '';
+  const videoLink = data.fields
+    ? fields.filter(el => +el.idField === 22)[0]
+      ? fields.filter(el => +el.idField === 22)[0].value
+      : ''
+    : '';
+  const imgLink = data.fields
+    ? fields.filter(el => +el.idField === 23)[0]
+      ? fields.filter(el => +el.idField === 23)[0].value
+      : ''
+    : '';
+  const perUnit = data.fields
+    ? fields.filter(el => +el.idField === 25)[0]
+      ? fields.filter(el => +el.idField === 25)[0].value
+      : ''
+    : '';
+  const unit = data.fields
+    ? fields.filter(el => +el.idField === 26)[0]
+      ? fields.filter(el => +el.idField === 26)[0].value
       : ''
     : '';
 
@@ -68,7 +95,7 @@ const DetailsPage = ({
           <div className={classes.price}>
             <span>${fields ? price : ''}</span>
             <span className={classes.subPrice}>
-              per {data.perUnit} {data.unit}
+              per {fields ? perUnit : ''} {fields ? unit : ''}
             </span>
           </div>
           <div className={classes.tagsContainer}>
@@ -142,14 +169,10 @@ const DetailsPage = ({
         >
           <Grid.Row>
             <Grid.Column>
-              {data.image ? (
-                <Image
-                  src={data.image}
-                  style={{ width: '100%', maxHeight: '590px' }}
-                />
-              ) : (
-                ''
-              )}
+              <Image
+                src={fields ? imgLink : ''}
+                style={{ width: '100%', maxHeight: '590px' }}
+              />
             </Grid.Column>
             <Grid.Column>
               <h1 className={classes.title}>{data.title}</h1>
@@ -157,6 +180,13 @@ const DetailsPage = ({
                 <h2>{formatMessage(messages.briefDescriptionTitle)}</h2>
                 <p>{data.description}</p>
               </div>
+              <iframe
+                src={fields ? channelLink : ''}
+                frameBorder="0"
+                width="100%"
+                height="800"
+              />
+
               {/*If there is uploaded music*/}
 
               {music ? (
@@ -177,55 +207,16 @@ const DetailsPage = ({
                 ''
               )}
               {video ? (
-                <div id="container">
-                  <video
-                    id="video"
-                    controls="controls"
-                    preload="none"
-                    width="800"
-                    poster="http://media.w3.org/2010/05/sintel/poster.png"
-                  >
-                    <source
-                      id="mp4"
-                      src="http://media.w3.org/2010/05/sintel/trailer.mp4"
-                      type="video/mp4"
-                    />
-                    <p>
-                      Your user agent does not support the HTML5 Video element.
-                    </p>
-                  </video>
-                </div>
-              ) : (
-                ''
-              )}
-              {userType === 'audience_owner' ? (
-                <div className={classes.channelDescription}>
-                  <h2>{formatMessage(messages.channelLinks)}</h2>
-                  <span>
-                    Youtube channel:{' '}
-                    <a
-                      href="https://www.youtube.com/watch?v=cWGE9Gi0bB0"
-                      rel="noopener noreferrer"
-                      target="_blank"
-                    >
-                      <span className={classes.link}>
-                        https://www.youtube.com/watch?v=cWGE9Gi0bB0
-                      </span>
-                    </a>
-                  </span>
-                  <span>
-                    Website:{' '}
-                    <a
-                      href="https://www.youtube.com/watch?v=cWGE9Gi0bB0"
-                      rel="noopener noreferrer"
-                      target="_blank"
-                    >
-                      <span className={classes.link}>
-                        https://www.youtube.com/watch?v=cWGE9Gi0bB0
-                      </span>
-                    </a>
-                  </span>
-                </div>
+                <iframe
+                  width="560"
+                  height="315"
+                  src={fields ? videoLink : ''}
+                  frameBorder="0"
+                  allow="autoplay; encrypted-media"
+                  allowFullScreen
+                >
+                  {' '}
+                </iframe>
               ) : (
                 ''
               )}
