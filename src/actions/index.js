@@ -25,6 +25,7 @@ import { editRequest } from './edit';
 import delData from './delData';
 import addAddress from './newDataAddress';
 import sendOffer from './sendOffer';
+import { acceptOffer, declineOffer } from './offer';
 
 export {
   signUp,
@@ -56,4 +57,6 @@ export {
   delData,
   addAddress,
   sendOffer,
+  acceptOffer,
+  declineOffer,
 };
