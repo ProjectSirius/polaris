@@ -14,7 +14,12 @@ class DashboardCardsContainer extends React.Component {
   }
 
   render() {
-    const { userData, currentUser, delData, intl: { formatMessage } } = this.props;
+    const {
+      userData,
+      currentUser,
+      delData,
+      intl: { formatMessage },
+    } = this.props;
 
     return (
       <DashboardCards
@@ -40,7 +45,7 @@ const messages = defineMessages({
   explore: {
     id: 'explore',
     defaultMessage: 'Explore',
-  }
+  },
 });
 
 const DashboardCardsContainerIntl = injectIntl(DashboardCardsContainer);
