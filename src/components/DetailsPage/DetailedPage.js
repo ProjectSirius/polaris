@@ -28,9 +28,7 @@ const DetailsPage = ({
   if (data === 'deleted') {
     return (
       <h2 className={classes.delMsg} style={{ textAlign: 'center' }}>
-        {userType === 'audience_owner'
-          ? 'Channel successfully deleted!'
-          : 'Content successfully deleted!'}
+         {formatMessage(messages.deleteSuccess)}
       </h2>
     );
   }

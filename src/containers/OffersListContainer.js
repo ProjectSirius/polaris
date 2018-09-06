@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
+import { injectIntl, defineMessages } from 'react-intl';
 
 import { selectOffers, selectIsRequesting } from '../selectors';
 
@@ -21,17 +22,29 @@ class OffersListContainer extends React.Component {
   }
 
   render() {
-    const { offers, isRequesting } = this.props;
+    const { offers, isRequesting, intl: { formatMessage } } = this.props;
 
-    return <OffersList isRequesting={isRequesting} offers={offers} />;
+    return <OffersList
+      isRequesting={isRequesting}
+      offers={offers}
+      formatMessage={formatMessage}
+      messages={messages}
+    />;
   }
 }
 
-OffersListContainer = connect(
+const messages = defineMessages({
+  loading: {
+    id: 'loading',
+    defaultMessage: 'Loading',
+  }
+});
+
+const OffersListContainerIntl = injectIntl(OffersListContainer);
+
+export default connect(
   mapStateToProps,
   {
     getOffers,
   }
-)(OffersListContainer);
-
-export default OffersListContainer;
+)(OffersListContainerIntl);

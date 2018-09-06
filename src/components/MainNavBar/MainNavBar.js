@@ -10,7 +10,7 @@ import {
   Responsive,
   Label,
 } from 'semantic-ui-react';
-import Notifications from '../../containers/NotifsContainer';
+// import Notifications from '../../containers/NotifsContainer';
 import SelectLanguages from '../../containers/SelectLanguagesContainer';
 
 const messages = defineMessages({
@@ -87,11 +87,17 @@ const messages = defineMessages({
 
   hello: {
     id: 'hello',
-    defaultMessage: 'hello',
+    defaultMessage: 'Hello',
   },
+
   signedInAs: {
     id: 'signedInAs',
     defaultMessage: 'Signed in as',
+  },
+
+  cart: {
+    id: 'cart',
+    defaultMessage: 'Cart',
   },
 });
 
@@ -262,7 +268,7 @@ class MainNavBar extends React.Component {
               onClick={this.navItemChecker}
               className={classes.cart}
             >
-              Cart
+              {formatMessage(messages.cart)}
               <Label color="blue"> {offersCount}</Label>
             </Menu.Item>
 
@@ -272,13 +278,13 @@ class MainNavBar extends React.Component {
                 <Menu.Item to="/dashboard" className={classes.selectLanguage}>
                   <SelectLanguages />
                 </Menu.Item>
-                <Menu.Item
+                {/* <Menu.Item
                   as={Notifications}
                   active={activeItem === 'notifications'}
                   onClick={this.navItemChecker}
                   name="notifications"
                   className={classes.menuItem}
-                />
+                /> */}
                 <Menu.Item className={classes.menuItemSettings} name="settings">
                   <Dropdown
                     pointing="top right"
