@@ -70,7 +70,8 @@ class CreateCard extends React.Component {
       return <Redirect to={from} />;
     }
 
-    return <div className={classes.newChannelWrapper}>
+    return (
+      <div className={classes.newChannelWrapper}>
         <div>
           <div className={classes.titleWrapper}>
             <div className={classes.title}>
@@ -83,27 +84,93 @@ class CreateCard extends React.Component {
                   : formatMessage(messages.contentTitle)}
             </div>
           </div>
-          <form className={classes.form} onSubmit={handleSubmit(onFormSubmit)} encType="multipart/form-data" onKeyDown={e => {
+          <form
+            className={classes.form}
+            onSubmit={handleSubmit(onFormSubmit)}
+            encType="multipart/form-data"
+            onKeyDown={e => {
               if (e.key === 'Enter') e.preventDefault();
-            }}>
-            <Field label={type === 'audience_owner' ? formatMessage(messages.channelTitleInput) : formatMessage(messages.contentTitleInput)} component={RenderField} name="title" className={classes.inputFiled} type="text" />
-            <Field label={formatMessage(messages.detailedDescription)} component={RenderField} name="description" className={`${classes.inputFiled} ${classes.textarea}`} componentClass="textarea" />
+            }}
+          >
+            <Field
+              label={
+                type === 'audience_owner'
+                  ? formatMessage(messages.channelTitleInput)
+                  : formatMessage(messages.contentTitleInput)
+              }
+              component={RenderField}
+              name="title"
+              className={classes.inputFiled}
+              type="text"
+            />
+            <Field
+              label={formatMessage(messages.detailedDescription)}
+              component={RenderField}
+              name="description"
+              className={`${classes.inputFiled} ${classes.textarea}`}
+              componentClass="textarea"
+            />
             <div className={classes.minAndMaxPrice}>
-              <Field label={formatMessage(messages.price)} component={RenderField} name="price" type="number" min="1" />
-              <Field label={formatMessage(messages.per)} component={RenderField} name="perUnit" min="1" placeholder="1000" type="number" />
-              <Field label={formatMessage(messages.unit)} name="unit" component={renderField}>
+              <Field
+                label={formatMessage(messages.price)}
+                component={RenderField}
+                name="price"
+                type="number"
+                min="1"
+              />
+              <Field
+                label={formatMessage(messages.per)}
+                component={RenderField}
+                name="perUnit"
+                min="1"
+                placeholder="1000"
+                type="number"
+              />
+              <Field
+                label={formatMessage(messages.unit)}
+                name="unit"
+                component={renderField}
+              >
                 <option>{'View'}</option>
                 <option>{'Finshed minute'}</option>
                 <option>{'Like'}</option>
               </Field>
             </div>
-            {type === 'audience_owner' && <Field label={formatMessage(messages.channelUrl)} component={RenderField} type="url" name="url" placeholder="https://example.com" pattern="https://.*" />}
-            <Field label={formatMessage(messages.imgUrl)} component={RenderField} type="url" name="imgUrl" placeholder="https://example.com" pattern="https://.*" />
-            <Field label={formatMessage(messages.videoUrl)} component={RenderField} type="url" name="videoUrl" placeholder="https://example.com" pattern="https://.*" />
+            {type === 'audience_owner' && (
+              <Field
+                label={formatMessage(messages.channelUrl)}
+                component={RenderField}
+                type="url"
+                name="url"
+                placeholder="https://example.com"
+                pattern="https://.*"
+              />
+            )}
+            <Field
+              label={formatMessage(messages.imgUrl)}
+              component={RenderField}
+              type="url"
+              name="imgUrl"
+              placeholder="https://example.com"
+              pattern="https://.*"
+            />
+            <Field
+              label={formatMessage(messages.videoUrl)}
+              component={RenderField}
+              type="url"
+              name="videoUrl"
+              placeholder="https://example.com"
+              pattern="https://.*"
+            />
             <div className={classes.tags}>
               <ControlLabel>
                 <span>{formatMessage(messages.tags)}</span>
-                <Tags tags={data.tags ? data.tags : tags} placeholder={formatMessage(messages.tagPlaceholder)} onAdded={this.onTagAdded.bind(this)} onRemoved={this.onTagRemoved.bind(this)} />
+                <Tags
+                  tags={data.tags ? data.tags : tags}
+                  placeholder={formatMessage(messages.tagPlaceholder)}
+                  onAdded={this.onTagAdded.bind(this)}
+                  onRemoved={this.onTagRemoved.bind(this)}
+                />
               </ControlLabel>
             </div>
             <LocationSearchInput />
@@ -115,7 +182,8 @@ class CreateCard extends React.Component {
                   <Glyphicon glyph="glyphicon glyphicon-arrow-up" />
                 </span>
               </div>
-              {type === 'content_owner' && <React.Fragment>
+              {type === 'content_owner' && (
+                <React.Fragment>
                   <div className={classes.fileUpload}>
                     <Field type="file" name="poster" component={FileInput} />
                     <span>
@@ -130,12 +198,18 @@ class CreateCard extends React.Component {
                       <Glyphicon glyph="glyphicon glyphicon-arrow-up" />
                     </span>
                   </div>
-                </React.Fragment>}
+                </React.Fragment>
+              )}
             </div>
-            <SubmitBtn value="Submit" valid={valid} isRequesting={isRequesting} />
+            <SubmitBtn
+              value="Submit"
+              valid={valid}
+              isRequesting={isRequesting}
+            />
           </form>
         </div>
-      </div>;
+      </div>
+    );
   }
 }
 
