@@ -23,6 +23,7 @@ import isDataSent from './isDataSent';
 import offers from './offers';
 import cart from './cart';
 import userData from './user-data';
+import newDataAddress from './newDataAddress';
 
 export default combineReducers({
   form: formReducer,
@@ -48,4 +49,5 @@ export default combineReducers({
   offers,
   cart,
   userData,
+  newDataAddress,
 });
