@@ -1,12 +1,16 @@
-import { SEND_OFFER_REQUEST } from './constants';
-/*import { doPost } from '../api/request';*/
+import {
+  SEND_OFFER_REQUEST,
+  SEND_OFFER_FAILURE,
+  SEND_OFFER_SUCCESS,
+} from './constants';
+import { doPost } from '../api/request';
 
 const sendOfferRequest = isRequesting => ({
   type: SEND_OFFER_REQUEST,
   payload: { isRequesting },
 });
 
-/*export const sendOfferSuccess = data => ({
+export const sendOfferSuccess = data => ({
   type: SEND_OFFER_SUCCESS,
   payload: { data },
 });
@@ -14,22 +18,20 @@ const sendOfferRequest = isRequesting => ({
 const sendOfferFailure = error => ({
   type: SEND_OFFER_FAILURE,
   payload: { error },
-});*/
+});
 
-const sendOffer = (data, selector) => dispatch => {
+const sendOffer = data => dispatch => {
   dispatch(sendOfferRequest(true));
 
-  /*  doPost(url[selector], {
-
-  })
+  doPost('', data)
     .then(data => {
       if (data.error) {
         throw new Error(data.error);
       }
 
-      return dispatch(sendOfferSuccess(data.user));
+      return dispatch(sendOfferSuccess(data));
     })
-    .catch(error => dispatch(sendOfferFailure(error)));*/
+    .catch(error => dispatch(sendOfferFailure(error)));
 };
 
 export default sendOffer;
