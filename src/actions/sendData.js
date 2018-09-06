@@ -20,7 +20,7 @@ const dataSendFailure = error => ({
   payload: { error },
 });
 
-const sendData = (data, selector) => (dispatch, getState) => {
+const sendData = (data, selector) => dispatch => {
   const url = {
     createChannel: 'channels',
     createContent: 'contents',
@@ -37,6 +37,34 @@ const sendData = (data, selector) => (dispatch, getState) => {
       {
         idField: 16,
         value: data.price,
+      },
+      {
+        idField: 21,
+        value: data.url,
+      },
+      {
+        idField: 22,
+        value: data.videoUrl,
+      },
+      {
+        idField: 23,
+        value: data.imgUrl,
+      },
+      {
+        idField: 25,
+        value: data.perUnit,
+      },
+      {
+        idField: 26,
+        value: data.unit,
+      },
+      {
+        idField: 12,
+        value: {
+          address: data.address,
+          lat: data.lat,
+          lng: data.lng,
+        },
       },
     ],
   })
