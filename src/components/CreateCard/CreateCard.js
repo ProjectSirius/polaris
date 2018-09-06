@@ -4,38 +4,12 @@ import { Redirect } from 'react-router-dom';
 
 import Tags from 'react-tagging-input';
 
-import { ControlLabel, Glyphicon } from 'react-bootstrap';
+import { ControlLabel } from 'react-bootstrap';
 
 import RenderField from './RenderField';
 import renderField from '../SelectOptionFilter/RenderField';
 import SubmitBtn from '../SubmitBtn';
 import LocationSearchInput from '../../containers/LocationSearchInputContainer';
-
-class FileInput extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.onChange = this.onChange.bind(this);
-  }
-
-  onChange(e) {
-    const {
-      input: { onChange },
-    } = this.props;
-    onChange({
-      file: e.target.files,
-      name: e.target.files[0].name,
-    });
-  }
-
-  render() {
-    /*    const {
-      input: { value },
-    } = this.props;*/
-
-    return <input type="file" onChange={this.onChange} onBlur={() => {}} />;
-  }
-}
 
 class CreateCard extends React.Component {
   onTagAdded(tag) {
@@ -174,33 +148,6 @@ class CreateCard extends React.Component {
               </ControlLabel>
             </div>
             <LocationSearchInput />
-            <div className={classes.fileUploadWrapper}>
-              <div className={classes.fileUpload}>
-                <Field type="file" name="poster" component={FileInput} />
-                <span>
-                  <span>{formatMessage(messages.imgUpload)}</span>
-                  <Glyphicon glyph="glyphicon glyphicon-arrow-up" />
-                </span>
-              </div>
-              {type === 'content_owner' && (
-                <React.Fragment>
-                  <div className={classes.fileUpload}>
-                    <Field type="file" name="poster" component={FileInput} />
-                    <span>
-                      <span>{formatMessage(messages.videoUpload)}</span>
-                      <Glyphicon glyph="glyphicon glyphicon-arrow-up" />
-                    </span>
-                  </div>
-                  <div className={classes.fileUpload}>
-                    <Field type="file" name="poster" component={FileInput} />
-                    <span>
-                      <span>{formatMessage(messages.audioUpload)}</span>
-                      <Glyphicon glyph="glyphicon glyphicon-arrow-up" />
-                    </span>
-                  </div>
-                </React.Fragment>
-              )}
-            </div>
             <SubmitBtn
               value="Submit"
               valid={valid}
