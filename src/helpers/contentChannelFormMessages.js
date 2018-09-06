@@ -47,6 +47,26 @@ const messages = defineMessages({
     defaultMessage: 'Link Of Your Channel:',
   },
 
+  imgUrl: {
+    id: 'img-url',
+    defaultMessage: 'Channel Image Link:',
+  },
+
+  videoUrl: {
+    id: 'video-url',
+    defaultMessage: 'Video Link:',
+  },
+
+  editChannel: {
+    id: 'edit-channel',
+    defaultMessage: 'Edit Channel',
+  },
+
+  editContent: {
+    id: 'edit-content',
+    defaultMessage: 'Edit Content',
+  },
+
   tagPlaceholder: {
     id: 'tag-placeholder',
     defaultMessage: 'Add a tag',

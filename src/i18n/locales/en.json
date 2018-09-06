@@ -35,6 +35,7 @@
   "help": "Help",
   "home-page-title": "Home Page",
   "img-upload": "Upload Image",
+  "img-url": "Image Link:",
   "instead": "instead",
   "location-title": "Location:",
   "log-out": "Log out",
@@ -68,5 +69,6 @@
   "tags": "Tags:",
   "unit": "Unit:",
   "username": "Username",
-  "video-upload": "Upload Video"
+  "video-upload": "Upload Video",
+  "video-url": "Video Link:"
 }
