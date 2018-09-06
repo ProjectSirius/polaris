@@ -1,3 +1,6 @@
+import injectSheet from 'react-jss';
 import DashboardCards from './DashboardCards';
 
-export default DashboardCards;
+import styles from './styles';
+
+export default injectSheet(styles)(DashboardCards);
