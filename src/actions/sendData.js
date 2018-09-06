@@ -58,14 +58,14 @@ const sendData = (data, selector) => dispatch => {
         idField: 26,
         value: data.unit,
       },
-      {
+      /*      {
         idField: 12,
         value: {
           address: data.address,
           lat: data.lat,
           lng: data.lng,
         },
-      },
+      },*/
     ],
   })
     .then(data => {

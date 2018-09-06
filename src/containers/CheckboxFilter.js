@@ -33,9 +33,9 @@ class CheckboxFilterContainer extends React.Component {
   }
 
   render() {
-    const { currentUser, isAuth, genres, checkBoxError } = this.props;
+    const { currentUser, isAuth, genres } = this.props;
 
-    if (checkBoxError) {
+    if (!genres.length) {
       return <strong>Sorry, something went wrong!</strong>;
     }
 

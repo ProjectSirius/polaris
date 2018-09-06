@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { injectIntl } from 'react-intl';
 import { createStructuredSelector } from 'reselect';
 
-import { getDetails, editRequest, delData } from '../actions';
+import { getDetails, editRequest, delData, sendOffer } from '../actions';
 
 import {
   selectDetails,
@@ -30,6 +30,10 @@ class DetailsPageContainer extends React.Component {
     this.props.editRequest();
   };
 
+  handleSendOffer = data => {
+    this.props.sendOffer(data);
+  };
+
   render() {
     const {
       intl: { formatMessage },
@@ -38,6 +42,7 @@ class DetailsPageContainer extends React.Component {
       lang,
       currentUser,
       delData,
+      sendOffer,
     } = this.props;
     return (
       <DetailedPage
@@ -50,6 +55,8 @@ class DetailsPageContainer extends React.Component {
         formatMessage={formatMessage}
         currentUser={currentUser}
         delData={delData}
+        sendOffer={sendOffer}
+        handleSendOffer={this.handleSendOffer}
       />
     );
   }
@@ -70,5 +77,6 @@ export default connect(
     getDetails,
     editRequest,
     delData,
+    sendOffer,
   }
 )(DetailsPageContainer);

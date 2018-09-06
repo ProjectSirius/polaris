@@ -42,13 +42,10 @@ class CreateChannelContainer extends Component {
 
   onFormSubmit = formData => {
     if (this.props.history.location.pathname.includes('edit')) {
-      this.props.editData({ ...formData, ...this.props.address });
+      this.props.editData(formData);
       this.props.history.push('/dashboard');
     } else {
-      this.props.sendData(
-        { ...formData, ...this.props.address },
-        'createChannel'
-      );
+      this.props.sendData(formData, 'createChannel');
       this.props.dataSendSuccess();
     }
   };

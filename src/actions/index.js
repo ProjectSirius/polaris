@@ -24,6 +24,7 @@ import { cart, addToCart, removeFromCart } from './cart';
 import { editRequest } from './edit';
 import delData from './delData';
 import addAddress from './newDataAddress';
+import sendOffer from './sendOffer';
 
 export {
   signUp,
@@ -54,4 +55,5 @@ export {
   removeFromCart,
   delData,
   addAddress,
+  sendOffer,
 };

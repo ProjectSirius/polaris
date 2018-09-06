@@ -20,6 +20,8 @@ const DetailsPage = ({
   formatMessage,
   currentUser,
   delData,
+  sendOffer,
+  handleSendOffer,
 }) => {
   if (!data) {
     return <h2>Sorry, we have a problems with server!</h2>;
@@ -28,7 +30,7 @@ const DetailsPage = ({
   if (data === 'deleted') {
     return (
       <h2 className={classes.delMsg} style={{ textAlign: 'center' }}>
-         {formatMessage(messages.deleteSuccess)}
+        {formatMessage(messages.deleteSuccess)}
       </h2>
     );
   }
@@ -137,9 +139,20 @@ const DetailsPage = ({
                 </span>
               </Link>
             ) : (
-              <Link to={''}>
-                <span>{formatMessage(messages.offerTitle)}</span>
-              </Link>
+              <button
+                onClick={() => {
+                  handleSendOffer({
+                    buyer_id: currentUser.id,
+                    channel_id: data.id,
+                    price,
+                    inOrderStatus: 1,
+                    channel_creator_id: data.createdBy,
+                    modifiedBy: data.modifiedBy,
+                  });
+                }}
+              >
+                {formatMessage(messages.offerTitle)}
+              </button>
             )}
           </div>
           {+data.createdBy === +currentUser.id ? (
