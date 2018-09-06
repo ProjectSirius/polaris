@@ -13,6 +13,7 @@ import {
   selectEditDetails,
   selectIsDataSent,
   selectCurrentUser,
+  selectAddress,
 } from '../selectors';
 
 import { addTags, removeTags, sendData, getDetails } from '../actions';
@@ -40,9 +41,12 @@ class CreateContentContainer extends Component {
 
   onFormSubmit = formData => {
     if (this.props.history.location.pathname.includes('edit')) {
-      this.props.editData(formData);
+      this.props.editData({ ...formData, ...this.props.address });
     } else {
-      this.props.sendData(formData, 'createContent');
+      this.props.sendData(
+        { ...formData, ...this.props.address },
+        'createContent'
+      );
       this.props.dataSendSuccess();
     }
   };
@@ -82,6 +86,7 @@ const mapStateToProps = createStructuredSelector({
   initialValues: selectEditDetails,
   isDataSent: selectIsDataSent,
   currentUser: selectCurrentUser,
+  address: selectAddress,
 });
 
 const addNewContentForm = withRouter(
