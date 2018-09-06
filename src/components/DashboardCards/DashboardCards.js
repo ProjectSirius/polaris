@@ -2,7 +2,13 @@ import React from 'react';
 import { Card, Icon } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
-const DashboardCards = ({ userData, currentUser, formatMessage, messages, classes }) => (
+const DashboardCards = ({
+  userData,
+  currentUser,
+  formatMessage,
+  messages,
+  classes,
+}) => (
   <React.Fragment>
     <Link
       to={{
@@ -26,7 +32,7 @@ const DashboardCards = ({ userData, currentUser, formatMessage, messages, classe
               to={{
                 pathname: `/${
                   currentUser.type === 'content_owner' ? 'contents' : 'channel'
-                  }/${id}`,
+                }/${id}`,
               }}
             >
               {`${formatMessage(messages.explore)} `}
