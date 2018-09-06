@@ -8,14 +8,12 @@ const DashboardCards = ({ userData, currentUser, formatMessage, messages }) => (
       to={{
         pathname: `/${
           currentUser.type === 'content_owner' ? 'contents' : 'channels'
-          }/new`,
+        }/new`,
       }}
     >
-      {
-        currentUser.type === 'content_owner'
-          ? formatMessage(messages.addNewContent)
-          : formatMessage(messages.addNewChannel)
-      }
+      {currentUser.type === 'content_owner'
+        ? formatMessage(messages.addNewContent)
+        : formatMessage(messages.addNewChannel)}
     </Link>
     {userData.map(({ description, title, id }) => (
       <Card key={id}>
@@ -27,8 +25,7 @@ const DashboardCards = ({ userData, currentUser, formatMessage, messages }) => (
             to={{
               pathname: `/${
                 currentUser.type === 'content_owner' ? 'contents' : 'channel'
-                }/${id}`,
-
+              }/${id}`,
             }}
           >
             {`${formatMessage.explore} `}
