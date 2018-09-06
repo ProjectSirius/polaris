@@ -37,7 +37,36 @@ const editData = item => (dispatch, getState) => {
   doPatch(url[selector], {
     title: item.title,
     description: item.description,
-    price: item.price,
+    fields: [
+      {
+        idField: 1,
+        value: 'Musical theatre',
+      },
+      {
+        idField: 16,
+        value: item.price,
+      },
+      {
+        idField: 21,
+        value: item.url,
+      },
+      {
+        idField: 22,
+        value: item.videoUrl,
+      },
+      {
+        idField: 23,
+        value: item.imgUrl,
+      },
+      {
+        idField: 25,
+        value: item.perUnit,
+      },
+      {
+        idField: 26,
+        value: item.unit,
+      },
+    ],
   })
     .then(item => {
       if (item.error) {
