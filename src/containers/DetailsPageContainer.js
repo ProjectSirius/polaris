@@ -19,7 +19,7 @@ import messages from '../helpers/detailsPageMessages';
 class DetailsPageContainer extends React.Component {
   componentDidMount() {
     const dataType =
-      this.props.currentUser.type === 'audience_owner'
+      this.props.currentUser.type !== 'audience_owner'
         ? 'channels'
         : 'contents';
     const id = this.props.match.params.id;

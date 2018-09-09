@@ -2,11 +2,15 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Loader, Grid, Image } from 'semantic-ui-react';
 import GoogleMapReact from 'google-map-react';
+import Remarkable from 'remarkable';
+import RemarkableReactRenderer from 'remarkable-react';
 
 import Marker from '../MapView/StickMarker';
 
 const music = true;
 const video = true;
+const md = new Remarkable();
+md.renderer = new RemarkableReactRenderer();
 
 const DetailsPage = ({
   title,
@@ -141,14 +145,7 @@ const DetailsPage = ({
             ) : (
               <button
                 onClick={() => {
-                  handleSendOffer({
-                    buyer_id: currentUser.id,
-                    channel_id: data.id,
-                    price,
-                    inOrderStatus: 1,
-                    channel_creator_id: data.createdBy,
-                    modifiedBy: data.modifiedBy,
-                  });
+                  handleSendOffer(data);
                 }}
               >
                 {formatMessage(messages.offerTitle)}
@@ -189,7 +186,7 @@ const DetailsPage = ({
               <h1 className={classes.title}>{data.title}</h1>
               <div className={classes.channelDescription}>
                 <h2>{formatMessage(messages.briefDescriptionTitle)}</h2>
-                <p>{data.description}</p>
+                <p>{md.render(data.description)}</p>
               </div>
               <iframe
                 src={fields ? channelLink : ''}

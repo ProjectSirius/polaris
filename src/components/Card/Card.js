@@ -2,6 +2,11 @@ import React from 'react';
 import { Card, Image, Icon } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { injectIntl, defineMessages } from 'react-intl';
+import Remarkable from 'remarkable';
+import RemarkableReactRenderer from 'remarkable-react';
+
+const md = new Remarkable();
+md.renderer = new RemarkableReactRenderer();
 
 const messages = defineMessages({
   addToCart: {
@@ -65,7 +70,7 @@ const CardComponent = ({
           <p className={classes.date}>{date}</p>
           <Card.Header className={classes.mainTitle}>{title}</Card.Header>
           <Card.Description className={classes.bodyContent}>
-            {description}
+            {md.render(description.slice(0,200) + '...')}
           </Card.Description>
         </Card.Content>
       </Link>
