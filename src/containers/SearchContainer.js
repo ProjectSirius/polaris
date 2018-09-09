@@ -17,8 +17,7 @@ import Search from '../components/Search';
 class SearchContainer extends Component {
   handleSearch = searchValue => {
     const { search } = this.props;
-
-    search(searchValue);
+    search(searchValue, undefined, 'search');
   };
 
   render() {
@@ -50,10 +49,6 @@ const mapStateToProps = createStructuredSelector({
   isRequesting: selectIsRequesting,
 });
 
-const mapDispatchToProps = dispatch => ({
-  search: (dataType, query) => dispatch(search(dataType, query)),
-});
-
 const SearchContainerIntl = injectIntl(SearchContainer);
 
 const SearchForm = reduxForm({
@@ -62,5 +57,7 @@ const SearchForm = reduxForm({
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  {
+    search
+  }
 )(SearchForm);

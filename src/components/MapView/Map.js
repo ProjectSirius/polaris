@@ -39,16 +39,16 @@ class SimpleMap extends Component {
   };
 
   markers = () => {
-    return this.props.data.info.map((info, i) => {
-      const id = this.props.data.info[i].id;
+    return Object.keys(this.props.data.info).map((key, i) => {
+      const id = this.props.data.info[key].id;
       return (
         <Marker
-          key={info.id}
-          id={info.id}
-          lat={info.lat || getCord(40, 0.2)}
-          lng={info.lng || getCord(44.5, 0.3)}
-          text={info.title.slice(0, 3)}
-          title={info.title}
+          key={this.props.data.info[key].id}
+          id={this.props.data.info[key].id}
+          lat={this.props.data.info[key].lat || getCord(40, 0.2)}
+          lng={this.props.data.info[key].lng || getCord(44.5, 0.3)}
+          text={this.props.data.info[key].title.slice(0, 3)}
+          title={this.props.data.info[key].title}
           selected={this.props.groupOffer.selectedIds.includes(`${id}`)}
         />
       );
