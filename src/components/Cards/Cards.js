@@ -27,23 +27,10 @@ const Cards = ({
       }
     >
       {data.hasOwnProperty('info')
-        ?
-        Object.keys(data.info).map((el) =>
-          <Card
-            key={data.info.id}
-            info={data.info[el]}
-            view={view}
-            type={type}
-            addToGroupOffer={addToGroupOffer}
-            removeFromCart={removeFromCart}
-            cart={cart}
-            addToCart={addToCart}
-          />)
-
-/*        data.info.map(info => (
+        ? Object.keys(data.info).map(el => (
             <Card
-              key={info.id}
-              info={info}
+              key={data.info.id}
+              info={data.info[el]}
               view={view}
               type={type}
               addToGroupOffer={addToGroupOffer}
@@ -51,7 +38,7 @@ const Cards = ({
               cart={cart}
               addToCart={addToCart}
             />
-          ))*/
+          ))
         : ''}
     </div>
   ) : (

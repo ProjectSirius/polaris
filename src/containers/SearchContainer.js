@@ -21,7 +21,12 @@ class SearchContainer extends Component {
   };
 
   render() {
-    const { isAuth, currentUser, isRequesting, intl: { formatMessage }} = this.props;
+    const {
+      isAuth,
+      currentUser,
+      isRequesting,
+      intl: { formatMessage },
+    } = this.props;
     return (
       <Search
         handleSearch={this.handleSearch}
@@ -39,9 +44,8 @@ const messages = defineMessages({
   search: {
     id: 'search',
     defaultMessage: 'Search',
-  }
+  },
 });
-
 
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
@@ -58,6 +62,6 @@ const SearchForm = reduxForm({
 export default connect(
   mapStateToProps,
   {
-    search
+    search,
   }
 )(SearchForm);
