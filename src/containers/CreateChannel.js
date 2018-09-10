@@ -41,11 +41,13 @@ class CreateChannelContainer extends Component {
   }
 
   onFormSubmit = formData => {
+    const tags = this.props.tags;
+
     if (this.props.history.location.pathname.includes('edit')) {
-      this.props.editData(formData);
+      this.props.editData({ ...formData, tags });
       this.props.history.push('/dashboard');
     } else {
-      this.props.sendData(formData, 'createChannel');
+      this.props.sendData({ ...formData, tags }, 'createChannel');
       this.props.dataSendSuccess();
     }
   };
@@ -64,6 +66,7 @@ class CreateChannelContainer extends Component {
       initialValues,
       isDataSent,
       currentUser,
+      tags,
     } = this.props;
 
     return (
@@ -77,6 +80,7 @@ class CreateChannelContainer extends Component {
         getData={this.getData}
         initialValues={initialValues}
         isDataSent={isDataSent}
+        tags={tags}
         {...this.props}
       />
     );

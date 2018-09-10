@@ -60,7 +60,9 @@ export const selectEditDetails = createSelector(
             case 25:
               return { ...acc, perUnit: el.value };
             case 26:
-              return { ...acc, unitnit: el.value };
+              return { ...acc, unit: el.value };
+            case 28:
+              return { ...acc, tags: el.tags };
             default:
               return acc;
           }

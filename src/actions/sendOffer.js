@@ -20,10 +20,34 @@ const sendOfferFailure = error => ({
   payload: { error },
 });
 
-const sendOffer = data => dispatch => {
+const sendOffer = data => (dispatch, getState) => {
   dispatch(sendOfferRequest(true));
 
-  doPost('', data)
+  const buyerId = getState().currentUser.id;
+  const type = getState().currentUser.type;
+  const price = data.fields
+    ? data.fields.filter(el => +el.idField === 16)[0]
+      ? data.fields.filter(el => +el.idField === 16)[0].value
+      : ''
+    : '';
+
+  const id =
+    type !== 'audience_owner' ? { idChannel: data.id } : { idContent: data.id };
+
+  const dataToBeSent = {
+    idBuyer: buyerId,
+    price: price,
+    createdBy: data.createdBy,
+    IdOrderStatus: 1,
+    modifiedBy: data.modifiedBy,
+  };
+
+  const url =
+    getState().currentUser.type === 'content_owner'
+      ? 'preorder-channel'
+      : 'preorder-content';
+
+  doPost(url, { ...dataToBeSent, ...id })
     .then(data => {
       if (data.error) {
         throw new Error(data.error);
