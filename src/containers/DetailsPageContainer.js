@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { injectIntl } from 'react-intl';
 import { createStructuredSelector } from 'reselect';
 
-import { getDetails, editRequest, delData } from '../actions';
+import { getDetails, editRequest, delData, sendOffer } from '../actions';
 
 import {
   selectDetails,
@@ -18,16 +18,16 @@ import messages from '../helpers/detailsPageMessages';
 
 class DetailsPageContainer extends React.Component {
   componentDidMount() {
-    const dataType =
-      this.props.currentUser.type === 'audience_owner'
-        ? 'channels'
-        : 'contents';
     const id = this.props.match.params.id;
-    this.props.getDetails(dataType, id);
+    this.props.getDetails(this.props.location.pathname.split('/')[1], id);
   }
 
   handleEdit = () => {
     this.props.editRequest();
+  };
+
+  handleSendOffer = data => {
+    this.props.sendOffer(data);
   };
 
   render() {
@@ -38,6 +38,7 @@ class DetailsPageContainer extends React.Component {
       lang,
       currentUser,
       delData,
+      sendOffer,
     } = this.props;
     return (
       <DetailedPage
@@ -50,6 +51,8 @@ class DetailsPageContainer extends React.Component {
         formatMessage={formatMessage}
         currentUser={currentUser}
         delData={delData}
+        sendOffer={sendOffer}
+        handleSendOffer={this.handleSendOffer}
       />
     );
   }
@@ -70,5 +73,6 @@ export default connect(
     getDetails,
     editRequest,
     delData,
+    sendOffer,
   }
 )(DetailsPageContainer);

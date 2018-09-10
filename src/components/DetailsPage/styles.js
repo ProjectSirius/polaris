@@ -1,5 +1,9 @@
 export default {
   '@global html ,body, #root, .App': {
+    height: '100vh',
+  },
+
+  container: {
     height: '100%',
   },
 
@@ -10,8 +14,8 @@ export default {
   },
 
   title: {
-    fontSize: '40px',
-    fontWeight: 600,
+    fontSize: '34px',
+    fontWeight: 300,
     color: '#484848',
   },
 
@@ -218,5 +222,25 @@ export default {
     position: 'absolute !important',
     left: '50% !important',
     top: '50% !important',
+  },
+
+  musicCard: {
+    width: '100% !important',
+    padding: '10px !important',
+    boxShadow:
+      '0 5px 10px rgba(0, 0, 0, .25), 0 2px 2px rgba(0, 0, 0, .22) !important',
+  },
+
+  sendOffer: {
+    padding: '12px',
+    background: 'aliceblue',
+    borderRadius: '50px',
+    border: '1px solid',
+    transition: '.5s',
+
+    '&:hover': {
+      boxShadow: '0 5px 10px rgba(0, 0, 0, .25), 0 2px 2px rgba(0, 0, 0, .22)',
+      transition: '.5s',
+    },
   },
 };

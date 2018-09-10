@@ -27,10 +27,10 @@ const Cards = ({
       }
     >
       {data.hasOwnProperty('info')
-        ? data.info.map(info => (
+        ? Object.keys(data.info).map(el => (
             <Card
-              key={info.id}
-              info={info}
+              key={data.info.id}
+              info={data.info[el]}
               view={view}
               type={type}
               addToGroupOffer={addToGroupOffer}

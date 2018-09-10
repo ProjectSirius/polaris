@@ -8,6 +8,7 @@ import {
   createGroupOffer,
   addToGroupOffer,
   removeFromGroupOffer,
+  sendOffer,
 } from '../actions';
 
 import Cart from '../components/Cart';
@@ -35,6 +36,7 @@ class CartContainer extends React.Component {
       addToGroupOffer,
       removeFromGroupOffer,
       groupOffer,
+      sendOffer,
       intl: { formatMessage },
     } = this.props;
     return (
@@ -49,6 +51,7 @@ class CartContainer extends React.Component {
         groupOffer={groupOffer}
         formatMessage={formatMessage}
         messages={messages}
+        sendOffer={sendOffer}
       />
     );
   }
@@ -94,5 +97,6 @@ export default connect(
     createGroupOffer,
     addToGroupOffer,
     removeFromGroupOffer,
+    sendOffer,
   }
 )(CartContainerIntl);

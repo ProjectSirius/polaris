@@ -22,6 +22,9 @@ import {
   USER_DATA_FAILURE,
   USER_DATA_SUCCESS,
   USER_DATA_REQUEST,
+  SEND_OFFER_REQUEST,
+  SEND_OFFER_SUCCESS,
+  SEND_OFFER_FAILURE,
 } from '../actions/constants';
 
 const isRequesting = (state = false, action) => {
@@ -33,6 +36,7 @@ const isRequesting = (state = false, action) => {
     case TRANSACTION_REQUEST:
     case NOTIF_REQUEST:
     case USER_DATA_REQUEST:
+    case SEND_OFFER_REQUEST:
       return true;
     case DETAILS_RECEIVE_SUCCESS:
     case SIGN_UP_SUCCESS:
@@ -50,6 +54,8 @@ const isRequesting = (state = false, action) => {
     case CART_DATA_SUCCESS:
     case USER_DATA_FAILURE:
     case USER_DATA_SUCCESS:
+    case SEND_OFFER_SUCCESS:
+    case SEND_OFFER_FAILURE:
       return false;
     default:
       return state;

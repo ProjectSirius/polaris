@@ -2,24 +2,13 @@ import React from 'react';
 import { Field } from 'redux-form';
 import { Redirect } from 'react-router-dom';
 
-import Tags from 'react-tagging-input';
-
-import { ControlLabel } from 'react-bootstrap';
-
 import RenderField from './RenderField';
 import renderField from '../SelectOptionFilter/RenderField';
 import SubmitBtn from '../SubmitBtn';
 import LocationSearchInput from '../../containers/LocationSearchInputContainer';
+import MultiSelect from '../../containers/MultiSelectContainer';
 
 class CreateCard extends React.Component {
-  onTagAdded(tag) {
-    this.props.addTags(tag);
-  }
-
-  onTagRemoved(tag, index) {
-    this.props.removeTags(tag, index);
-  }
-
   render() {
     const {
       isRequesting,
@@ -30,7 +19,6 @@ class CreateCard extends React.Component {
       onFormSubmit,
       messages,
       formatMessage,
-      data,
       isDataSent,
       type,
       editRedirect,
@@ -137,15 +125,10 @@ class CreateCard extends React.Component {
               pattern="https://.*"
             />
             <div className={classes.tags}>
-              <ControlLabel>
-                <span>{formatMessage(messages.tags)}</span>
-                <Tags
-                  tags={data.tags ? data.tags : tags}
-                  placeholder={formatMessage(messages.tagPlaceholder)}
-                  onAdded={this.onTagAdded.bind(this)}
-                  onRemoved={this.onTagRemoved.bind(this)}
-                />
-              </ControlLabel>
+              <label style={{ width: '100%' }}>
+                Genres:
+                <MultiSelect defautlTags={tags} />
+              </label>
             </div>
             <LocationSearchInput />
             <SubmitBtn

@@ -17,12 +17,16 @@ import Search from '../components/Search';
 class SearchContainer extends Component {
   handleSearch = searchValue => {
     const { search } = this.props;
-
-    search(searchValue);
+    search(searchValue, undefined, 'search');
   };
 
   render() {
-    const { isAuth, currentUser, isRequesting, intl: { formatMessage }} = this.props;
+    const {
+      isAuth,
+      currentUser,
+      isRequesting,
+      intl: { formatMessage },
+    } = this.props;
     return (
       <Search
         handleSearch={this.handleSearch}
@@ -40,18 +44,13 @@ const messages = defineMessages({
   search: {
     id: 'search',
     defaultMessage: 'Search',
-  }
+  },
 });
-
 
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
   isAuth: selectIsAuth,
   isRequesting: selectIsRequesting,
-});
-
-const mapDispatchToProps = dispatch => ({
-  search: (dataType, query) => dispatch(search(dataType, query)),
 });
 
 const SearchContainerIntl = injectIntl(SearchContainer);
@@ -62,5 +61,7 @@ const SearchForm = reduxForm({
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  {
+    search,
+  }
 )(SearchForm);

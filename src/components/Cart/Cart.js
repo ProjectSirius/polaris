@@ -21,6 +21,7 @@ const Cart = ({
   groupOffer,
   messages,
   formatMessage,
+  sendOffer,
 }) => {
   return isRequesting ? (
     <Loader active inline="centered" size="huge" className={classes.loading}>

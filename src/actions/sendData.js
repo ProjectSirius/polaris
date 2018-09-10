@@ -25,30 +25,25 @@ const sendData = (data, selector) => dispatch => {
     createChannel: 'channels',
     createContent: 'contents',
   };
-
   doPost(url[selector], {
     title: data.title,
     description: data.description,
     fields: [
-      {
-        idField: 1,
-        value: 'Musical theatre',
-      },
       {
         idField: 16,
         value: data.price,
       },
       {
         idField: 21,
-        value: data.url,
+        value: '' || data.url,
       },
       {
         idField: 22,
-        value: data.videoUrl,
+        value: '' || data.videoUrl,
       },
       {
         idField: 23,
-        value: data.imgUrl,
+        value: '' || data.imgUrl,
       },
       {
         idField: 25,
@@ -59,13 +54,17 @@ const sendData = (data, selector) => dispatch => {
         value: data.unit,
       },
       {
+        idField: 28,
+        value: JSON.stringify(data.tags),
+      },
+      /*      {
         idField: 12,
         value: {
           address: data.address,
           lat: data.lat,
           lng: data.lng,
         },
-      },
+      },*/
     ],
   })
     .then(data => {
@@ -76,7 +75,6 @@ const sendData = (data, selector) => dispatch => {
       return dispatch(dataSendSuccess(data.user));
     })
     .catch(error => dispatch(dataSendFailure(error)));
-
   dataSendRequest(true);
 };
 
