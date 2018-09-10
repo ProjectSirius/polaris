@@ -6,13 +6,13 @@ import { withRouter } from 'react-router-dom';
 import { createStructuredSelector } from 'reselect';
 
 import {
-  selectDetails,
-  selectIsEditing,
   selectIsRequesting,
   selectTags,
+  selectCurrentUser,
+  selectDetails,
+  selectIsEditing,
   selectEditDetails,
   selectIsDataSent,
-  selectCurrentUser,
   selectAddress,
 } from '../selectors';
 
@@ -28,9 +28,12 @@ import messages from '../helpers/contentChannelFormMessages';
 class CreateContentContainer extends Component {
   componentDidMount() {
     const dataType = 'contents';
-    const id = this.props.match.params.id;
 
-    this.props.getDetails(dataType, id);
+    if (this.props.match.path.split('/').includes('edit')) {
+      const id = this.props.match.params.id;
+      this.props.getDetails(dataType, id);
+      this.props.editRequest();
+    }
   }
 
   getData = () => {
@@ -40,13 +43,12 @@ class CreateContentContainer extends Component {
   };
 
   onFormSubmit = formData => {
+    const tags = this.props.tags;
+
     if (this.props.history.location.pathname.includes('edit')) {
-      this.props.editData({ ...formData, ...this.props.address });
+      this.props.editData({ ...formData, tags });
     } else {
-      this.props.sendData(
-        { ...formData, ...this.props.address },
-        'createContent'
-      );
+      this.props.sendData({ ...formData, tags }, 'createContent');
       this.props.dataSendSuccess();
     }
   };
@@ -58,6 +60,7 @@ class CreateContentContainer extends Component {
       data,
       isDataSent,
       currentUser,
+      tags,
     } = this.props;
 
     return (
@@ -70,6 +73,7 @@ class CreateContentContainer extends Component {
         data={data}
         isEditing={isEditing}
         isDataSent={isDataSent}
+        tags={tags}
         {...this.props}
       />
     );
