@@ -1,5 +1,5 @@
 import { OFFERS_REQUEST, OFFERS_SUCCESS, OFFERS_FAILURE } from './constants';
-import axios from 'axios';
+import { doGet } from '../api/request';
 
 const offersRequest = isRequesting => ({
   type: OFFERS_REQUEST,
@@ -16,12 +16,18 @@ const offersReceiveFailure = error => ({
   payload: { error },
 });
 
-const getOffers = () => dispatch => {
+const getOffers = () => (dispatch, getState) => {
   dispatch(offersRequest(true));
 
-  return axios
-    .get('http://www.mocky.io/v2/5b83e302310000de1e0d213d')
-    .then(payload => dispatch(offersReceiveSuccess(payload.data)))
+  const preorderUrl =
+    getState().currentUser.type === 'content_owner'
+      ? 'preorder-channel/buyer'
+      : 'preorder-content/buyer';
+
+  return doGet(preorderUrl)
+    .then(payload => {
+      return dispatch(offersReceiveSuccess(payload));
+    })
     .catch(err => dispatch(offersReceiveFailure(err)));
 };
 
