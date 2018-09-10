@@ -46,7 +46,6 @@ const sendOffer = data => (dispatch, getState) => {
     getState().currentUser.type === 'content_owner'
       ? 'preorder-channel'
       : 'preorder-content';
-
   doPost(url, { ...dataToBeSent, ...id })
     .then(data => {
       if (data.error) {

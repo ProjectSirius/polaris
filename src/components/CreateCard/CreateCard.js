@@ -124,6 +124,16 @@ class CreateCard extends React.Component {
               placeholder="https://example.com"
               pattern="https://.*"
             />
+            {type === 'content_owner' && (
+              <Field
+                label={formatMessage(messages.audioUrl)}
+                component={RenderField}
+                type="url"
+                name="audioUrl"
+                placeholder="https://example.com"
+                pattern="https://.*"
+              />
+            )}
             <div className={classes.tags}>
               <label style={{ width: '100%' }}>
                 Genres:
