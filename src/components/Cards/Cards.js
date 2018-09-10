@@ -44,9 +44,9 @@ const Cards = ({
   ) : (
     <MapView
       data={data}
-      addToGroupOffer={addToGroupOffer}
+      addToGroupOffer={addToCart}
       removeFromGroupOffer={removeFromCart}
-      groupOffer={groupOffer}
+      groupOffer={cart}
     />
   );
 };

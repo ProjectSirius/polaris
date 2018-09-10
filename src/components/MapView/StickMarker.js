@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
+import { Icon } from 'semantic-ui-react';
 
 import {
   greatPlaceStyle,
-  greatPlaceCircleStyle,
-  greatPlaceCircleStyleHover,
-  greatPlaceStickStyle,
-  greatPlaceStickStyleHover,
-  greatPlaceStickStyleShadow,
-  greatPlaceStyleSelected,
+  // greatPlaceCircleStyle,
+  // greatPlaceCircleStyleHover,
+  // greatPlaceStickStyle,
+  // greatPlaceStickStyleHover,
+  // greatPlaceStickStyleShadow,
+  // greatPlaceStyleSelected,
   infoCard,
   infoCardHower,
 } from './styles';
@@ -17,26 +18,29 @@ export default class MyGreatPlaceWithStick extends Component {
     infoCardHower: false,
   };
   render() {
-    const { text, zIndex } = this.props;
+    const {
+      //  text,
+      zIndex,
+    } = this.props;
 
     const style = {
       ...greatPlaceStyle,
       zIndex: this.props.$hover ? 1000 : zIndex,
     };
 
-    const circleStyle = this.props.selected
-      ? greatPlaceStyleSelected
+    const color = this.props.selected
+      ? 'red'
       : this.props.$hover
-        ? greatPlaceCircleStyleHover
-        : greatPlaceCircleStyle;
-    const stickStyle = this.props.$hover
-      ? greatPlaceStickStyleHover
-      : greatPlaceStickStyle;
+        ? 'grey'
+        : 'blue';
+    // const stickStyle = this.props.$hover
+    //   ? greatPlaceStickStyleHover
+    //   : greatPlaceStickStyle;
     const info =
       this.props.$hover || this.state.infoCardHower ? infoCardHower : infoCard;
 
     return (
-      <div style={style}>
+      <Icon name="map marker alternate" size="huge" color={color} style={style}>
         <div
           style={info}
           onMouseEnter={() => {
@@ -46,13 +50,31 @@ export default class MyGreatPlaceWithStick extends Component {
             this.setState({ infoCardHower: false });
           }}
         >
+          <h4>{this.props.title}</h4>
+          <hr />
           <a href={`/content/${this.props.id}`}>go to chanel</a>
-          <h3>{this.props.title}</h3>
+          <hr />
         </div>
-        <div style={greatPlaceStickStyleShadow} />
+        {/* <Card  style={info}
+          onMouseEnter={() => {
+            this.setState({ infoCardHower: true });
+          }}
+          onMouseLeave={() => {
+            this.setState({ infoCardHower: false });
+          }}>
+          <Card.Content>
+            <Card.Header>{this.props.title}</Card.Header>
+            <Card.Meta>chanel link</Card.Meta>
+            <Card.Description>
+            <a href={`/content/${this.props.id}`}>go to chanel</a>
+            </Card.Description>
+          </Card.Content>
+        </Card> */}
+        {/* <div style={greatPlaceStickStyleShadow} />
         <div style={circleStyle}>{text}</div>
-        <div style={stickStyle} />
-      </div>
+        <div style={stickStyle} /> */}
+        {/* <Icon name="map marker alternate" size="huge" color="blue" /> */}
+      </Icon>
     );
   }
 }
