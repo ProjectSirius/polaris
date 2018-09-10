@@ -12,6 +12,7 @@
     "react": "^16.4.2",
     "react-bootstrap": "^0.32.1",
     "react-dom": "^16.4.2",
+    "react-google-charts": "^3.0.8",
     "react-intl": "^2.4.0",
     "react-jss": "^8.6.1",
     "react-places-autocomplete": "^7.2.0",

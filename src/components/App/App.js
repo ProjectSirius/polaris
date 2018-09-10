@@ -13,6 +13,8 @@ import CreateChannel from '../../containers/CreateChannel';
 import CreateContent from '../../containers/CreateContentContainer';
 import Dashboard from '../../containers/DashboardContainer';
 import CartContainer from '../../containers/CartContainer';
+import Profile from '../Profile';
+
 
 const App = ({ content, title }) => {
   return (
@@ -39,7 +41,13 @@ const App = ({ content, title }) => {
           path="/contents/new"
           component={CreateContent}
         />
-        <ProtectedRouteContainer path="/dashboard" component={Dashboard} />
+        <ProtectedRouteContainer
+          path="/dashboard"
+          component={Dashboard}
+        />
+        <ProtectedRouteContainer
+          path="/profile"
+          component={Profile} />
         <ProtectedRouteContainer
           path="/channel/:id/edit"
           component={CreateChannel}
