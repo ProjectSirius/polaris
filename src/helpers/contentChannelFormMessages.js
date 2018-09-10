@@ -57,6 +57,11 @@ const messages = defineMessages({
     defaultMessage: 'Video Link:',
   },
 
+  audioUrl: {
+    id: 'audio-url',
+    defaultMessage: 'Audio Link:',
+  },
+
   editChannel: {
     id: 'edit-channel',
     defaultMessage: 'Edit Channel',

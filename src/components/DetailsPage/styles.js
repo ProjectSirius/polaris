@@ -29,12 +29,15 @@ export default {
     flexDirection: 'column',
     alignItems: 'flex-start',
     fontSize: '15px',
-    margin: '10px 0',
+    margin: '10px 0 100px 0',
     padding: '18px 0px',
 
     '& > h2': {
-      fontSize: '22px',
+      fontSize: '30px',
+      textAlign: 'start',
+      fontWeight: 300,
       paddingBottom: '10px',
+      margin: '30px 0',
     },
 
     '&  > p': {
@@ -82,7 +85,7 @@ export default {
     alignItems: 'center',
     justifyContent: 'center',
     minHeight: '100px',
-    fontSize: '34px',
+    fontSize: '26px',
     fontWeight: 300,
     padding: '25px 0',
 
@@ -92,11 +95,12 @@ export default {
   },
 
   subPrice: {
-    fontSize: '16px',
+    paddingTop: '10px',
+    fontSize: '14px',
   },
 
   tagsContainer: {
-    minHeight: '112px',
+    minHeight: '75px',
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'center',
@@ -176,6 +180,7 @@ export default {
   location: {
     display: 'flex',
     paddingBottom: '10px',
+    margin: '30px 0',
 
     '& > span': {
       paddingLeft: '10px',
@@ -194,9 +199,7 @@ export default {
   },
 
   channelLeft: {
-    '& > div': {
-      borderBottom: '1px solid #e1e1e1',
-    },
+    borderRight: '1px solid #e1e1e1',
   },
 
   audioContainer: {
@@ -208,6 +211,13 @@ export default {
     color: '#444',
     margin: '20px auto',
     overflow: 'hidden',
+
+    '& > h2': {
+      fontSize: '20px',
+      textAlign: 'start',
+      fontWeight: 300,
+      paddingBottom: '10px',
+    },
 
     '& > audio': {
       width: '100%',
@@ -233,14 +243,17 @@ export default {
 
   sendOffer: {
     padding: '12px',
-    background: 'aliceblue',
-    borderRadius: '50px',
-    border: '1px solid',
-    transition: '.5s',
+    fontSize: '18px !important',
+    color: '#6fb7b2 !important',
+    background: 'aliceblue !important',
+    borderRadius: '50px !important',
+    border: '1px solid !important',
+    transition: '.5s !important',
 
     '&:hover': {
-      boxShadow: '0 5px 10px rgba(0, 0, 0, .25), 0 2px 2px rgba(0, 0, 0, .22)',
-      transition: '.5s',
+      boxShadow:
+        '0 5px 10px rgba(0, 0, 0, .25), 0 2px 2px rgba(0, 0, 0, .22) !important',
+      transition: '.5s !important',
     },
   },
 };
