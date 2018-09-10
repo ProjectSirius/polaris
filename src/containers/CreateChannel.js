@@ -31,7 +31,7 @@ import messages from '../helpers/contentChannelFormMessages';
 
 class CreateChannelContainer extends Component {
   componentDidMount() {
-    const dataType = 'channels';
+    const dataType = 'channel';
 
     if (this.props.match.path.split('/').includes('edit')) {
       const id = this.props.match.params.id;
@@ -55,7 +55,7 @@ class CreateChannelContainer extends Component {
   getData = () => {
     const id = this.props.match.params.id;
 
-    this.props.getDetails('channels', id);
+    this.props.getDetails('channel', id);
   };
 
   render() {
