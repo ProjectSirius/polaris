@@ -31,7 +31,7 @@ const DashboardCards = ({
             <Link
               to={{
                 pathname: `/${
-                  currentUser.type === 'content_owner' ? 'contents' : 'channel'
+                  currentUser.type === 'content_owner' ? 'content' : 'channel'
                 }/${id}`,
               }}
             >
