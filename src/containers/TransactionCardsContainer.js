@@ -52,7 +52,7 @@ class TransactionCardsContainer extends React.Component {
 const messages = defineMessages({
   loading: {
     id: 'loading',
-    defaultMessage: 'Loading'
+    defaultMessage: 'Loading',
   },
 });
 

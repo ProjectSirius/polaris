@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, Card } from 'semantic-ui-react';
 import { injectIntl, defineMessages } from 'react-intl';
+import { Link } from 'react-router-dom';
 
 const messages = defineMessages({
   payment: {
@@ -9,7 +10,16 @@ const messages = defineMessages({
   },
   wantsToBuyYourChannel: {
     id: 'wants-to-buy-your-channel',
-    defaultMessage: 'wants to buy your channel by',
+    defaultMessage: 'wants to buy your',
+  },
+
+  channel: {
+    id: 'channel',
+    defaultMessage: 'channel',
+  },
+  by: {
+    id: 'by',
+    defaultMessage: 'by',
   },
   approve: {
     id: 'approve',
@@ -22,9 +32,9 @@ const messages = defineMessages({
 });
 
 const TransactionCard = ({
-  isRequesting,
   name,
   price,
+  idChannel,
   intl: { formatMessage },
 }) => {
   return (
@@ -34,7 +44,10 @@ const TransactionCard = ({
         <Card.Meta>{formatMessage(messages.payment)}</Card.Meta>
         <Card.Description>
           {name} {formatMessage(messages.wantsToBuyYourChannel)}{' '}
-          <strong>{price}$</strong>
+          <Link to={`channel/${idChannel}`}>
+            {formatMessage(messages.channel)}{' '}
+          </Link>
+          {formatMessage(messages.by)} <strong>{price}$</strong>
         </Card.Description>
       </Card.Content>
       <Card.Content extra>

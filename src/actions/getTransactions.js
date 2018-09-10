@@ -3,7 +3,7 @@ import {
   TRANSACTION_SUCCESS,
   TRANSACTION_FAILURE,
 } from './constants';
-import axios from 'axios';
+import { doGet } from '../api/request';
 
 const transactionRequest = isRequesting => ({
   type: TRANSACTION_REQUEST,
@@ -20,12 +20,18 @@ const transactionReceiveFailure = error => ({
   payload: { error },
 });
 
-const getTransaction = () => dispatch => {
+const getTransaction = () => (dispatch, getState) => {
   dispatch(transactionRequest(true));
 
-  return axios
-    .get('https://5b7e8126adf2070014bfa378.mockapi.io/transactions')
-    .then(payload => dispatch(transactionReceiveSuccess(payload.data)))
+  const preorderUrl =
+    getState().currentUser.type === 'content_owner'
+      ? 'preorder-content/seller'
+      : 'preorder-channel/seller';
+
+  return doGet(preorderUrl)
+    .then(payload => {
+      return dispatch(transactionReceiveSuccess(payload));
+    })
     .catch(err => dispatch(transactionReceiveFailure(err)));
 };
 
