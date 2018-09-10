@@ -28,26 +28,30 @@ const sendOffer = data => (dispatch, getState) => {
   const price = data.fields
     ? data.fields.filter(el => +el.idField === 16)[0]
       ? data.fields.filter(el => +el.idField === 16)[0].value
-      : ''
-    : '';
+      : 0
+    : 0;
 
   const id =
-    type !== 'audience_owner' ? { idChannel: data.id } : { idContent: data.id };
+    type !== 'audience_owner'
+      ? { idChannel: +data.id }
+      : {
+          idContent: +data.id,
+        };
 
   const dataToBeSent = {
-    idBuyer: buyerId,
-    price: price,
-    createdBy: data.createdBy,
+    idBuyer: +buyerId,
+    price: +price,
+    createdBy: +data.createdBy,
     IdOrderStatus: 1,
-    modifiedBy: data.modifiedBy,
+    modifiedBy: +data.modifiedBy,
+    ...id,
   };
 
   const url =
     getState().currentUser.type === 'content_owner'
       ? 'preorder-channel'
       : 'preorder-content';
-
-  doPost(url, { ...dataToBeSent, ...id })
+  doPost(url, dataToBeSent)
     .then(data => {
       if (data.error) {
         throw new Error(data.error);
