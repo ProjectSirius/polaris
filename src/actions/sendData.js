@@ -57,6 +57,10 @@ const sendData = (data, selector) => dispatch => {
         idField: 28,
         value: JSON.stringify(data.tags),
       },
+      {
+        idField: 29,
+        value: data.audioUrl,
+      },
       /*      {
         idField: 12,
         value: {

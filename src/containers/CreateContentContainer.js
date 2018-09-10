@@ -16,7 +16,13 @@ import {
   selectAddress,
 } from '../selectors';
 
-import { addTags, removeTags, sendData, getDetails } from '../actions';
+import {
+  addTags,
+  removeTags,
+  sendData,
+  getDetails,
+  editRequest,
+} from '../actions';
 import editData, { editRedirect } from '../actions/edit';
 import { dataSendSuccess } from '../actions/sendData';
 
@@ -27,7 +33,7 @@ import messages from '../helpers/contentChannelFormMessages';
 
 class CreateContentContainer extends Component {
   componentDidMount() {
-    const dataType = 'contents';
+    const dataType = 'content';
 
     if (this.props.match.path.split('/').includes('edit')) {
       const id = this.props.match.params.id;
@@ -39,7 +45,7 @@ class CreateContentContainer extends Component {
   getData = () => {
     const id = this.props.match.params.id;
 
-    this.props.getDetails('contents', id);
+    this.props.getDetails('content', id);
   };
 
   onFormSubmit = formData => {
@@ -112,6 +118,7 @@ export default withRouter(
       getDetails,
       editRedirect,
       dataSendSuccess,
+      editRequest,
     }
   )(addNewContentForm)
 );

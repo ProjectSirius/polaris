@@ -27,7 +27,6 @@ const getDetails = (dataType, id) => dispatch => {
   };
 
   let info = {};
-
   dispatch(dataRequest(true));
   return doGet(url[dataType])
     .then(payload => (info = payload.data))

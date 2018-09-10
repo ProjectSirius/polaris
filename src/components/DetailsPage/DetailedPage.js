@@ -1,6 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Loader, Grid, Image, Card, Container } from 'semantic-ui-react';
+import {
+  Loader,
+  Grid,
+  Image,
+  Card,
+  Container,
+  Button,
+} from 'semantic-ui-react';
 import GoogleMapReact from 'google-map-react';
 import Remarkable from 'remarkable';
 import RemarkableReactRenderer from 'remarkable-react';
@@ -59,6 +66,11 @@ const DetailsPage = ({
       ? fields.filter(el => +el.idField === 23)[0].value
       : ''
     : '';
+  const audioLink = data.fields
+    ? fields.filter(el => +el.idField === 29)[0]
+      ? fields.filter(el => +el.idField === 29)[0].value
+      : ''
+    : '';
   const perUnit = data.fields
     ? fields.filter(el => +el.idField === 25)[0]
       ? fields.filter(el => +el.idField === 25)[0].value
@@ -86,20 +98,17 @@ const DetailsPage = ({
       <Grid>
         <Grid.Row columns={16} style={{ margin: '0 35px' }}>
           <Grid.Column
-            xs={12}
-            sm={5}
-            md={2}
             tablet={5}
-            computer={3}
+            computer={4}
             mobile={16}
             className={classes.channelLeft}
           >
             <div className={classes.userData}>
               <div>
-                <Image src="https://harsupesa.am/images/catalog/dj/dj-smoke/dj-smoke-4.jpg" />
+                <Image src="https://visualpharm.com/assets/30/User-595b40b85ba036ed117da56f.svg" />
                 <h1
                   style={{
-                    fontWeight: 400,
+                    fontWeight: 300,
                     fontSize: '32px',
                   }}
                 >
@@ -119,11 +128,9 @@ const DetailsPage = ({
                   ? +data.createdBy === +currentUser.id
                     ? formatMessage(messages.channelTagsTitle)
                     : formatMessage(messages.contentTagsTitle)
-                  : ''}
-
-                {/*              {                userType === 'content_owner'
-                ? formatMessage(messages.channelTagsTitle)
-                : formatMessage(messages.contentTagsTitle)}*/}
+                  : +data.createdBy === +currentUser.id
+                    ? formatMessage(messages.contentTagsTitle)
+                    : formatMessage(messages.channelTagsTitle)}
               </h2>
               <div>
                 {fields
@@ -136,10 +143,6 @@ const DetailsPage = ({
                     : 'No Tags'
                   : 'No Tags'}
               </div>
-            </div>
-            <div className={classes.tagsContainer}>
-              <h2>{formatMessage(messages.averageRatingTitle)}</h2>
-              <div>Rating</div>
             </div>
             <div className={classes.offer}>
               {+data.createdBy === +currentUser.id ? (
@@ -156,14 +159,14 @@ const DetailsPage = ({
                   </span>
                 </Link>
               ) : (
-                <button
+                <Button
                   onClick={() => {
                     handleSendOffer(data);
                   }}
                   className={classes.sendOffer}
                 >
                   {formatMessage(messages.offerTitle)}
-                </button>
+                </Button>
               )}
             </div>
             {+data.createdBy === +currentUser.id ? (
@@ -184,34 +187,26 @@ const DetailsPage = ({
           </Grid.Column>
           <Grid.Column computer={1} tablet={1} />
           <Grid.Column
-            computer={12}
+            computer={11}
             tablet={10}
             mobile={16}
             className={classes.rightChannel}
           >
             <Grid.Row>
               <Grid.Column>
+                <h1 className={classes.title}>{data.title}</h1>
                 <Image
                   src={fields ? imgLink : ''}
                   style={{ width: '100%', maxHeight: '590px' }}
                 />
               </Grid.Column>
               <Grid.Column>
-                <h1 className={classes.title}>{data.title}</h1>
                 {music ? (
                   <Card className={classes.musicCard}>
                     <div className={classes.audioContainer}>
-                      <h2
-                        style={{
-                          fontSize: '20px',
-                          textAlign: 'start',
-                          fontWeight: 300,
-                          paddingBottom: '10px',
-                        }}
-                      >
-                        {formatMessage(messages.musicTitle)}
-                      </h2>
-                      <Player src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/9473/new_year_dubstep_minimix.ogg" />
+                      <h2>{formatMessage(messages.musicTitle)}</h2>
+                      {/*"https://s3-us-west-2.amazonaws.com/s.cdpn.io/9473/new_year_dubstep_minimix.ogg"*/}
+                      {fields ? <Player src={audioLink} /> : ''}
                     </div>
                   </Card>
                 ) : (
@@ -233,8 +228,6 @@ const DetailsPage = ({
                       />
                     )
                   : ''}
-
-                {/*If there is uploaded music*/}
 
                 {fields
                   ? videoLink &&
