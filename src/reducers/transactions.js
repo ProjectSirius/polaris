@@ -1,4 +1,9 @@
-import { TRANSACTION_SUCCESS, TRANSACTION_USER } from '../actions/constants';
+import {
+  TRANSACTION_SUCCESS,
+  TRANSACTION_USER,
+  SEND_TRANSACTION_SUCCESS,
+  SEND_TRANSACTION_DECLINE,
+} from '../actions/constants';
 import { combineReducers } from 'redux';
 
 const data = (state = [], action) => {
@@ -19,4 +24,14 @@ const user = (state = {}, action) => {
   }
 };
 
-export default combineReducers({ data, user });
+const approveDecline = (state = false, action) => {
+  switch (action.type) {
+    case SEND_TRANSACTION_SUCCESS:
+    case SEND_TRANSACTION_DECLINE:
+      return true;
+    default:
+      return false;
+  }
+};
+
+export default combineReducers({ data, user, approveDecline });

@@ -11,6 +11,8 @@ const TransactionCards = ({
   messages,
   users,
   approveOffer,
+  approveDecline,
+  declineOffer,
 }) =>
   isRequesting ? (
     <Loader active inline="centered" size="large">
@@ -21,12 +23,14 @@ const TransactionCards = ({
       {transactions.map(({ id, idBuyer, price, name, idChannel }) => {
         return (
           <TransactionCard
+            approveDecline={approveDecline}
             key={id}
             price={price}
             name={users[idBuyer] ? users[idBuyer].username : ''}
             idChannel={idChannel}
             users={users}
             approveOffer={approveOffer}
+            declineOffer={declineOffer}
           />
         );
       })}

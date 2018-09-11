@@ -8,10 +8,11 @@ import {
   selectIsRequesting,
   selectError,
   selectTransactionUsers,
+  selectTransactionApproveDecline,
 } from '../selectors';
 
 import { getTransactions } from '../actions';
-import approveOffer from '../actions/transaction';
+import approveOffer, { declineOffer } from '../actions/transaction';
 import TransactionCards from '../components/TransactionCards/';
 
 const mapStateToProps = createStructuredSelector({
@@ -19,6 +20,7 @@ const mapStateToProps = createStructuredSelector({
   isRequesting: selectIsRequesting,
   transError: selectError,
   users: selectTransactionUsers,
+  approveDecline: selectTransactionApproveDecline,
 });
 
 class TransactionCardsContainer extends React.Component {
@@ -36,6 +38,8 @@ class TransactionCardsContainer extends React.Component {
       intl: { formatMessage },
       users,
       approveOffer,
+      declineOffer,
+      approveDecline,
     } = this.props;
 
     if (transError) {
@@ -50,6 +54,8 @@ class TransactionCardsContainer extends React.Component {
         messages={messages}
         users={users}
         approveOffer={approveOffer}
+        declineOffer={declineOffer}
+        approveDecline={approveDecline}
       />
     );
   }
@@ -73,5 +79,6 @@ export default connect(
   {
     getTransactions,
     approveOffer,
+    declineOffer,
   }
 )(TransactionCardsContainerIntl);
