@@ -2,6 +2,7 @@ import React from 'react';
 import { Button, Card } from 'semantic-ui-react';
 import { injectIntl, defineMessages } from 'react-intl';
 import { Link } from 'react-router-dom';
+import SuccessAlertContainer from '../../containers/SuccessAlertContainer';
 
 const messages = defineMessages({
   payment: {
@@ -35,8 +36,15 @@ const TransactionCard = ({
   name,
   price,
   idChannel,
+  approveOffer,
   intl: { formatMessage },
+  declineOffer,
+  approveDecline,
 }) => {
+  if (approveDecline) {
+    return <SuccessAlertContainer />;
+  }
+
   return (
     <Card>
       <Card.Content>
@@ -52,10 +60,10 @@ const TransactionCard = ({
       </Card.Content>
       <Card.Content extra>
         <div className="ui two buttons">
-          <Button basic color="green">
+          <Button onClick={approveOffer} basic color="green">
             {formatMessage(messages.approve)}
           </Button>
-          <Button basic color="red">
+          <Button onClick={declineOffer} basic color="red">
             {formatMessage(messages.decline)}
           </Button>
         </div>

@@ -7,16 +7,20 @@ import {
   selectTransaction,
   selectIsRequesting,
   selectError,
+  selectTransactionUsers,
+  selectTransactionApproveDecline,
 } from '../selectors';
 
 import { getTransactions } from '../actions';
-
+import approveOffer, { declineOffer } from '../actions/transaction';
 import TransactionCards from '../components/TransactionCards/';
 
 const mapStateToProps = createStructuredSelector({
   transactions: selectTransaction,
   isRequesting: selectIsRequesting,
   transError: selectError,
+  users: selectTransactionUsers,
+  approveDecline: selectTransactionApproveDecline,
 });
 
 class TransactionCardsContainer extends React.Component {
@@ -32,6 +36,10 @@ class TransactionCardsContainer extends React.Component {
       isRequesting,
       transError,
       intl: { formatMessage },
+      users,
+      approveOffer,
+      declineOffer,
+      approveDecline,
     } = this.props;
 
     if (transError) {
@@ -44,6 +52,10 @@ class TransactionCardsContainer extends React.Component {
         transactions={transactions}
         formatMessage={formatMessage}
         messages={messages}
+        users={users}
+        approveOffer={approveOffer}
+        declineOffer={declineOffer}
+        approveDecline={approveDecline}
       />
     );
   }
@@ -54,6 +66,10 @@ const messages = defineMessages({
     id: 'loading',
     defaultMessage: 'Loading',
   },
+  wentWrong: {
+    id: 'wentWrong',
+    defaultMessage: 'Something went wrong!',
+  },
 });
 
 const TransactionCardsContainerIntl = injectIntl(TransactionCardsContainer);
@@ -62,5 +78,7 @@ export default connect(
   mapStateToProps,
   {
     getTransactions,
+    approveOffer,
+    declineOffer,
   }
 )(TransactionCardsContainerIntl);
