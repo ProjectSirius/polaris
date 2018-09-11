@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { injectIntl, defineMessages } from 'react-intl';
+import { withRouter } from 'react-router-dom';
 
 import {
   cart,
@@ -19,6 +20,7 @@ import {
   selectCurrentUser,
   selectIsGroupOffering,
   groupOffer,
+  selectSuccessMessage,
 } from '../selectors';
 
 class CartContainer extends React.Component {
@@ -37,7 +39,9 @@ class CartContainer extends React.Component {
       removeFromGroupOffer,
       groupOffer,
       sendOffer,
+      successMessage,
       intl: { formatMessage },
+      location,
     } = this.props;
     return (
       <Cart
@@ -52,6 +56,8 @@ class CartContainer extends React.Component {
         formatMessage={formatMessage}
         messages={messages}
         sendOffer={sendOffer}
+        location={location}
+        successMessage={successMessage}
       />
     );
   }
@@ -84,7 +90,7 @@ const messages = defineMessages({
   },
 });
 
-const CartContainerIntl = injectIntl(CartContainer);
+const CartContainerIntl = withRouter(injectIntl(CartContainer));
 
 const mapStateToProps = createStructuredSelector({
   cartData: selectCart,
@@ -92,15 +98,18 @@ const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
   isGroupOffering: selectIsGroupOffering,
   groupOffer,
+  successMessage: selectSuccessMessage,
 });
 
-export default connect(
-  mapStateToProps,
-  {
-    cart,
-    createGroupOffer,
-    addToGroupOffer,
-    removeFromGroupOffer,
-    sendOffer,
-  }
-)(CartContainerIntl);
+export default withRouter(
+  connect(
+    mapStateToProps,
+    {
+      cart,
+      createGroupOffer,
+      addToGroupOffer,
+      removeFromGroupOffer,
+      sendOffer,
+    }
+  )(CartContainerIntl)
+);

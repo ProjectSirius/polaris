@@ -12,6 +12,7 @@ export const selectError = state => state.error;
 export const selectGenres = state => state.genres;
 export const selectFilteringPageRating = state => state.filteringPage.rating;
 export const selectNotif = state => state.notif;
+export const selectSuccessMessage = state => state.successMessage;
 export const selectNotifLength = state =>
   state.notif ? state.notif.length : 0;
 export const selectSearch = state =>
