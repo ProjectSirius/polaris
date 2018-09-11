@@ -16,9 +16,12 @@ const Cards = ({
   addToCart,
   cart,
 }) => {
-  return isRequesting ? <Loader active inline="centered" size="large" className={classes.loading}>
+  return isRequesting ? (
+    <Loader active inline="centered" size="large" className={classes.loading}>
       Loading
-    </Loader> : view !== 'map' ? <div
+    </Loader>
+  ) : view !== 'map' ? (
+    <div
       className={
         view === 'table' ? classes.cardsWrapperGrid : classes.cardsWrapperList
       }
@@ -37,7 +40,16 @@ const Cards = ({
             />
           ))
         : ''}
-    </div> : <MapView data={data} addToGroupOffer={addToCart} removeFromGroupOffer={removeFromCart} groupOffer={cart} type={type} />;
+    </div>
+  ) : (
+    <MapView
+      data={data}
+      addToGroupOffer={addToCart}
+      removeFromGroupOffer={removeFromCart}
+      groupOffer={cart}
+      type={type}
+    />
+  );
 };
 
 export default Cards;
