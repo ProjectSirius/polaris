@@ -37,7 +37,6 @@ class SimpleMap extends Component {
       ? this.props.removeFromGroupOffer(`${i}`)
       : this.props.addToGroupOffer(`${i}`);
   };
-
   markers = () => {
     return Object.keys(this.props.data.info).map((key, i) => {
       const id = this.props.data.info[key].id;
@@ -49,7 +48,12 @@ class SimpleMap extends Component {
           lng={this.props.data.info[key].lng || getCord(44.5, 0.3)}
           text={this.props.data.info[key].title.slice(0, 3)}
           title={this.props.data.info[key].title}
+          img={
+            this.props.data.info[key].fields.filter(el => +el.idField === 23)[0]
+              .value || 'https://source.unsplash.com/600x400/?dj'
+          }
           selected={this.props.groupOffer.selectedIds.includes(`${id}`)}
+          type={this.props.type}
         />
       );
     });
