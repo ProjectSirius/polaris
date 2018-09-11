@@ -2,6 +2,11 @@ import React from 'react';
 import { Card, Image, Icon } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { injectIntl, defineMessages } from 'react-intl';
+import Remarkable from 'remarkable';
+import RemarkableReactRenderer from 'remarkable-react';
+
+const md = new Remarkable();
+md.renderer = new RemarkableReactRenderer();
 
 const messages = defineMessages({
   addToCart: {
@@ -31,7 +36,7 @@ const imgs = [
 ];
 
 const CardComponent = ({
-  info: { title, description, date, id },
+  info: { title, description, createdAt, id, fields },
   classes,
   view,
   type,
@@ -43,6 +48,12 @@ const CardComponent = ({
   cart,
   intl: { formatMessage },
 }) => {
+  const imgLink = fields
+    ? fields.filter(el => +el.idField === 23)[0]
+      ? fields.filter(el => +el.idField === 23)[0].value
+      : ''
+    : '';
+
   return (
     <Card
       className={`${classes.card} ${view === 'list' ? classes.cardList : ''}`}
@@ -56,16 +67,20 @@ const CardComponent = ({
         }}
       >
         <Image
-          src={`https://source.unsplash.com/600x400/?${
-            imgs[Math.floor(Math.random() * imgs.length)]
-          }`}
+          src={
+            imgLink
+              ? imgLink
+              : `https://source.unsplash.com/600x400/?${
+                  imgs[Math.floor(Math.random() * imgs.length)]
+                }`
+          }
           size={view === 'list' ? 'medium' : 'large'}
         />
         <Card.Content className={classes.cardContent}>
-          <p className={classes.date}>{date}</p>
+          <p className={classes.date}>{createdAt.slice(0, 10)}</p>
           <Card.Header className={classes.mainTitle}>{title}</Card.Header>
           <Card.Description className={classes.bodyContent}>
-            {description}
+            {description && md.render(description.slice(0, 200) + '...')}
           </Card.Description>
         </Card.Content>
       </Link>

@@ -250,27 +250,31 @@ class MainNavBar extends React.Component {
                 className={classes.menuItem}
               />
             )} */}
-            <Menu.Item
-              as={Link}
-              to="/dashboard"
-              active={activeItem === 'Dashboard'}
-              onClick={this.navItemChecker}
-              className={classes.menuItem}
-              name="Dashboard"
-            >
-              {formatMessage(messages.dashboard)}
-            </Menu.Item>
-            <Menu.Item
-              as={Link}
-              to="/cart"
-              name="cart"
-              active={activeItem === 'cart'}
-              onClick={this.navItemChecker}
-              className={classes.cart}
-            >
-              {formatMessage(messages.cart)}
-              <Label color="blue"> {offersCount}</Label>
-            </Menu.Item>
+            {isAuth && (
+              <Menu.Item
+                as={Link}
+                to="/dashboard"
+                active={activeItem === 'Dashboard'}
+                onClick={this.navItemChecker}
+                className={classes.menuItem}
+                name="Dashboard"
+              >
+                {formatMessage(messages.dashboard)}
+              </Menu.Item>
+            )}
+            {isAuth && (
+              <Menu.Item
+                as={Link}
+                to="/cart"
+                name="cart"
+                active={activeItem === 'cart'}
+                onClick={this.navItemChecker}
+                className={classes.cart}
+              >
+                {formatMessage(messages.cart)}
+                <Label color="blue"> {offersCount}</Label>
+              </Menu.Item>
+            )}
 
             {isAuth ? (
               <Menu.Menu position="right">

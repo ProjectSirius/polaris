@@ -1,22 +1,27 @@
 import { DATA_RECEIVE_SUCCESS } from '../actions/constants';
 
-const uniqueArray = array => {
-  let data = array.concat();
-  for (let i = 0; i < data.length; ++i) {
-    for (let j = i + 1; j < data.length; ++j) {
-      if (data[i].id === data[j].id) data.splice(j--, 1);
-    }
-  }
-
-  return data;
-};
-
-const data = (state = { info: [], totalPages: 0, currentPage: 0 }, action) => {
+const data = (state = { info: {}, totalPages: 0, currentPage: 0 }, action) => {
   switch (action.type) {
     case DATA_RECEIVE_SUCCESS:
+      const newState = action.payload.info.reduce(
+        (acc, info) => ({
+          ...acc,
+          [info.id]: info,
+        }),
+        {}
+      );
+      if (action.payload.selector === 'search') {
+        return {
+          ...state,
+          info: { ...newState },
+          totalPages: action.payload.totalPages,
+          currentPage: action.payload.currentPage,
+        };
+      }
+
       return {
         ...state,
-        info: uniqueArray(state.info.concat(action.payload.info)),
+        info: { ...state.info, ...newState },
         totalPages: action.payload.totalPages,
         currentPage: action.payload.currentPage,
       };

@@ -1,4 +1,4 @@
-const addTags = tags => ({
+const add = tags => ({
   type: 'ADD_TAG',
   payload: {
     tags,
@@ -12,9 +12,13 @@ const removeTag = tags => ({
   },
 });
 
-const removeTags = (tag, index) => (dispatch, getState) => {
+const addTags = tags => dispatch => {
+  dispatch(add(tags));
+};
+
+const removeTags = id => (dispatch, getState) => {
   const tags = getState().tags;
-  const newTags = tags.filter((tag, i) => i !== index);
+  const newTags = tags.filter(tag => tag.id !== id);
   dispatch(removeTag(newTags));
 };
 

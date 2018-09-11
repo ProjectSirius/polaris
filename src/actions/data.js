@@ -11,12 +11,13 @@ const dataRequest = isRequesting => ({
   payload: { isRequesting },
 });
 
-const dataReceiveSuccess = payload => ({
+const dataReceiveSuccess = (payload, selector) => ({
   type: DATA_RECEIVE_SUCCESS,
   payload: {
     info: payload.data,
     totalPages: payload.totalPages,
     currentPage: payload.page,
+    selector,
   },
 });
 
@@ -25,7 +26,7 @@ const dataReceiveFailure = error => ({
   payload: { error },
 });
 
-const getData = (searchValue, page = 1) => (dispatch, getState) => {
+const getData = (searchValue, page = 1, selector) => (dispatch, getState) => {
   const dataType =
     getState().currentUser.type === 'content_owner'
       ? 'channels/search'
@@ -44,7 +45,7 @@ const getData = (searchValue, page = 1) => (dispatch, getState) => {
     query: search,
   })
     .then(payload => {
-      return dispatch(dataReceiveSuccess(payload));
+      return dispatch(dataReceiveSuccess(payload, selector));
     })
     .catch(err => dispatch(dataReceiveFailure(err)));
 };

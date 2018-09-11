@@ -236,7 +236,17 @@
   },
   {
     "id": "wants-to-buy-your-channel",
-    "defaultMessage": "wants to buy your channel by",
+    "defaultMessage": "wants to buy your",
+    "filepath": "src/components/TransactionCards/TransactionCard.js"
+  },
+  {
+    "id": "channel",
+    "defaultMessage": "channel",
+    "filepath": "src/components/TransactionCards/TransactionCard.js"
+  },
+  {
+    "id": "by",
+    "defaultMessage": "by",
     "filepath": "src/components/TransactionCards/TransactionCard.js"
   },
   {
@@ -272,6 +282,11 @@
   {
     "id": "empty-cart-message",
     "defaultMessage": "Your cart is empty",
+    "filepath": "src/containers/CartContainer.js"
+  },
+  {
+    "id": "empty-cart-sub-message",
+    "defaultMessage": "Add something to make me happy :)",
     "filepath": "src/containers/CartContainer.js"
   },
   {
@@ -511,12 +526,17 @@
   },
   {
     "id": "img-url",
-    "defaultMessage": "Image Link:",
+    "defaultMessage": "Channel Image Link:",
     "filepath": "src/helpers/contentChannelFormMessages.js"
   },
   {
     "id": "video-url",
     "defaultMessage": "Video Link:",
+    "filepath": "src/helpers/contentChannelFormMessages.js"
+  },
+  {
+    "id": "audio-url",
+    "defaultMessage": "Audio Link:",
     "filepath": "src/helpers/contentChannelFormMessages.js"
   },
   {
@@ -547,6 +567,11 @@
   {
     "id": "audio-upload",
     "defaultMessage": "Upload Audio",
+    "filepath": "src/helpers/contentChannelFormMessages.js"
+  },
+  {
+    "id": "genres",
+    "defaultMessage": "Genres:",
     "filepath": "src/helpers/contentChannelFormMessages.js"
   },
   {

@@ -28,7 +28,9 @@ const cart = (state = initialState, action) => {
       return {
         ...state,
         buyer_id: action.payload.buyer_id,
-        selectedIds: state.selectedIds.filter(el => el !== action.payload.id),
+        selectedIds: state.selectedIds.filter(el => {
+          return el !== action.payload.id + '';
+        }),
       };
     default:
       return state;

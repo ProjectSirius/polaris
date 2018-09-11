@@ -12,6 +12,8 @@ export const selectError = state => state.error;
 export const selectGenres = state => state.genres;
 export const selectFilteringPageRating = state => state.filteringPage.rating;
 export const selectNotif = state => state.notif;
+export const selectLastOfferedId = state => state.lastOfferedId;
+export const selectSuccessMessage = state => state.successMessage;
 export const selectNotifLength = state =>
   state.notif ? state.notif.length : 0;
 export const selectSearch = state =>
@@ -60,7 +62,9 @@ export const selectEditDetails = createSelector(
             case 25:
               return { ...acc, perUnit: el.value };
             case 26:
-              return { ...acc, unitnit: el.value };
+              return { ...acc, unit: el.value };
+            case 28:
+              return { ...acc, tags: el.tags };
             default:
               return acc;
           }

@@ -57,6 +57,11 @@ const messages = defineMessages({
     defaultMessage: 'Video Link:',
   },
 
+  audioUrl: {
+    id: 'audio-url',
+    defaultMessage: 'Audio Link:',
+  },
+
   editChannel: {
     id: 'edit-channel',
     defaultMessage: 'Edit Channel',
@@ -85,6 +90,11 @@ const messages = defineMessages({
   audioUpload: {
     id: 'audio-upload',
     defaultMessage: 'Upload Audio',
+  },
+
+  genres: {
+    id: 'genres',
+    defaultMessage: 'Genres:',
   },
 
   /*messages specific to create content page*/

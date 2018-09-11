@@ -13,8 +13,8 @@ import CreateChannel from '../../containers/CreateChannel';
 import CreateContent from '../../containers/CreateContentContainer';
 import Dashboard from '../../containers/DashboardContainer';
 import CartContainer from '../../containers/CartContainer';
+import NotFoundPage from '../NotFoundPage';
 import Profile from '../Profile';
-
 
 const App = ({ content, title }) => {
   return (
@@ -42,12 +42,9 @@ const App = ({ content, title }) => {
           component={CreateContent}
         />
         <ProtectedRouteContainer
-          path="/dashboard"
-          component={Dashboard}
-        />
-        <ProtectedRouteContainer
           path="/profile"
           component={Profile} />
+        <ProtectedRouteContainer path="/dashboard" component={Dashboard} />
         <ProtectedRouteContainer
           path="/channel/:id/edit"
           component={CreateChannel}
@@ -65,7 +62,7 @@ const App = ({ content, title }) => {
           component={DetailsPageContainer}
         />
         <ProtectedRouteContainer path="/cart" component={CartContainer} />
-        <Route render={() => <h1>Not Found App</h1>} />
+        <Route component={NotFoundPage} />
       </Switch>
     </div>
   );
