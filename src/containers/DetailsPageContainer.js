@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { injectIntl } from 'react-intl';
 import { createStructuredSelector } from 'reselect';
+import { withRouter } from 'react-router-dom';
 
 import { getDetails, editRequest, delData, sendOffer } from '../actions';
 
@@ -10,6 +11,7 @@ import {
   selectIsRequesting,
   selectLanguage,
   selectCurrentUser,
+  selectSuccessMessage,
 } from '../selectors';
 
 import DetailedPage from '../components/DetailsPage';
@@ -39,6 +41,8 @@ class DetailsPageContainer extends React.Component {
       currentUser,
       delData,
       sendOffer,
+      location,
+      successMessage,
     } = this.props;
     return (
       <DetailedPage
@@ -52,7 +56,9 @@ class DetailsPageContainer extends React.Component {
         currentUser={currentUser}
         delData={delData}
         sendOffer={sendOffer}
+        location={location}
         handleSendOffer={this.handleSendOffer}
+        successMessage={successMessage}
       />
     );
   }
@@ -63,9 +69,10 @@ const mapStateToProps = createStructuredSelector({
   isRequesting: selectIsRequesting,
   lang: selectLanguage,
   currentUser: selectCurrentUser,
+  successMessage: selectSuccessMessage,
 });
 
-DetailsPageContainer = injectIntl(DetailsPageContainer);
+DetailsPageContainer = withRouter(injectIntl(DetailsPageContainer));
 
 export default connect(
   mapStateToProps,
