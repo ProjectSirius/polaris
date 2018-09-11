@@ -285,6 +285,11 @@
     "filepath": "src/containers/CartContainer.js"
   },
   {
+    "id": "empty-cart-sub-message",
+    "defaultMessage": "Add something to make me happy :)",
+    "filepath": "src/containers/CartContainer.js"
+  },
+  {
     "id": "make-group-offer",
     "defaultMessage": "Make group offer",
     "filepath": "src/containers/CartContainer.js"

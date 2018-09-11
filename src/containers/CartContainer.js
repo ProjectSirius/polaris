@@ -66,6 +66,10 @@ const messages = defineMessages({
     id: 'empty-cart-message',
     defaultMessage: 'Your cart is empty',
   },
+  emptyCartSubMessage: {
+    id: 'empty-cart-sub-message',
+    defaultMessage: 'Add something to make me happy :)',
+  },
   makeGroupOffer: {
     id: 'make-group-offer',
     defaultMessage: 'Make group offer',
