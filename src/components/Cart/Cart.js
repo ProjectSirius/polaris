@@ -27,6 +27,8 @@ const Cart = ({
   sendOffer,
   successMessage,
   location,
+  lastOfferedId,
+  removeFromCart,
 }) => {
   let svgString =
     '                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"\n' +
@@ -42,6 +44,7 @@ const Cart = ({
   const Success = withRouter(({ history }) => (
     <div
       onClick={() => {
+        removeFromCart(lastOfferedId);
         history.push(from);
       }}
       style={{ width: '100%', height: '100%', cursor: 'pointer' }}

@@ -2,6 +2,7 @@ import {
   SEND_OFFER_REQUEST,
   SEND_OFFER_FAILURE,
   SEND_OFFER_SUCCESS,
+  SAVE_LAST_OFFERED_ID,
 } from './constants';
 import { doPost } from '../api/request';
 
@@ -18,6 +19,11 @@ export const sendOfferSuccess = data => ({
 const sendOfferFailure = error => ({
   type: SEND_OFFER_FAILURE,
   payload: { error },
+});
+
+const offeredDataID = id => ({
+  type: SAVE_LAST_OFFERED_ID,
+  payload: { id },
 });
 
 const sendOffer = data => (dispatch, getState) => {
@@ -38,6 +44,8 @@ const sendOffer = data => (dispatch, getState) => {
           idContent: +data.id,
         };
 
+  const lastOfferedId = +data.id;
+
   const dataToBeSent = {
     idBuyer: +buyerId,
     price: +price,
@@ -56,7 +64,7 @@ const sendOffer = data => (dispatch, getState) => {
       if (data.error) {
         throw new Error(data.error);
       }
-
+      dispatch(offeredDataID(lastOfferedId));
       return dispatch(sendOfferSuccess(data));
     })
     .catch(error => dispatch(sendOfferFailure(error)));

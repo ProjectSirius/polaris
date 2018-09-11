@@ -10,6 +10,7 @@ import {
   addToGroupOffer,
   removeFromGroupOffer,
   sendOffer,
+  removeFromCart,
 } from '../actions';
 
 import Cart from '../components/Cart';
@@ -21,6 +22,7 @@ import {
   selectIsGroupOffering,
   groupOffer,
   selectSuccessMessage,
+  selectLastOfferedId,
 } from '../selectors';
 
 class CartContainer extends React.Component {
@@ -42,6 +44,8 @@ class CartContainer extends React.Component {
       successMessage,
       intl: { formatMessage },
       location,
+      removeFromCart,
+      lastOfferedId,
     } = this.props;
     return (
       <Cart
@@ -58,6 +62,8 @@ class CartContainer extends React.Component {
         sendOffer={sendOffer}
         location={location}
         successMessage={successMessage}
+        lastOfferedId={lastOfferedId}
+        removeFromCart={removeFromCart}
       />
     );
   }
@@ -99,6 +105,7 @@ const mapStateToProps = createStructuredSelector({
   isGroupOffering: selectIsGroupOffering,
   groupOffer,
   successMessage: selectSuccessMessage,
+  lastOfferedId: selectLastOfferedId,
 });
 
 export default withRouter(
@@ -110,6 +117,7 @@ export default withRouter(
       addToGroupOffer,
       removeFromGroupOffer,
       sendOffer,
+      removeFromCart,
     }
   )(CartContainerIntl)
 );
