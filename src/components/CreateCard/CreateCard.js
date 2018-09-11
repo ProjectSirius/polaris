@@ -2,49 +2,13 @@ import React from 'react';
 import { Field } from 'redux-form';
 import { Redirect } from 'react-router-dom';
 
-import Tags from 'react-tagging-input';
-
-import { ControlLabel, Glyphicon } from 'react-bootstrap';
-
 import RenderField from './RenderField';
 import renderField from '../SelectOptionFilter/RenderField';
 import SubmitBtn from '../SubmitBtn';
-
-class FileInput extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.onChange = this.onChange.bind(this);
-  }
-
-  onChange(e) {
-    const {
-      input: { onChange },
-    } = this.props;
-    onChange({
-      file: e.target.files,
-      name: e.target.files[0].name,
-    });
-  }
-
-  render() {
-    /*    const {
-      input: { value },
-    } = this.props;*/
-
-    return <input type="file" onChange={this.onChange} onBlur={() => {}} />;
-  }
-}
+import LocationSearchInput from '../../containers/LocationSearchInputContainer';
+import MultiSelect from '../../containers/MultiSelectContainer';
 
 class CreateCard extends React.Component {
-  onTagAdded(tag) {
-    this.props.addTags(tag);
-  }
-
-  onTagRemoved(tag, index) {
-    this.props.removeTags(tag, index);
-  }
-
   render() {
     const {
       isRequesting,
@@ -55,8 +19,6 @@ class CreateCard extends React.Component {
       onFormSubmit,
       messages,
       formatMessage,
-      userType,
-      data,
       isDataSent,
       type,
       editRedirect,
@@ -76,8 +38,12 @@ class CreateCard extends React.Component {
           <div className={classes.titleWrapper}>
             <div className={classes.title}>
               {type === 'audience_owner'
-                ? formatMessage(messages.channelTitle)
-                : formatMessage(messages.contentTitle)}
+                ? window.location.pathname.split('/').includes('edit')
+                  ? formatMessage(messages.editChannel)
+                  : formatMessage(messages.channelTitle)
+                : window.location.pathname.split('/').includes('edit')
+                  ? formatMessage(messages.editContent)
+                  : formatMessage(messages.contentTitle)}
             </div>
           </div>
           <form
@@ -132,7 +98,7 @@ class CreateCard extends React.Component {
                 <option>{'Like'}</option>
               </Field>
             </div>
-            {userType === 'audience_owner' && (
+            {type === 'audience_owner' && (
               <Field
                 label={formatMessage(messages.channelUrl)}
                 component={RenderField}
@@ -142,44 +108,39 @@ class CreateCard extends React.Component {
                 pattern="https://.*"
               />
             )}
+            <Field
+              label={formatMessage(messages.imgUrl)}
+              component={RenderField}
+              type="url"
+              name="imgUrl"
+              placeholder="https://example.com"
+              pattern="https://.*"
+            />
+            <Field
+              label={formatMessage(messages.videoUrl)}
+              component={RenderField}
+              type="url"
+              name="videoUrl"
+              placeholder="https://example.com"
+              pattern="https://.*"
+            />
+            {type === 'content_owner' && (
+              <Field
+                label={formatMessage(messages.audioUrl)}
+                component={RenderField}
+                type="url"
+                name="audioUrl"
+                placeholder="https://example.com"
+                pattern="https://.*"
+              />
+            )}
             <div className={classes.tags}>
-              <ControlLabel>
-                <span>{formatMessage(messages.tags)}</span>
-                <Tags
-                  tags={data.tags ? data.tags : tags}
-                  placeholder={formatMessage(messages.tagPlaceholder)}
-                  onAdded={this.onTagAdded.bind(this)}
-                  onRemoved={this.onTagRemoved.bind(this)}
-                />
-              </ControlLabel>
+              <label style={{ width: '100%' }}>
+                {formatMessage(messages.genres)}
+                <MultiSelect defautlTags={tags} />
+              </label>
             </div>
-            <div className={classes.fileUploadWrapper}>
-              <div className={classes.fileUpload}>
-                <Field type="file" name="poster" component={FileInput} />
-                <span>
-                  <span>{formatMessage(messages.imgUpload)}</span>
-                  <Glyphicon glyph="glyphicon glyphicon-arrow-up" />
-                </span>
-              </div>
-              {type === 'content_owner' && (
-                <React.Fragment>
-                  <div className={classes.fileUpload}>
-                    <Field type="file" name="poster" component={FileInput} />
-                    <span>
-                      <span>{formatMessage(messages.videoUpload)}</span>
-                      <Glyphicon glyph="glyphicon glyphicon-arrow-up" />
-                    </span>
-                  </div>
-                  <div className={classes.fileUpload}>
-                    <Field type="file" name="poster" component={FileInput} />
-                    <span>
-                      <span>{formatMessage(messages.audioUpload)}</span>
-                      <Glyphicon glyph="glyphicon glyphicon-arrow-up" />
-                    </span>
-                  </div>
-                </React.Fragment>
-              )}
-            </div>
+            <LocationSearchInput />
             <SubmitBtn
               value="Submit"
               valid={valid}

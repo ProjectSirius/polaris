@@ -2,7 +2,10 @@ import { createSelector } from 'reselect';
 
 export const selectData = state => state.data;
 export const selectUserData = state => state.userData;
-export const selectTransaction = state => state.transactions;
+export const selectTransaction = state => state.transactions.data;
+export const selectTransactionUsers = state => state.transactions.user;
+export const selectTransactionApproveDecline = state =>
+  state.transactions.approveDecline;
 export const selectIsOpenMainMenu = state => state.isOpenMainMenu;
 export const selectIsRequesting = state => state.isRequesting;
 export const selectCurrentUser = state => state.currentUser;
@@ -12,6 +15,8 @@ export const selectError = state => state.error;
 export const selectGenres = state => state.genres;
 export const selectFilteringPageRating = state => state.filteringPage.rating;
 export const selectNotif = state => state.notif;
+export const selectLastOfferedId = state => state.lastOfferedId;
+export const selectSuccessMessage = state => state.successMessage;
 export const selectNotifLength = state =>
   state.notif ? state.notif.length : 0;
 export const selectSearch = state =>
@@ -32,6 +37,7 @@ export const selectIsGroupOffering = state => state.isGroupOffering;
 export const selectIsDataSent = state => state.isDataSent;
 export const selectOffers = state => state.offers;
 export const selectCart = state => state.cart;
+export const selectAddress = state => state.newDataAddress;
 
 export const selectIsAuth = createSelector(
   selectCurrentUser,
@@ -44,8 +50,33 @@ export const selectChoosenGenres = createSelector(selectGenres, genres =>
 
 export const selectEditDetails = createSelector(
   selectDetails,
-  selectDetails =>
-    window.location.pathname.split('/').includes('edit') ? selectDetails : {}
+  selectDetails => {
+    const fields = selectDetails.hasOwnProperty('fields')
+      ? selectDetails.fields.reduce((acc, el) => {
+          switch (+el.idField) {
+            case 16:
+              return { ...acc, price: el.value };
+            case 21:
+              return { ...acc, url: el.value };
+            case 22:
+              return { ...acc, videoUrl: el.value };
+            case 23:
+              return { ...acc, imgUrl: el.value };
+            case 25:
+              return { ...acc, perUnit: el.value };
+            case 26:
+              return { ...acc, unit: el.value };
+            case 28:
+              return { ...acc, tags: el.tags };
+            default:
+              return acc;
+          }
+        }, {})
+      : [];
+    return window.location.pathname.split('/').includes('edit')
+      ? { ...selectDetails, ...fields }
+      : {};
+  }
 );
 
 export const selectCartLength = createSelector(

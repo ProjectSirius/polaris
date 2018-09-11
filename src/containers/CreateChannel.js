@@ -14,6 +14,7 @@ import {
   selectIsEditing,
   selectEditDetails,
   selectIsDataSent,
+  selectAddress,
 } from '../selectors';
 import {
   addTags,
@@ -30,7 +31,7 @@ import messages from '../helpers/contentChannelFormMessages';
 
 class CreateChannelContainer extends Component {
   componentDidMount() {
-    const dataType = 'channels';
+    const dataType = 'channel';
 
     if (this.props.match.path.split('/').includes('edit')) {
       const id = this.props.match.params.id;
@@ -40,11 +41,13 @@ class CreateChannelContainer extends Component {
   }
 
   onFormSubmit = formData => {
+    const tags = this.props.tags;
+
     if (this.props.history.location.pathname.includes('edit')) {
-      this.props.editData(formData);
+      this.props.editData({ ...formData, tags });
       this.props.history.push('/dashboard');
     } else {
-      this.props.sendData(formData, 'createChannel');
+      this.props.sendData({ ...formData, tags }, 'createChannel');
       this.props.dataSendSuccess();
     }
   };
@@ -52,7 +55,7 @@ class CreateChannelContainer extends Component {
   getData = () => {
     const id = this.props.match.params.id;
 
-    this.props.getDetails('channels', id);
+    this.props.getDetails('channel', id);
   };
 
   render() {
@@ -63,6 +66,7 @@ class CreateChannelContainer extends Component {
       initialValues,
       isDataSent,
       currentUser,
+      tags,
     } = this.props;
 
     return (
@@ -76,6 +80,7 @@ class CreateChannelContainer extends Component {
         getData={this.getData}
         initialValues={initialValues}
         isDataSent={isDataSent}
+        tags={tags}
         {...this.props}
       />
     );
@@ -93,6 +98,7 @@ const mapStateToProps = createStructuredSelector({
   isEditing: selectIsEditing,
   initialValues: selectEditDetails,
   isDataSent: selectIsDataSent,
+  address: selectAddress,
 });
 
 const addNewChannelForm = withRouter(

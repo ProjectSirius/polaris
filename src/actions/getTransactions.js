@@ -2,12 +2,18 @@ import {
   TRANSACTION_REQUEST,
   TRANSACTION_SUCCESS,
   TRANSACTION_FAILURE,
+  TRANSACTION_USER,
 } from './constants';
-import axios from 'axios';
+import { doGet } from '../api/request';
 
 const transactionRequest = isRequesting => ({
   type: TRANSACTION_REQUEST,
   payload: { isRequesting },
+});
+
+const transactionReceiveUser = user => ({
+  type: TRANSACTION_USER,
+  payload: { user },
 });
 
 const transactionReceiveSuccess = data => ({
@@ -20,12 +26,31 @@ const transactionReceiveFailure = error => ({
   payload: { error },
 });
 
-const getTransaction = () => dispatch => {
+const getTransaction = () => (dispatch, getState) => {
   dispatch(transactionRequest(true));
 
-  return axios
-    .get('https://5b7e8126adf2070014bfa378.mockapi.io/transactions')
-    .then(payload => dispatch(transactionReceiveSuccess(payload.data)))
+  const preorderUrl =
+    getState().currentUser.type === 'content_owner'
+      ? 'preorder-content/seller'
+      : 'preorder-channel/seller';
+
+  return doGet(preorderUrl)
+    .then(async payload => {
+      const userIds = payload.map(({ idBuyer }) => idBuyer);
+
+      await userIds.map(
+        async id =>
+          await doGet(`users/${id}`).then(u =>
+            dispatch(transactionReceiveUser(u))
+          )
+      );
+
+      const res = payload.map((el, i) => ({
+        ...el,
+      }));
+
+      return dispatch(transactionReceiveSuccess(res));
+    })
     .catch(err => dispatch(transactionReceiveFailure(err)));
 };
 

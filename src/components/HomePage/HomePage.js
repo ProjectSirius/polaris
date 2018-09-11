@@ -10,18 +10,10 @@ const HomePage = ({ classes }) => {
         </div>
         <div className={classes.textBlock}>
           <div className={classes.textBlockInner}>
-            <h2>
-              Lorem ipsum dolor sit <br />
-              maiores molestiae, repudiandae unde.
-            </h2>
+            <h2>If you are a DJ</h2>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi
-              corporis cum esse expedita libero maiores, necessitatibus quae
-              quas quos tenetur veniam, voluptatum? Accusamus eveniet facilis
-              inventore maiores molestiae, repudiandae unde. Lorem ipsum dolor
-              sit amet, consectetur adipisicing elit. Animi corporis cum esse
-              necessitatibus quae quas quos tenetur veniam, voluptatum?
-              Accusamus eveniet facilis.
+              The Musician Marketplace gives you access to find talented
+              Composers. See below for more information.
             </p>
           </div>
         </div>
@@ -29,15 +21,11 @@ const HomePage = ({ classes }) => {
           <div className={classes.wrap}>
             <div className={classes.leftText}>
               <div className={classes.leftTextInner}>
-                <h3>Lorem ipsum dolor sit amet</h3>
+                <h3>If you are a composer selling on the platform</h3>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Animi corporis cum esse expedita libero maiores,
-                  necessitatibus quae quas quos tenetur veniam, voluptatum?
-                  Accusamus eveniet facilis inventore maiores molestiae,
-                  repudiandae unde. Accusamus eveniet facilis inventore maiores
-                  molestiae, repudiandae unde. Accusamus eveniet facilis
-                  inventore maiores molestiae, repudiandae unde.
+                  The Musician Marketplace gives talented musicians a platform
+                  to share and make a living of their music, make music from
+                  your own place regardless of their background or education.
                 </p>
               </div>
             </div>
@@ -47,42 +35,34 @@ const HomePage = ({ classes }) => {
 
         <div className={classes.yellowSection}>
           <h3>
-            “Lorem ipsum dolor sit amet, consectetur
-            <br />
-            symptoms typically associated with autism
-            <br />
-            inventore maiores molestiae, repudiandae unde. <br />
-            child challenged by ASD exhibits all symptoms.”
+            Design is not just what it looks like and feels like. Design is how
+            it works.
           </h3>
-          <p>— Abigail Bunt, MeBe Cofounder, Executive Director</p>
+          <p>— Steve Jobs</p>
+
           <div className={classes.yelloBg} />
         </div>
         <div className={classes.section5}>
           <div className={classes.wrapper}>
             <div className={classes.introduction}>
               <h2>How Polaris Works</h2>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Dignissimos facere itaque nulla qui repellat voluptatibus.
-              </p>
+              <p>A simple, secure process for Composers and DJs</p>
             </div>
             <div className={classes.teaser}>
               <div className={`teaser-Img ${classes.teaserImage}`}>1</div>
               <div className={`teaser-info ${classes.teaserCopy}`}>
-                <h3>lorem Ispum </h3>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Dignissimos facere itaque nulla qui repellat voluptatibus.
-                </p>
+                <h3>POST SAMPLES</h3>
+                <p>of your music or channel so clients can hire you.</p>
               </div>
             </div>
             <div className={classes.teaser}>
               <div className={`teaser-Img ${classes.teaserImage}`}>2</div>
               <div className={`teaser-info ${classes.teaserCopy}`}>
-                <h3>lorem Ispum </h3>
+                <h3>GET HIRED</h3>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Dignissimos facere itaque nulla qui repellat voluptatibus.
+                  Your content or channel will be sold by the minute, views or
+                  likes, based on the type of the product. Work remotely as a
+                  composer or dj
                 </p>
               </div>
             </div>
@@ -99,154 +79,12 @@ const HomePage = ({ classes }) => {
             <div className={classes.teaser}>
               <div className={`teaser-Img ${classes.teaserImage}`}>4</div>
               <div className={`teaser-info ${classes.teaserCopy}`}>
-                <h3>lorem Ispum </h3>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Dignissimos facere itaque nulla qui repellat voluptatibus.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className={classes.leftRight}>
-            <div className={classes.leftRightInner}>
-              <h3>
-                Lorem ipsum dolor sit
-                <br />
-                inventore maiores molestiae, repudiandae.
-                <br />
-              </h3>
-              <div className={classes.leftRightList}>
-                <ul>
-                  <li>Persistently nonverbal.</li>
-                  <li>Delayed language development.</li>
-                  <li>Constant repetition of words or phrases.</li>
-                  <li>Avoiding eye contact.</li>
-                  <li>Preference for being alone.</li>
-                  <li>Highly restricted interests.</li>
-                  <li>Struggling to understand the feelings of others.</li>
-                  <li>Upset by minor changes in surroundings or routine.</li>
-                  <li>
-                    Unusual and frequently intense reactions to lights, colors,
-                    sounds, smells, tastes, or textures.
-                  </li>
-                  <li>
-                    Repetitive behaviors such as rocking, flapping, or spinning.
-                  </li>
-                </ul>
-                <p>
-                  Your child’s loss of any previously acquired skills—speech,
-                  babbling, or social interactions—is also a reason to seek
-                  medical screening for ASD.
-                </p>
-                <p>
-                  <a>Learn the signs of a speech or language disorder.</a>
-                </p>
+                <h3>Enjoy</h3>
               </div>
             </div>
           </div>
         </div>
       </main>
-      <section className={classes.callToAction}>
-        <div className={classes.callWrap}>
-          <div className={classes.colA}>
-            <h4>Lorem Ipsum</h4>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Dignissimos facere itaque nulla qui repellat voluptatibus.{' '}
-            </p>
-            <a className="button">Lorem ipsum</a>
-          </div>
-
-          <div className={classes.colA}>
-            <h4>Lorem ipsum ..</h4>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Dignissimos facere itaque nulla qui repellat voluptatibus.
-            </p>
-            <a className="button">Lorem ipsum</a>
-          </div>
-          <div className={classes.colA}>
-            <h4>Lorem ipsum</h4>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Dignissimos facere itaque nulla qui repellat voluptatibus.
-            </p>
-            <a className="button">Paperwork &amp; Insurance</a>
-          </div>
-        </div>
-      </section>
-      <footer className={classes.mainFooter}>
-        <div className={classes.fwrap}>
-          <div className={classes.footerBrand}>
-            <h3>
-              Lorem ipsum dolor <br />
-              ignissimos facere itaque <br />
-              their best life
-            </h3>
-          </div>
-          <nav className={classes.footerNav}>
-            <div className={classes.col}>
-              <h4>MeBe</h4>
-              <ul>
-                <li>
-                  <a>Homepage</a>
-                </li>
-                <li>
-                  <a>Contact</a>
-                </li>
-                <li>
-                  <a>Locations</a>
-                </li>
-              </ul>
-            </div>
-            <div className={classes.col}>
-              <h4>Getting Started</h4>
-              <ul>
-                <li>
-                  <a>Getting Started</a>
-                </li>
-                <li>
-                  <a>Access Services</a>
-                </li>
-                <li>
-                  <a>Insurance</a>
-                </li>
-              </ul>
-            </div>
-            <div className={classes.col}>
-              <h4>Services</h4>
-              <ul>
-                <li>
-                  <a>Our Approach</a>
-                </li>
-                <li>
-                  <a>Early Intervention</a>
-                </li>
-                <li>
-                  <a>Social Skills</a>
-                </li>
-                <li>
-                  <a>Speech</a>
-                </li>
-                <li>
-                  <a>School Services</a>
-                </li>
-              </ul>
-            </div>
-            <div className={classes.col}>
-              <h4>About</h4>
-              <ul>
-                <li>
-                  <a>Our Story</a>
-                </li>
-                <li>
-                  <a>Our People</a>
-                </li>
-              </ul>
-            </div>
-          </nav>
-        </div>
-      </footer>
     </div>
   );
 };

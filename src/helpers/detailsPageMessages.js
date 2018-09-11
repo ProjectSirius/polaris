@@ -48,7 +48,7 @@ const messages = defineMessages({
 
   musicTitle: {
     id: 'music-title',
-    defaultMessage: 'Piece Of Music',
+    defaultMessage: 'Music sample',
   },
 
   locationTitle: {
@@ -64,6 +64,38 @@ const messages = defineMessages({
   channelLinks: {
     id: 'channel-links',
     defaultMessage: 'Channel Links:',
+  },
+  serverProblem: {
+    id: 'server-problem',
+    defaultMessage: 'Sorry, we have a problems with server!'
+  },
+  deleteSuccess: {
+    id: 'delete-success',
+    defaultMessage: 'We\'ve successfully deleted!'
+  },
+  loading: {
+    id: 'loading',
+    defaultMessage: 'Loading'
+  },
+  per: {
+    id: 'per',
+    defaultMessage: 'per'
+  },
+  raiting: {
+    id: 'rating',
+    defaultMessage: 'Rating'
+  },
+  noHtml5Support: {
+    id: 'no-html5-support',
+    defaultMessage: 'Your user agent does not support the HTML5 Video element.'
+  },
+  youtubeChannel: {
+    id: 'youtubeChannel',
+    defaultMessage: 'Youtube channel: '
+  },
+  website: {
+    id: 'website',
+    defaultMessage: 'Website: '
   },
 });
 

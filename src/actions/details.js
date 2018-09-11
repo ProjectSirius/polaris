@@ -22,13 +22,22 @@ const dataInfoReceiveSuccess = data => ({
 
 const getDetails = (dataType, id) => dispatch => {
   const url = {
-    channels: `channels/${id}`,
-    contents: `contents/${id}`,
+    channel: `channels/${id}`,
+    content: `contents/${id}`,
   };
 
+  let info = {};
   dispatch(dataRequest(true));
   return doGet(url[dataType])
-    .then(payload => dispatch(dataInfoReceiveSuccess(payload.data)))
-    .catch(err => dispatch(dataReceiveFailure(err)));
+    .then(payload => (info = payload.data))
+    .then(data =>
+      doGet(`users/${data.createdBy}`)
+        .then(userData =>
+          dispatch(
+            dataInfoReceiveSuccess({ ...info, creator: userData.username })
+          )
+        )
+        .catch(err => dispatch(dataReceiveFailure(err)))
+    );
 };
 export default getDetails;

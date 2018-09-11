@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { reduxForm } from 'redux-form';
 import { createStructuredSelector } from 'reselect';
+import { injectIntl, defineMessages } from 'react-intl';
 
 import {
   selectCurrentUser,
@@ -16,22 +17,35 @@ import Search from '../components/Search';
 class SearchContainer extends Component {
   handleSearch = searchValue => {
     const { search } = this.props;
-
-    search(searchValue);
+    search(searchValue, undefined, 'search');
   };
 
   render() {
-    const { isAuth, currentUser, isRequesting } = this.props;
+    const {
+      isAuth,
+      currentUser,
+      isRequesting,
+      intl: { formatMessage },
+    } = this.props;
     return (
       <Search
         handleSearch={this.handleSearch}
         isAuth={isAuth}
         currentUser={currentUser}
         isRequesting={isRequesting}
+        messages={messages}
+        formatMessage={formatMessage}
       />
     );
   }
 }
+
+const messages = defineMessages({
+  search: {
+    id: 'search',
+    defaultMessage: 'Search',
+  },
+});
 
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
@@ -39,15 +53,15 @@ const mapStateToProps = createStructuredSelector({
   isRequesting: selectIsRequesting,
 });
 
-const mapDispatchToProps = dispatch => ({
-  search: (dataType, query) => dispatch(search(dataType, query)),
-});
+const SearchContainerIntl = injectIntl(SearchContainer);
 
 const SearchForm = reduxForm({
   form: 'Search_Form',
-})(SearchContainer);
+})(SearchContainerIntl);
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  {
+    search,
+  }
 )(SearchForm);

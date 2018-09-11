@@ -2,7 +2,13 @@ import React from 'react';
 import { Card, Icon } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
-const DashboardCards = ({ userData, currentUser }) => (
+const DashboardCards = ({
+  userData,
+  currentUser,
+  formatMessage,
+  messages,
+  classes,
+}) => (
   <React.Fragment>
     <Link
       to={{
@@ -12,27 +18,29 @@ const DashboardCards = ({ userData, currentUser }) => (
       }}
     >
       {currentUser.type === 'content_owner'
-        ? 'Add new Content'
-        : 'Add new Channel'}
+        ? formatMessage(messages.addNewContent)
+        : formatMessage(messages.addNewChannel)}
     </Link>
-    {userData.map(({ description, title, id }) => (
-      <Card key={id}>
-        <Card.Content header={title} />
-        <Card.Content description={description} />
-        <Card.Content extra>
-          <Icon name="edit" />{' '}
-          <Link
-            to={{
-              pathname: `/${
-                currentUser.type === 'content_owner' ? 'content' : 'channel'
-              }/${id}`,
-            }}
-          >
-            Explore{' '}
-          </Link>
-        </Card.Content>
-      </Card>
-    ))}
+    <div className={classes.cardsWrapper}>
+      {userData.map(({ description, title, id }) => (
+        <Card key={id} className={classes.card}>
+          <Card.Content header={title} />
+          <Card.Content description={description} />
+          <Card.Content extra>
+            <Icon name="edit" />{' '}
+            <Link
+              to={{
+                pathname: `/${
+                  currentUser.type === 'content_owner' ? 'content' : 'channel'
+                }/${id}`,
+              }}
+            >
+              {`${formatMessage(messages.explore)} `}
+            </Link>
+          </Card.Content>
+        </Card>
+      ))}
+    </div>
   </React.Fragment>
 );
 

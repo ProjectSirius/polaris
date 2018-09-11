@@ -6,16 +6,23 @@ import { withRouter } from 'react-router-dom';
 import { createStructuredSelector } from 'reselect';
 
 import {
-  selectDetails,
-  selectIsEditing,
   selectIsRequesting,
   selectTags,
+  selectCurrentUser,
+  selectDetails,
+  selectIsEditing,
   selectEditDetails,
   selectIsDataSent,
-  selectCurrentUser,
+  selectAddress,
 } from '../selectors';
 
-import { addTags, removeTags, sendData, getDetails } from '../actions';
+import {
+  addTags,
+  removeTags,
+  sendData,
+  getDetails,
+  editRequest,
+} from '../actions';
 import editData, { editRedirect } from '../actions/edit';
 import { dataSendSuccess } from '../actions/sendData';
 
@@ -26,23 +33,29 @@ import messages from '../helpers/contentChannelFormMessages';
 
 class CreateContentContainer extends Component {
   componentDidMount() {
-    const dataType = 'contents';
-    const id = this.props.match.params.id;
+    const dataType = 'content';
 
-    this.props.getDetails(dataType, id);
+    if (this.props.match.path.split('/').includes('edit')) {
+      const id = this.props.match.params.id;
+      this.props.getDetails(dataType, id);
+      this.props.editRequest();
+    }
   }
 
   getData = () => {
     const id = this.props.match.params.id;
 
-    this.props.getDetails('contents', id);
+    this.props.getDetails('content', id);
   };
 
   onFormSubmit = formData => {
+    const tags = this.props.tags;
+
     if (this.props.history.location.pathname.includes('edit')) {
-      this.props.editData(formData);
+      this.props.editData({ ...formData, tags });
+      this.props.history.push('/dashboard');
     } else {
-      this.props.sendData(formData, 'createContent');
+      this.props.sendData({ ...formData, tags }, 'createContent');
       this.props.dataSendSuccess();
     }
   };
@@ -54,6 +67,7 @@ class CreateContentContainer extends Component {
       data,
       isDataSent,
       currentUser,
+      tags,
     } = this.props;
 
     return (
@@ -66,6 +80,7 @@ class CreateContentContainer extends Component {
         data={data}
         isEditing={isEditing}
         isDataSent={isDataSent}
+        tags={tags}
         {...this.props}
       />
     );
@@ -82,6 +97,7 @@ const mapStateToProps = createStructuredSelector({
   initialValues: selectEditDetails,
   isDataSent: selectIsDataSent,
   currentUser: selectCurrentUser,
+  address: selectAddress,
 });
 
 const addNewContentForm = withRouter(
@@ -103,6 +119,7 @@ export default withRouter(
       getDetails,
       editRedirect,
       dataSendSuccess,
+      editRequest,
     }
   )(addNewContentForm)
 );

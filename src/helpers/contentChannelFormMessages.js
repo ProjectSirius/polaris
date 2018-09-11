@@ -47,6 +47,31 @@ const messages = defineMessages({
     defaultMessage: 'Link Of Your Channel:',
   },
 
+  imgUrl: {
+    id: 'img-url',
+    defaultMessage: 'Channel Image Link:',
+  },
+
+  videoUrl: {
+    id: 'video-url',
+    defaultMessage: 'Video Link:',
+  },
+
+  audioUrl: {
+    id: 'audio-url',
+    defaultMessage: 'Audio Link:',
+  },
+
+  editChannel: {
+    id: 'edit-channel',
+    defaultMessage: 'Edit Channel',
+  },
+
+  editContent: {
+    id: 'edit-content',
+    defaultMessage: 'Edit Content',
+  },
+
   tagPlaceholder: {
     id: 'tag-placeholder',
     defaultMessage: 'Add a tag',
@@ -65,6 +90,11 @@ const messages = defineMessages({
   audioUpload: {
     id: 'audio-upload',
     defaultMessage: 'Upload Audio',
+  },
+
+  genres: {
+    id: 'genres',
+    defaultMessage: 'Genres:',
   },
 
   /*messages specific to create content page*/

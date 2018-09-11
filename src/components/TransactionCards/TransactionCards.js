@@ -3,16 +3,37 @@ import { Card, Loader } from 'semantic-ui-react';
 
 import TransactionCard from './TransactionCard';
 
-const TransactionCards = ({ classes, transactions, isRequesting }) =>
+const TransactionCards = ({
+  classes,
+  transactions,
+  isRequesting,
+  formatMessage,
+  messages,
+  users,
+  approveOffer,
+  approveDecline,
+  declineOffer,
+}) =>
   isRequesting ? (
     <Loader active inline="centered" size="large">
-      Loading
+      {formatMessage(messages.loading)}
     </Loader>
   ) : (
     <Card.Group className={classes.transactionsWrapper}>
-      {transactions.map(({ id, buyer, price, name }) => (
-        <TransactionCard key={id} buyer={buyer} price={price} name={name} />
-      ))}
+      {transactions.map(({ id, idBuyer, price, name, idChannel }) => {
+        return (
+          <TransactionCard
+            approveDecline={approveDecline}
+            key={id}
+            price={price}
+            name={users[idBuyer] ? users[idBuyer].username : ''}
+            idChannel={idChannel}
+            users={users}
+            approveOffer={approveOffer}
+            declineOffer={declineOffer}
+          />
+        );
+      })}
     </Card.Group>
   );
 
