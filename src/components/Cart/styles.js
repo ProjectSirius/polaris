@@ -35,4 +35,18 @@ export default {
     display: 'flex !important',
     justifyContent: 'center',
   },
+
+  '@media screen and (max-width: 450px)': {
+    emptyCartMessage: {
+      fontSize: '32px',
+
+      '& span': {
+        marginTop: '23px',
+      },
+    },
+
+    emptyCartSubMessage: {
+      fontSize: '16px',
+    },
+  },
 };
