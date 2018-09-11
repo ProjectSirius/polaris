@@ -2,12 +2,18 @@ import {
   TRANSACTION_REQUEST,
   TRANSACTION_SUCCESS,
   TRANSACTION_FAILURE,
+  TRANSACTION_USER,
 } from './constants';
 import { doGet } from '../api/request';
 
 const transactionRequest = isRequesting => ({
   type: TRANSACTION_REQUEST,
   payload: { isRequesting },
+});
+
+const transactionReceiveUser = user => ({
+  type: TRANSACTION_USER,
+  payload: { user },
 });
 
 const transactionReceiveSuccess = data => ({
@@ -29,8 +35,21 @@ const getTransaction = () => (dispatch, getState) => {
       : 'preorder-channel/seller';
 
   return doGet(preorderUrl)
-    .then(payload => {
-      return dispatch(transactionReceiveSuccess(payload));
+    .then(async payload => {
+      const userIds = payload.map(({ idBuyer }) => idBuyer);
+
+      await userIds.map(
+        async id =>
+          await doGet(`users/${id}`).then(u =>
+            dispatch(transactionReceiveUser(u))
+          )
+      );
+
+      const res = payload.map((el, i) => ({
+        ...el,
+      }));
+
+      return dispatch(transactionReceiveSuccess(res));
     })
     .catch(err => dispatch(transactionReceiveFailure(err)));
 };

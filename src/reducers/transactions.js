@@ -1,4 +1,5 @@
-import { TRANSACTION_SUCCESS } from '../actions/constants';
+import { TRANSACTION_SUCCESS, TRANSACTION_USER } from '../actions/constants';
+import { combineReducers } from 'redux';
 
 const data = (state = [], action) => {
   switch (action.type) {
@@ -9,4 +10,13 @@ const data = (state = [], action) => {
   }
 };
 
-export default data;
+const user = (state = {}, action) => {
+  switch (action.type) {
+    case TRANSACTION_USER:
+      return { ...state, [action.payload.user.id]: action.payload.user };
+    default:
+      return state;
+  }
+};
+
+export default combineReducers({ data, user });

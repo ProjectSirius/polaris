@@ -7,6 +7,7 @@ import {
   selectTransaction,
   selectIsRequesting,
   selectError,
+  selectTransactionUsers,
 } from '../selectors';
 
 import { getTransactions } from '../actions';
@@ -17,6 +18,7 @@ const mapStateToProps = createStructuredSelector({
   transactions: selectTransaction,
   isRequesting: selectIsRequesting,
   transError: selectError,
+  users: selectTransactionUsers,
 });
 
 class TransactionCardsContainer extends React.Component {
@@ -32,6 +34,7 @@ class TransactionCardsContainer extends React.Component {
       isRequesting,
       transError,
       intl: { formatMessage },
+      users,
     } = this.props;
 
     if (transError) {
@@ -44,6 +47,7 @@ class TransactionCardsContainer extends React.Component {
         transactions={transactions}
         formatMessage={formatMessage}
         messages={messages}
+        users={users}
       />
     );
   }
@@ -53,6 +57,10 @@ const messages = defineMessages({
   loading: {
     id: 'loading',
     defaultMessage: 'Loading',
+  },
+  wentWrong: {
+    id: 'wentWrong',
+    defaultMessage: 'Something went wrong!',
   },
 });
 

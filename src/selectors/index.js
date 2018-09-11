@@ -2,7 +2,8 @@ import { createSelector } from 'reselect';
 
 export const selectData = state => state.data;
 export const selectUserData = state => state.userData;
-export const selectTransaction = state => state.transactions;
+export const selectTransaction = state => state.transactions.data;
+export const selectTransactionUsers = state => state.transactions.user;
 export const selectIsOpenMainMenu = state => state.isOpenMainMenu;
 export const selectIsRequesting = state => state.isRequesting;
 export const selectCurrentUser = state => state.currentUser;
