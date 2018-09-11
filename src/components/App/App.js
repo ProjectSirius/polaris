@@ -14,6 +14,7 @@ import CreateContent from '../../containers/CreateContentContainer';
 import Dashboard from '../../containers/DashboardContainer';
 import CartContainer from '../../containers/CartContainer';
 import NotFoundPage from '../NotFoundPage';
+import Profile from '../Profile';
 
 const App = ({ content, title }) => {
   return (
@@ -40,6 +41,7 @@ const App = ({ content, title }) => {
           path="/contents/new"
           component={CreateContent}
         />
+        <ProtectedRouteContainer path="/profile" component={Profile} />
         <ProtectedRouteContainer path="/dashboard" component={Dashboard} />
         <ProtectedRouteContainer
           path="/channel/:id/edit"
