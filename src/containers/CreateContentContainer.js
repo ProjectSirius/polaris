@@ -53,6 +53,7 @@ class CreateContentContainer extends Component {
 
     if (this.props.history.location.pathname.includes('edit')) {
       this.props.editData({ ...formData, tags });
+      this.props.history.push('/dashboard');
     } else {
       this.props.sendData({ ...formData, tags }, 'createContent');
       this.props.dataSendSuccess();
