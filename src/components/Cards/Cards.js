@@ -47,6 +47,7 @@ const Cards = ({
       addToGroupOffer={addToCart}
       removeFromGroupOffer={removeFromCart}
       groupOffer={cart}
+      type={type}
     />
   );
 };

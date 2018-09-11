@@ -24,6 +24,8 @@ import offers from './offers';
 import cart from './cart';
 import userData from './user-data';
 import newDataAddress from './newDataAddress';
+import successMessage from './successMessage';
+import lastOfferedId from './lastOfferedId';
 
 export default combineReducers({
   form: formReducer,
@@ -50,4 +52,6 @@ export default combineReducers({
   cart,
   userData,
   newDataAddress,
+  successMessage,
+  lastOfferedId,
 });

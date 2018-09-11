@@ -82,20 +82,19 @@ const greatPlaceStyleSelected = {
 };
 
 const infoCard = {
-  backgroundColor: 'gainsboro',
-  border: 'solid black 1px',
-  width: '100px',
+  width: '100px !important',
   height: 'auto',
   visibility: 'hidden',
   fontSize: 12,
   borderRadius: '4px',
+  position: 'fixed',
 };
 
 const infoCardHower = {
   ...infoCard,
   visibility: 'visible',
   color: 'black',
-  zIndex: '999',
+  zIndex: '100000 !important',
 };
 export {
   greatPlaceStyle,
