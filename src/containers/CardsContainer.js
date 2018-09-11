@@ -59,7 +59,6 @@ class CardsContainer extends React.Component {
       data,
       isRequesting,
       view,
-      type,
       lang,
       isGroupOffering,
       addToGroupOffer,
@@ -67,11 +66,12 @@ class CardsContainer extends React.Component {
       groupOffer,
       addToCart,
       cart,
+      currentUser,
     } = this.props;
 
     return (
       <Cards
-        type={type}
+        type={currentUser.type === 'content_owner' ? 'channel' : 'content'}
         data={data}
         isRequesting={isRequesting}
         view={view}

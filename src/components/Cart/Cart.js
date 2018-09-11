@@ -5,9 +5,13 @@ import {
   Container,
   Loader,
   Checkbox,
-  Modal,
+  Image,
 } from 'semantic-ui-react';
-import GroupOffer from '../../containers/GroupOfferContainer';
+/*import GroupOffer from '../../containers/GroupOfferContainer';*/
+import imgPath from '../../assets/emptyCart.jpg';
+import SuccessAlert from '../../containers/SuccessAlertContainer';
+
+import './style.css';
 
 const Cart = ({
   isRequesting,
@@ -22,7 +26,12 @@ const Cart = ({
   messages,
   formatMessage,
   sendOffer,
+  successMessage,
+  location,
 }) => {
+  const path = type === 'content_owner' ? '/audience' : '/contentowner';
+  const { from } = location.state || { from: { pathname: path } };
+
   return isRequesting ? (
     <Loader active inline="centered" size="huge" className={classes.loading}>
       {formatMessage(messages.loading)}
@@ -30,37 +39,26 @@ const Cart = ({
   ) : (
     <div>
       {cart.length === 0 ? (
-        <span className={classes.emptyCartMessage}>
-          {formatMessage(messages.emptyCartMessage)}
-        </span>
+        <div className={classes.emptyCartMessage}>
+          <Image src={imgPath} />
+          <span>{formatMessage(messages.emptyCartMessage)}</span>
+          <span className={classes.emptyCartSubMessage}>
+            {formatMessage(messages.emptyCartSubMessage)}
+          </span>
+        </div>
       ) : (
         <Container>
-          {isGroupOffering ? (
-            <Modal
-              className={classes.modal}
-              centered
-              dimmer
-              trigger={
-                <Button
-                  color="twitter"
-                  disabled={!!!groupOffer.selectedIds.length}
-                >
-                  {formatMessage(messages.makeGroupOffer)}
-                </Button>
-              }
-            >
-              <GroupOffer singleOffer={false} />
-            </Modal>
+          {successMessage !== '' ? (
+            <SuccessAlert from={from} />
           ) : (
-            <Button color="twitter" onClick={createGroupOffer}>
-              {formatMessage(messages.createGroupOffer)}
-            </Button>
-          )}
-          <List divided verticalAlign="middle">
-            {cart.map(item => (
-              <List.Item key={item.id}>
-                <List.Content floated="right">
-                  <Modal
+            <List divided verticalAlign="middle">
+              {cart.map(item => (
+                <List.Item key={item.id}>
+                  <List.Content floated="right">
+                    <Button color="twitter" onClick={() => sendOffer(item)}>
+                      {formatMessage(messages.makeSingleOffer)}
+                    </Button>
+                    {/*                  <Modal
                     className={classes.modal}
                     centered
                     dimmer
@@ -71,31 +69,32 @@ const Cart = ({
                     }
                   >
                     <GroupOffer singleOffer={true} />
-                  </Modal>
-                </List.Content>
-                {/*                <Link
+                  </Modal>*/}
+                  </List.Content>
+                  {/*                <Link
                   to={`/${type === 'audience_owner' ? 'channel' : 'content'}/${
                     item.id
                   }`}
                 >*/}
-                <List.Content>
-                  {isGroupOffering ? (
-                    <Checkbox
-                      label={item.title}
-                      onChange={(e, data) =>
-                        data.checked
-                          ? addToGroupOffer(item.id)
-                          : removeFromGroupOffer(item.id)
-                      }
-                    />
-                  ) : (
-                    item.title
-                  )}
-                </List.Content>
-                {/*                </Link>*/}
-              </List.Item>
-            ))}
-          </List>
+                  <List.Content>
+                    {isGroupOffering ? (
+                      <Checkbox
+                        label={item.title}
+                        onChange={(e, data) =>
+                          data.checked
+                            ? addToGroupOffer(item.id)
+                            : removeFromGroupOffer(item.id)
+                        }
+                      />
+                    ) : (
+                      item.title
+                    )}
+                  </List.Content>
+                  {/*                </Link>*/}
+                </List.Item>
+              ))}
+            </List>
+          )}
         </Container>
       )}
     </div>

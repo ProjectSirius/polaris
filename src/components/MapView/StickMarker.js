@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Icon } from 'semantic-ui-react';
+import { Icon, Card, Image } from 'semantic-ui-react';
 
 import {
   greatPlaceStyle,
@@ -40,41 +40,30 @@ export default class MyGreatPlaceWithStick extends Component {
       this.props.$hover || this.state.infoCardHower ? infoCardHower : infoCard;
 
     return (
-      <Icon name="map marker alternate" size="huge" color={color} style={style}>
-        <div
-          style={info}
-          onMouseEnter={() => {
-            this.setState({ infoCardHower: true });
-          }}
-          onMouseLeave={() => {
-            this.setState({ infoCardHower: false });
-          }}
+      <div>
+        <Icon
+          name="map marker alternate"
+          size="huge"
+          color={color}
+          style={{ ...style }}
         >
-          <h4>{this.props.title}</h4>
-          <hr />
-          <a href={`/content/${this.props.id}`}>go to chanel</a>
-          <hr />
-        </div>
-        {/* <Card  style={info}
-          onMouseEnter={() => {
-            this.setState({ infoCardHower: true });
-          }}
-          onMouseLeave={() => {
-            this.setState({ infoCardHower: false });
-          }}>
-          <Card.Content>
-            <Card.Header>{this.props.title}</Card.Header>
-            <Card.Meta>chanel link</Card.Meta>
-            <Card.Description>
-            <a href={`/content/${this.props.id}`}>go to chanel</a>
-            </Card.Description>
-          </Card.Content>
-        </Card> */}
-        {/* <div style={greatPlaceStickStyleShadow} />
-        <div style={circleStyle}>{text}</div>
-        <div style={stickStyle} /> */}
-        {/* <Icon name="map marker alternate" size="huge" color="blue" /> */}
-      </Icon>
+          <Card
+            style={{ ...info, width: '160px' }}
+            onMouseEnter={() => {
+              this.setState({ infoCardHower: true });
+            }}
+            onMouseLeave={() => {
+              this.setState({ infoCardHower: false });
+            }}
+            href={`/${this.props.type}/${this.props.id}`}
+          >
+            <Image src={this.props.img} />
+            <Card.Content>
+              <Card.Header>{this.props.title}</Card.Header>
+            </Card.Content>
+          </Card>
+        </Icon>
+      </div>
     );
   }
 }

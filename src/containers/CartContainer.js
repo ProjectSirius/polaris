@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { injectIntl, defineMessages } from 'react-intl';
+import { withRouter } from 'react-router-dom';
 
 import {
   cart,
@@ -9,6 +10,7 @@ import {
   addToGroupOffer,
   removeFromGroupOffer,
   sendOffer,
+  removeFromCart,
 } from '../actions';
 
 import Cart from '../components/Cart';
@@ -19,6 +21,8 @@ import {
   selectCurrentUser,
   selectIsGroupOffering,
   groupOffer,
+  selectSuccessMessage,
+  selectLastOfferedId,
 } from '../selectors';
 
 class CartContainer extends React.Component {
@@ -37,7 +41,11 @@ class CartContainer extends React.Component {
       removeFromGroupOffer,
       groupOffer,
       sendOffer,
+      successMessage,
       intl: { formatMessage },
+      location,
+      removeFromCart,
+      lastOfferedId,
     } = this.props;
     return (
       <Cart
@@ -52,6 +60,10 @@ class CartContainer extends React.Component {
         formatMessage={formatMessage}
         messages={messages}
         sendOffer={sendOffer}
+        location={location}
+        successMessage={successMessage}
+        lastOfferedId={lastOfferedId}
+        removeFromCart={removeFromCart}
       />
     );
   }
@@ -65,6 +77,10 @@ const messages = defineMessages({
   emptyCartMessage: {
     id: 'empty-cart-message',
     defaultMessage: 'Your cart is empty',
+  },
+  emptyCartSubMessage: {
+    id: 'empty-cart-sub-message',
+    defaultMessage: 'Add something to make me happy :)',
   },
   makeGroupOffer: {
     id: 'make-group-offer',
@@ -80,7 +96,7 @@ const messages = defineMessages({
   },
 });
 
-const CartContainerIntl = injectIntl(CartContainer);
+const CartContainerIntl = withRouter(injectIntl(CartContainer));
 
 const mapStateToProps = createStructuredSelector({
   cartData: selectCart,
@@ -88,15 +104,20 @@ const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
   isGroupOffering: selectIsGroupOffering,
   groupOffer,
+  successMessage: selectSuccessMessage,
+  lastOfferedId: selectLastOfferedId,
 });
 
-export default connect(
-  mapStateToProps,
-  {
-    cart,
-    createGroupOffer,
-    addToGroupOffer,
-    removeFromGroupOffer,
-    sendOffer,
-  }
-)(CartContainerIntl);
+export default withRouter(
+  connect(
+    mapStateToProps,
+    {
+      cart,
+      createGroupOffer,
+      addToGroupOffer,
+      removeFromGroupOffer,
+      sendOffer,
+      removeFromCart,
+    }
+  )(CartContainerIntl)
+);

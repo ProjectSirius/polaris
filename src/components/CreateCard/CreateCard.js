@@ -136,7 +136,7 @@ class CreateCard extends React.Component {
             )}
             <div className={classes.tags}>
               <label style={{ width: '100%' }}>
-                Genres:
+                {formatMessage(messages.genres)}
                 <MultiSelect defautlTags={tags} />
               </label>
             </div>
