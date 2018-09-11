@@ -5,10 +5,9 @@ import {
   Container,
   Loader,
   Checkbox,
-  Modal,
   Image,
 } from 'semantic-ui-react';
-import GroupOffer from '../../containers/GroupOfferContainer';
+/*import GroupOffer from '../../containers/GroupOfferContainer';*/
 import imgPath from '../../assets/emptyCart.jpg';
 
 const Cart = ({
@@ -41,7 +40,7 @@ const Cart = ({
         </div>
       ) : (
         <Container>
-          {isGroupOffering ? (
+          {/*          {isGroupOffering ? (
             <Modal
               className={classes.modal}
               centered
@@ -61,12 +60,15 @@ const Cart = ({
             <Button color="twitter" onClick={createGroupOffer}>
               {formatMessage(messages.createGroupOffer)}
             </Button>
-          )}
+          )}*/}
           <List divided verticalAlign="middle">
             {cart.map(item => (
               <List.Item key={item.id}>
                 <List.Content floated="right">
-                  <Modal
+                  <Button color="twitter" onClick={() => sendOffer(item)}>
+                    {formatMessage(messages.makeSingleOffer)}
+                  </Button>
+                  {/*                  <Modal
                     className={classes.modal}
                     centered
                     dimmer
@@ -77,7 +79,7 @@ const Cart = ({
                     }
                   >
                     <GroupOffer singleOffer={true} />
-                  </Modal>
+                  </Modal>*/}
                 </List.Content>
                 {/*                <Link
                   to={`/${type === 'audience_owner' ? 'channel' : 'content'}/${
