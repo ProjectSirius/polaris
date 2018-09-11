@@ -92,6 +92,11 @@ const messages = defineMessages({
     defaultMessage: 'Upload Audio',
   },
 
+  genres: {
+    id: 'genres',
+    defaultMessage: 'Genres:',
+  },
+
   /*messages specific to create content page*/
   contentTitle: {
     id: 'create-new-content-title',

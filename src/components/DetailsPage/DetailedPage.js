@@ -119,7 +119,7 @@ const DetailsPage = ({
             <div className={classes.price}>
               <span>${fields ? price : ''}</span>
               <span className={classes.subPrice}>
-                per {fields ? perUnit : ''} {fields ? unit : ''}
+                {formatMessage(messages.per)} {fields ? perUnit : ''} {fields ? unit : ''}
               </span>
             </div>
             <div className={classes.tagsContainer}>
