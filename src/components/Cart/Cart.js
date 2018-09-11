@@ -6,8 +6,10 @@ import {
   Loader,
   Checkbox,
   Modal,
+  Image,
 } from 'semantic-ui-react';
 import GroupOffer from '../../containers/GroupOfferContainer';
+import imgPath from '../../assets/emptyCart.jpg';
 
 const Cart = ({
   isRequesting,
@@ -30,9 +32,13 @@ const Cart = ({
   ) : (
     <div>
       {cart.length === 0 ? (
-        <span className={classes.emptyCartMessage}>
-          {formatMessage(messages.emptyCartMessage)}
-        </span>
+        <div className={classes.emptyCartMessage}>
+          <Image src={imgPath} />
+          <span>{formatMessage(messages.emptyCartMessage)}</span>
+          <span className={classes.emptyCartSubMessage}>
+            {formatMessage(messages.emptyCartSubMessage)}
+          </span>
+        </div>
       ) : (
         <Container>
           {isGroupOffering ? (
