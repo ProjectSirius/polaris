@@ -41,9 +41,7 @@ const App = ({ content, title }) => {
           path="/contents/new"
           component={CreateContent}
         />
-        <ProtectedRouteContainer
-          path="/profile"
-          component={Profile} />
+        <ProtectedRouteContainer path="/profile" component={Profile} />
         <ProtectedRouteContainer path="/dashboard" component={Dashboard} />
         <ProtectedRouteContainer
           path="/channel/:id/edit"
