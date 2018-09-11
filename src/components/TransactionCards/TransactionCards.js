@@ -10,6 +10,7 @@ const TransactionCards = ({
   formatMessage,
   messages,
   users,
+  approveOffer,
 }) =>
   isRequesting ? (
     <Loader active inline="centered" size="large">
@@ -25,6 +26,7 @@ const TransactionCards = ({
             name={users[idBuyer] ? users[idBuyer].username : ''}
             idChannel={idChannel}
             users={users}
+            approveOffer={approveOffer}
           />
         );
       })}

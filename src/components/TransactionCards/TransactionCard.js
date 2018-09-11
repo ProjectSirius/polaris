@@ -35,6 +35,7 @@ const TransactionCard = ({
   name,
   price,
   idChannel,
+  approveOffer,
   intl: { formatMessage },
 }) => {
   return (
@@ -52,7 +53,7 @@ const TransactionCard = ({
       </Card.Content>
       <Card.Content extra>
         <div className="ui two buttons">
-          <Button basic color="green">
+          <Button onClick={approveOffer} basic color="green">
             {formatMessage(messages.approve)}
           </Button>
           <Button basic color="red">
