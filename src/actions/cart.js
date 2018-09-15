@@ -17,9 +17,9 @@ const dataReceiveFailure = error => ({
   payload: { error },
 });
 
-const cartDataSuccess = data => ({
+const cartDataSuccess = (data, buyer_id) => ({
   type: CART_DATA_SUCCESS,
-  payload: { data },
+  payload: { data, buyer_id },
 });
 
 export const addOffer = (id, buyer_id) => ({
@@ -48,6 +48,8 @@ export const cart = () => (dispatch, getState) => {
       ? 'channels/search'
       : 'contents/search';
 
+  const buyer_id = getState().currentUser.id;
+
   const ids = getState().cart.selectedIds;
 
   dispatch(dataRequest(true));
@@ -58,7 +60,10 @@ export const cart = () => (dispatch, getState) => {
   })
     .then(payload => {
       return dispatch(
-        cartDataSuccess(payload.data.filter(el => ids.includes(el.id)))
+        cartDataSuccess(
+          payload.data.filter(el => ids.includes(el.id)),
+          buyer_id
+        )
       );
     })
     .catch(err => dispatch(dataReceiveFailure(err)));
