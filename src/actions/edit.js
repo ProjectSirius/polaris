@@ -66,6 +66,14 @@ const editData = item => (dispatch, getState) => {
         idField: 26,
         value: item.unit,
       },
+      {
+        idField: 28,
+        value: JSON.stringify(item.tags),
+      },
+      {
+        idField: 29,
+        value: item.audioUrl,
+      },
     ],
   })
     .then(item => {

@@ -80,7 +80,7 @@ const CardComponent = ({
           <p className={classes.date}>{createdAt.slice(0, 10)}</p>
           <Card.Header className={classes.mainTitle}>{title}</Card.Header>
           <Card.Description className={classes.bodyContent}>
-            {description && md.render(description.slice(0, 200) + '...')}
+            {description && md.render(description.slice(0, 130) + '...')}
           </Card.Description>
         </Card.Content>
       </Link>

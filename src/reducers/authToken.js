@@ -5,7 +5,7 @@ const authToken = (state = '', action) => {
     case SAVE_TOKEN:
       return action.payload.token;
     case LOGOUT_SUCCESS:
-      return state;
+      return '';
     default:
       return state;
   }
