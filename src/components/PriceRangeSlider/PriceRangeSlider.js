@@ -8,48 +8,45 @@ const PriceRangeSlider = ({
   minPrice,
   maxPrice,
   handleChange,
-  isAuth,
-  currentUser,
 }) => {
-  const dataType = isAuth
-    ? currentUser.userType === 'content_owner'
-      ? 'channels'
-      : 'contents'
-    : '';
+  let min, max;
+
+  if (+minPrice > +maxPrice) {
+    max = +minPrice;
+    min = +maxPrice;
+  } else {
+    min = +minPrice;
+    max = +maxPrice;
+  }
 
   return (
-    <div className={classes.priceSlider}>
-      <Field
-        name="min_price_range"
-        min="0"
-        max="100"
-        step="1"
-        type="range"
-        className={classes.slider}
-        component={RenderField}
-        onChange={e =>
-          handleChange(dataType, '', {
-            filterName: 'minPrice',
-            value: e.target.value,
-          })
-        }
-
-      />
-      <Field
-        name="max_price_range"
-        min="0"
-        max="100"
-        step="1"
-        type="range"
-        className={classes.slider}
-        component={RenderField}
-        onChange={e =>
-          handleChange(dataType, '', {
-            filterName: 'maxPrice',
-            value: e.target.value,
-          })
-        }
-      />
+    <div>
+      <div className={classes.priceSlider}>
+        <Field
+          name="min_price_range"
+          min="1"
+          max="10000"
+          step="1"
+          type="range"
+          className={classes.slider}
+          component={RenderField}
+          onChange={() => handleChange()}
+        />
+        <Field
+          name="max_price_range"
+          min="1"
+          max="10000"
+          step="1"
+          type="range"
+          className={classes.slider}
+          component={RenderField}
+          onChange={() => handleChange()}
+        />
+      </div>
+      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+        <div>${min}</div>
+        <div>${max}</div>
+      </div>
     </div>
   );
 };

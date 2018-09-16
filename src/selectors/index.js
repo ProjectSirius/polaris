@@ -23,6 +23,14 @@ export const selectSearch = state =>
   state.form.Search_Form && state.form.Search_Form.values
     ? state.form.Search_Form.values.search
     : '';
+export const selectMinPrice = state =>
+  state.form.Price_range_form && state.form.Price_range_form.values
+    ? state.form.Price_range_form.values.min_price_range
+    : '1';
+export const selectMaxPrice = state =>
+  state.form.Price_range_form && state.form.Price_range_form.values
+    ? state.form.Price_range_form.values.max_price_range
+    : '10000';
 export const selectIsOpenFilterMenu = state =>
   state.filteringPage.isOpenFilterMenu;
 export const selectFilteringPageFilterBar = state =>

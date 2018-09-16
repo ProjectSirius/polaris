@@ -75,7 +75,7 @@ const LogIn = ({
       : 'contentowner'
     : '';
 
-  const { from } = location.state || {
+  const { from } = {
     from: { pathname: `/${redirectPath}` },
   };
 
@@ -159,7 +159,7 @@ LogIn.propTypes = {
   login: PropTypes.func.isRequired,
   isAuth: PropTypes.bool.isRequired,
   location: PropTypes.object.isRequired,
-  currentUser: PropTypes.object.isRequired,
+  currentUser: PropTypes.object,
   lang: PropTypes.string.isRequired,
   valid: PropTypes.bool.isRequired,
   isRequesting: PropTypes.bool.isRequired,

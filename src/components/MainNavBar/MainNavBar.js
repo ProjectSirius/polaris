@@ -379,7 +379,7 @@ class MainNavBar extends React.Component {
 
 MainNavBar.propTypes = {
   isAuth: PropTypes.bool.isRequired,
-  currentUser: PropTypes.object.isRequired,
+  currentUser: PropTypes.object,
   lang: PropTypes.string.isRequired,
   isOpen: PropTypes.bool.isRequired,
   toggleMenu: PropTypes.func.isRequired,
