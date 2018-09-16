@@ -27,8 +27,8 @@ const Cards = ({
       }
     >
       {data.hasOwnProperty('info')
-        ? Object.keys(data.info).map((el, index) => (
-          <Card
+        ? Object.keys(data.info).map(el => (
+            <Card
               key={data.info[el].id}
               info={data.info[el]}
               view={view}

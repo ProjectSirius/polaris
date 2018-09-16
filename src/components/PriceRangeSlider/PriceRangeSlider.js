@@ -3,12 +3,7 @@ import { Field } from 'redux-form';
 
 import RenderField from './RenderField';
 
-const PriceRangeSlider = ({
-  classes,
-  minPrice,
-  maxPrice,
-  handleChange,
-}) => {
+const PriceRangeSlider = ({ classes, minPrice, maxPrice, handleChange }) => {
   let min, max;
 
   if (+minPrice > +maxPrice) {
