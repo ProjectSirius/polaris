@@ -49,4 +49,8 @@ export default {
       fontSize: '16px',
     },
   },
+
+  btn: {
+    background: '#5ebba6d4 !important',
+  },
 };

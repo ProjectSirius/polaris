@@ -1,3 +1,5 @@
+import injectSheet from 'react-jss';
 import SubmitBtn from './SubmitBtn';
+import styles from './styles';
 
-export default SubmitBtn;
+export default injectSheet(styles)(SubmitBtn);

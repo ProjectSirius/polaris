@@ -16,9 +16,19 @@ import Marker from '../MapView/StickMarker';
 import Player from '../Player';
 import SuccessAlert from '../../containers/SuccessAlertContainer';
 
-const music = true;
 const md = new Remarkable();
 md.renderer = new RemarkableReactRenderer();
+
+const embedUrl = url => {
+  const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+  const match = url.match(regExp);
+
+  if (match && match[2].length === 11) {
+    return 'https://www.youtube.com/embed/' + match[2];
+  } else {
+    return 'error';
+  }
+};
 
 const DetailsPage = ({
   title,
@@ -211,48 +221,44 @@ const DetailsPage = ({
                   />
                 </Grid.Column>
                 <Grid.Column>
-                  {music ? (
-                    <Card className={classes.musicCard}>
-                      <div className={classes.audioContainer}>
-                        <h2>{formatMessage(messages.musicTitle)}</h2>
-                        {/*"https://s3-us-west-2.amazonaws.com/s.cdpn.io/9473/new_year_dubstep_minimix.ogg"*/}
-                        {fields ? <Player src={audioLink} /> : ''}
-                      </div>
-                    </Card>
-                  ) : (
-                    ''
-                  )}
+                  {fields &&
+                    audioLink && (
+                      <Card className={classes.musicCard}>
+                        <div className={classes.audioContainer}>
+                          <h2>{formatMessage(messages.musicTitle)}</h2>
+                          {/*"https://s3-us-west-2.amazonaws.com/s.cdpn.io/9473/new_year_dubstep_minimix.ogg"*/}
+                          <Player src={audioLink} />
+                        </div>
+                      </Card>
+                    )}
                   <div className={classes.channelDescription}>
                     <h2>{formatMessage(messages.briefDescriptionTitle)}</h2>
-                    <p>{md.render(data.description)}</p>
+                    {md.render(data.description)}
                   </div>
-                  {fields
-                    ? channelLink &&
-                      channelLink !== '' && (
-                        <iframe
-                          title="channelLink"
-                          src={fields ? channelLink : ''}
-                          frameBorder="0"
-                          width="100%"
-                          height="800"
-                        />
-                      )
-                    : ''}
-
-                  {fields
-                    ? videoLink &&
-                      videoLink !== '' && (
-                        <iframe
-                          title="youtubeChannel"
-                          width="560"
-                          height="315"
-                          src={fields ? videoLink : ''}
-                          frameBorder="0"
-                          allow="autoplay; encrypted-media"
-                          allowFullScreen
-                        />
-                      )
-                    : ''}
+                  {fields &&
+                    channelLink &&
+                    channelLink !== '' && (
+                      <iframe
+                        title="channelLink"
+                        src={fields ? channelLink : ''}
+                        frameBorder="0"
+                        width="100%"
+                        height="800"
+                      />
+                    )}
+                  {fields &&
+                    videoLink &&
+                    videoLink !== '' && (
+                      <iframe
+                        title="youtubeChannel"
+                        width="560"
+                        height="315"
+                        src={fields ? embedUrl(videoLink) : ''}
+                        frameBorder="0"
+                        allow="autoplay; encrypted-media"
+                        allowFullScreen
+                      />
+                    )}
                   <div className={classes.googlemap}>
                     <div className={classes.location}>
                       <h4>{formatMessage(messages.locationTitle)}</h4>

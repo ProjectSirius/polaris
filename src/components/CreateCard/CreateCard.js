@@ -25,7 +25,7 @@ class CreateCard extends React.Component {
     } = this.props;
 
     const path = type === 'audience_owner' ? '/audience' : '/contentowner';
-    const { from } = this.props.location.state || { from: { pathname: path } };
+    const { from } = { from: { pathname: path } };
 
     if (isDataSent) {
       editRedirect();

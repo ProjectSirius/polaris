@@ -3,7 +3,11 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { injectIntl, defineMessages } from 'react-intl';
 
-import { selectUserData, selectCurrentUser } from '../selectors';
+import {
+  selectUserData,
+  selectCurrentUser,
+  selectLanguage,
+} from '../selectors';
 import getUserData from '../actions/user-data';
 import DashboardCards from '../components/DashboardCards';
 import { delData } from '../actions';
@@ -19,6 +23,7 @@ class DashboardCardsContainer extends React.Component {
       currentUser,
       delData,
       intl: { formatMessage },
+      lang,
     } = this.props;
 
     return (
@@ -28,6 +33,7 @@ class DashboardCardsContainer extends React.Component {
         currentUser={currentUser}
         formatMessage={formatMessage}
         messages={messages}
+        lang={lang}
       />
     );
   }
@@ -53,6 +59,7 @@ const DashboardCardsContainerIntl = injectIntl(DashboardCardsContainer);
 const mapStateToProps = createStructuredSelector({
   userData: selectUserData,
   currentUser: selectCurrentUser,
+  lang: selectLanguage,
 });
 
 export default connect(

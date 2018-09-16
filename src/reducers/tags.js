@@ -12,6 +12,8 @@ const tags = (state = [], action) => {
             action.payload.data.fields.filter(el => +el.idField === 28)[0].value
           )
         : state;
+    case 'DELETE_ALL_TAGS':
+      return [];
     default:
       return state;
   }

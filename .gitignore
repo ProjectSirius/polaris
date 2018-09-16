@@ -6,7 +6,7 @@ package-lock.json
 
 # testing
 /coverage
-/src/__tests__
+
 
 # editors
 /.vscode

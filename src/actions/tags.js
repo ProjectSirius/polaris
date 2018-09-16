@@ -12,6 +12,10 @@ const removeTag = tags => ({
   },
 });
 
+const deleteAllTags = () => ({
+  type: 'DELETE_ALL_TAGS',
+});
+
 const addTags = tags => dispatch => {
   dispatch(add(tags));
 };
@@ -22,4 +26,4 @@ const removeTags = id => (dispatch, getState) => {
   dispatch(removeTag(newTags));
 };
 
-export { addTags, removeTags };
+export { addTags, removeTags, deleteAllTags };

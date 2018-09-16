@@ -11,23 +11,33 @@ export default {
   topSection: {
     minHeight: '60rem',
     background:
-      'url(http://hdwallpapersbackgrounds.us/backgrounds-image/wallpapers-hd-3s-1600x900/hd-wallpapers-39089d881-3s-1600x900.jpg)',
+      'url(https://images.unsplash.com/photo-1487702232819-65ae859daf8a?ixlib=rb-0.3.5&s=9acbdaa99372c610b6c3738665220231&auto=format&fit=crop&w=1350&q=80)',
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
     backgroundPosition: 'center center',
     backgroundColor: '#9cc4e2',
+    backgroundAttachment: 'fixed',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    position: 'relative',
     '& > h1': {
       fontSize: '9rem',
       lineHeight: '9rem',
       color: '#fff',
+      zIndex: 10,
+    },
+
+    '& > div': {
+      width: '100%',
+      height: '100%',
+      position: 'absolute',
+      zIndex: 5,
+      backgroundColor: 'rgba(0, 0, 0, .4)',
     },
   },
   //main 2 section
   textBlock: {
-    background: '#fcf5ec',
     textAlign: 'center',
     padding: '10rem 0',
   },
@@ -49,7 +59,7 @@ export default {
   },
   //main 3 section
   blockTeaser: {
-    backgroundColor: '#f69979',
+    backgroundColor: '#c1ffe39e',
     height: '100%',
   },
 
@@ -94,7 +104,8 @@ export default {
   },
 
   rightImg: {
-    backgroundImage: 'url(https://wallpapercave.com/wp/bPTxuKj.jpg)',
+    backgroundImage:
+      'url(https://images.unsplash.com/photo-1508975555740-6c5af0ad82c6?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=21e20ebe273c9cf44a07b62f91e16126&auto=format&fit=crop&w=1350&q=80)',
     width: '50%',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
@@ -104,9 +115,6 @@ export default {
   },
   //main 4 section
   yellowSection: {
-    backgroundColor: '#fac450',
-    backgroundImage:
-      'url(https://rec.uoregon.edu/sites/rec1.uoregon.edu/files/envelope-backgrounds/bg-yellow-3.png)',
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     textAlign: 'center',
@@ -144,8 +152,7 @@ export default {
   },
   //main 5 section
   section5: {
-    background: '#fcf5ec',
-    padding: '15rem 0',
+    padding: '5rem 0',
     position: 'relative',
     overflow: 'hidden',
   },
@@ -204,9 +211,9 @@ export default {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    border: '6px solid #fac450',
+    border: '6px solid #5ebba6',
     fontSize: '200px',
-    color: '#065075',
+    color: '#28816d',
   },
 
   teaserCopy: {
@@ -215,7 +222,7 @@ export default {
       fontSize: '4rem',
       lineHeight: '4.5rem',
       marginBottom: '2rem',
-      color: '#f69979',
+      color: '#5ebba682',
     },
     '& > p': {
       fontSize: '2rem',
@@ -506,7 +513,8 @@ export default {
   '@media (max-width: 1024px)': {
     topSection: {
       minHeight: '40rem',
-      backgroundSize: '115%',
+      backgroundSize: '140%',
+      backgroundAttachment: 'inherit',
       '& > h1': {
         fontSize: '7rem',
         lineHeight: '7rem',
@@ -544,7 +552,7 @@ export default {
     },
     rightImg: {
       minHeight: '50vw',
-      paddingBottom: '50%',
+      paddingBottom: '57%',
     },
     //section 5
     section5: {
@@ -649,6 +657,8 @@ export default {
     topSection: {
       minHeight: '25rem',
       backgroundPosition: 'bottom',
+      backgroundAttachment: 'inherit',
+
       '& > h1': {
         fontSize: '3rem',
         lineHeight: '3rem',

@@ -23,6 +23,14 @@ export const selectSearch = state =>
   state.form.Search_Form && state.form.Search_Form.values
     ? state.form.Search_Form.values.search
     : '';
+export const selectMinPrice = state =>
+  state.form.Price_range_form && state.form.Price_range_form.values
+    ? state.form.Price_range_form.values.min_price_range
+    : '1';
+export const selectMaxPrice = state =>
+  state.form.Price_range_form && state.form.Price_range_form.values
+    ? state.form.Price_range_form.values.max_price_range
+    : '10000';
 export const selectIsOpenFilterMenu = state =>
   state.filteringPage.isOpenFilterMenu;
 export const selectFilteringPageFilterBar = state =>
@@ -38,6 +46,7 @@ export const selectIsDataSent = state => state.isDataSent;
 export const selectOffers = state => state.offers;
 export const selectCart = state => state.cart;
 export const selectAddress = state => state.newDataAddress;
+export const url = () => window.location.pathname.split('/').includes('edit');
 
 export const selectIsAuth = createSelector(
   selectCurrentUser,
@@ -50,6 +59,7 @@ export const selectChoosenGenres = createSelector(selectGenres, genres =>
 
 export const selectEditDetails = createSelector(
   selectDetails,
+  url,
   selectDetails => {
     const fields = selectDetails.hasOwnProperty('fields')
       ? selectDetails.fields.reduce((acc, el) => {
@@ -73,9 +83,7 @@ export const selectEditDetails = createSelector(
           }
         }, {})
       : [];
-    return window.location.pathname.split('/').includes('edit')
-      ? { ...selectDetails, ...fields }
-      : {};
+    return url() ? { ...selectDetails, ...fields } : {};
   }
 );
 

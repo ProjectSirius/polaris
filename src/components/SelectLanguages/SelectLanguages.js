@@ -2,14 +2,14 @@ import React from 'react';
 import { Dropdown } from 'semantic-ui-react';
 
 const languageOptions = [
-  { key: 'Russian', text: 'ru', value: 'ru' },
   { key: 'English', text: 'en', value: 'en' },
+  { key: 'Russian', text: 'ru', value: 'ru' },
 ];
 
-const SelectLanguages = ({ changeLang }) => (
+const SelectLanguages = ({ changeLang, classes }) => (
   <Dropdown
     button
-    className="icon"
+    className={classes.bg}
     floating
     icon="world"
     options={languageOptions}
