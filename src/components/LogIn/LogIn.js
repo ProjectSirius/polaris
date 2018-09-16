@@ -67,6 +67,7 @@ const LogIn = ({
   isRequesting,
   loginError,
   classes,
+  lang,
   intl: { formatMessage },
 }) => {
   const redirectPath = isAuth
@@ -75,7 +76,7 @@ const LogIn = ({
       : 'contentowner'
     : '';
 
-  const { from } = location.state || {
+  const { from } = {
     from: { pathname: `/${redirectPath}` },
   };
 
@@ -133,6 +134,7 @@ const LogIn = ({
                 className={classes.link}
                 to={{
                   pathname: `/signupAudience`,
+                  search: `?locale=${lang}`,
                 }}
               >
                 {formatMessage(messages.audienceLogin)}
@@ -142,6 +144,7 @@ const LogIn = ({
                 className={classes.link}
                 to={{
                   pathname: `/signupContentmaker`,
+                  search: `?locale=${lang}`,
                 }}
               >
                 {formatMessage(messages.contentOwnerLogin)}
@@ -159,7 +162,7 @@ LogIn.propTypes = {
   login: PropTypes.func.isRequired,
   isAuth: PropTypes.bool.isRequired,
   location: PropTypes.object.isRequired,
-  currentUser: PropTypes.object.isRequired,
+  currentUser: PropTypes.object,
   lang: PropTypes.string.isRequired,
   valid: PropTypes.bool.isRequired,
   isRequesting: PropTypes.bool.isRequired,

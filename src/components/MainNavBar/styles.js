@@ -39,10 +39,15 @@ export default {
   },
 
   mainTitle: {
+    fontFamily: "'Special Elite', cursive",
     fontWeight: '700 !important',
     transition: '0 !important',
     textTransform: 'uppercase !important',
     letterSpacing: '3px',
+    fontSize: '18px',
+    color: '#337365 !important',
+    position: 'relative',
+    top: '5px',
 
     '&.item': {
       padding: '1.2em !important',
@@ -110,5 +115,9 @@ export default {
 
   cart: {
     padding: '16px 13px !important',
+  },
+
+  labelColor: {
+    background: '#5ebba6d4 !important',
   },
 };

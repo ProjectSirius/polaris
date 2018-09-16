@@ -155,10 +155,11 @@ export default {
     width: '100% !important',
     background: '#fff',
     outline: 'none',
-    border: '1px solid',
+    border: '1px solid #5ebba6',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+    color: '#5ebba6',
 
     '&:hover': {
       boxShadow: '0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)',

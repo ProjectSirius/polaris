@@ -8,6 +8,7 @@ const OffersList = ({
   isRequesting,
   formatMessage,
   messages,
+  classes,
 }) => {
   return isRequesting ? (
     <Loader active inline="centered" size="large">
@@ -15,9 +16,16 @@ const OffersList = ({
     </Loader>
   ) : (
     <div>
-      {offers.map(offer => (
-        <Offer currentUser={currentUser} key={offer.id} offer={offer} />
-      ))}
+      {offers.length === 0 ? (
+        <div className={classes.emptyOffer}>
+          <h2>There are no offers yet</h2>
+          <span>Work hard and you shall be rewarded :)</span>
+        </div>
+      ) : (
+        offers.map(offer => (
+          <Offer currentUser={currentUser} key={offer.id} offer={offer} />
+        ))
+      )}
     </div>
   );
 };

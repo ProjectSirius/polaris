@@ -151,6 +151,7 @@ class MainNavBar extends React.Component {
       intl: { formatMessage },
       currentUser,
       offersCount,
+      lang,
     } = this.props;
     const { activeItem, width } = this.state;
 
@@ -172,10 +173,12 @@ class MainNavBar extends React.Component {
                     name=""
                     onClick={this.navItemChecker}
                     as={Link}
-                    to="/"
+                    to={{
+                      pathname: '/',
+                      search: `?locale=${lang}`,
+                    }}
                     className={classes.mainTitle}
                   >
-                    <Icon name="home" />
                     {formatMessage(messages.projectTitle)}
                   </Menu.Item>
                 </Grid.Column>
@@ -206,12 +209,14 @@ class MainNavBar extends React.Component {
             <Responsive minWidth="768">
               <Menu.Item
                 as={Link}
-                to="/"
+                to={{
+                  pathname: '/',
+                  search: `?locale=${lang}`,
+                }}
                 name=""
                 onClick={this.navItemChecker}
                 className={classes.mainTitle}
               >
-                <Icon name="home" />
                 {formatMessage(messages.projectTitle)}
               </Menu.Item>
             </Responsive>
@@ -219,7 +224,10 @@ class MainNavBar extends React.Component {
               currentUser.type === 'content_owner' && (
                 <Menu.Item
                   as={Link}
-                  to="/audience"
+                  to={{
+                    pathname: '/audience',
+                    search: `?locale=${lang}`,
+                  }}
                   active={activeItem === formatMessage(messages.audience)}
                   onClick={this.navItemChecker}
                   name={formatMessage(messages.audience)}
@@ -232,7 +240,10 @@ class MainNavBar extends React.Component {
               currentUser.type === 'audience_owner' && (
                 <Menu.Item
                   as={Link}
-                  to="/contentowner"
+                  to={{
+                    pathname: '/contentowner',
+                    search: `?locale=${lang}`,
+                  }}
                   active={activeItem === formatMessage(messages.content)}
                   onClick={this.navItemChecker}
                   className={classes.menuItem}
@@ -253,7 +264,10 @@ class MainNavBar extends React.Component {
             {isAuth && (
               <Menu.Item
                 as={Link}
-                to="/dashboard"
+                to={{
+                  pathname: '/dashboard',
+                  search: `?locale=${lang}`,
+                }}
                 active={activeItem === 'Dashboard'}
                 onClick={this.navItemChecker}
                 className={classes.menuItem}
@@ -265,14 +279,17 @@ class MainNavBar extends React.Component {
             {isAuth && (
               <Menu.Item
                 as={Link}
-                to="/cart"
+                to={{
+                  pathname: '/cart',
+                  search: `?locale=${lang}`,
+                }}
                 name="cart"
                 active={activeItem === 'cart'}
                 onClick={this.navItemChecker}
                 className={classes.cart}
               >
                 {formatMessage(messages.cart)}
-                <Label color="blue"> {offersCount}</Label>
+                <Label className={classes.labelColor}> {offersCount}</Label>
               </Menu.Item>
             )}
 
@@ -313,7 +330,10 @@ class MainNavBar extends React.Component {
                       <Dropdown.Divider />
                       <Dropdown.Item
                         as={Link}
-                        to="/profile"
+                        to={{
+                          pathname: '/profile',
+                          search: `?locale=${lang}`,
+                        }}
                         text={formatMessage(messages.profile)}
                         className={classes.dropLink}
                       />
@@ -340,7 +360,10 @@ class MainNavBar extends React.Component {
                 <Menu.Item
                   name={formatMessage(messages.logIn)}
                   as={Link}
-                  to="/login"
+                  to={{
+                    pathname: '/login',
+                    search: `?locale=${lang}`,
+                  }}
                   active={activeItem === 'login'}
                   className={classes.menuItem}
                   onClick={this.navItemChecker}
@@ -354,14 +377,20 @@ class MainNavBar extends React.Component {
                     <Dropdown.Menu>
                       <Dropdown.Item
                         as={Link}
-                        to="/audience-sign-up"
+                        to={{
+                          pathname: '/audience-sign-up',
+                          search: `?locale=${lang}`,
+                        }}
                         text={formatMessage(messages.asDj)}
                         className={classes.dropLink}
                       />
                       <Dropdown.Divider />
                       <Dropdown.Item
                         as={Link}
-                        to="/content-sign-up"
+                        to={{
+                          pathname: '/content-sign-up',
+                          search: `?locale=${lang}`,
+                        }}
                         text={formatMessage(messages.asComposer)}
                         className={classes.dropLink}
                       />
@@ -379,7 +408,7 @@ class MainNavBar extends React.Component {
 
 MainNavBar.propTypes = {
   isAuth: PropTypes.bool.isRequired,
-  currentUser: PropTypes.object.isRequired,
+  currentUser: PropTypes.object,
   lang: PropTypes.string.isRequired,
   isOpen: PropTypes.bool.isRequired,
   toggleMenu: PropTypes.func.isRequired,

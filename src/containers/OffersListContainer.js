@@ -7,6 +7,7 @@ import {
   selectOffers,
   selectIsRequesting,
   selectCurrentUser,
+  selectLanguage,
 } from '../selectors';
 
 import { getOffers } from '../actions';
@@ -17,6 +18,7 @@ const mapStateToProps = createStructuredSelector({
   offers: selectOffers,
   isRequesting: selectIsRequesting,
   currentUser: selectCurrentUser,
+  lang: selectLanguage,
 });
 
 class OffersListContainer extends React.Component {
@@ -32,6 +34,7 @@ class OffersListContainer extends React.Component {
       isRequesting,
       currentUser,
       intl: { formatMessage },
+      lang,
     } = this.props;
 
     return (
@@ -41,6 +44,7 @@ class OffersListContainer extends React.Component {
         formatMessage={formatMessage}
         messages={messages}
         currentUser={currentUser}
+        lang={lang}
       />
     );
   }

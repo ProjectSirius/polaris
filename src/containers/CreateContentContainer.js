@@ -22,6 +22,7 @@ import {
   sendData,
   getDetails,
   editRequest,
+  deleteAllTags,
 } from '../actions';
 import editData, { editRedirect } from '../actions/edit';
 import { dataSendSuccess } from '../actions/sendData';
@@ -39,6 +40,8 @@ class CreateContentContainer extends Component {
       const id = this.props.match.params.id;
       this.props.getDetails(dataType, id);
       this.props.editRequest();
+    } else {
+      this.props.deleteAllTags();
     }
   }
 
@@ -120,6 +123,7 @@ export default withRouter(
       editRedirect,
       dataSendSuccess,
       editRequest,
+      deleteAllTags,
     }
   )(addNewContentForm)
 );

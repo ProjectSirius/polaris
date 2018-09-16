@@ -15,6 +15,7 @@ const Cards = ({
   groupOffer,
   addToCart,
   cart,
+  lang,
 }) => {
   return isRequesting ? (
     <Loader active inline="centered" size="large" className={classes.loading}>
@@ -26,10 +27,13 @@ const Cards = ({
         view === 'table' ? classes.cardsWrapperGrid : classes.cardsWrapperList
       }
     >
-      {data.hasOwnProperty('info')
-        ? Object.keys(data.info).map(el => (
+      {data.hasOwnProperty('info') ? (
+        Object.keys(data.info).length === 0 ? (
+          <div style={{ fontSize: '23px' }}>Nothing to show. Sorry :(</div>
+        ) : (
+          Object.keys(data.info).map(el => (
             <Card
-              key={data.info.id}
+              key={data.info[el].id}
               info={data.info[el]}
               view={view}
               type={type}
@@ -37,9 +41,13 @@ const Cards = ({
               removeFromCart={removeFromCart}
               cart={cart}
               addToCart={addToCart}
+              lang={lang}
             />
           ))
-        : ''}
+        )
+      ) : (
+        ''
+      )}
     </div>
   ) : (
     <MapView

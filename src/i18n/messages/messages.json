@@ -40,6 +40,11 @@
     "filepath": "src/components/Dashboard/Dashboard.js"
   },
   {
+    "id": "payment-message",
+    "defaultMessage": "Payment is coming soon",
+    "filepath": "src/components/Dashboard/Dashboard.js"
+  },
+  {
     "id": "filters-panel-title",
     "defaultMessage": "FILTERS",
     "filepath": "src/components/FilterBar/FilterBar.js"
@@ -63,6 +68,86 @@
     "id": "select-option-filter-title",
     "defaultMessage": "Select",
     "filepath": "src/components/FilterBar/FilterBar.js"
+  },
+  {
+    "id": "project-title",
+    "defaultMessage": "Polaris",
+    "filepath": "src/components/HomePage/HomePage.js"
+  },
+  {
+    "id": "message-for-DJ",
+    "defaultMessage": "If you are a DJ",
+    "filepath": "src/components/HomePage/HomePage.js"
+  },
+  {
+    "id": "message-for-DJ-explain",
+    "defaultMessage": "The Musician Marketplace gives you access to find talented Composers. See below for more information.",
+    "filepath": "src/components/HomePage/HomePage.js"
+  },
+  {
+    "id": "message-for-composer",
+    "defaultMessage": "If you are a composer selling on the platform",
+    "filepath": "src/components/HomePage/HomePage.js"
+  },
+  {
+    "id": "message-for-composer-explain",
+    "defaultMessage": "The Polaris Marketplace gives talented musicians a platform to share and make a living of their music, make music from your own place regardless of their background or education.",
+    "filepath": "src/components/HomePage/HomePage.js"
+  },
+  {
+    "id": "quote",
+    "defaultMessage": "Design is not just what it looks like and feels like. Design is how it works.",
+    "filepath": "src/components/HomePage/HomePage.js"
+  },
+  {
+    "id": "quoteAuthor",
+    "defaultMessage": "— Steve Jobs",
+    "filepath": "src/components/HomePage/HomePage.js"
+  },
+  {
+    "id": "how-works",
+    "defaultMessage": "How Polaris Works",
+    "filepath": "src/components/HomePage/HomePage.js"
+  },
+  {
+    "id": "how-works-explain",
+    "defaultMessage": "A simple, secure process for Composers and DJs",
+    "filepath": "src/components/HomePage/HomePage.js"
+  },
+  {
+    "id": "step-one-title",
+    "defaultMessage": "POST SAMPLES",
+    "filepath": "src/components/HomePage/HomePage.js"
+  },
+  {
+    "id": "step-one",
+    "defaultMessage": "of your music or channel so clients can hire you.",
+    "filepath": "src/components/HomePage/HomePage.js"
+  },
+  {
+    "id": "step-two-title",
+    "defaultMessage": "GET HIRED",
+    "filepath": "src/components/HomePage/HomePage.js"
+  },
+  {
+    "id": "step-two",
+    "defaultMessage": "Your content or channel will be sold by the minute, views or\n                  likes, based on the type of the product. Work remotely as a\n                  composer or dj",
+    "filepath": "src/components/HomePage/HomePage.js"
+  },
+  {
+    "id": "step-three-title",
+    "defaultMessage": "A simple, secure process for Composers and DJs",
+    "filepath": "src/components/HomePage/HomePage.js"
+  },
+  {
+    "id": "step-three",
+    "defaultMessage": "A simple, secure process for Composers and DJs",
+    "filepath": "src/components/HomePage/HomePage.js"
+  },
+  {
+    "id": "step-four-title",
+    "defaultMessage": "Enjoy",
+    "filepath": "src/components/HomePage/HomePage.js"
   },
   {
     "id": "requesting-alert",
@@ -227,6 +312,11 @@
   {
     "id": "accepted",
     "defaultMessage": "Accepted",
+    "filepath": "src/components/Offer/Offer.js"
+  },
+  {
+    "id": "offer-message",
+    "defaultMessage": "You've sent an offer to buy this",
     "filepath": "src/components/Offer/Offer.js"
   },
   {
@@ -477,6 +567,11 @@
   {
     "id": "loading",
     "defaultMessage": "Loading",
+    "filepath": "src/containers/TransactionCardsContainer.js"
+  },
+  {
+    "id": "wentWrong",
+    "defaultMessage": "Something went wrong!",
     "filepath": "src/containers/TransactionCardsContainer.js"
   },
   {

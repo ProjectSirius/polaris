@@ -23,18 +23,6 @@ const messages = defineMessages({
   },
 });
 
-const imgs = [
-  'dj',
-  'composer',
-  'music',
-  'concert',
-  'guitar',
-  'singer',
-  'song',
-  'piano',
-  'jazz',
-];
-
 const CardComponent = ({
   info: { title, description, createdAt, id, fields },
   classes,
@@ -46,6 +34,7 @@ const CardComponent = ({
   groupOffer,
   addToCart,
   cart,
+  lang,
   intl: { formatMessage },
 }) => {
   const imgLink = fields
@@ -64,15 +53,14 @@ const CardComponent = ({
         }
         to={{
           pathname: `/${type}/${id}`,
+          search: `?locale=${lang}`,
         }}
       >
         <Image
           src={
             imgLink
               ? imgLink
-              : `https://source.unsplash.com/600x400/?${
-                  imgs[Math.floor(Math.random() * imgs.length)]
-                }`
+              : 'https://images.unsplash.com/photo-1524678606370-a47ad25cb82a?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=64a7f5e870e2c0286c20c3f8e5572927&auto=format&fit=crop&w=1350&q=80'
           }
           size={view === 'list' ? 'medium' : 'large'}
         />
@@ -113,7 +101,13 @@ const CardComponent = ({
               <span>{formatMessage(messages.removeFromCart)}</span>
             </span>
           )}
-          <Link to={`/channel/${id}`}>
+          <Link
+            to={{
+              pathname: `/channel/${id}`,
+              search: `?locale=${lang}`,
+            }}
+            className={classes.link}
+          >
             <span className={classes.moreOffer}>
               <Icon
                 name="chevron circle right"

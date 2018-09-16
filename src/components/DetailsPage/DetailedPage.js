@@ -233,7 +233,7 @@ const DetailsPage = ({
                     )}
                   <div className={classes.channelDescription}>
                     <h2>{formatMessage(messages.briefDescriptionTitle)}</h2>
-                    <p>{md.render(data.description)}</p>
+                    {md.render(data.description)}
                   </div>
                   {fields &&
                     channelLink &&

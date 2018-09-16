@@ -10,25 +10,47 @@ const TabMenu = ({ currentUser, intl: { formatMessage } }) => {
   const panes = [
     {
       menuItem:
-        currentUser.type === 'audience_owner' ?
-          formatMessage(messages.myChannels) :
-          formatMessage(messages.myContents),
+        currentUser.type === 'audience_owner'
+          ? formatMessage(messages.myChannels)
+          : formatMessage(messages.myContents),
       render: () => (
         <Tab.Pane>
           <DashboardCardsContainer />
         </Tab.Pane>
       ),
     },
-    { menuItem: formatMessage(messages.offers), render: () => <OffersListContainer /> },
     {
-      menuItem:  formatMessage(messages.transactions),
+      menuItem: formatMessage(messages.offers),
+      render: () => <OffersListContainer />,
+    },
+    {
+      menuItem: formatMessage(messages.transactions),
       render: () => (
         <Tab.Pane>
           <TransactionCardsContainer />
         </Tab.Pane>
       ),
     },
-    { menuItem: formatMessage(messages.payments), render: () => <Tab.Pane>Tab 2 Content</Tab.Pane> },
+    {
+      menuItem: formatMessage(messages.payments),
+      render: () => (
+        <Tab.Pane>
+          <div
+            style={{
+              display: 'flex',
+              height: '16vh',
+              justifyContent: 'center',
+              alignItems: 'center',
+              fontSize: '34px',
+              color: '#5ebba6',
+              fontWeight: 600,
+            }}
+          >
+            {formatMessage(messages.paymentMessage)}
+          </div>
+        </Tab.Pane>
+      ),
+    },
   ];
 
   return (
@@ -62,16 +84,20 @@ const messages = defineMessages({
   },
   offers: {
     id: 'offers',
-    defaultMessage: 'Offers'
+    defaultMessage: 'Offers',
   },
   transactions: {
     id: 'transactions',
-    defaultMessage: 'Transactions'
+    defaultMessage: 'Transactions',
   },
   payments: {
     id: 'payments',
-    defaultMessage: 'Payments'
-  }
+    defaultMessage: 'Payments',
+  },
+  paymentMessage: {
+    id: 'payment-message',
+    defaultMessage: 'Payment is coming soon',
+  },
 });
 
 export default TabMenuIntl;

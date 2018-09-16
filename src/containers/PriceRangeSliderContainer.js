@@ -3,7 +3,12 @@ import { connect } from 'react-redux';
 import { reduxForm } from 'redux-form';
 import { createStructuredSelector } from 'reselect';
 
-import { selectIsAuth, selectCurrentUser } from '../selectors';
+import {
+  selectIsAuth,
+  selectCurrentUser,
+  selectMinPrice,
+  selectMaxPrice,
+} from '../selectors';
 
 import search from '../actions/data';
 import { setFilters } from '../actions';
@@ -14,11 +19,11 @@ const PriceRangeSliderContainer = ({
   currentUser,
   isAuth,
   search,
-  setFilters,
+  minPrice,
+  maxPrice,
 }) => {
-  const handleChange = (dataType, query, filter) => {
-    setFilters(filter);
-    search(dataType, query, filter);
+  const handleChange = () => {
+    search('', 1, 'search');
   };
 
   return (
@@ -26,6 +31,8 @@ const PriceRangeSliderContainer = ({
       handleChange={handleChange}
       currentUser={currentUser}
       isAuth={isAuth}
+      minPrice={minPrice}
+      maxPrice={maxPrice}
     />
   );
 };
@@ -33,8 +40,8 @@ const PriceRangeSliderContainer = ({
 const PriceRangeSliderForm = reduxForm({
   form: 'Price_range_form',
   initialValues: {
-    min_price_range: 0,
-    max_price_range: 100,
+    min_price_range: 1,
+    max_price_range: 10000,
   },
   destroyOnUnmount: false,
 })(PriceRangeSliderContainer);
@@ -42,6 +49,8 @@ const PriceRangeSliderForm = reduxForm({
 const mapStateToProps = createStructuredSelector({
   isAuth: selectIsAuth,
   currentUser: selectCurrentUser,
+  minPrice: selectMinPrice,
+  maxPrice: selectMaxPrice,
 });
 
 export default connect(

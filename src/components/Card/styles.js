@@ -81,10 +81,10 @@ export default {
   },
 
   addOffer: {
-    color: '#55acee !important',
+    color: '#5ebba6 !important',
 
     '& > span': {
-      color: '#55acee',
+      color: '#5ebba6 !important',
     },
   },
 
@@ -101,7 +101,7 @@ export default {
   },
 
   iconColor: {
-    color: '#55acee',
+    color: '#5ebba6 !important',
   },
 
   delIconColor: {
@@ -131,6 +131,12 @@ export default {
           },
         },
       },
+    },
+  },
+
+  link: {
+    '&:hover': {
+      color: '#5ebba6 !important',
     },
   },
 

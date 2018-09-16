@@ -31,7 +31,7 @@ export default {
       width: '28px',
       height: '28px',
       borderRadius: '50%',
-      background: '#55acee',
+      background: '#5ebba6d4',
     },
 
     '&::-moz-range-thumb': {
@@ -42,7 +42,7 @@ export default {
       width: '28px',
       height: '28px',
       borderRadius: '50%',
-      background: '#55acee',
+      background: '#5ebba6d4',
     },
   },
 };
