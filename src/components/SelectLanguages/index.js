@@ -1,3 +1,5 @@
 import SelectLanguages from './SelectLanguages';
+import injectSheet from 'react-jss';
+import styles from './styles';
 
-export default SelectLanguages;
+export default injectSheet(styles)(SelectLanguages);

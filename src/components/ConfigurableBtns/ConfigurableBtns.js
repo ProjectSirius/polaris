@@ -9,7 +9,6 @@ const ConfigurableBtns = ({
   return (
     <Button.Group className={classes.confWrapper}>
       <Button
-        color="twitter"
         size="huge"
         active={selected === 'table'}
         className={classes.btn}
@@ -18,7 +17,6 @@ const ConfigurableBtns = ({
         <Icon name="grid layout" />
       </Button>
       <Button
-        color="twitter"
         size="huge"
         active={selected === 'list'}
         className={classes.btn}
@@ -27,7 +25,6 @@ const ConfigurableBtns = ({
         <Icon name="list" />
       </Button>
       <Button
-        color="twitter"
         size="huge"
         active={selected === 'map'}
         className={classes.btn}

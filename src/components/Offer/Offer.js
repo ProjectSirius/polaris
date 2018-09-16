@@ -16,22 +16,32 @@ const messages = defineMessages({
     id: 'accepted',
     defaultMessage: 'Accepted',
   },
+  offerMessage: {
+    id: 'offer-message',
+    defaultMessage: " You've sent an offer to buy this",
+  },
 });
 
 const Offer = ({
   offer: { currentUser, idChannel, price },
   intl: { formatMessage },
+  lang,
+  classes,
 }) => {
   return (
     <Card style={{ width: '90%' }}>
       <Card.Content>
-        You've been offered to buy{' '}
+        {formatMessage(messages.offerMessage)}
         <Link
-          to={`${
-            currentUser === 'audience_owner' ? 'Content' : 'Channel'
-          }/${idChannel}`}
+          to={{
+            pathname: `${
+              currentUser === 'audience_owner' ? 'content' : 'channel'
+            }/${idChannel}`,
+            search: `?locale=${lang}`,
+          }}
+          className={classes.link}
         >
-          {currentUser === 'audience_owner' ? 'Content' : 'Channel'}
+          {currentUser === 'audience_owner' ? 'content' : 'channel'}
         </Link>
       </Card.Content>
       <Card.Content

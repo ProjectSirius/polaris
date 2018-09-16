@@ -16,7 +16,7 @@ import CartContainer from '../../containers/CartContainer';
 import NotFoundPage from '../NotFoundPage';
 import Profile from '../Profile';
 
-const App = ({ content, title }) => {
+const App = () => {
   return (
     <div className="App">
       <MainNavBarContainer />

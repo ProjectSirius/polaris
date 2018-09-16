@@ -67,6 +67,7 @@ const LogIn = ({
   isRequesting,
   loginError,
   classes,
+  lang,
   intl: { formatMessage },
 }) => {
   const redirectPath = isAuth
@@ -133,6 +134,7 @@ const LogIn = ({
                 className={classes.link}
                 to={{
                   pathname: `/signupAudience`,
+                  search: `?locale=${lang}`,
                 }}
               >
                 {formatMessage(messages.audienceLogin)}
@@ -142,6 +144,7 @@ const LogIn = ({
                 className={classes.link}
                 to={{
                   pathname: `/signupContentmaker`,
+                  search: `?locale=${lang}`,
                 }}
               >
                 {formatMessage(messages.contentOwnerLogin)}

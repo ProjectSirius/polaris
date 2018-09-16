@@ -46,6 +46,7 @@ export const selectIsDataSent = state => state.isDataSent;
 export const selectOffers = state => state.offers;
 export const selectCart = state => state.cart;
 export const selectAddress = state => state.newDataAddress;
+export const url = () => window.location.pathname.split('/').includes('edit');
 
 export const selectIsAuth = createSelector(
   selectCurrentUser,
@@ -58,6 +59,7 @@ export const selectChoosenGenres = createSelector(selectGenres, genres =>
 
 export const selectEditDetails = createSelector(
   selectDetails,
+  url,
   selectDetails => {
     const fields = selectDetails.hasOwnProperty('fields')
       ? selectDetails.fields.reduce((acc, el) => {
@@ -81,9 +83,7 @@ export const selectEditDetails = createSelector(
           }
         }, {})
       : [];
-    return window.location.pathname.split('/').includes('edit')
-      ? { ...selectDetails, ...fields }
-      : {};
+    return url() ? { ...selectDetails, ...fields } : {};
   }
 );
 

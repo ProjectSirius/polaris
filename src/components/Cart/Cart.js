@@ -55,7 +55,10 @@ const Cart = ({
               {cart.map(item => (
                 <List.Item key={item.id}>
                   <List.Content floated="right">
-                    <Button color="twitter" onClick={() => sendOffer(item)}>
+                    <Button
+                      className={classes.btn}
+                      onClick={() => sendOffer(item)}
+                    >
                       {formatMessage(messages.makeSingleOffer)}
                     </Button>
                     {/*                  <Modal
